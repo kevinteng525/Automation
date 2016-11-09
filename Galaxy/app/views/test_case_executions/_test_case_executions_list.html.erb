@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Test case</th>
+      <th>Job</th>
+      <th>Status</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Retry times</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_case_executions.each do |test_case_execution| %>
+      <tr>
+        <td><%= force_test_case_name(test_case_execution.test_case_id) %></td>
+        <td><%= test_case_execution.job_id %></td>
+        <td><%= execution_status_name(test_case_execution.status) %></td>
+        <td><span class="date_time"><%= test_case_execution.start_time %></span></td>
+        <td><span class="date_time"><%= test_case_execution.end_time %></span></td>
+        <td><%= test_case_execution.retry_times %></td>
+        <td class="item_operations"><%= link_to 'Show', test_case_execution %>
+        <%= link_to 'Edit', edit_test_case_execution_path(test_case_execution) %>
+        <%= link_to 'Destroy', test_case_execution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

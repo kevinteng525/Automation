@@ -1,0 +1,1 @@
+c:\scripts\DMServer.exe param1 "I"

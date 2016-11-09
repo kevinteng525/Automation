@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ES1TestData>
+  <Authentication>
+    <Identity Type="Local" Model="SharepointOnline.DefaultAuthentication">
+      <User Name="kes1dev3\administrator" Password="P@ssw0rd"></User>
+    </Identity>
+  </Authentication>
+  <WebApp URL="http://kes1dev3"/>
+
+  <!-- SharePoint server must have this Site created -->
+  <!-- Use this UserName & Password to acces the RBS Server: NOT USED for now -->
+  <RBS ServerName="kes1dev3" ContentDatabaseName="WSS_Content"
+       UserName="kes1dev3\administrator" Password="P@ssw0rd" >
+    <!-- if useSeed is true, we will appand SeedFormat to List Title and StoreName and StorageLocation, 
+      SeedFormat only support {datetime}, {date} and {randomnumber} for now -->
+    <Seed UseSeed="false" SeedFormat="_QiWang_{datetime}" />
+    <RestartSharePointService Restart="false"/>
+    <Site Title="RBSTest" />
+    <List Title="RBSTest" />
+
+    <!-- Use the userName and Password to access all the StorageLocations -->
+    <Stores UserName="kes1dev3\administrator" Password="P@ssw0rd">
+      <!-- EncryptionType: None, AES128, AES256, DES64, RC2_128, TripleDES128, TripleDES192 -->
+      <!-- do not change the store name, they are hard coded in test cases -->
+      <AtmosStore Name="AtmosTestStore" StorageLocation="\\kes1dev3\RBSData\EMCS1RBS\TestAtmos" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="1" AtmosServer="PrivateAtmos"/>
+
+      <AtmosServers>
+        <!-- do not change Atmos Name, they are hard coded in test cases-->
+        <AtmosServer Name="PrivateAtmos" Server="10.37.13.180" Port="80" SubTenantID="" UID="yuk" SharedSecret="6NEXHFBExnNiLlq1I6/UYAT+0nE=" />
+      </AtmosServers>
+    </Stores>
+
+    <!-- Specify whether to clean up all test data -->
+    <Cleanup DeleteSPList="true" DeleteSPItems="true" DeleteStores="true" DeleteStoreStoragePaths="true"/>
+  </RBS>
+
+</ES1TestData>

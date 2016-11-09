@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C17F2E4-646F-4D8B-AA33-B700CAE8E976}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPTestWithNunit</RootNamespace>
+    <AssemblyName>SPTestWithNunit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EMC.SourceOne.SharePoint.SearchRestore">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\Restore\EMC.SourceOne.SharePoint.SearchRestore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgedTest.cs" />
+    <Compile Include="AttachmentsFilterTest.cs" />
+    <Compile Include="EndRestoreRegression.cs" />
+    <Compile Include="BatchRestoreRegression.cs" />
+    <Compile Include="BVTTest.cs" />
+    <Compile Include="DatedTest.cs" />
+    <Compile Include="EndRestoreBVT.cs" />
+    <Compile Include="ItemSizeFilterTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BatchRestoreBVT.cs" />
+    <Compile Include="VirtualHierachyTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ES1SPAutoLib\ES1SPAutoLib.csproj">
+      <Project>{35BDE76E-51EC-455E-9B60-C496BC6A8DAC}</Project>
+      <Name>ES1SPAutoLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestoreLib\RestoreLib.csproj">
+      <Project>{FE6347F5-2718-4FB0-B8A5-BDB7D3A47E65}</Project>
+      <Name>RestoreLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharepointOnline\SharepointOnline.csproj">
+      <Project>{64041221-382A-44FA-8C50-1B64E97B8720}</Project>
+      <Name>SharepointOnline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskScheduler\TaskScheduler.csproj">
+      <Project>{C3B27C65-AD63-4FAC-AE73-AB787E56AAF6}</Project>
+      <Name>TaskScheduler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ResultColumns.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SharePoint\SP2010sim.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SharePoint\SP2010sim8088.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0dAnd0d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0dAnd1000d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0dAnd100d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0dAnd1d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0dAnd4w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0mAnd0m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0mAnd100m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0mAnd12m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween0wAnd1w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDBetween1yAnd10y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDNewerThan0d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDNewerThan10w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDNewerThan12m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDNewerThan2y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDOlderThan0w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDOlderThan100d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDOlderThan1y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\ACDOlderThan4m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDBetween12mAnd100m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDBetween1dAnd100d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDBetween1wAnd52w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDBetween1yAnd10y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDBetween2yAnd100m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDNewerThan0w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDNewerThan15m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDNewerThan50d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDNewerThan9y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDOlderThan0y.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDOlderThan20d.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDOlderThan30m.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Aged\AMDOlderThan48w.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDoc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDocDocx.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDocDocxJpg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxt.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxtXls.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\AttachmentsFilter\ExcludeDocxJpgTxtXls.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreLinkNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreTaskNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreCommentNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreDocumentSetNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreDisboardNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_MultiPURestoreEventNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreAnnounceNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreAnnounceNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreCalendarNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreCalendarNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreContactNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreContactNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreDisboardNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreDocumentNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreDocumentNewItemUnderFolder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreLinkNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestorePictureNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestorePictureNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreRegression\Reg_RestoreTaskNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreContactWithAttchNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreDocumentSetNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreEventNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreLinkNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreAnnouncementNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreContactNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreContactNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreContactWithAttchNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreDiscussionBoardNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreDiscussionBoardNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreDocumentNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreEventNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreLinkNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestorePictureNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveAnnouncement.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveBlog.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveContact.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveDiscussionBoard.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveEvent.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveItemASAP.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveLink.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveModifiedItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveMoveItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveMultiSites.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchivePicture.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveScheduleDaily.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\BVT\BVT_ArchiveTask.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestoreDocumentNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\BatchRestoreBVT\BVT_PURestorePostNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDAfter02281983.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDAfter12162009.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDBefore07092008.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDBefore12191999.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDBetween02272010And06072100.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDBetween07032009And07032009.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDExactlyOn06092100.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDExactlyOn12282009.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DCDIncludeAll.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDAfter01021991.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDAfter07141983.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDBefore03051983.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDBefore12212009.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDBetween05161983And12241999.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDBetween07082009And07082009.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDExactlyOn01022010.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\Dated\DMDExactlyOn06142100.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreAnnounceNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreContactNewVersionDL.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestorePictureNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreTaskNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreTaskNewVersionDL.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreDocumentNewItem.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreAnnounceNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestorePictureNewItemDL.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreLinkNewItemDI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreAnnounceNewItemDI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreContactNewItemDI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndRestoreBVT\BVT_EURestoreDocumentNewItemDI.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\EndUserRestoreRegression\EndUser_RestoreTaskNewVersion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\ItemSizeFilter\SizeDown100.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\ItemSizeFilter\SizeDown50Up500.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\ItemSizeFilter\SizeUp20.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveItemsUnderDifferentWebApps.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveItemsUnderSubFolder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveItemsUnderFolder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveItemsUnderSubSubSite.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveItemsUnderSubSite.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveDiffItemToDiffMapFolder2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveDiffItemToDiffMapFolder1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveToSingleMapFolder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveSameItemToDiffMapFolders2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestActivities\VirtualHierachyTest\VH_ArchiveSameItemToDiffMapFolders1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Aged\JpgAttach.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Aged\TxtAttach.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AttachmentsFilter\JpgAttach.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AttachmentsFilter\TxtAttach.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreCommentNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreDocumentSetNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreLinkNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreTaskNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreDisboardNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_MultiPURestoreEventNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreAnnounceNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreAnnounceNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreCalendarNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreCalendarNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreContactNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreContactNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreDisboardNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreDocumentNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreDocumentNewItemUnderFolder.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreLinkNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestorePictureNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestorePictureNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Caml_RestoreTaskNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\Reg_Picture.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreRegression\RestoreDocumentItem.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Attach.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreAnnouncementNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreContactNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreContactWithAttchNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreContactWithAttchNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDiscussionBoardNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDocumentSetNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreEventNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreEventNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreLinkNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestorePictureNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDocumentNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreContactNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDiscussionBoardNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDocumentNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreContactNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreDiscussionBoardNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreLinkNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\Caml_EndUser_RestoreTaskNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndUserRestoreRegression\RestoreDocumentItem.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BVT\ItemASAP.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BVT\PictureLib.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BVT\ScheduledDaily.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestoreDocumentNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\Caml_PURestorePostNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BatchRestoreBVT\RestoreDocumentItem.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Dated\JpgAttach.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Dated\TxtAttach.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreDocumentNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreAnnounceNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreAnnounceNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreContactNewVersionDL.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestorePictureNewVersion.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreTaskNewItem.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreTaskNewVersionDL.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestorePictureNewItemDL.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreLinkNewItemDI.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreAnnounceNewItemDI.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreContactNewItemDI.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\Caml_EURestoreDocumentNewItemDI.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\PictureLib.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EndRestoreBVT\RestoreDocumentItem.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\18.2kb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\6kb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\VirtualHierachyTest\PictureLib.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\VirtualHierachyTest\ScheduledDaily.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\key.snk">
+      <Link>key.snk</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="TestData\Aged\DocAttach.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Aged\DocxAttach.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Aged\PptxAttach.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Aged\XlsAttach.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\AttachmentsFilter\DocAttach.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\AttachmentsFilter\DocxAttach.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\AttachmentsFilter\PptxAttach.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\AttachmentsFilter\XlsAttach.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\BVT\ItemMultiSites.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\BVT\ModifiedItem.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\BVT\MoveItem.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dated\DocAttach.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dated\DocxAttach.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dated\PptxAttach.pptx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\Dated\XlsAttach.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\20.2kb.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\200kb.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\240kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\487kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\49.4kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\495kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\92.8kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\98.5kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\VirtualHierachyTest\ItemMultiSites.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

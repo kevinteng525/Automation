@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mappedfolder>  
+  <name>mapped folder Demo Neil</name>
+  <description>mapped folder description</description>
+  <archiveconnection>Demo Neil</archiveconnection>
+  <archivefolder>folder Demo Neil</archivefolder>
+  <!--one of [Organization,LegalHold,Personal,Community]-->
+  <businessfoldertype>Organization</businessfoldertype>
+  <permissions>
+    <mappedfolderpermission>
+      <username>ES1Service</username>
+	  <!--user or group-->
+      <usertype>user</usertype>
+	  <!--one or many of[Administrator,ReadAll,Contributor,Owner,MyFile,Delete], split by ','-->
+      <permission>Administrator,ReadAll,Contributor,Owner,MyFile</permission>
+    </mappedfolderpermission>
+    <mappedfolderpermission>
+      <username>ES1 Admins Group</username>
+	  <!--user or group-->
+      <usertype>group</usertype>
+	  <!--one or many of[Administrator,ReadAll,Contributor,Owner,MyFile,Delete], split by ','-->
+      <permission>Administrator,ReadAll,Contributor,Owner,MyFile,Delete</permission>
+    </mappedfolderpermission>
+  </permissions>
+</mappedfolder>

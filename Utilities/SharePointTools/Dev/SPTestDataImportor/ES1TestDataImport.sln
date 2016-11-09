@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES1TestDataImport", "ES1TestDataImport\ES1TestDataImport.csproj", "{BD93AA28-ABB1-4F03-BC13-D9FC42078F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPUtilities", "..\..\Archiving\Test\SPUtilities\SPUtilities.csproj", "{BAEF794A-10C6-43C8-85BC-8D34D49D42DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD93AA28-ABB1-4F03-BC13-D9FC42078F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD93AA28-ABB1-4F03-BC13-D9FC42078F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD93AA28-ABB1-4F03-BC13-D9FC42078F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD93AA28-ABB1-4F03-BC13-D9FC42078F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEF794A-10C6-43C8-85BC-8D34D49D42DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEF794A-10C6-43C8-85BC-8D34D49D42DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEF794A-10C6-43C8-85BC-8D34D49D42DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEF794A-10C6-43C8-85BC-8D34D49D42DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

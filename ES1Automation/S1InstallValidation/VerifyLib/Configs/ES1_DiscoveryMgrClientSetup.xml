@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="FILE" groupName="ES1_DiscoveryMgrClientSetup - Files and Folders Validation">
+    <Item name="DiscoveryManager Client Folder" type="Folder" >[ProgramDataPath]\EMC SourceOne\DiscoveryManager</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DiscoveryMgrClientSetup - Setup Files Validation">
+    <Item name="ES1_DiscoveryMgrClientSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrClientSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DiscoveryMgrClientSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrClientSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DiscoveryMgrClientSetup - Binaries Version Validation">
+    <Item name="DiscoveryManager Client" path="[ProgramDataPath]\EMC SourceOne\DiscoveryManager" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="DiscoveryManager Client" path="[ProgramDataPath]\EMC SourceOne\DiscoveryManager" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_DiscoveryMgrClientSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Discovery Manager Client" productName="EMC SourceOne Discovery Manager Client">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_ConsoleSetup - Regedit Version Validation">
+    <Item name="Console+" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="Console+" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_ConsoleSetup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_ConsoleSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Centera" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Centera</Item>
+    <Item name="EMC SourceOne Folder\Console" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Console</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_ConsoleSetup - Setup Files Validation">
+    <Item name="ES1_ConsoleSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_ConsoleSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_ConsoleSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_ConsoleSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_ConsoleSetup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Centera" path="[ProgramFilePathX86]\EMC SourceOne\Centera" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Centera" path="[ProgramFilePathX86]\EMC SourceOne\Centera" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Console" path="[ProgramFilePathX86]\EMC SourceOne\Console" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Console" path="[ProgramFilePathX86]\EMC SourceOne\Console" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_ConsoleSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Console" productName="EMC SourceOne Console">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

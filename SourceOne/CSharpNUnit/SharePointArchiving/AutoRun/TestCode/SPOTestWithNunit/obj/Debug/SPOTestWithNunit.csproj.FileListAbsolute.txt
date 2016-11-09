@@ -1,0 +1,458 @@
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\Activity-1.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\Configuration.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOActivity.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOActivityTest1.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOConfig.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\nunit.framework.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharepointOnline.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ServicesInterface.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExJBSharePointArchiveUI.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingClient.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.Utilities.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExUIUtils.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExMMCAdminPluginUtils.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharepointOnline.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\nunit.framework.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim888.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveItemASAP.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveModifiedItem.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMoveItem.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveScheduleDaily.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMultiSites.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveAnnouncement.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\Activity-1.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\Configuration.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOActivity.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOActivityTest1.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOConfig.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim888.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveItemASAP.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveModifiedItem.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMoveItem.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMultiSites.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveScheduleDaily.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveAnnouncement.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemASAP.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ScheduledDaily.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemMultiSites.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ModifiedItem.log
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\MoveItem.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\nunit.framework.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharepointOnline.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ServicesInterface.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExJBSharePointArchiveUI.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingClient.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.Utilities.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExUIUtils.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ExMMCAdminPluginUtils.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharepointOnline.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TaskScheduler.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\nunit.framework.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesp01.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDoc.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocx.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpg.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxt.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxtXls.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocxJpgTxtXls.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown100.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown50Up500.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeUp20.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\JpgAttach.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\TxtAttach.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\18.2kb.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\6kb.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\AttachmentsFilterTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ItemSizeFilterTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocAttach.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocxAttach.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\PptxAttach.pptx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\XlsAttach.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\20.2kb.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\200kb.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\240kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\487kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\49.4kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\495kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\92.8kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\98.5kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\JpgAttach.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\TxtAttach.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\AgedTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\DocAttach.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\DocxAttach.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\PptxAttach.pptx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\XlsAttach.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd0d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd100d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1000d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd4w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd0m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd100m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd12m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0wAnd1w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen1yAnd10y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan0d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesp01.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd0d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd100d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1000d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd4w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd0m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd100m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0wAnd1w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd12m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen1yAnd10y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan0d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDoc.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocx.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpg.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxt.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxtXls.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocxJpgTxtXls.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown100.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\JpgAttach.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\TxtAttach.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown50Up500.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeUp20.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\JpgAttach.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\TxtAttach.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemASAP.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\18.2kb.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\6kb.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\BVT\ScheduledDaily.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\AgedTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\AttachmentsFilterTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\ItemSizeFilterTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\DocAttach.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\DocxAttach.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\PptxAttach.pptx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\Aged\XlsAttach.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocAttach.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocxAttach.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\PptxAttach.pptx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\XlsAttach.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemMultiSites.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\20.2kb.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\200kb.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\240kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\487kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\49.4kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\495kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\92.8kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\98.5kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\BVT\ModifiedItem.log
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation\SPOTestWithNunit\bin\Debug\TestData\BVT\MoveItem.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\Activity-1.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\Configuration.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOActivity.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOActivityTest1.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOConfig.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim888.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesp01.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan0d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDoc.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocx.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpg.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxt.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxtXls.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocxJpgTxtXls.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveItemASAP.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveModifiedItem.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMoveItem.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMultiSites.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveScheduleDaily.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveAnnouncement.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown100.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\JpgAttach.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\TxtAttach.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown50Up500.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeUp20.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\JpgAttach.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\TxtAttach.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemASAP.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\18.2kb.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\6kb.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ScheduledDaily.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\AgedTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\AttachmentsFilterTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ItemSizeFilterTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\DocAttach.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\DocxAttach.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\PptxAttach.pptx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\XlsAttach.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocAttach.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocxAttach.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\PptxAttach.pptx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\XlsAttach.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemMultiSites.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\20.2kb.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\200kb.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\240kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\487kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\49.4kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\495kb.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\92.8kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\98.5kb.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ModifiedItem.log
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\MoveItem.xlsx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\nunit.framework.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharepointOnline.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ServicesInterface.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExJBSharePointArchiveUI.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingClient.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.Utilities.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExUIUtils.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExMMCAdminPluginUtils.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharepointOnline.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\nunit.framework.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.pdb
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\Activity-1.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\Configuration.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOActivity.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOActivityTest1.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOConfig.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesim888.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharePointOnline\SPOnlinesp01.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd0d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd100d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd1000d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0dAnd4w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd0m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd100m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0wAnd1w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen0mAnd12m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBeteen1yAnd10y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan0d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDoc.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocx.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpg.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxt.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocDocxJpgTxtXls.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\AttachmentsFilter\ExcludeDocxJpgTxtXls.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveItemASAP.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveModifiedItem.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMoveItem.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveMultiSites.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveScheduleDaily.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveAnnouncement.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown100.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\JpgAttach.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\TxtAttach.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeDown50Up500.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\ItemSizeFilter\SizeUp20.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\JpgAttach.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\TxtAttach.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemASAP.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\18.2kb.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\6kb.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ScheduledDaily.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\AgedTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\AttachmentsFilterTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ItemSizeFilterTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\DocAttach.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\DocxAttach.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\PptxAttach.pptx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Aged\XlsAttach.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocAttach.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\DocxAttach.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\PptxAttach.pptx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\AttachmentsFilter\XlsAttach.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ItemMultiSites.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\20.2kb.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\200kb.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\240kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\487kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\49.4kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\495kb.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\92.8kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\ItemSizeFilter\98.5kb.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\ModifiedItem.log
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\MoveItem.xlsx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\nunit.framework.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharepointOnline.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ServicesInterface.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExJBSharePointArchiveUI.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingClient.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.Utilities.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExUIUtils.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ExMMCAdminPluginUtils.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\ES1SPAutoLib.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SharepointOnline.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TaskScheduler.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\nunit.framework.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\EMC.EX.SharePoint.ArchivingOnlineClient.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\MsOnlineClaimsHelper.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.dll
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\obj\Debug\SPOTestWithNunit.pdb
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveTask.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan10w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan12m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan2y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan0w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan100d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan1y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan4m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween12mAnd100m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1dAnd100d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1wAnd52w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1yAnd10y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween2yAnd100m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan0w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan15m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan50d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan9y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan0y.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan20d.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan30m.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan48w.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDAfter02281983.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDAfter12162009.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBefore07092008.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBefore12191999.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBetween02272010And06072100.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBetween07032009And07032009.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDExactlyOn06092100.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDExactlyOn12282009.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDIncludeAll.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDAfter01021991.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDAfter07141983.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBefore03051983.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBefore12212009.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBetween05161983And12241999.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBetween07082009And07082009.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDExactlyOn01022010.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDExactlyOn06142100.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\JpgAttach.jpg
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\TxtAttach.txt
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\DocAttach.doc
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\DocxAttach.docx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\PptxAttach.pptx
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\XlsAttach.xls
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\DatedTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveLink.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveDiscussionBoard.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\BVTTest.cs
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveContact.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveEvent.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchivePicture.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveBlog.xml
+C:\Users\administrator.SOURCEONE.000\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\PictureLib.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan10w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan12m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDNewerThan2y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan0w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan100d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan1y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDOlderThan4m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween12mAnd100m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1dAnd100d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1wAnd52w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween1yAnd10y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDBetween2yAnd100m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan0w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan15m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan50d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDNewerThan9y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan0y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan20d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan30m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\AMDOlderThan48w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveTask.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveLink.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveDiscussionBoard.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveContact.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveEvent.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchivePicture.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\BVT\BVT_ArchiveBlog.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDAfter02281983.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDAfter12162009.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBefore07092008.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBefore12191999.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBetween02272010And06072100.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDBetween07032009And07032009.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDExactlyOn06092100.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDExactlyOn12282009.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DCDIncludeAll.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDAfter01021991.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDAfter07141983.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBefore03051983.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBefore12212009.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBetween05161983And12241999.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDBetween07082009And07082009.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDExactlyOn01022010.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Dated\DMDExactlyOn06142100.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\BVT\PictureLib.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\JpgAttach.jpg
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\TxtAttach.txt
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\BVTTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\DatedTest.cs
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\DocAttach.doc
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\DocxAttach.docx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\PptxAttach.pptx
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestData\Dated\XlsAttach.xls
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0dAnd1d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0dAnd0d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0dAnd100d.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0dAnd4w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0mAnd0m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0mAnd100m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0wAnd1w.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0mAnd12m.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween1yAnd10y.xml
+C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\TestActivities\Aged\ACDBetween0dAnd1000d.xml

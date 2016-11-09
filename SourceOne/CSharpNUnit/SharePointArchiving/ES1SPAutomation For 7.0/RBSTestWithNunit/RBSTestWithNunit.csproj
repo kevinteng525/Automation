@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8641DEDD-4589-4499-80EA-21DC8BB0E702}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RBSTestWithNunit</RootNamespace>
+    <AssemblyName>RBSTestWithNunit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EMC.SourceOne.RBSProvider.ProviderConfig">
+      <HintPath>..\PIA\RBS\EMC.SourceOne.RBSProvider.ProviderConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PIA\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basic.cs" />
+    <Compile Include="RBSAtmosTest.cs" />
+    <Compile Include="RBSBasic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RBSConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBSWithAtmos.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\key.snk">
+      <Link>key.snk</Link>
+    </None>
+    <None Include="TestData\ItemSizeFilter\20.2kb.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\200kb.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\240kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\487kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\49.4kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\495kb.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\50.1kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\92.8kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\98.5kb.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\exported-pdf-p0002.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\ItemSizeFilter\highpointpoolrules.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sharepoint\kes1dev3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sharepoint\QSPXDev.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sharepoint\SP2010sim.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sharepoint\SP2010sim8088.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\1.1K.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\18.2kb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\5Mpic.TIF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\6kb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\cruella.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\faultless.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\Lines.tif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\Shib.TIF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\tiff-p0003.tif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ItemSizeFilter\Tribu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestData\RBSBasic\" />
+    <Folder Include="TestData\RBSWithAtmos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RBSAppNET35\RBSAppNET35.csproj">
+      <Project>{460E51E6-7FD7-4197-879E-F71621B2E031}</Project>
+      <Name>RBSAppNET35</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RBSLib\RBSLib.csproj">
+      <Project>{0A6B2FAB-ADD6-42AF-9BAB-8EAA67622A45}</Project>
+      <Name>RBSLib</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RestoreLib\RestoreLib.csproj">
+      <Project>{FE6347F5-2718-4FB0-B8A5-BDB7D3A47E65}</Project>
+      <Name>RestoreLib</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SharepointOnline\SharepointOnline.csproj">
+      <Project>{64041221-382A-44FA-8C50-1B64E97B8720}</Project>
+      <Name>SharepointOnline</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskScheduler\TaskScheduler.csproj">
+      <Project>{C3B27C65-AD63-4FAC-AE73-AB787E56AAF6}</Project>
+      <Name>TaskScheduler</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>COPY /Y "$(ProjectDir)\..\ES1SPAgent\bin\x64\$(ConfigurationName)\ES1SPAgent.exe"  "$(TargetDir)"
+COPY /Y "$(ProjectDir)\..\ES1SPAgent\bin\x64\$(ConfigurationName)\ES1SPAgent.exe.config"  "$(TargetDir)"
+COPY /Y "$(ProjectDir)\..\RBSAppNET35\bin\$(ConfigurationName)\RBSAppNET35.exe"  "$(TargetDir)"
+COPY /Y "$(ProjectDir)\..\RBSAppNET35\bin\$(ConfigurationName)\RBSAppNET35.exe.config"  "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

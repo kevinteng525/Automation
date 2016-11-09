@@ -1,0 +1,1 @@
+<View><Query><Where><Eq><FieldRef Name="Title" /><Value Type="Text">TestDiscussion</Value></Eq></Where></Query></View>

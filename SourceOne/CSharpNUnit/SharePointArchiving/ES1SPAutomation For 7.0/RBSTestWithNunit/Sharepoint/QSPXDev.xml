@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ES1TestData>
+  <Authentication>
+    <Identity Type="Local" Model="SharepointOnline.DefaultAuthentication">
+      <User Name="es1dev\s1service" Password="P@ssw0rd"></User>
+    </Identity>
+  </Authentication>
+  <WebApp URL="http://qspxdev:81/sites/qasite4auto"/>
+
+  <!-- SharePoint server must have this Site created -->
+  <!-- Use this UserName & Password to acces the RBS Server: NOT USED for now --> 
+  <RBS ServerName="QSPXdev" ContentDatabaseName="WSS_Content_81_RBS" 
+       UserName="es1dev\s1service" Password="P@ssw0rd" >
+    <!-- if useSeed is true, we will appand SeedFormat to List Title and StoreName and StorageLocation, 
+      SeedFormat only support {datetime}, {date} and {randomnumber} for now -->
+    <Seed UseSeed="true" SeedFormat="_QiWang_{datetime}" />
+    <RestartSharePointService Restart="false"/>
+    <Site Title="QA Site" />
+    <List Title="Doc Lib for Automation" />
+    <ConnectionStrings>
+      <ConnectionString Name="ContentDB" Value="Integrated Security=SSPI;Persist Security Info=False;User ID='';Initial Catalog=WSS_Content;Data Source=kes1dev3;" />
+    </ConnectionStrings>
+
+    <!-- Use the userName and Password to access all the StorageLocations -->
+    <Stores UserName="es1dev\s1service" Password="P@ssw0rd">
+      <!-- EncryptionType: None, AES128, AES256, DES64, RC2_128, TripleDES128, TripleDES192 -->
+      <!-- do not change the store name, they are hard coded in test cases -->
+      <Store Name="CIFSStore_Default" StorageLocation="\\QSPXDev\D$\RBS\CIFSStore_Default" EncryptionType="None" IsCompressed="false" PoolCapacity="100" />
+      <Store Name="CIFSStore_IPAddress" StorageLocation="\\10.37.13.100\D$\RBS\CIFSStore_IPAddress" EncryptionType="None" IsCompressed="false" PoolCapacity="100" />
+      <Store Name="CIFSStore_ServerName" StorageLocation="\\QSPXDev\D$\RBS\CIFSStore_ServerName" EncryptionType="None" IsCompressed="false" PoolCapacity="100" />
+      <Store Name="CIFSStore_LocalDriver" StorageLocation="D:\RBS\CIFSStore_LocalDriver" EncryptionType="None" IsCompressed="false" PoolCapacity="100" />
+      
+      <AtmosStore Name="AtmosStore_Default" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_Default" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_ShareFolder" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_ShareFolder" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_LocalDriver" StorageLocation="D:\RBS\AtmosStore_LocalDriver" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_NoCache" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_NoCache" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="0" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_FailedCache" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_FailedCache" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_CompressionOn" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_CompressionOn" EncryptionType="None" IsCompressed="true" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      <AtmosStore Name="AtmosStore_EncryptionOn" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_EncryptionOn" EncryptionType="AES256" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="PrivateAtmos"/>
+      
+      <AtmosStore Name="AtmosStore_UploadDownload" StorageLocation="\\QSPXDev\D$\RBS\AtmosStore_UploadDownload" EncryptionType="AES256" IsCompressed="true" PoolCapacity="100"
+                  CacheExpireDays="1" AtmosServer="PrivateAtmos"/>
+
+      <AtmosStore Name="AtmosStoreOnline_Default" StorageLocation="\\QSPXDev\D$\RBS\AtmosStoreOnline_Default" EncryptionType="None" IsCompressed="false" PoolCapacity="100"
+                  CacheExpireDays="3" AtmosServer="OnlineAtmos"/>
+      
+      <AtmosServers>
+        <!-- do not change Atmos Name, they are hard coded in test cases-->
+        <AtmosServer Name="PrivateAtmos" Server="10.37.13.180" Port="80" SubTenantID="" UID="RBSStore" SharedSecret="DOZHxkOBSm5714EmnalL3sJQHBY=" />
+        <AtmosServer Name="OnlineAtmos" Server="api.atmosonline.com" Port="80" SubTenantID="ddca93e30ed9476c9676f5fc5231eb32" UID="A68999772788f4522dce" SharedSecret="yirPeG/RMqugHsGjBgzOl2Rf7Es=" />
+      </AtmosServers>
+    </Stores>
+
+    <!-- Specify whether to clean up all test data -->
+    <Cleanup DeleteSPList="true" DeleteSPItems="true" DeleteStores="true" DeleteStoreStoragePaths="true"/>
+  </RBS>
+  
+</ES1TestData>

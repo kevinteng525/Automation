@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F0DD301-7F44-46DE-81A1-09874C1B4F45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ES1Common</RootNamespace>
+    <AssemblyName>ES1Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\References\Log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\References\vCloud\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\vCloud\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VcloudRestSchema_V5_1">
+      <HintPath>..\References\vCloud\VcloudRestSchema_V5_1.dll</HintPath>
+    </Reference>
+    <Reference Include="VcloudSDK_V5_1">
+      <HintPath>..\References\vCloud\VcloudSDK_V5_1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\EnvironmentException.cs" />
+    <Compile Include="Exceptions\AutomationException.cs" />
+    <Compile Include="Exceptions\FrameworkException.cs" />
+    <Compile Include="Logs\AutomationLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RQM\RQMResources.cs" />
+    <Compile Include="RQM\RQMCategory.cs" />
+    <Compile Include="RQM\RQMCategoryType.cs" />
+    <Compile Include="RQM\RQMExecutionWorkItem.cs" />
+    <Compile Include="RQM\RQMFeature.cs" />
+    <Compile Include="RQM\RQMModule.cs" />
+    <Compile Include="RQM\RQMProject.cs" />
+    <Compile Include="RQM\RQMRanking.cs" />
+    <Compile Include="RQM\RQMRelease.cs" />
+    <Compile Include="RQM\RQMServer.cs" />
+    <Compile Include="RQM\RQMTestCase.cs" />
+    <Compile Include="RQM\RQMTestSuite.cs" />
+    <Compile Include="Virtualization\VCloud.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RQM\SourceSchemas\adapter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\alm.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\catalog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\dc.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\dcterms.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\executionresult.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\executionworkitem.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\feed.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\jazzprocess.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\processinfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\qm.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\rdf.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\styleinfo.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\tasks.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\testscript.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\testsuitelog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\vega.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RQM\SourceSchemas\xslt.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RQM\SourceSchemas\generate_classes.bat" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,49 @@
+<%= form_for(@test_case) do |f| %>
+  <% if @test_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_case.errors.count, "error") %> prohibited this test_case from being saved:</h2>
+
+      <ul>
+      <% @test_case.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source_id %><br>
+    <%= f.select :source_id, test_case_source_list, :prompt => 'Specify the original source of the test case.' %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size => 40, :placeholder => 'Please input the name for the test case.' %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.select :product_id, force_products_list, :prompt => "Please select the product the test case belongs to." %>
+  </div>
+  <div class="field">
+    <%= f.label :feature %><br>
+    <%= f.text_field :feature %>
+  </div>
+  <div class="field">
+    <%= f.label :script_path %><br>
+    <%= f.text_field :script_path, :size => 40, :placeholder => 'Please input the script path here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :is_automated %><br>
+    <%= f.check_box :is_automated, :checked_value=>true, :unchecked_value=>false, :checked => true %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :rows => 5, :cols => 50, :placeholder=>"Input the description for the test case." %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

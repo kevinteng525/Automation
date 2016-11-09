@@ -1,0 +1,1 @@
+Place the common library that will be used for automation testing cross different products.

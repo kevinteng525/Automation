@@ -1,0 +1,8 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Default" />
+  <Config name="Default" binpathtype="Auto">
+    <assembly path="ViPRTest\bin\Debug\ViPRTest.dll" />
+    <assembly path="HistoricalArchiveTest\bin\Debug\HistoricalArchiveTest.dll" />
+    <assembly path="NeilTest\bin\Debug\NeilTest.dll" />
+  </Config>
+</NUnitProject>

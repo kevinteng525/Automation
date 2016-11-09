@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nativearchivefolder>
+  <!--The archive connnection name the folder is under-->
+  <archiveconnection>Native</archiveconnection>
+  <!--General Info-->
+  <name>AF for ViPR</name>
+  <description>folder description</description>
+  <!--Storage options, One of [NASContainer,DXContainer,CenteraContainer,CelerraContainer,SnapLockContainer,DataDomainContainer,VirtualContainer,AtmosContainer,IsilonContainer],the storageconfig segment may be different for different storage types-->
+  <storagetype>NASContainer</storagetype>
+  <storageconfig>
+    <archivelocation>\\sql01\Share\AF</archivelocation>    
+  </storageconfig>
+  <maximumvolumesize>100</maximumvolumesize>
+  <monthestoretain>0</monthestoretain>
+  <enableautodisposition>false</enableautodisposition>
+  <compresscontentincontainers>true</compresscontentincontainers>
+  <!--Large Content Options-->
+  <storeallcontentinsidecontainer>true</storeallcontentinsidecontainer>
+  <compresslargeattachments>true</compresslargeattachments>
+  <storecontentwhenlargerthan>100</storecontentwhenlargerthan>
+  <!--Organization options-->
+  <organizationmethod>bydate</organizationmethod>
+  <!--Index config below-->
+  <enabledindexing>true</enabledindexing>
+  <maximumindexsize>2048</maximumindexsize>
+  <enabledcontentcache>true</enabledcontentcache>
+  <attachmentandfileindexing>true</attachmentandfileindexing>
+  <indexnestedsubcontains>false</indexnestedsubcontains>
+  <indexstoragelocations>\\sql01\Share\Index</indexstoragelocations>  
+</nativearchivefolder>

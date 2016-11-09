@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	$("table").dataTable({
+		"bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "bAutoWidth": false,
+        "bFilter": true,
+        "bSort": false,
+        "bInfo": false,
+        "fnDrawCallback": function( oSettings ) {
+      		$(".item_operations").buttonset();
+    	}
+	});
+	$(".item_operations").buttonset();
+	$("#content>a").button();
+</script>

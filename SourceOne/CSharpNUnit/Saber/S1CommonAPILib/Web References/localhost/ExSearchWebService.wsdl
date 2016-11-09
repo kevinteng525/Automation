@@ -1,0 +1,2910 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://EMC.com/ExSearchWebService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://EMC.com/ExSearchWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://EMC.com/ExSearchWebService">
+      <s:element name="AuthenticateUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthenticateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthenticateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserDistinguishedName">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserDistinguishedNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserDistinguishedNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasDelegateAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasDelegateAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HasDelegateAccessResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxHits" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeDuplicates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchEmbedded" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExSearchType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Administrator" />
+          <s:enumeration value="Owner" />
+          <s:enumeration value="ReadAll" />
+          <s:enumeration value="Contributor" />
+          <s:enumeration value="ACL" />
+          <s:enumeration value="UserDelete" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultAttrs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalOwners" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="options" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxHits" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeDuplicates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchEmbedded" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchAsDelegate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxHits" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeDuplicates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchEmbedded" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchAsDelegateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchAsDelegateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchAsDelegateEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scope" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultAttrs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="additionalOwners" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="options" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxHits" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeDuplicates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchEmbedded" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchAsDelegateExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchAsDelegateExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopSearchResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNumResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNumResultsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPagedResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sortColumn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPagedResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPagedResultsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnselectResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultIds" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnselectResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnselectResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAllResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAllResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnselectAllResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnselectAllResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnselectAllResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumSelected">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumSelectedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNumSelectedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumSelectedFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumSelectedFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNumSelectedFilesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlatformTypesOfSelectedItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platformFieldName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlatformTypesOfSelectedItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlatformTypesOfSelectedItemsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFoldersofSelectedFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFoldersofSelectedFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFoldersofSelectedFilesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsVirtualFolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folderName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsVirtualFolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsVirtualFolderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsOrganization">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folderName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsOrganizationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsOrganizationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResultsExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResults2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResults2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResults2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResultsEx2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsEx3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="scriptToCreateItemWeight" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scriptToCreateTempTable" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskType" type="tns:ExTaskType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExTaskType">
+        <s:restriction base="s:string">
+          <s:enumeration value="exUnknown" />
+          <s:enumeration value="exQueryJob" />
+          <s:enumeration value="exRestoreJob" />
+          <s:enumeration value="exDeleteFromArchiveJob" />
+          <s:enumeration value="exDiscoQueryJob" />
+          <s:enumeration value="exRestoreFilesJob" />
+          <s:enumeration value="exSharePointRestoreJob" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RestoreResultsEx3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResultsEx3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsExSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchtype" type="tns:ExSearchType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreResultsExSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RestoreResultsExSPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSourceXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSourceXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteResultsExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsEx2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSourceXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="summaryResultColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateResultColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platformTypeColumnName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteResultsEx2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsEx3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSourceXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="summaryResultColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateResultColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="platformTypeColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sizeColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="senderColumnName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsEx3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteResultsEx3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportResultsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportResultsEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultsQueryid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="outputSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryIdResultColName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderResultColName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeout" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportResultsExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportResultsExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="verbosityLevel" type="tns:ExTaskStatusVerbosity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExTaskStatusVerbosity">
+        <s:restriction base="s:string">
+          <s:enumeration value="EX_TASK_STATUS_ALL" />
+          <s:enumeration value="EX_TASK_STATUS_ERROR" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetStatusDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusDetailsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseResultsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStatusResult" type="tns:ExTaskStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExTaskStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="unknown" />
+          <s:enumeration value="stopped" />
+          <s:enumeration value="suspended" />
+          <s:enumeration value="resuming" />
+          <s:enumeration value="waiting" />
+          <s:enumeration value="running" />
+          <s:enumeration value="complete" />
+          <s:enumeration value="failed" />
+          <s:enumeration value="disposed" />
+          <s:enumeration value="expired" />
+          <s:enumeration value="terminated" />
+          <s:enumeration value="incomplete" />
+          <s:enumeration value="userterminated" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetQueryStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetQueryStatusResult" type="tns:ExTaskStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateQueries">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnumerateQueriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateQueriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserSettingsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveUserSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveUserSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveUserSettingsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastRunQuery">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLastRunQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastRunQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLastRunQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLastRunQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveLastRunQueryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddQueryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="queryid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModifyQueryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="queryid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteQueryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateArchiveFoldersResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFoldersAsDelegate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFoldersAsDelegateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateArchiveFoldersAsDelegateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFolders2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="1" maxOccurs="1" name="getIndexAttrs" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFolders2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateArchiveFolders2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFoldersAsDelegate2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExSearchType" />
+            <s:element minOccurs="0" maxOccurs="1" name="DN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="getIndexAttrs" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateArchiveFoldersAsDelegate2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateArchiveFoldersAsDelegate2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateMailboxFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExMailType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExMailType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="Notes" />
+          <s:enumeration value="Exchange" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="EnumerateMailboxFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateMailboxFoldersResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateMailboxSubFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExMailType" />
+            <s:element minOccurs="0" maxOccurs="1" name="rootPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="topLevelOnly" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateMailboxSubFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateMailboxSubFoldersResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchNotesAddressBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="office" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchNotesAddressBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchNotesAddressBookResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnumerateNotesAddressBooks">
+        <s:complexType />
+      </s:element>
+      <s:element name="EnumerateNotesAddressBooksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnumerateNotesAddressBooksResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotesAddressBookEntries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="abIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxEntries" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchstr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotesAddressBookEntriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNotesAddressBookEntriesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExchangeAddressBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="office" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchExchangeAddressBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchExchangeAddressBookResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResolveEmailAddresses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:ExMailType" />
+            <s:element minOccurs="0" maxOccurs="1" name="entryList" type="tns:ArrayOfExSearchAddrEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExSearchAddrEntry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExSearchAddrEntry" nillable="true" type="tns:ExSearchAddrEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExSearchAddrEntry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="dn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="displayname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telephonenumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="companyname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addressbook" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="documentid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addressList" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResolveEmailAddressesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResolveEmailAddressesResult" type="tns:ArrayOfExSearchAddrEntry" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultErrorCode">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDefaultErrorCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDefaultErrorCodeResult" type="tns:ExTaskErrorCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExTaskErrorCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="EX_TASK_ERROR_NONE" />
+          <s:enumeration value="EX_TASK_ERROR_PERMISSIONS" />
+          <s:enumeration value="EX_TASK_ERROR_BADXML" />
+          <s:enumeration value="EX_TASK_ERROR_START" />
+          <s:enumeration value="EX_TASK_ERROR_INDEX_UNAVAIL" />
+          <s:enumeration value="EX_TASK_ERROR_UNKNOWN" />
+          <s:enumeration value="EX_TASK_ERROR_RETRIEVE" />
+          <s:enumeration value="EX_TASK_ERROR_STORE" />
+          <s:enumeration value="EX_TASK_ERROR_DELETE" />
+          <s:enumeration value="EX_TASK_ERROR_QUERY2BIG" />
+          <s:enumeration value="EX_TASK_ERROR_INDEX_CORRUPT" />
+          <s:enumeration value="EX_TASK_ERROR_INDEX_OPEN" />
+          <s:enumeration value="EX_TASK_ERROR_INDEX_CLOSE" />
+          <s:enumeration value="EX_TASK_ERROR_INDEXER" />
+          <s:enumeration value="EX_TASK_ERROR_ANCDB_CORRUPT" />
+          <s:enumeration value="EX_TASK_ERROR_SQL_UNKNOWN" />
+          <s:enumeration value="EX_TASK_ERROR_QUERY_INVALID" />
+          <s:enumeration value="EX_TASK_ERROR_NO_SHARED_MEMORY" />
+          <s:enumeration value="EX_TASK_ERROR_SPAWN_FAILED" />
+          <s:enumeration value="EX_TASK_ERROR_FTI_UNKNOWN" />
+          <s:enumeration value="EX_TASK_ERROR_DISPOSED_RESULTS" />
+          <s:enumeration value="EX_TASK_ERROR_SEARCH_PENDING" />
+          <s:enumeration value="EX_TASK_ERROR_MISSING_ITEMS" />
+          <s:enumeration value="EX_TASK_ERROR_ANCDB_OPEN" />
+          <s:enumeration value="EX_TASK_ERROR_OUT_OF_DATE_RANGE" />
+          <s:enumeration value="EX_TASK_ERROR_SHARING_VIOLATION" />
+          <s:enumeration value="EX_TASK_ERROR_EXPORT_JBC_UNRECOVERABLE" />
+          <s:enumeration value="EX_TASK_ERROR_MAX_DOMAIN_ADDRESS" />
+          <s:enumeration value="EX_TASK_WARNING" />
+          <s:enumeration value="EX_TASK_ERROR_UNPERFORMED_TRANSACTION" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetServerConfiguration">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServerConfigurationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExpireTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="expireTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExpireTimeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXmlFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileType" type="tns:ExXmlFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ExXmlFile">
+        <s:restriction base="s:string">
+          <s:enumeration value="NormalizedPropertyMapXml" />
+          <s:enumeration value="PresentationXml" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetXmlFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXmlFileResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFolderHierarchy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folderXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFolderHierarchyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedFolderHierarchyResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDistinguishedNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserDistinguishedName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserDistinguishedNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserDistinguishedNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="HasDelegateAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:HasDelegateAccess" />
+  </wsdl:message>
+  <wsdl:message name="HasDelegateAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:HasDelegateAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchExSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchEx" />
+  </wsdl:message>
+  <wsdl:message name="SearchExSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchAsDelegateSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchAsDelegate" />
+  </wsdl:message>
+  <wsdl:message name="SearchAsDelegateSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchAsDelegateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchAsDelegateExSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchAsDelegateEx" />
+  </wsdl:message>
+  <wsdl:message name="SearchAsDelegateExSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchAsDelegateExResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:StopSearch" />
+  </wsdl:message>
+  <wsdl:message name="StopSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:StopSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNumResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNumResults" />
+  </wsdl:message>
+  <wsdl:message name="GetNumResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNumResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPagedResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPagedResults" />
+  </wsdl:message>
+  <wsdl:message name="GetPagedResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPagedResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectResults" />
+  </wsdl:message>
+  <wsdl:message name="SelectResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnselectResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:UnselectResults" />
+  </wsdl:message>
+  <wsdl:message name="UnselectResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:UnselectResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAllResults" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnselectAllResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:UnselectAllResults" />
+  </wsdl:message>
+  <wsdl:message name="UnselectAllResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:UnselectAllResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNumSelectedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNumSelected" />
+  </wsdl:message>
+  <wsdl:message name="GetNumSelectedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNumSelectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNumSelectedFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNumSelectedFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetNumSelectedFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNumSelectedFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlatformTypesOfSelectedItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlatformTypesOfSelectedItems" />
+  </wsdl:message>
+  <wsdl:message name="GetPlatformTypesOfSelectedItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlatformTypesOfSelectedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFoldersofSelectedFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFoldersofSelectedFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetFoldersofSelectedFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFoldersofSelectedFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsVirtualFolderSoapIn">
+    <wsdl:part name="parameters" element="tns:IsVirtualFolder" />
+  </wsdl:message>
+  <wsdl:message name="IsVirtualFolderSoapOut">
+    <wsdl:part name="parameters" element="tns:IsVirtualFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsOrganizationSoapIn">
+    <wsdl:part name="parameters" element="tns:IsOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IsOrganizationSoapOut">
+    <wsdl:part name="parameters" element="tns:IsOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResults" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsExSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResultsEx" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsExSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResultsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResults2SoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResults2" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResults2SoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResults2Response" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResultsEx2" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResultsEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsEx3SoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResultsEx3" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsEx3SoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResultsEx3Response" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsExSPSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreResultsExSP" />
+  </wsdl:message>
+  <wsdl:message name="RestoreResultsExSPSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreResultsExSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteResults" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsExSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteResultsEx" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsExSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResultsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteResultsEx2" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResultsEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsEx3SoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteResultsEx3" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsEx3SoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResultsEx3Response" />
+  </wsdl:message>
+  <wsdl:message name="ExportResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportResults" />
+  </wsdl:message>
+  <wsdl:message name="ExportResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportResultsExSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportResultsEx" />
+  </wsdl:message>
+  <wsdl:message name="ExportResultsExSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportResultsExResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseResults" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateQueriesSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateQueries" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateQueriesSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateQueriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveUserSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="SaveUserSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLastRunQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastRunQuery" />
+  </wsdl:message>
+  <wsdl:message name="GetLastRunQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastRunQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveLastRunQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:SaveLastRunQuery" />
+  </wsdl:message>
+  <wsdl:message name="SaveLastRunQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:SaveLastRunQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:AddQuery" />
+  </wsdl:message>
+  <wsdl:message name="AddQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:AddQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyQuery" />
+  </wsdl:message>
+  <wsdl:message name="ModifyQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteQuery" />
+  </wsdl:message>
+  <wsdl:message name="DeleteQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFolders" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersAsDelegateSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFoldersAsDelegate" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersAsDelegateSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFoldersAsDelegateResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFolders2SoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFolders2" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFolders2SoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFolders2Response" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersAsDelegate2SoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFoldersAsDelegate2" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateArchiveFoldersAsDelegate2SoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateArchiveFoldersAsDelegate2Response" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateMailboxFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateMailboxFolders" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateMailboxFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateMailboxFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateMailboxSubFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateMailboxSubFolders" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateMailboxSubFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateMailboxSubFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotesAddressBookSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchNotesAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotesAddressBookSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchNotesAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateNotesAddressBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:EnumerateNotesAddressBooks" />
+  </wsdl:message>
+  <wsdl:message name="EnumerateNotesAddressBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:EnumerateNotesAddressBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesAddressBookEntriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNotesAddressBookEntries" />
+  </wsdl:message>
+  <wsdl:message name="GetNotesAddressBookEntriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNotesAddressBookEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchExchangeAddressBookSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchExchangeAddressBook" />
+  </wsdl:message>
+  <wsdl:message name="SearchExchangeAddressBookSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchExchangeAddressBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResolveEmailAddressesSoapIn">
+    <wsdl:part name="parameters" element="tns:ResolveEmailAddresses" />
+  </wsdl:message>
+  <wsdl:message name="ResolveEmailAddressesSoapOut">
+    <wsdl:part name="parameters" element="tns:ResolveEmailAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultErrorCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultErrorCode" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultErrorCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefaultErrorCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="GetServerConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetExpireTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExpireTime" />
+  </wsdl:message>
+  <wsdl:message name="SetExpireTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExpireTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXmlFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXmlFile" />
+  </wsdl:message>
+  <wsdl:message name="GetXmlFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXmlFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFolderHierarchySoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedFolderHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFolderHierarchySoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedFolderHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExSearchWebServiceSoap">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input message="tns:AuthenticateUserSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDistinguishedName">
+      <wsdl:input message="tns:GetUserDistinguishedNameSoapIn" />
+      <wsdl:output message="tns:GetUserDistinguishedNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HasDelegateAccess">
+      <wsdl:input message="tns:HasDelegateAccessSoapIn" />
+      <wsdl:output message="tns:HasDelegateAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchEx">
+      <wsdl:input message="tns:SearchExSoapIn" />
+      <wsdl:output message="tns:SearchExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegate">
+      <wsdl:input message="tns:SearchAsDelegateSoapIn" />
+      <wsdl:output message="tns:SearchAsDelegateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegateEx">
+      <wsdl:input message="tns:SearchAsDelegateExSoapIn" />
+      <wsdl:output message="tns:SearchAsDelegateExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopSearch">
+      <wsdl:input message="tns:StopSearchSoapIn" />
+      <wsdl:output message="tns:StopSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumResults">
+      <wsdl:input message="tns:GetNumResultsSoapIn" />
+      <wsdl:output message="tns:GetNumResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagedResults">
+      <wsdl:input message="tns:GetPagedResultsSoapIn" />
+      <wsdl:output message="tns:GetPagedResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectResults">
+      <wsdl:input message="tns:SelectResultsSoapIn" />
+      <wsdl:output message="tns:SelectResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnselectResults">
+      <wsdl:input message="tns:UnselectResultsSoapIn" />
+      <wsdl:output message="tns:UnselectResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllResults">
+      <wsdl:input message="tns:SelectAllResultsSoapIn" />
+      <wsdl:output message="tns:SelectAllResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnselectAllResults">
+      <wsdl:input message="tns:UnselectAllResultsSoapIn" />
+      <wsdl:output message="tns:UnselectAllResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelected">
+      <wsdl:input message="tns:GetNumSelectedSoapIn" />
+      <wsdl:output message="tns:GetNumSelectedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelectedFiles">
+      <wsdl:input message="tns:GetNumSelectedFilesSoapIn" />
+      <wsdl:output message="tns:GetNumSelectedFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlatformTypesOfSelectedItems">
+      <wsdl:input message="tns:GetPlatformTypesOfSelectedItemsSoapIn" />
+      <wsdl:output message="tns:GetPlatformTypesOfSelectedItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFoldersofSelectedFiles">
+      <wsdl:input message="tns:GetFoldersofSelectedFilesSoapIn" />
+      <wsdl:output message="tns:GetFoldersofSelectedFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsVirtualFolder">
+      <wsdl:input message="tns:IsVirtualFolderSoapIn" />
+      <wsdl:output message="tns:IsVirtualFolderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsOrganization">
+      <wsdl:input message="tns:IsOrganizationSoapIn" />
+      <wsdl:output message="tns:IsOrganizationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults">
+      <wsdl:input message="tns:RestoreResultsSoapIn" />
+      <wsdl:output message="tns:RestoreResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx">
+      <wsdl:input message="tns:RestoreResultsExSoapIn" />
+      <wsdl:output message="tns:RestoreResultsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults2">
+      <wsdl:input message="tns:RestoreResults2SoapIn" />
+      <wsdl:output message="tns:RestoreResults2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx2">
+      <wsdl:input message="tns:RestoreResultsEx2SoapIn" />
+      <wsdl:output message="tns:RestoreResultsEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx3">
+      <wsdl:input message="tns:RestoreResultsEx3SoapIn" />
+      <wsdl:output message="tns:RestoreResultsEx3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsExSP">
+      <wsdl:input message="tns:RestoreResultsExSPSoapIn" />
+      <wsdl:output message="tns:RestoreResultsExSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <wsdl:input message="tns:DeleteResultsSoapIn" />
+      <wsdl:output message="tns:DeleteResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx">
+      <wsdl:input message="tns:DeleteResultsExSoapIn" />
+      <wsdl:output message="tns:DeleteResultsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx2">
+      <wsdl:input message="tns:DeleteResultsEx2SoapIn" />
+      <wsdl:output message="tns:DeleteResultsEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx3">
+      <wsdl:input message="tns:DeleteResultsEx3SoapIn" />
+      <wsdl:output message="tns:DeleteResultsEx3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportResults">
+      <wsdl:input message="tns:ExportResultsSoapIn" />
+      <wsdl:output message="tns:ExportResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportResultsEx">
+      <wsdl:input message="tns:ExportResultsExSoapIn" />
+      <wsdl:output message="tns:ExportResultsExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusDetails">
+      <wsdl:input message="tns:GetStatusDetailsSoapIn" />
+      <wsdl:output message="tns:GetStatusDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseResults">
+      <wsdl:input message="tns:ReleaseResultsSoapIn" />
+      <wsdl:output message="tns:ReleaseResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStatus">
+      <wsdl:input message="tns:GetQueryStatusSoapIn" />
+      <wsdl:output message="tns:GetQueryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateQueries">
+      <wsdl:input message="tns:EnumerateQueriesSoapIn" />
+      <wsdl:output message="tns:EnumerateQueriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSettings">
+      <wsdl:input message="tns:GetUserSettingsSoapIn" />
+      <wsdl:output message="tns:GetUserSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <wsdl:input message="tns:SaveUserSettingsSoapIn" />
+      <wsdl:output message="tns:SaveUserSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastRunQuery">
+      <wsdl:input message="tns:GetLastRunQuerySoapIn" />
+      <wsdl:output message="tns:GetLastRunQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveLastRunQuery">
+      <wsdl:input message="tns:SaveLastRunQuerySoapIn" />
+      <wsdl:output message="tns:SaveLastRunQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddQuery">
+      <wsdl:input message="tns:AddQuerySoapIn" />
+      <wsdl:output message="tns:AddQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyQuery">
+      <wsdl:input message="tns:ModifyQuerySoapIn" />
+      <wsdl:output message="tns:ModifyQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuery">
+      <wsdl:input message="tns:DeleteQuerySoapIn" />
+      <wsdl:output message="tns:DeleteQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders">
+      <wsdl:input message="tns:EnumerateArchiveFoldersSoapIn" />
+      <wsdl:output message="tns:EnumerateArchiveFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate">
+      <wsdl:input message="tns:EnumerateArchiveFoldersAsDelegateSoapIn" />
+      <wsdl:output message="tns:EnumerateArchiveFoldersAsDelegateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders2">
+      <wsdl:input message="tns:EnumerateArchiveFolders2SoapIn" />
+      <wsdl:output message="tns:EnumerateArchiveFolders2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate2">
+      <wsdl:input message="tns:EnumerateArchiveFoldersAsDelegate2SoapIn" />
+      <wsdl:output message="tns:EnumerateArchiveFoldersAsDelegate2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxFolders">
+      <wsdl:input message="tns:EnumerateMailboxFoldersSoapIn" />
+      <wsdl:output message="tns:EnumerateMailboxFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxSubFolders">
+      <wsdl:input message="tns:EnumerateMailboxSubFoldersSoapIn" />
+      <wsdl:output message="tns:EnumerateMailboxSubFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotesAddressBook">
+      <wsdl:input message="tns:SearchNotesAddressBookSoapIn" />
+      <wsdl:output message="tns:SearchNotesAddressBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateNotesAddressBooks">
+      <wsdl:input message="tns:EnumerateNotesAddressBooksSoapIn" />
+      <wsdl:output message="tns:EnumerateNotesAddressBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesAddressBookEntries">
+      <wsdl:input message="tns:GetNotesAddressBookEntriesSoapIn" />
+      <wsdl:output message="tns:GetNotesAddressBookEntriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeAddressBook">
+      <wsdl:input message="tns:SearchExchangeAddressBookSoapIn" />
+      <wsdl:output message="tns:SearchExchangeAddressBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolveEmailAddresses">
+      <wsdl:input message="tns:ResolveEmailAddressesSoapIn" />
+      <wsdl:output message="tns:ResolveEmailAddressesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultErrorCode">
+      <wsdl:input message="tns:GetDefaultErrorCodeSoapIn" />
+      <wsdl:output message="tns:GetDefaultErrorCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerConfiguration">
+      <wsdl:input message="tns:GetServerConfigurationSoapIn" />
+      <wsdl:output message="tns:GetServerConfigurationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetExpireTime">
+      <wsdl:input message="tns:SetExpireTimeSoapIn" />
+      <wsdl:output message="tns:SetExpireTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXmlFile">
+      <wsdl:input message="tns:GetXmlFileSoapIn" />
+      <wsdl:output message="tns:GetXmlFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFolderHierarchy">
+      <wsdl:input message="tns:GetArchivedFolderHierarchySoapIn" />
+      <wsdl:output message="tns:GetArchivedFolderHierarchySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExSearchWebServiceSoap" type="tns:ExSearchWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDistinguishedName">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetUserDistinguishedName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasDelegateAccess">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/HasDelegateAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEx">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SearchEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegate">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SearchAsDelegate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegateEx">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SearchAsDelegateEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopSearch">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/StopSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetNumResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagedResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetPagedResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SelectResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnselectResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/UnselectResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SelectAllResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnselectAllResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/UnselectAllResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelected">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetNumSelected" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelectedFiles">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetNumSelectedFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlatformTypesOfSelectedItems">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetPlatformTypesOfSelectedItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoldersofSelectedFiles">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetFoldersofSelectedFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsVirtualFolder">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/IsVirtualFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsOrganization">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/IsOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults2">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResults2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx2">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx3">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsExSP">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsExSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx2">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx3">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/ExportResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportResultsEx">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/ExportResultsEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusDetails">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetStatusDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseResults">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/ReleaseResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStatus">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetQueryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateQueries">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateQueries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSettings">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SaveUserSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastRunQuery">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetLastRunQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLastRunQuery">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SaveLastRunQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddQuery">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/AddQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyQuery">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/ModifyQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuery">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/DeleteQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFoldersAsDelegate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders2">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFolders2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate2">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFoldersAsDelegate2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxFolders">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateMailboxFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxSubFolders">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateMailboxSubFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotesAddressBook">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SearchNotesAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateNotesAddressBooks">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateNotesAddressBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesAddressBookEntries">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetNotesAddressBookEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeAddressBook">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SearchExchangeAddressBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolveEmailAddresses">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/ResolveEmailAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultErrorCode">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetDefaultErrorCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerConfiguration">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetServerConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExpireTime">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/SetExpireTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXmlFile">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetXmlFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFolderHierarchy">
+      <soap:operation soapAction="http://EMC.com/ExSearchWebService/GetArchivedFolderHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExSearchWebServiceSoap12" type="tns:ExSearchWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDistinguishedName">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetUserDistinguishedName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasDelegateAccess">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/HasDelegateAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEx">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SearchEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegate">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SearchAsDelegate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAsDelegateEx">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SearchAsDelegateEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopSearch">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/StopSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetNumResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagedResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetPagedResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SelectResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnselectResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/UnselectResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectAllResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SelectAllResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnselectAllResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/UnselectAllResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelected">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetNumSelected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumSelectedFiles">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetNumSelectedFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlatformTypesOfSelectedItems">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetPlatformTypesOfSelectedItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoldersofSelectedFiles">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetFoldersofSelectedFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsVirtualFolder">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/IsVirtualFolder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsOrganization">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/IsOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResults2">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResults2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx2">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsEx3">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsEx3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreResultsExSP">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/RestoreResultsExSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx2">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResultsEx3">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/DeleteResultsEx3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/ExportResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportResultsEx">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/ExportResultsEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusDetails">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetStatusDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseResults">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/ReleaseResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryStatus">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetQueryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateQueries">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateQueries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSettings">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetUserSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserSettings">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SaveUserSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastRunQuery">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetLastRunQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLastRunQuery">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SaveLastRunQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddQuery">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/AddQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyQuery">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/ModifyQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteQuery">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/DeleteQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFolders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFoldersAsDelegate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFolders2">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFolders2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateArchiveFoldersAsDelegate2">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateArchiveFoldersAsDelegate2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxFolders">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateMailboxFolders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateMailboxSubFolders">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateMailboxSubFolders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotesAddressBook">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SearchNotesAddressBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnumerateNotesAddressBooks">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/EnumerateNotesAddressBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotesAddressBookEntries">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetNotesAddressBookEntries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExchangeAddressBook">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SearchExchangeAddressBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResolveEmailAddresses">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/ResolveEmailAddresses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultErrorCode">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetDefaultErrorCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerConfiguration">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetServerConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExpireTime">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/SetExpireTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXmlFile">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetXmlFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFolderHierarchy">
+      <soap12:operation soapAction="http://EMC.com/ExSearchWebService/GetArchivedFolderHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExSearchWebService">
+    <wsdl:port name="ExSearchWebServiceSoap" binding="tns:ExSearchWebServiceSoap">
+      <soap:address location="http://localhost/SearchWS/ExSearchWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExSearchWebServiceSoap12" binding="tns:ExSearchWebServiceSoap12">
+      <soap12:address location="http://localhost/SearchWS/ExSearchWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

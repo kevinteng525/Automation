@@ -1,0 +1,85 @@
+﻿<config>
+  <type>together</type>
+  <domain>
+    <name>s1.com</name>
+    <administrator>administrator</administrator>
+    <password>emcsiax@QA</password>
+  </domain>
+  <sutconfig>
+    <name>SourceOne</name>
+    <machines>
+      <machine>
+        <name>DC</name>
+        <ip>192.168.2.100</ip>
+        <roles>DomainController</roles>
+        <categories></categories>
+        <description>Domain Controller</description>
+        <config></config>
+      </machine>
+      <machine>
+        <name>DC</name>
+        <ip>192.168.2.102</ip>
+        <roles>ExchangeServer</roles>
+        <categories></categories>
+        <description>Exchange Server</description>
+        <config>
+          <version>Exchange2010</version>
+        </config>
+      </machine>
+      <machine>
+        <name>Debug02</name>
+        <ip>192.168.2.103</ip>
+        <roles>Master</roles>
+        <categories></categories>
+        <description>S1 Master</description>
+        <config></config>
+      </machine>
+      <machine>
+        <name>Debug02</name>
+        <ip>192.168.2.104</ip>
+        <roles>NativeArchive</roles>
+        <categories></categories>
+        <description>S1 Native Archive Server</description>
+        <config></config>
+      </machine>
+      <machine>
+        <name>Debug02</name>
+        <ip>192.168.2.101</ip>
+        <roles>SQLServer</roles>
+        <categories></categories>
+        <description>SQL server for S1 DB</description>
+        <config></config>
+      </machine>
+      <machine>
+        <name>Debug02</name>
+        <ip>192.168.2.105</ip>
+        <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+        <categories></categories>
+        <description>Worker machine</description>
+        <config></config>
+      </machine>
+    </machines>
+  </sutconfig>
+  <testagentconfig>
+    <name>vCloud Template</name>
+    <categories></categories>
+    <machines>
+      <machine>
+        <name>Debug02</name>
+        <ip>192.168.2.105</ip>
+        <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+        <categories></categories>
+        <description>SQL server for S1 DB</description>
+        <config></config>
+      </machine>
+    </machines>
+  </testagentconfig>
+  <s1configs>
+    <defaultaccount>s1\es1service</defaultaccount>
+    <dbserver>Debug02</dbserver>
+    <archivedb>ES1Archive</archivedb>
+    <activitydb>ES1Activity</activitydb>
+    <searchdb>ES1Search</searchdb>
+    <dmdb>DiscoveryManager</dmdb>
+  </s1configs>
+</config>

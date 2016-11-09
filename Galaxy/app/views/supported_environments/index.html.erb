@@ -1,0 +1,30 @@
+<fieldset>
+	<legend class="galaxy_legend">Test Environments</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @supported_environments.each do |supported_environment| %>
+	      <tr>
+	        <td><%= supported_environment.name %></td>
+	        <td><%= supported_environment.description %></td>
+	        <td class="item_operations">
+	        	<%= link_to 'Show', supported_environment_path(supported_environment) %>
+	        	<%= link_to 'Edit', edit_supported_environment_path(supported_environment) %>
+	        	<% if @is_current_user_administrator %>
+	        	<%= link_to 'Destroy', supported_environment_path(supported_environment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	        	<% end %>
+	      </tr>
+	    <% end %>
+  	</tbody>
+</table>
+</fieldset>
+<br>
+<%= link_to 'New Test Environment', new_supported_environment_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

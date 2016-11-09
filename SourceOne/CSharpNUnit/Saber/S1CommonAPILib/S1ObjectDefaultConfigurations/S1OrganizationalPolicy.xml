@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<organizationalpolicy>
+  <name required="true">Demo Policy</name>
+  <description required="optional">policy description</description>
+</organizationalpolicy>

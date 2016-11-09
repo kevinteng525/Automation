@@ -1,0 +1,49 @@
+﻿<Window x:Class="Client.Windows.CopyBuildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Copy Directory" Height="430" Width="650" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="True" WindowStyle="ThreeDBorderWindow" Icon="/Images/Copy.png">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Copy Directory to Target Machine:" FontSize="20"/>
+
+            <CheckBox x:Name="spSourceCredential" Margin="0,30,0,0" Content="Use Credential" IsChecked="False"/>
+            <StackPanel IsEnabled="{Binding IsChecked, ElementName=spSourceCredential}">
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBlock Text="Source Username:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtSourceUsername" Width="400" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBlock Text="Source Password:" Width="120" VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="txtSourcePassword" Width="400" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Source Copy Path:" Width="120"/>
+                <TextBox x:Name="txtSourcePath" Width="400"/>
+                <Button x:Name="btnSourceBrowse" Content="Browse" Width="50" Style="{StaticResource WhiteButtonStyle}" Margin="3,0,0,0" Click="btnBrowse_Click" Tag="source"/>
+            </StackPanel>
+
+            <CheckBox x:Name="spTargetCredential" Margin="0,20,0,0" Content="Use Credential" IsChecked="True"/>
+            <StackPanel IsEnabled="{Binding IsChecked, ElementName=spTargetCredential}">
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBlock Text="Target Username:" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtTargetUsername" Width="400" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBlock Text="Target Password:" Width="120" VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="txtTargetPassword" Width="400" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock Text="Target Copy Path:" Width="120"/>
+                <TextBox x:Name="txtTargetPath" Width="400" />
+                <Button x:Name="btnTargetBrowse" Content="Browse" Width="50" Style="{StaticResource WhiteButtonStyle}" Margin="3,0,0,0" Click="btnBrowse_Click" Tag="target"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Button x:Name="btnCopy" Content="Copy" Width="60" Height="26" Style="{StaticResource BlueButtonStyle}" Margin="0,20,0,0" HorizontalAlignment="Left" Click="btnCopy_Click" />
+                <Button x:Name="btnCancel" Content="Cancel" Width="60" Height="26" Style="{StaticResource WhiteButtonStyle}" Margin="10,20,0,0" HorizontalAlignment="Left" Click="btnCancel_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

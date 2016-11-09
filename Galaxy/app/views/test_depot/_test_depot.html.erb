@@ -1,0 +1,364 @@
+<div id="test_case_library_accordion">
+	<h3>Test Cases Library</h3>
+	<div>
+		<div id="test_depot_menus" class="menus">	
+			<%= label_tag "rankings", "Rankings: " %>
+			<span id="rankings">
+			<% @rankings.each do |ranking| %>
+				<%= check_box_tag ranking, ranking, true %><%= label_tag ranking, ranking %>
+			<% end %>
+			</span>
+			<%= label_tag "releases", "Releases: " %>
+			<span id="releases">
+				<% @releases.each do |release| %>
+					<%= check_box_tag release, release, true %><%= label_tag release, release %>
+				<% end %>
+			</span>	
+		</div>
+		<div id='test_case_depot'></div>
+		<div>Suites Selected: <span id='test_depot_selected_test_suites'>None</span></div>
+		<div>Cases Selected: <span id='test_depot_selected_test_cases'>None</span></div>
+	</div>
+	
+	<h3>Predifined Test Suites</h3>
+	<div id='predefined_test_suites'>	</div>
+	
+	<h3>Customized Test Suites</h3>
+	<div id='user_created_test_suites'>	</div>
+	
+	<h3>Test Plans</h3>
+	<div id='test_plans_test_suites'>	</div>
+	
+</div>
+
+
+<div class="hide" id='user_created_suite_selected'></div>
+
+<div class="hide" id='predefined_suite_selected'></div>
+
+<div class="hide" id='test_plan_suite_selected'></div>
+
+<script type="text/javascript">
+var render_test_depot = function(render_mode){//render_mode = 'edit' or 'show'
+	function isNodeMatchFilter(node)
+	{
+		var releases = new Array();
+		var rankings = new Array();
+		var is_release_match = false;
+		var is_ranking_match = false;
+		if($("#releases input").length == 0)//no release in DB
+		{
+			is_release_match = true;
+		}
+		else
+		{
+			$("#releases input:checked").each(function(){
+				releases.push($(this).val());
+			});			
+			for(var i=0;i<releases.length;i++)
+			{
+				var match = releases[i];
+				var reg = /\d.\d.\d/;
+				if(reg.test(match))//the format of 7.0.0, if the tooltip contains the string of "7.0", we'll treat it as meet
+				{
+					if(node.tooltip.split(', ').indexOf('Release=' + match.substr(0,match.lastIndexOf('.'))) >= 0 ||node.tooltip.split(', ').indexOf('Release=' + match) >= 0)
+					{
+						is_release_match = true;
+						break;
+					}
+				}
+				else//the release format is not right, we'll not filter the test cases with it
+				{
+					is_release_match = true;
+					break;
+				}
+			}
+		}
+		if($("#rankings input").length == 0)
+		{
+			is_ranking_match = true;
+		}
+		else
+		{
+			$("#rankings input:checked").each(function(){
+				rankings.push($(this).val());
+			});
+			for(var i=0;i<rankings.length;i++)
+			{
+				var match = rankings[i];
+				if(node.tooltip.split(', ').indexOf('Ranking=' + match) >= 0)
+				{
+					is_ranking_match = true;
+					break;
+				}
+			}
+		}
+		return is_ranking_match && is_release_match;
+	}
+	
+	function applyUserFilter()
+	{
+		var tree = $("#test_case_depot").fancytree('getTree');
+		tree.applyFilter(function(node){
+			if(!node.folder)//test case
+			{
+				if(isNodeMatchFilter(node))
+				{
+					return true;
+				}
+				else
+				{
+					if(node.isSelected())
+					{
+						node.setSelected(false);
+					}
+					return false;
+				}
+			}
+			else//test suite
+			{				
+				return true;
+			}
+		});
+	}
+
+	var disable_children_nodes_selection = function(node){
+		var expendedNode = node;
+	  	var level = expendedNode.getLevel();
+	  	if(level >= 2)//0: System root node, 1: visible top-level node, 2: first sub-level, 
+	  	{
+	  		var nodes = expendedNode.getChildren();
+			for(var i = 0; i < nodes.length; i++)
+			{
+				var checkbox = nodes[i].span.getElementsByClassName('fancytree-checkbox')[0];
+				if(!(checkbox.getAttribute('class').contains('hide')))
+				{
+					checkbox.setAttribute('class',checkbox.getAttribute('class') + ' hide');
+				}				
+			}
+	  	}
+	};
+	
+	$("#releases input,#rankings input").button({icons:{primary:"ui-icon-check"}}).click(function(){
+		if($(this).button("option","icons").primary == "ui-icon-close")
+		{
+			$(this).button("option","icons", { primary:"ui-icon-check" } );
+			return;
+		}
+		else if($(this).button("option","icons").primary == "ui-icon-check")
+		{
+			$(this).button("option","icons", { primary:"ui-icon-close" });
+		}
+	});
+	
+	$("#releases").buttonset();
+	$("#rankings").buttonset();
+	
+	$("#releases input,#rankings input").change(function(){
+		applyUserFilter();
+	});
+
+
+	
+	$("#test_case_depot").fancytree({
+	  extensions:['filter'],
+	  source: {
+	    url: '/test_depot/index.json'
+	  },
+	  filter: {
+	  	leavesOnly: false,
+	  	mode: 'hide'
+	  },
+	  checkbox: true,
+	  selectMode: 3,
+	  cache: false,
+	  lazyload: function(event, data) {
+	    var node = data.node;
+        data.result = {
+        	url:'/test_suites/' + node.key.split('-')[1] +'/sub_test_suites_and_cases.json'
+        };
+	  },
+	  activate: function(){
+	  	
+	  },
+	  expand: function(e, data)
+	  {
+	  	applyUserFilter();//handle the display of test cases/suites
+	  	
+	  	var nodeExpanded = data.node;
+	  	if(nodeExpanded.isSelected())
+	  	{
+			for(var j = 0;j<nodeExpanded.children.length; j ++)
+			{
+				var leafNode = nodeExpanded.children[j];
+				if(leafNode.match)
+				{
+					leafNode.setSelected(true);
+				}
+				else
+				{
+					leafNode.setSelected(false);
+				}
+			}
+		}
+		else
+		{
+			nodeExpanded.match = true;
+		}
+		data.tree.render();
+	  },	  
+	  select: function(e, data){
+	  	var nodeSelected = data.node;
+	  	if(nodeSelected.folder)
+	  	{
+	  		applyUserFilter();//mainly handle the test cases that already loaded lazily
+	  	}
+	  	var selectedNodes = data.tree.getSelectedNodes();
+        var selectedSuites = $.map(selectedNodes, function(node){
+	        if(node.folder == true){
+	            return node.key.split('-')[1];
+	        }
+        });
+        var selectedCases = $.map(selectedNodes, function(node){
+            if(node.folder == false){
+              	return node.key.split('-')[1];
+            }
+        });
+        $('#test_depot_selected_test_suites').html(selectedSuites.length);
+        $('#test_depot_selected_test_cases').html(selectedCases.length);
+        $('#test_depot_selected_test_suites').attr("value",selectedSuites.join(","));
+        $('#test_depot_selected_test_cases').attr("value",selectedCases.join(","));
+	 }
+	});
+	
+	$("#user_created_test_suites").fancytree({
+	  source: {
+	    url: '/test_depot/user_created_test_suites_index.json'
+	  },
+	  checkbox: true,
+	  selectMode: 1,//1.single
+	  cache: false,
+	  lazyload: function(event, data) {
+	    var node = data.node;
+        data.result = {
+        	url:'/test_suites/' + node.key.split('-')[1] +'/sub_test_suites_and_cases.json'
+        };
+	  },
+	  activate: function(){
+	  },
+	  collapse: function(e, data){		
+	  },
+	  expand: function(e, data){
+	  	if(render_mode == 'edit'){
+	  		disable_children_nodes_selection(data.node);
+	  	}	  	
+	  },
+	  select: function(e, data){
+	  	var selectedNodes = data.tree.getSelectedNodes();
+        var selectedSuites = $.map(selectedNodes, function(node){
+	        if( node.folder == true && ( node.tooltip.split(',').indexOf('Type=Dynamic') >= 0 || node.tooltip.split(',').indexOf('Type=NotExisting') >= 0 ) ){//select the root customized suite  
+	        	//save the information into the parameters of the node
+	        	$("#user_created_suite_selected").attr("suite_tooltip_" + node.key.split('-')[1], node.tooltip);
+	        	$("#user_created_suite_selected").attr("suite_title_" + node.key.split('-')[1], node.title);
+	            return node.key.split('-')[1];
+	        }
+	        else
+	        {
+	        	alert("Please only select the test suite instead of the cases within it.");
+	        	data.node.setSelected(false);
+	        }
+        });
+        var selectedCases = $.map(selectedNodes, function(node){
+	        if(node.folder == false){
+	        	return node.key.split('-')[1];
+	        }
+	    });
+	    $("#user_created_suite_selected").attr("cases_list", selectedCases.join(','));
+	  	$("#user_created_suite_selected").attr("suites_list", selectedSuites.join(','));
+	 }
+	});
+	
+	$("#test_plans_test_suites").fancytree({
+	  source: {
+	    url: '/test_depot/test_plans_of_external_providers_index.json'
+	  },
+	  checkbox: true,
+	  selectMode: 1,//single
+	  cache: false,
+	  lazyload: function(event, data) {
+	    var node = data.node;
+        data.result = {
+        	url:'/test_suites/' + node.key.split('-')[1] +'/sub_test_suites_and_cases.json'
+        };
+	  },
+	  activate: function(){	  	
+	  },
+	  expand: function(e, data){	  	
+	  	if(render_mode == 'edit'){
+	  		disable_children_nodes_selection(data.node);
+	  	}
+	  },
+	  select: function(e, data){
+	  	var selectedNodes = data.tree.getSelectedNodes();
+        var selectedSuites = $.map(selectedNodes, function(node){
+	        if(node.folder == true && node.tooltip.split(',').indexOf(' Type=TestPlan') >= 0){//select the root customized suite 
+	        	//save the information into the parameters of the node
+	        	$("#test_plan_suite_selected").attr("suite_tooltip_" + node.key.split('-')[1], node.tooltip);
+	        	$("#test_plan_suite_selected").attr("suite_title_" + node.key.split('-')[1], node.title);
+	            return node.key.split('-')[1];
+	        }
+	        else//do not support the select of case within test plan
+	        {
+	        	alert("Please only select the test plan instead of the cases within it.");
+	        	data.node.setSelected(false);
+	        }
+        });
+	  	$("#test_plan_suite_selected").attr("suites_list", selectedSuites.join(','));
+	 }
+	});
+	
+	$("#predefined_test_suites").fancytree({
+	  source: {
+	    url: '/test_depot/test_suites_of_external_providers_index.json'
+	  },
+	  checkbox: true,
+	  selectMode: 3,//single
+	  cache: false,
+	  lazyload: function(event, data) {
+	    var node = data.node;
+        data.result = {
+        	url:'/test_suites/' + node.key.split('-')[1] +'/sub_test_suites_and_cases.json'
+        };
+	  },
+	  activate: function(){
+	  },
+	  expand: function(e, data){
+	  	
+	  },
+	  select: function(e, data){
+	  	var selectedNodes = data.tree.getSelectedNodes();
+        var selectedSuites = $.map(selectedNodes, function(node){
+	        if(node.folder == true && node.tooltip.split(',').indexOf(' Type=Static') >= 0){//select the root customized suite 
+	        	//save the information into the parameters of the node
+	        	$("#predefined_suite_selected").attr("suite_tooltip_" + node.key.split('-')[1], node.tooltip);
+	        	$("#predefined_suite_selected").attr("suite_title_" + node.key.split('-')[1], node.title);
+	            return node.key.split('-')[1];
+	        }
+	        else
+	        {
+	        	alert("Please only select the test suite instead of the cases within it.");
+	        	data.node.setSelected(false);
+	        }
+        });
+        var selectedCases = $.map(selectedNodes, function(node){
+	        if(node.folder == false){
+	        	return node.key.split('-')[1];
+	        }
+	    });
+	    $("#predefined_suite_selected").attr("cases_list", selectedCases.join(','));
+	  	$("#predefined_suite_selected").attr("suites_list", selectedSuites.join(','));
+	  	
+	 }
+	});
+};
+</script> 

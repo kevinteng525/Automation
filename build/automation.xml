@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="build" default="exec.automation" basedir=".">
+	<fail message="ANT 1.9.4 or higher is needed">
+		<condition>
+			<not>
+				<antversion atleast="1.9.4"/>
+			</not>
+		</condition>
+	</fail>
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<property environment="env" />
+	<property name="workspace.root" value="${env.WORKSPACE}"/>
+	
+	<target name="exec.automation" depends="" if="">
+		<if>
+			<istrue value="${RequireAutomation}"/>
+			<then>
+				<echo message="#### AUTOMATION INFORMATION ####"/>
+				<echo message="#### JOB_NAME = ${env.JOB_NAME} ####"/>
+				<if>
+					<contains string="${env.JOB_NAME}" substring="dpsearch" casesensitive="false"/>
+					<then>
+						<antcall target="exec.v1"/>
+					</then>
+				</if>
+				<if>
+					<contains string="${env.JOB_NAME}" substring="cis" casesensitive="false"/>
+					<then>
+						<antcall target="exec.v3"/>
+					</then>
+				</if>
+				<if>
+					<contains string="${env.JOB_NAME}" substring="reveal" casesensitive="false"/>
+					<then>
+						<antcall target="exec.v2"/>
+					</then>
+				</if>
+				<if>
+					<contains string="${env.JOB_NAME}" substring="zinc" casesensitive="false"/>
+					<then>
+						<antcall target="exec.v3"/>
+					</then>
+				</if>
+			</then>
+		</if>
+	</target>
+	
+	<target name="exec.v1" depends="" if="">
+		<if>
+			<isset property="TASKARG_UI"/>
+			<then>
+				<echo message="TASK ARGUMENT = ${TASKARG_UI}"/>
+				<exec dir="${workspace.root}/automation/build" executable="ruby">
+					<arg line="CreateTask.rb ${TASKARG_UI}"/>
+				</exec>
+			</then>
+		</if>
+		<if>
+			<isset property="TASKARG_API"/>
+			<then>
+				<echo message="TASK ARGUMENT = ${TASKARG_API}"/>
+				<exec dir="${workspace.root}/automation/build" executable="ruby">
+					<arg line="CreateTask.rb ${TASKARG_API}"/>
+				</exec>
+			</then>
+		</if>
+	</target>
+
+	<target name="exec.v2" depends="" if="">
+		<condition property="automation.script" value="CreateTask.rb 0 0" else="CreateTask.rb">
+			<equals arg1="${SendReportTo}" arg2="myself" casesensitive="false"/>
+		</condition>
+		<script language="javascript"><![CDATA[
+			var argument_list = ['TASKARG', 'TASKARG_UI', 'TASKARG_API']
+			var argument_full = ''
+			for (x in argument_list)
+			{
+				argument = project.getProperty(argument_list[x]);
+				argument += ''
+				if (argument.length != 0 && argument != 'null')
+				{
+					
+					argument_full += argument + ','
+				}
+			}
+			argument_full = argument_full.substr(0, argument_full.length - 1)
+			project.setProperty('automation.argument.full', argument_full);
+		]]>	
+		</script>
+		<for list="${automation.argument.full}" param="automation.argument" delimiter=",">
+			<sequential>
+				<echo message="#### TASK ARGUMENT = @{automation.argument} ####"/>
+				<exec dir="${workspace.root}/automation/build" executable="ruby">
+					<arg line="${automation.script} @{automation.argument}"/>
+				</exec>
+			</sequential>
+		</for>
+	</target>
+	
+	<target name="exec.v3" depends="" if="">
+		<condition property="automation.script" value="CreateTask_New.rb 0 0" else="CreateTask_New.rb">
+			<equals arg1="${SendReportTo}" arg2="myself" casesensitive="false"/>
+		</condition>
+		<script language="javascript"><![CDATA[
+			var argument_list = ['TASKARG', 'TASKARG_UI', 'TASKARG_API']
+			var argument_full = ''
+			for (x in argument_list)
+			{
+				argument = project.getProperty(argument_list[x]);
+				argument += ''
+				if (argument.length != 0 && argument != 'null')
+				{
+					
+					argument_full += argument + ','
+				}
+			}
+			argument_full = argument_full.substr(0, argument_full.length - 1)
+			project.setProperty('automation.argument.full', argument_full);
+		]]>	
+		</script>
+		<for list="${automation.argument.full}" param="automation.argument" delimiter=",">
+			<sequential>
+				<echo message="#### TASK ARGUMENT = @{automation.argument} ####"/>
+				<exec dir="${workspace.root}/automation/build" executable="ruby">
+					<arg line="${automation.script} @{automation.argument}"/>
+				</exec>
+			</sequential>
+		</for>
+	</target>
+	
+</project>

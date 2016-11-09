@@ -1,0 +1,1 @@
+c:\scripts\master.exe param1 "I" "SQL01"

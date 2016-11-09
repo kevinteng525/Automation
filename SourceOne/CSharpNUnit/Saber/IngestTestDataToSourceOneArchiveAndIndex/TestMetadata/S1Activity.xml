@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<activity>
+  <policyname>Demo Policy Neil</policyname>
+  <!--state of the activity, one of [Active,ReadOnly,Suspended,CompleteSuccess,CompleteFailed,SystemTerminated,UserTerminated,Expired]-->
+  <!--current the setting doesn't work, the activity is active by default-->
+  <state>Active</state>
+  <description>activity description</description>
+  <!--Current the Saber only implemented the HA activity-->
+  <type>Archive_Historical</type>
+  <!--select the data source type-->
+  <!--MicrosoftExchange,IBMLotusDomino,SMTP,DCTM,Ex4X,Bloomberg,ExAS,URL,Directory,SharePoint,SOCS,ExAsIPM-->
+  <datasourcetype>MicrosoftExchange</datasourcetype>
+  <!--select data source-->
+  <datasources>
+    <datasource>
+      <providertype>Exchange</providertype>
+	  <!--AddressBook (ServerHierarchy and LDAP is not supportted yet)-->
+      <chooseby>AddressBook</chooseby>
+      <!--Specify whether it's user or group, if user, please specify the user name, else specify the group name-->
+      <sourcetype>User</sourcetype>
+      <username>ES1Service</username>
+      <groupname></groupname>
+    </datasource>
+  </datasources>
+  <!--Primary,PersonalArchive-->
+  <datasourcemailboxtype>Primary,PersonalArchive</datasourcemailboxtype>
+  <!--select the items types-->
+  <!--IncludeAll,EmailMessages,Contacts,Appointments,Tasks,PostedMessages,Activities,StickyNotes,Schedule,Documents,ReportDeliveries,ReportReadReceipts,ReportOthers,Reports,Others,Anniversaries,Events,Reminders,Meetings,Notices,JournalEntries,InstantMsgs-->
+  <mailboxitemtypes>IncludeAll</mailboxitemtypes>
+  <reprocessitems>true</reprocessitems>
+  <!--select folders-->
+  <!--IncludeAll,Calendar,Contacts,DeletedItems,Notes,Outbox,SentItems,Tasks,JunkEmail,UserDefined, if UserDefined is checked, the setting for usercreatedfolders is active-->
+  <mailfoldertypes>IncludeAll,Calendar,Contacts,DeletedItems,Notes,Outbox,SentItems,Tasks,JunkEmail,UserDefined</mailfoldertypes>
+  <inlcudesubfolders>true</inlcudesubfolders>
+  <includereaditems>true</includereaditems>
+  <includeunreaditems>true</includeunreaditems>
+  <includesoftdeleteditems>true</includesoftdeleteditems>
+  <!--include user created folder-->
+  <usercreatedfolders></usercreatedfolders>
+  <!--select the dates for your activity-->
+  <!--one of[UseAll,Dated,Aged]-->
+  <datestype>UseAll</datestype>
+  <datedconfig></datedconfig>
+  <agedconfig></agedconfig>
+  <!--one of [UseReceivedDate,UseLastModifiedDate,UseArchivedDate]-->
+  <basedupon>UseReceivedDate</basedupon>
+  <!--attachments filter-->
+  <attachmentsextensionsexcluded></attachmentsextensionsexcluded>
+  <!--message types filter-->
+  <excludemessagetypes></excludemessagetypes>
+  <includemessagetypes></includemessagetypes>
+  <!--message size filter-->
+  <includemessagegreaterthan>0</includemessagegreaterthan>
+  <includemessagelessthan></includemessagelessthan>
+  <!--specify activity component extension-->
+  <enablecopymessagedonotmatchanyruleto>true</enablecopymessagedonotmatchanyruleto>
+  <ablecopymessagedonotmatchanyruletofolder>mapped folder Demo Neil</ablecopymessagedonotmatchanyruletofolder>
+  <addressfilteringrules>
+    <addressfilteringrule>
+      <targetmappedfolder>mapped folder Demo Neil</targetmappedfolder>
+      <name>Demo rule</name>
+      <addressfilteringruleconditions>
+        <addressfilteringrulecondition>
+		  <!--one of [Address,DirectlyAddress,Domain,MetaData(not support yet),CopyMessagesNotMatchAnyRuleTo]-->
+          <filtertype>Address</filtertype>
+		  <!--one of [To,From,ToOrFrom,OwnedBy,WithSpecificWordsInSubject,All]-->
+          <fieldtype>From</fieldtype>
+          <peopleordistributionlist>
+            <datasource>
+              <providertype>Exchange</providertype>
+			  <!--AddressBook (ServerHierarchy and LDAP is not supportted yet)-->
+              <chooseby>AddressBook</chooseby>
+              <!--Specify whether it's user or group, if user, please specify the user name, else specify the group name-->
+              <sourcetype>User</sourcetype>
+              <username>ES1Service</username>
+              <groupname></groupname>
+            </datasource>
+          </peopleordistributionlist>
+		  <!--list of domains or specific words, such as domain1,domain2,domain3 or word1,word2,word3-->
+          <domainorspecificwords></domainorspecificwords>
+        </addressfilteringrulecondition>
+      </addressfilteringruleconditions>
+    </addressfilteringrule>
+  </addressfilteringrules>  
+  <!--specify the schedule for your activity, must be NOW, now or Now doesn't work-->
+  <startdate>NOW</startdate>
+  <starttime>NOW</starttime>
+  <!--hour-->
+  <duration>1</duration>
+  <!--one of [Once,Daily,Weekly,Monthly]-->
+  <recurrencepattern>Once</recurrencepattern>
+  <dailyconfig></dailyconfig>
+  <weeklyconfig></weeklyconfig>
+  <monthlyconfig></monthlyconfig>
+  <endby>NOW+1</endby>
+  <!--select worker group-->
+  <workergroupname></workergroupname>
+  <!--specify the name for your activity, and the logging option-->
+  <name>HA Demo Neil</name>
+  <enabledetailedlogging>true</enabledetailedlogging>
+</activity>

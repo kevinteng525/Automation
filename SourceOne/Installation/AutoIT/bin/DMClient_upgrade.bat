@@ -1,0 +1,1 @@
+c:\scripts\DMClient.exe param1 "U"

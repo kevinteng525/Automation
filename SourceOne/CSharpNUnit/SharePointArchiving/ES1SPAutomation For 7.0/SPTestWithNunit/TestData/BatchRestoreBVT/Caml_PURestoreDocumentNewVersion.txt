@@ -1,0 +1,1 @@
+<View><Query><Where><Eq><FieldRef Name="Title" /><Value Type="Text">BVTDocument_V1</Value></Eq></Where></Query></View>

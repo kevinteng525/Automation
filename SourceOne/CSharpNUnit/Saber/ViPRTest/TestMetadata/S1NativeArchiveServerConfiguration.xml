@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<nativearchiveserverconfiguration>
+  <archive>
+    <enable>true</enable>
+    <messagecenterlocation>\\sql01\Share\MC</messagecenterlocation>
+    <volumeidletime>172800</volumeidletime>
+  </archive>
+  <index>
+    <enable>true</enable>
+    <archiveservers>
+      <!--Pay attention here that, the archive server name is case sensitive, you must specify the exactly name here. -->
+      <archiveserver>SQL01.domain.com</archiveserver>
+    </archiveservers>
+    <componentlimitperindexaction_add>4</componentlimitperindexaction_add>
+    <componentlimitperindexaction_delete>2</componentlimitperindexaction_delete>
+    <componentlimitperindexaction_repair>2</componentlimitperindexaction_repair>
+    <componentlimitperindexaction_update>4</componentlimitperindexaction_update>
+    <runthreshod>2</runthreshod>
+  </index>
+  <search>
+    <enable>true</enable>
+    <memoryallocated>50</memoryallocated>
+  </search>
+  <retrieval>
+    <enable>true</enable>
+  </retrieval>
+</nativearchiveserverconfiguration>

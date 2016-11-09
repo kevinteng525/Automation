@@ -1,0 +1,25 @@
+﻿<Window x:Class="Client.Windows.CollectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Collection" Height="150" Width="300" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="ThreeDBorderWindow" Icon="/Images/Collection_Blue.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Name:" Width="50" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtDisplayName" Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Width="200" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" x:Name="OkCancelBar" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="50">
+                <Button x:Name="confrim" Content="OK" Width="80" Height="30" Click="confrim_Click" IsDefault="True" Style="{StaticResource BlueButtonStyle}"/>
+                <Button x:Name="cancel" Content="Cancel" Margin="30,0,0,0" Width="80" Height="30" Click="cancel_Click" IsCancel="True" Style="{StaticResource WhiteButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

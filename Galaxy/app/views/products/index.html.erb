@@ -1,0 +1,63 @@
+<fieldset>
+	<legend class="galaxy_legend">Products</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	      <th>RQM Project Alias</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @products.each do |product| %>
+	      <tr class="<%= cycle('list_line_odd','list_line_even') %>">
+	        <td><%= product.name %></td>
+	        <td><%= product.description %></td>
+	        <td><%= product.rqm_project_alias %></td>
+	        <td class="item_operations">
+	        	<%= link_to 'Show', product_path(product) %>
+	        	<%= link_to 'Edit', edit_product_path(product) %>
+	        	<% if @is_current_user_administrator %>
+	        	<%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %>
+	        	<% end %>
+	        </td>
+	      </tr>
+	     
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>
+ <script type="text/javascript">
+				$(".subscribe_check_box").change(function(){
+					var object =$(this);
+					if ($(this).attr("subscribe_id")=="-1"){
+						var params = {'subscriber':{'project_id':$(this).attr("project_id"), 'user_id':$(this).attr("user_id"), 'create_time':getLocalDateStringOfCurrent(),'subscriber_type':'1','description':''}};
+						
+						$.post("/subscribers",params,function(data){
+							alert ("Subscription Successfully!");
+							object.attr("subscribe_id",data.id);		
+						},'json');
+					}
+					else {
+						suburl = '/subscribers/'+$(this).attr("subscribe_id");
+						subid = $(this).attr("subscribe_id");
+						$.ajax({
+							id: subid,
+							type:"DELETE",
+							url:suburl,
+							dataType:"json",
+							success:function(){
+								object.attr("subscribe_id","-1");
+								alert ("Unsubscribption Successfully!");
+							}
+						});						
+					}					
+				});
+</script>

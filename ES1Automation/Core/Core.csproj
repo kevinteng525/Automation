@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13447426-9190-43BA-9404-514385083DB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\packages\EntityFramework.Extended.6.0.0.86\lib\net40\EntityFramework.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\References\vCloud\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VcloudRestSchema_V5_1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\vCloud\VcloudRestSchema_V5_1.dll</HintPath>
+    </Reference>
+    <Reference Include="VcloudSDK_V5_1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\vCloud\VcloudSDK_V5_1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATFEnvironment.cs" />
+    <Compile Include="CommonEnums.cs" />
+    <Compile Include="DTO\AutomationJobDTO.cs" />
+    <Compile Include="DTO\AutomationTaskDTO.cs" />
+    <Compile Include="DTO\BranchDTO.cs" />
+    <Compile Include="DTO\BuildDTO.cs" />
+    <Compile Include="DTO\Core.DTO.cs" />
+    <Compile Include="DTO\DiagnosticLogDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\ProjectDTO.cs" />
+    <Compile Include="DTO\ProjectEnvironmentMapDTO.cs" />
+    <Compile Include="DTO\ProviderDTO.cs" />
+    <Compile Include="DTO\RankingDTO.cs" />
+    <Compile Include="DTO\ReleaseDTO.cs" />
+    <Compile Include="DTO\SubscriberDTO.cs" />
+    <Compile Include="DTO\SupportedEnvironmentDTO.cs" />
+    <Compile Include="DTO\TaskJobMapDTO.cs" />
+    <Compile Include="DTO\TestCaseDTO.cs" />
+    <Compile Include="DTO\TestCaseExecutionDTO.cs" />
+    <Compile Include="DTO\TestEnvironmentDTO.cs" />
+    <Compile Include="DTO\TestResultDTO.cs" />
+    <Compile Include="DTO\TestSuiteDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Entities\ATFConfiguration.cs" />
+    <Compile Include="Entities\AutomationJob.cs" />
+    <Compile Include="Entities\AutomationTask.cs" />
+    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\DiagnosticLog.cs" />
+    <Compile Include="Entities\EnvironmentConfigHelper.cs" />
+    <Compile Include="Entities\Project.cs" />
+    <Compile Include="Entities\Ranking.cs" />
+    <Compile Include="Entities\Release.cs" />
+    <Compile Include="Entities\Subscriber.cs" />
+    <Compile Include="Entities\TaskJobMap.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\ProjectEnvironmentMap.cs" />
+    <Compile Include="Entities\TestCase.cs" />
+    <Compile Include="Entities\TestCaseExecution.cs" />
+    <Compile Include="Entities\TestResult.cs" />
+    <Compile Include="Entities\TestSuite.cs" />
+    <Compile Include="Entities\Build.cs" />
+    <Compile Include="Entities\Provider.cs" />
+    <Compile Include="Entities\SupportedEnvironment.cs" />
+    <Compile Include="Entities\TestEnvironment.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Management\BuildManager.cs" />
+    <Compile Include="Management\TestCaseManager.cs" />
+    <Compile Include="Management\JobManagement.cs" />
+    <Compile Include="Management\TaskManagement.cs" />
+    <Compile Include="Management\EnvironmentManager.cs" />
+    <Compile Include="Model\ATFConfiguration.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATFModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATFModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATFModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ATFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ATFModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AutomationJob.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AutomationTask.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Branch.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Build.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DiagnosticLog.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Project.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProjectEnvironmentMap.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Provider.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ranking.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Release.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subscriber.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SupportedEnvironment.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TaskJobMap.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestCase.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestCaseExecution.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestEnvironment.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestResult.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TestSuite.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>ATFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\BuildProviders\BuildFileServer.cs" />
+    <Compile Include="Providers\BuildProviders\CISBuildServer.cs" />
+    <Compile Include="Providers\BuildProviders\DPSearchBuildServer.cs" />
+    <Compile Include="Providers\BuildProviders\IBuildProvider.cs" />
+    <Compile Include="Providers\BuildProviders\RevealBuildServer.cs" />
+    <Compile Include="Providers\BuildProviders\SupervisorWebBuildProvider.cs" />
+    <Compile Include="Providers\BuildProviders\ZincBuildProvider.cs" />
+    <Compile Include="Providers\EnvrionmentProviders\IEnvironmentProvider.cs" />
+    <Compile Include="Providers\EnvrionmentProviders\VCloudEnvironmentProvider.cs" />
+    <Compile Include="Providers\IProvider.cs" />
+    <Compile Include="Providers\TestCaseProviders\ATFTestCaseProvider.cs" />
+    <Compile Include="Providers\TestCaseProviders\ITestCaseProvider.cs" />
+    <Compile Include="Providers\TestCaseProviders\RQMTestCaseProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{86B005E3-59B5-4412-8993-6827D6EC2357}</Project>
+      <Name>Common %28Common\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES1Common\ES1Common.csproj">
+      <Project>{3F0DD301-7F44-46DE-81A1-09874C1B4F45}</Project>
+      <Name>ES1Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\ATFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ATFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Core.ClassDiagram.Provider.cd" />
+    <None Include="Model\ATFModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ATFModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\ATFModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ATFModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Documents\galaxy_result_report_template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documents\SaberAgentStarterTaskTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Name</th>
+      <th>Build type</th>
+      <th>Status</th>
+      <th>Branch</th>
+      <th>Number</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% builds.each do |build| %>
+      <tr class="<%= cycle('list_line_odd','list_line_even') %>">
+        <td><%= product_name_of_build(build) %></td>
+        <td><%= build.name %></td>
+        <td><%= force_build_type_name(build.build_type) %></td>
+        <td><%= force_build_status_name(build.status) %></td>
+        <td><%= build.branch %></td>
+        <td><%= build.number %></td>
+        <td><%= build.location %></td>
+        <td><%= build.description %></td>
+        <td  class="item_operations"><%= link_to 'Show', build_path(build) %>
+        <%= link_to 'Edit', edit_build_path(build) %>
+        <%= link_to 'Destroy', build_path(build), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

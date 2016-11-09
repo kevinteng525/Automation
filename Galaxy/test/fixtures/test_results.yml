@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  execution_id: 1
+  result: 1
+  is_triaged: false
+  triaged_by: 1
+  description: MyText
+
+two:
+  execution_id: 1
+  result: 1
+  is_triaged: false
+  triaged_by: 1
+  description: MyText

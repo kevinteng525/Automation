@@ -1,0 +1,47 @@
+<%= form_for(@test_environment) do |f| %>
+  <% if @test_environment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_environment.errors.count, "error") %> prohibited this test_environment from being saved:</h2>
+
+      <ul>
+      <% @test_environment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size=>40, :placeholder => 'Enter the name for the environment' %>
+  </div>
+  <div class="field">
+    <%= f.label :environment_type %><br>
+    <%= f.select :environment_type, get_environment_type_list, :prompt => 'Select the test environment type' %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select :status, get_environment_status_list, :prompt => 'Set the test environment status' %>
+  </div>
+  <!-- the created_at and modified_at will be set during the db saving
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :modified_at %><br>
+    <%= f.datetime_select :modified_at %>
+  </div>
+  -->
+  <div class="field">
+    <%= f.label :config %><br>
+    <%= f.text_area :config, rows:10, cols:50, :placeholder => 'Input the test environment configurations here. Below is an example:</br><xml>...</xml>' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :rows => 5, :cols => 60, :placeholder => 'The description for the test environment.'  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

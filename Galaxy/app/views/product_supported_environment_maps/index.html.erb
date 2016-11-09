@@ -1,0 +1,31 @@
+<fieldset>
+	<legend class="galaxy_legend">Project Test Environment Maps</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Project</th>
+	      <th>Test environment</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @product_supported_environment_maps.each do |product_supported_environment_map| %>
+	      <tr>
+	        <td><%= force_project_name(product_supported_environment_map.project_id) %></td>
+	        <td><%= supported_environment_name(product_supported_environment_map.supported_environment_id) %></td>
+	        <td class="item_operations">
+	        	<%= link_to 'Show', product_supported_environment_map_path(product_supported_environment_map) %>
+	        	<%= link_to 'Edit', edit_product_supported_environment_map_path(product_supported_environment_map) %>
+	        	<% if @is_current_user_administrator %>
+	        	<%= link_to 'Destroy', product_supported_environment_map_path(product_supported_environment_map), method: :delete, data: { confirm: 'Are you sure?' } %>
+	        	<% end %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+<br>
+<%= link_to 'New Project Test Environment Map', new_product_supported_environment_map_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

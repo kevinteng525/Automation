@@ -1,0 +1,43 @@
+<h1>Listing providers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Path</th>
+      <th>Config</th>
+      <th>String</th>
+      <th>Description</th>
+      <th>Is active</th>
+      <th>Integer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.name %></td>
+        <td><%= provider.category %></td>
+        <td><%= provider.type %></td>
+        <td><%= provider.path %></td>
+        <td><%= provider.config %></td>
+        <td><%= provider.string %></td>
+        <td><%= provider.description %></td>
+        <td><%= provider.is_active %></td>
+        <td><%= provider.integer %></td>
+        <td><%= link_to 'Show', provider %></td>
+        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provider', new_provider_path %>

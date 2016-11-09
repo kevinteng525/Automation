@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<archiveconnection>
+  <name>Demo</name>
+  <description>connection description</description>
+  <!--one of [EMailXtender4X,NativeArchive,InPlaceMigratedNativeArchive]-->
+  <connectiontype>NativeArchive</connectiontype>
+  <databaseserver>ES1ALL.sosp.com</databaseserver>
+  <databasename>ES1Archive</databasename>
+</archiveconnection>

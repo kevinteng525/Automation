@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration ID="Configs">
+  <ADServer Name="SODC.sosp.com" UserName="administrator" Password="emcsiax@QA"/>
+  <ArchiveConnection Name="CONN" DBServer="AutoSvrSPOSim" DBName="ES1Archive"/>
+  <MessageCenter MCLocation="\\autosvrsposim\Shared\MC" />
+  <ArchiveFolder Name="AF1" ArchiveLocation="\\autosvrsposim\Shared\Archive" IndexLocation="\\autosvrsposim\Shared\Index" />
+  <ArchiveFolder Name="AF2" ArchiveLocation="\\autosvrsposim\Shared\Archive" IndexLocation="\\autosvrsposim\Shared\Index" />
+
+  <MappedFolder Name="MDAF1" ArchiveFolder="AF1" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="15" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="15" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF2" ArchiveFolder="AF2" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="15" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+</Configuration>

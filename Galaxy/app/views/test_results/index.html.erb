@@ -1,0 +1,36 @@
+<fieldset>
+	<legend class="galaxy_legend">Listing Test Results</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Execution</th>
+	      <th>Result</th>
+	      <th>Is triaged</th>
+	      <th>Triaged by</th>
+	      <th>Description</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @test_results.each do |test_result| %>
+	      <tr>
+	        <td><%= test_result.execution_id %></td>
+	        <td><%= result_type_name(test_result.result) %></td>
+	        <td><%= test_result.is_triaged %></td>
+	        <td><%= force_user_name(test_result.triaged_by) %></td>
+	        <td title='<%= test_result.description %>'><%= shorten_string(test_result.description, 10) %></td>
+	        <td class="item_operations"><%= link_to 'Show', test_result_path(test_result) %>
+	        <%= link_to 'Edit', edit_test_result_path(test_result) %>
+	        <%= link_to 'Destroy', test_result_path(test_result), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</fieldset>
+
+<br>
+
+<%= link_to 'New Test result', new_test_result_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

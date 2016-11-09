@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="Activity_Test4" Policy="PolicyA" Logging="True">
+  <Config>
+    <DataSource>
+      <SiteCollection Url="https://sponlinesim.sosp.com:888/" UserName="fbatest" Password="emcsiax@QA">
+        <Site Name="FBA DEMO Site" >
+          <List Name="TestDoc2"/>
+          <List Name="TestDocLib1"/>
+        </Site>
+      </SiteCollection>
+      <NewContent Include="true"/>
+      <ContentType ExcludeHidden="true">
+        <ExcludedType Name="" />
+        <ExcludedType Name="Holiday" />
+        <ExcludedType Name="Report" />
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Modified" Type="Aged" Operator="Between" Data1="0_days" Data2="15_months" />
+    <Action MappedFolder="MDAF1" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

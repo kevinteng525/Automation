@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <!-- Console, ExArchive, Master, Worker contains these gac files -->
+  <!-- GACAsseembly Group : verify whether a dll has been register to GAC  -->
+  <Group type="GACAssembly" groupName="SourceOne GACAssembly Validation">
+    <Item name="EMC.Interop.ExBase.dll" assemblyName ="EMC.Interop.ExBase" assemblyVersion="6.6.3.8" />
+    <Item name="EMC.Interop.ExSTLContainers.dll" assemblyName ="EMC.Interop.ExSTLContainers" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExConnector.dll" assemblyName ="EMC.Interop.ExConnector" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExStream.dll" assemblyName ="EMC.Interop.ExStream" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExMsgV6.dll" assemblyName ="EMC.Interop.ExMsgV6" assemblyVersion="6.6.3.4" />
+    <Item name="EMC.Interop.ExDoc.dll" assemblyName ="EMC.Interop.ExDoc" assemblyVersion="6.6.3.6" />
+    <Item name="EMC.Interop.excomcollection.dll" assemblyName ="EMC.Interop.excomcollection" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExProviderSupport.dll" assemblyName ="EMC.Interop.ExProviderSupport" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExDirObjLookup.dll" assemblyName ="EMC.Interop.ExDirObjLookup" assemblyVersion="6.6.3.4" />
+    <Item name="EMC.Interop.Ex4xProvider.dll" assemblyName ="EMC.Interop.Ex4xProvider" assemblyVersion="6.6.3.4" />
+    <Item name="EMC.Interop.Ex4XRepository.dll" assemblyName ="EMC.Interop.Ex4XRepository" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExAddrBook.dll" assemblyName ="EMC.Interop.ExAddrBook" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExDB_Inproc.dll" assemblyName ="EMC.Interop.ExDB_Inproc" assemblyVersion="6.6.3.0" />
+    <Item name="EMC.Interop.ExTrace.dll" assemblyName ="EMC.Interop.ExTrace" assemblyVersion="6.6.3.2" />
+    <!--<Item name="EMC.Interop.ExDctmProvider.dll" assemblyName ="EMC.Interop.ExDctmProvider" assemblyVersion="6.6.3.0" />-->
+    <!--<Item name="EMC.Interop.ExExchDirObjLookup.dll" assemblyName ="EMC.Interop.ExExchDirObjLookup" assemblyVersion="6.6.3.2" />-->
+    <Item name="EMC.Interop.ExExchAddrBook.dll" assemblyName ="EMC.Interop.ExExchAddrBook" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExExchComUtils.dll" assemblyName ="EMC.Interop.ExExchComUtils" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExExchMsgV6.dll" assemblyName ="EMC.Interop.ExExchMsgV6" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExExchProvider.dll" assemblyName ="EMC.Interop.ExExchProvider" assemblyVersion="6.6.3.3" />
+    <!--<Item name="EMC.Interop.ExFileProvider.dll" assemblyName ="EMC.Interop.ExFileProvider" assemblyVersion="6.6.3.0" />-->
+    <Item name="EMC.Interop.ExJDFAPI.dll" assemblyName ="EMC.Interop.ExJDFAPI" assemblyVersion="6.6.3.6" />
+    <Item name="EMC.Interop.ExMIMEMsgV6.dll" assemblyName ="EMC.Interop.ExMIMEMsgV6" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExMimeProvider.dll" assemblyName ="EMC.Interop.ExMimeProvider" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExNotesAddrBook.dll" assemblyName ="EMC.Interop.ExNotesAddrBook" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExNotesDBDialog.dll" assemblyName ="EMC.Interop.ExNotesDBDialog" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExNotesDirObjLookup.dll" assemblyName ="EMC.Interop.ExNotesDirObjLookup" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExNotesMsgV6.dll" assemblyName ="EMC.Interop.ExNotesMsgV6" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExNotesProvider.dll" assemblyName ="EMC.Interop.ExNotesProvider" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExPerfMon.dll" assemblyName ="EMC.Interop.ExPerfMon" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExRepositoryLocator.dll" assemblyName ="EMC.Interop.ExRepositoryLocator" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExRepositoryManager.dll" assemblyName ="EMC.Interop.ExRepositoryManager" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExResultSetCallback.dll" assemblyName ="EMC.Interop.ExResultSetCallback" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExSdkCOMLib.dll" assemblyName ="EMC.Interop.ExSdkCOMLib" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExResultSetDoc.dll" assemblyName ="EMC.Interop.ExResultSetDoc" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExXMLAccess.dll" assemblyName ="EMC.Interop.ExXMLAccess" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExDataSet.dll" assemblyName ="EMC.Interop.ExDataSet" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExLDAPAPI.dll" assemblyName ="EMC.Interop.ExLDAPAPI" assemblyVersion="6.6.3.2" />
+    <!--<Item name="EMC.Interop.ExDctmProviderCfg.dll" assemblyName ="EMC.Interop.ExDctmProviderCfg" assemblyVersion="6.6.3.0" />-->
+    <Item name="EMC.Interop.Ex4xProviderCfg.dll" assemblyName ="EMC.Interop.Ex4xProviderCfg" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExHtmlParser.dll" assemblyName ="EMC.Interop.ExHtmlParser" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExObjectSchema.dll" assemblyName ="EMC.Interop.ExObjectSchema" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExDocUtils.dll" assemblyName ="EMC.Interop.ExDocUtils" assemblyVersion="6.6.3.2" />
+    <!--<Item name="EMC.Interop.ExUserDeleteMsg.dll" assemblyName ="EMC.Interop.ExUserDeleteMsg" assemblyVersion="6.7.0.0" />-->
+    <Item name="EMC.Interop.ExDB_Inproc.dll" assemblyName ="EMC.Interop.ExDB_Inproc" assemblyVersion="6.6.3.0" />
+    <!--<Item name="EMC.Interop.ExManagedLogging.dll" assemblyName ="EMC.Interop.ExManagedLogging" assemblyVersion="6.6.3.1" />-->
+    <!--<Item name="EMC.Interop.ExNotesInit.dll" assemblyName ="EMC.Interop.ExNotesInit" assemblyVersion="6.6.3.0" />-->
+    <!--<Item name="EMC.Interop.ExProviderUtils.dll" assemblyName ="EMC.Interop.ExProviderUtils" assemblyVersion="6.6.3.0" />-->
+    <!--<Item name="EMC.Interop.ExSecurity.dll" assemblyName ="EMC.Interop.ExSecurity" assemblyVersion="6.6.3.0" />-->
+    <Item name="EMC.Interop.ExProvider_2.dll" assemblyName ="EMC.Interop.ExProvider_2" assemblyVersion="6.6.3.7" />
+    <!--<Item name="EMC.Interop.ExJobDispatcherLib.dll" assemblyName ="EMC.Interop.ExJobDispatcherLib" assemblyVersion="6.6.3.1" />-->
+    <!--<Item name="EMC.Interop.ExMsgLib.dll" assemblyName ="EMC.Interop.ExMsgLib" assemblyVersion="6.6.3.1" />-->
+    <Item name="EMC.Interop.ExJournalTaskAPI.dll" assemblyName ="EMC.Interop.ExJournalTaskAPI" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExMBTaskAPI.dll" assemblyName ="EMC.Interop.ExMBTaskAPI" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExSearchService.dll" assemblyName ="EMC.Interop.ExSearchService" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExContainerSrchTaskAPI.dll" assemblyName ="EMC.Interop.ExContainerSrchTaskAPI" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExAddressRulesBCECfg.dll" assemblyName ="EMC.Interop.ExAddressRulesBCECfg" assemblyVersion="6.6.3.1" />
+    <!--<Item name="EMC.Interop.ES1AddressResolutionService.dll" assemblyName ="EMC.Interop.ES1AddressResolutionService" assemblyVersion="6.7.0.0" />-->
+    <!--<Item name="EMC.Interop.ExMMCAdminPluginAPI.dll" assemblyName ="EMC.Interop.ExMMCAdminPluginAPI" assemblyVersion="6.6.3.0" />-->
+    <Item name="EMC.Interop.ExJDFDB.dll" assemblyName ="EMC.Interop.ExJDFDB" assemblyVersion="6.6.3.4" />
+    <Item name="EMC.Interop.ExProviderGW.dll" assemblyName ="EMC.Interop.ExProviderGW" assemblyVersion="6.6.3.7" />
+    <Item name="EMC.Interop.ExASBaseAPI.dll" assemblyName ="EMC.Interop.ExASBaseAPI" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExAsDB.dll" assemblyName ="EMC.Interop.ExAsDB" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExAsAdminAPI.dll" assemblyName ="EMC.Interop.ExAsAdminAPI" assemblyVersion="6.6.3.4" />
+    <Item name="EMC.Interop.ExAsMsgUnpack.dll" assemblyName ="EMC.Interop.ExAsMsgUnpack" assemblyVersion="6.6.3.2" />
+    <!--<Item name="EMC.Interop.ExAsMsgUnpackGW.dll" assemblyName ="EMC.Interop.ExAsMsgUnpackGW" assemblyVersion="6.6.3.2" />-->
+    <Item name="EMC.Interop.ExAsEMCMFMsgUnpack.dll" assemblyName ="EMC.Interop.ExAsEMCMFMsgUnpack" assemblyVersion="6.6.3.2" />
+    <Item name="EMC.Interop.ExAsProvider.dll" assemblyName ="EMC.Interop.ExAsProvider" assemblyVersion="6.6.3.3" />
+    <Item name="EMC.Interop.ExAsZipInst.dll" assemblyName ="EMC.Interop.ExAsZipInst" assemblyVersion="6.6.3.1" />
+    <!--<Item name="EMC.Interop.ExAsIdxObj.dll" assemblyName ="EMC.Interop.ExAsIdxObj" assemblyVersion="6.6.3.1" />-->
+    <Item name="EMC.Interop.ExAsProviderCfg.dll" assemblyName ="EMC.Interop.ExAsProviderCfg" assemblyVersion="6.6.3.1" />
+    <Item name="EMC.Interop.ExCenteraAccess.dll" assemblyName ="EMC.Interop.ExCenteraAccess" assemblyVersion="6.6.3.2" />
+    <!--<Item name="EMC.Interop.ES1InPlaceMigService.dll" assemblyName ="EMC.Interop.ES1InPlaceMigService" assemblyVersion="6.6.1.1" />-->
+  </Group>
+</Verify>

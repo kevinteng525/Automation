@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<workergroup>
+  <name required="true">group name</name>
+  <description required="optional">group description</description>
+  <!--For the workers, we'll implement the refer to the workers in the enviroment config in future. Current it's hard code.-->
+  <workers required="optional">
+    <worker>worker name 1</worker>
+    <worker>worker name 2</worker>
+  </workers>
+</workergroup>

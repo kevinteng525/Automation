@@ -1,0 +1,198 @@
+<p>
+  <strong>Test Case:</strong>
+  <%= force_test_case_name_by_result_id(@test_result.id) %>
+</p>
+
+<p>
+  <strong>Execution:</strong>
+  <%= @test_result.execution_id %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <% result_name = result_type_name(@test_result.result) %>
+  <span style="padding: 8px;" class="<%= display_class_for_result(result_name)%>"><%= result_name %></span>
+</p>
+
+<p>
+  <strong>Is triaged:</strong>
+  <%= @test_result.is_triaged %>
+</p>
+
+<p>
+  <strong>Triaged by:</strong>
+  <%= force_user_name(@test_result.triaged_by) %>
+</p>
+
+<p>
+  <strong>Result Files:</strong>
+  <a href='<%= @test_result.files %>'><%= @test_result.files %></a>
+</p>
+
+<p>
+  <strong>Historical Result:</strong>
+</p>
+<table id='historical_result_table'>
+  	<thead>
+  		<tr>
+  			<th>Task</th>
+  			<th>Build</th>
+  			<th>Results</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<% @historical_results.each do |result| %>
+  		<tr class='historical_result' >
+  			<td><%= result.task_name %></td>
+  			<td><%= result.build_name %></td>
+
+  			<td align="center"><span class='comments_link <%= display_class_for_result(result_type_name(result.result)) %>' result_id='<%= result.result_id %>'><%= result_type_name(result.result) %></span></td>
+  		</tr>
+  		
+  		<!-- The dialog will be placed at the bottom of the page, if not destroy it, each time reload it, a new dialog will be generated. -->
+  		<div class='tooltips_dialog' id='<%= result.result_id %>'>  			
+  			<% if (result.result_comments != nil) %>
+  				<% result.result_comments.split('|').each do |line| %>
+  					<p><%= html_escape(line) %></p>
+  				<% end %>
+  			<% end %>		
+		</div>
+		
+  		<% end %>
+  	</tbody>
+</table>
+
+<div id='triage_comments'>
+  <p><strong>Comments:</strong></p>
+  <% if @test_result.description!=nil %>
+  	<% @test_result.description.split('|').each do |line| %>
+  		<p><%= html_escape(line) %></p>
+  	<% end %>
+  <% end %>
+</div>
+
+<div id='add_comment_dialog' class='add_comment_dialog'>
+	<div class="field" id="bug_number_div">
+		<label for="bug_number">Bug Number:</label>
+		<br/>
+		<input name="bug_number" id="bug_number" type="text" value="" title="Please input the bug number"></input>
+	</div>
+	<div class="field">
+		<label for="new_comment">Comments:</label>
+		<br/>
+		<textarea comments='<%= (@test_result.description) %>' id='new_comment' name='new_comment' cols="35" rows="10"></textarea>
+	</div>
+</div>
+<div id="triage_operations">
+	<a id='add_triage_comment' class="add_triage_comment">Add Comments</a>
+	<a id='add_triage_comment_known_issue' class="add_triage_comment knownissue">Known Product Issue</a>
+	<a id='add_triage_comment_new_issue' class="add_triage_comment newissue">New Product Issue</a>
+	<a id='add_triage_comment_env_issue' class="add_triage_comment environmentissue">Environment Issue</a>
+	<a id='add_triage_comment_scripts_issue' class="add_triage_comment scriptsissue">Scripts Issue</a>
+	<a id='add_triage_comment_common_lib_issue' class="add_triage_comment commonlibraryissue">Common Lib Issue</a>
+</div>
+<script type="text/javascript">
+
+	$(".tooltips_dialog").dialog({
+		title:'Triage Comments',
+		autoOpen: false,
+		modal: true,
+		width: 340,
+	});
+	$("#historical_result_table").dataTable({
+		"bJQueryUI": true,
+        "bAutoWidth": false,
+        "fnDrawCallback": function( oSettings ) {      		
+    	}
+	});
+	$(".comments_link").button().click(function(){
+		$('#' + $(this).attr('result_id')).dialog("open");
+	});
+
+	$("#add_comment_dialog").dialog({
+		autoOpen: false,
+		title:'Add Triage Comments',
+		width:340,
+		modal: true,
+		buttons:{
+			"Add":function(){
+				var today = new Date();
+				var h = today.getUTCHours();
+				var m = today.getUTCMinutes();
+				var s = today.getUTCSeconds();
+				var y = today.getUTCFullYear();
+				var month = today.getUTCMonth() + 1;
+				var d = today.getUTCDate();
+				
+				var result = $("#bug_number_div").attr("result");
+				var bug_link = $("#bug_number_div").attr("result_description") + " " + (($("#bug_number").val()=="" ||$("#bug_number").val()==undefined)?"":" Bug number: "+$("#bug_number").val() + ". ");
+				
+				var new_description = y + '-' + month + '-' + d + ' ' + h + ':' + m + ' - User: ' + '<%= @current_user.name + ':|'%>' + ">> " + bug_link + $("#new_comment").val() + '|' + $("#new_comment").attr("comments");
+
+				var params = {'test_result':{'is_triaged':true,'execution_id':<%= @test_result.execution_id%>,'triaged_by':<%= @current_user.id%>, 'description':new_description, 'result':result, 'files':'<%= escape_javascript((@test_result.files == nil)?'':@test_result.files) %>'},'id':<%= @test_result.id %>};
+			    $.ajax({//all parameters must be present here
+			    	url: '/test_results/<%=@test_result.id%>',
+			    	type:"PUT",
+			    	data:params,
+			    	dataType:"json",
+			    	success: function(){
+			    		$("#add_comment_dialog").dialog("close");
+			    		$("#add_comment_dialog").dialog("destroy");
+			    		$("#new_comment").val("");
+			    		$("#new_comment").attr("comments",new_description);
+			    		$("#task_execution_details_tabs").tabs('load',3);//reload the result page
+			    	},
+			    	error:function(){
+			    		alert("Failed to add comments, please retry!");
+			    	}
+			    });
+				
+			},
+			"Cancel":function(){
+				$("#add_comment_dialog").dialog("close");
+			}
+		}
+	});
+	$(".add_triage_comment").button();
+	$("#triage_operations").buttonset();
+	$(".add_triage_comment").on('click', function(){
+		if($(this).attr("id") == "add_triage_comment")
+		{
+			$("#bug_number_div").hide();
+			$("#bug_number_div").attr("result", <%= @test_result.result %>);
+			$("#bug_number_div").attr("result_description","");
+		}		
+		else if ($(this).attr("id") == "add_triage_comment_known_issue")
+		{
+			$("#bug_number_div").show();
+			$("#bug_number_div").attr("result", 5);
+			$("#bug_number_div").attr("result_description", "Known product issue.");
+		}
+		else if($(this).attr("id") == "add_triage_comment_new_issue")
+		{
+			$("#bug_number_div").show();
+			$("#bug_number_div").attr("result", 6);
+			$("#bug_number_div").attr("result_description", "New product issue.");
+		}
+		else if($(this).attr("id") == "add_triage_comment_env_issue")
+		{
+			$("#bug_number_div").hide();
+			$("#bug_number_div").attr("result", 7);
+			$("#bug_number_div").attr("result_description", "Test environment issue.");
+		}
+		else if($(this).attr("id") == "add_triage_comment_scripts_issue")
+		{
+			$("#bug_number_div").hide();
+			$("#bug_number_div").attr("result", 8);
+			$("#bug_number_div").attr("result_description", "Automation scripts issue.");
+		}
+		else if($(this).attr("id") == "add_triage_comment_common_lib_issue")
+		{
+			$("#bug_number_div").hide();
+			$("#bug_number_div").attr("result", 9);
+			$("#bug_number_div").attr("result_description", "Common library issue.");
+		}
+		$("#bug_number").val("");
+		$("#add_comment_dialog").dialog("open");
+	});
+</script>

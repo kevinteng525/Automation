@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @provider.category %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @provider.type %>
+</p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @provider.path %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <%= @provider.config %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @provider.string %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @provider.description %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @provider.is_active %>
+</p>
+
+<p>
+  <strong>Integer:</strong>
+  <%= @provider.integer %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

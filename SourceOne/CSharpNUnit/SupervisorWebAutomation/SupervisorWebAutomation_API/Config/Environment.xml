@@ -1,0 +1,329 @@
+<config> 
+   <type>seperate</type> 
+   <domain>
+      <name>WIN2K8R2</name>
+      <administrator>administrator</administrator>
+      <password>emcsiax@QA</password>
+   </domain> 
+   <sutconfig>
+        <name>Win2K8R2+SQL2K8R2+Exch2010+Outlook2010+1NA+1Worker</name> 
+      <type>existing</type>
+      <domain> 
+         <name>qaes1.com</name>
+         <administrator>es1service</administrator>
+         <password>emc</password> 
+      </domain> 
+      <machines> 
+         <machine> 
+            <name>Galaxy-WebS</name>
+            <ip>10.98.38.21</ip>
+            <roles>DomainController</roles> 
+            <categories/> 
+            <description>Force Web Server</description>
+            <config/> 
+         </machine> 
+         <machine> 
+            <name>Mail01</name> 
+            <ip>192.168.2.102</ip>
+            <roles>ExchangeServer</roles>
+            <categories/>
+            <description>Exchange Server</description>
+            <config> 
+               <version>Exchange2010</version> 
+            </config> 
+         </machine> 
+         <machine> 
+            <name>Master</name> 
+            <ip>192.168.2.103</ip>
+			      <externalip>10.98.27.77</externalip>
+            <roles>Master,Supervisor</roles> 
+            <categories/> 
+            <description>S1 Master</description> 
+            <config/> 
+         </machine> 
+         <machine> 
+            <name>NA01</name> 
+            <ip>192.168.2.104</ip>
+            <roles>NativeArchive</roles>
+            <categories/> 
+            <description>S1 Native Archive Server</description>
+            <config/>
+         </machine>
+         <machine> 
+            <name>SQL01</name>
+            <ip>192.168.2.101</ip>
+            <roles>SQLServer</roles>
+            <categories/> 
+            <description>SQL server for S1 DB</description> 
+            <config/> 
+         </machine>
+         <machine>
+            <name>WORK01</name>
+            <ip>192.168.2.105</ip>
+             <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+            <categories/>
+            <description>SQL server for S1 DB</description>
+            <config/>
+         </machine>
+      </machines>
+   </sutconfig>
+   <testagentconfig>
+      <name>Galaxy_Ruby_Saber_Agent</name>
+      <type>tobecreated</type>
+      <domain>
+         <name>WIN2K8R2</name>
+         <administrator>administrator</administrator>
+         <password>emcsiax@QA</password>
+      </domain>
+      <categories>runtime=RubyMiniTest</categories>
+      <machines>
+         <machine>
+            <name>WIN2K8R2</name>
+            <ip>192.168.2.105</ip>
+             <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+            <categories/>
+            <description>Ruby Test Agent</description>
+            <config/> 
+         </machine>
+      </machines>
+   </testagentconfig>
+   <s1configs>
+      <defaultaccount>ES1Service</defaultaccount>
+      <archivedb>ES1Archive</archivedb>
+      <activitydb>ES1Activity</activitydb>
+      <searchdb>ES1Search</searchdb>
+   </s1configs>
+  <testdata>
+    <account domain="domain" username="alanaegaymon" password="qampass1!">
+      <BP count="10"></BP>
+      <defaultmessagefilter>
+        <DBID>2</DBID>
+        <NumDaysUnreviewed>0</NumDaysUnreviewed>
+        <NumDaysRecentlyReviewed>-1</NumDaysRecentlyReviewed>
+        <UseArchiveDateRange>false</UseArchiveDateRange>
+        <IncludeEscalated>false</IncludeEscalated>
+        <IncludeAllRevGroups>true</IncludeAllRevGroups>
+        <RemoveWhenReviewComplete>false</RemoveWhenReviewComplete>
+        <IsDefaultFilter>true</IsDefaultFilter>
+        <CanBeChanged>true</CanBeChanged>
+        <ReviewGroupsCount>3</ReviewGroupsCount>
+        <umDaysRecentlyReviewedOptionsCount>6</umDaysRecentlyReviewedOptionsCount>
+        <numDaysUnreviewedOptionsCount>6</numDaysUnreviewedOptionsCount>
+      </defaultmessagefilter>
+      <changemessagefilter>
+        <ValidNumDaysUnreviewed>0,1,3,5,15,30</ValidNumDaysUnreviewed>
+        <NumDaysUnreviewedItems>115,0,0,0,0,0</NumDaysUnreviewedItems>
+        <InvalidNumDaysUnreviewed>-100,-10,2,100</InvalidNumDaysUnreviewed>
+        <ValidNumDaysRecentlyReviewed>0,1,3,5,15,30</ValidNumDaysRecentlyReviewed>
+        <NumDaysRecentlyReviewedItems>2,0,0,0,0,0</NumDaysRecentlyReviewedItems>
+        <InvalidNumDaysRecentlyReviewed>-100,-10,2,100</InvalidNumDaysRecentlyReviewed>
+        <IncludeEscalated itemcount="117">true</IncludeEscalated>
+        <UseArchiveDateRange>true</UseArchiveDateRange>
+        <ArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-3-20</start>
+            <end>2015-4-30</end>
+            <itemcount>0</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-12-20</start>
+            <end>2015-12-31</end>
+            <itemcount>111</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>1990-6-20</start>
+            <end>2017-7-30</end>
+            <itemcount>115</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-12-20</start>
+            <end>2015-12-25</end>
+            <itemcount>18</itemcount>
+          </ValidArchiveDate>
+          <InvalidArchiveDate>
+            <start>2015-8-20</start>
+            <end>2015-4-30</end>
+            <message>Start date is later than end date</message>
+          </InvalidArchiveDate>
+          <InvalidArchiveDate>
+            <start>1000-6-20</start>
+            <end>2015-7-30</end>
+            <message>Start date is very early</message>
+          </InvalidArchiveDate>
+          <InvalidArchiveDate>
+            <start>1100-6-20</start>
+            <end>1200-7-30</end>
+            <message>End date is very late</message>
+          </InvalidArchiveDate>
+        </ArchiveDate>
+        <ReviewGroup>
+          <Group>
+            <Name>RG1</Name>
+            <ID>1</ID>
+            <BP>BP1,BP2,BP3,BP10</BP>
+          </Group>
+          <Group>
+            <Name>RG2</Name>
+            <ID>2</ID>
+            <BP>BP4,BP5,BP6</BP>
+          </Group>
+          <Group>
+            <Name>RG3</Name>
+            <ID>3</ID>
+            <BP>BP7,BP8,BP9</BP>
+          </Group>
+        </ReviewGroup>
+        <IncludeAllRevGroups>true</IncludeAllRevGroups>
+      </changemessagefilter>
+      <VaildPages>0-99,50-115</VaildPages>
+      <VaildPagesReturnCount>100,66</VaildPagesReturnCount>
+      <InvaildPages>-1-98,-50-150,9978-9977,278-277</InvaildPages>
+      <ReportDateRange>
+        <!-- From: years before default value-->
+        <From>-1</From>
+      </ReportDateRange>
+    </account>
+    <account domain="domain" username="allanecluff" password="qampass1!" reviewername="Allan E Cluff">
+      <defaultmessagefilter>
+        <DBID>3</DBID>
+        <NumDaysUnreviewed>0</NumDaysUnreviewed>
+        <NumDaysRecentlyReviewed>0</NumDaysRecentlyReviewed>
+        <UseArchiveDateRange>false</UseArchiveDateRange>
+        <IncludeEscalated>false</IncludeEscalated>
+        <IncludeAllRevGroups>ture</IncludeAllRevGroups>
+        <RemoveWhenReviewComplete>false</RemoveWhenReviewComplete>
+        <IsDefaultFilter>true</IsDefaultFilter>
+        <CanBeChanged>true</CanBeChanged>
+        <ReviewGroupsCount>10</ReviewGroupsCount>
+        <umDaysRecentlyReviewedOptionsCount>6</umDaysRecentlyReviewedOptionsCount>
+        <numDaysUnreviewedOptionsCount>6</numDaysUnreviewedOptionsCount>
+      </defaultmessagefilter>
+      
+      <CommentMessage>
+        <CommentSingleMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: Comment Single Message">
+          <message messageId="52" subject="[Msg#: 28] Supervisor Web Automation Test Message" ></message>         
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: ~!@#$%">
+          <message messageId="52" subject="[Msg#: 28] Supervisor Web Automation Test Message"></message>
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: 你好">
+          <message messageId="52" subject="[Msg#: 28] Supervisor Web Automation Test Message"></message>
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: S p a c e">
+          <message messageId="52" subject="[Msg#: 28] Supervisor Web Automation Test Message"></message>
+        </CommentSingleMessage>
+
+        <CommentBatchMessages reviewgroup="RG3" includeallrevgroups="false" comment="API: Comment Batch Messages">
+          <message messageId="53" subject="[Msg#: 30] Supervisor Web Automation Test Message"></message>
+          <message messageId="54" subject="[Msg#: 16] Supervisor Web Automation Test Message"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG3" includeallrevgroups="false" comment="API: Batch Mark ~!@#$%">
+          <message messageId="53" subject="[Msg#: 30] Supervisor Web Automation Test Message"></message>
+          <message messageId="54" subject="[Msg#: 16] Supervisor Web Automation Test Message"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG3" includeallrevgroups="false" comment="API: Batch Mark 你好">
+          <message messageId="53" subject="[Msg#: 30] Supervisor Web Automation Test Message"></message>
+          <message messageId="54" subject="[Msg#: 16] Supervisor Web Automation Test Message"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG3" includeallrevgroups="false" comment="API: Batch Mark S p a c e">
+          <message messageId="53" subject="[Msg#: 30] Supervisor Web Automation Test Message"></message>
+          <message messageId="54" subject="[Msg#: 16] Supervisor Web Automation Test Message"></message>
+        </CommentBatchMessages>
+
+        <CommentAllFlaggedMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: Comment All Flagged Messages"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: CommentAll ~!@#$%"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: CommentAll 你好"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG3" includeallrevgroups="false" comment="API: CommentAll S p a c e"></CommentAllFlaggedMessage>
+      </CommentMessage>
+      
+      <CodeFlaggedMessage>
+        <messages action="Single Message: Mark a Escalated code for one BP, the message has one BP" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="115" subject="[Msg#: 35] Supervisor Web Automation Test Message" code="Escalated" BP="BP8" status="Escalated" comment="API: Single Message: Mark a Escalated code for one BP, the message has one BP"></message>
+        </messages>
+        <messages action="Single Message: Mark a Partially code for one BP, the message has one BP" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="116" subject="[Msg#: 32] Supervisor Web Automation Test Message" code="Partially" BP="BP8" status="Partial" comment="API: Single Message: Mark a Partially code for one BP, the message has one BP"></message>
+        </messages>
+        <messages action="Single Message: Mark a Completely code for one BP, the message has one BP" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="117" subject="[Msg#: 34] Supervisor Web Automation Test Message" code="Completely" BP="BP7" status="Reviewed" comment="API: Single Message: Mark a Completely code for one BP, the message has one BP"></message>
+        </messages>
+        
+        <messages action="Single Message: Mark a Escalated code for one BP, the message has mutiple BPs" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="52" subject="[Msg#: 28] Supervisor Web Automation Test Message" code="Escalated" BP="BP7" status="Partial" comment="API: Single Message: Mark a Escalated code for one BP, the message has mutiple BPs"></message>
+        </messages>
+        <messages action="Single Message: Mark a Partially code for one BP, the message has mutiple BPs" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="53" subject="[Msg#: 30] Supervisor Web Automation Test Message" code="Partially" BP="BP8" status="Partial" comment="API: Single Message: Mark a Partially code for one BP, the message has mutiple BPs"></message>
+        </messages>
+        <messages action="Single Message: Mark a Completely code for one BP, the message has mutiple BPs" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="54" subject="[Msg#: 16] Supervisor Web Automation Test Message" code="Completely" BP="BP9" status="Partial" comment="API:Single Message: Mark a Completely code for one BP, the message has mutiple BPs"></message>
+        </messages>
+        
+        <messages action="Multiple Messages: Mark a Completely code for one BP, messages have mutiple BPs" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="118" subject="[Msg#: 33] Supervisor Web Automation Test Message" code="Completely" BP="BP9" status="Reviewed" comment="API: Multiple Messages: Mark a Completely code for one BP, messages have mutiple BPs"></message>
+          <message messageId="55" subject="[Msg#: 24] Supervisor Web Automation Test Message" code="Completely" BP="BP9" status="Blank" comment="API: Multiple Messages: Mark a Completely code for one BP, messages have mutiple BPs"></message>
+          <message messageId="56" subject="[Msg#: 29] Supervisor Web Automation Test Message" code="Completely" BP="BP9" status="Partial" comment="API: Multiple Messages: Mark a Completely code for one BP, messages have mutiple BPs"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Partially code for one BP, messages have mutiple BPs"  reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="118" subject="[Msg#: 33] Supervisor Web Automation Test Message" code="Partially" BP="BP9" status="Partial" comment="API: Multiple Messages: Mark a Partially code for one BP, messages have mutiple BPs"></message>
+          <message messageId="55" subject="[Msg#: 24] Supervisor Web Automation Test Message" code="Partially" BP="BP9" status="Blank" comment="API: Multiple Messages: Mark a Partially code for one BP, messages have mutiple BPs"></message>
+          <message messageId="56" subject="[Msg#: 29] Supervisor Web Automation Test Message" code="Partially" BP="BP9" status="Partial" comment="API: Multiple Messages: Mark a Partially code for one BP, messages have mutiple BPs"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Escalated code for one BP, messages have mutiple BPs"  reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="118" subject="[Msg#: 33] Supervisor Web Automation Test Message" code="Escalated" BP="BP9" status="Escalated" comment="API: Multiple Messages: Mark a Escalated code for one BP, messages have mutiple BPs"></message>
+          <message messageId="55" subject="[Msg#: 24] Supervisor Web Automation Test Message" code="Escalated" BP="BP9" status="Blank" comment="API: Multiple Messages: Mark a Escalated code for one BP, messages have mutiple BPs"></message>
+          <message messageId="56" subject="[Msg#: 29] Supervisor Web Automation Test Message" code="Escalated" BP="BP9" status="Partial" comment="API: Multiple Messages: Mark a Escalated code for one BP, messages have mutiple BPs"></message>
+        </messages>
+        
+        <codeforallbps action="Mark OK for all BPs" reviewgroup="RG3" includeallrevgroups="false">
+          <message messageId="57" subject="[Msg#: 20] Supervisor Web Automation Test Message" code="OK" BP="All" status="Reviewed" comment="Mark OK for all BPs"></message>
+          <message messageId="58" subject="[Msg#: 25] Supervisor Web Automation Test Message" code="OK" BP="All" status="Reviewed" comment="Mark OK for all BPs"></message>
+          <message messageId="59" subject="[Msg#: 23] Supervisor Web Automation Test Message" code="OK" BP="All" status="Reviewed" comment="Mark OK for all BPs"></message>
+        </codeforallbps>
+        
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG3" includeallrevgroups="false" code="OK" BP="All" comment="Make OK for all messages, all BPs"></codeallflaggedmessages>
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG3" includeallrevgroups="false" code="Escalated" BP="BP7" comment="Mark Escalated for all messages, BP7"></codeallflaggedmessages>
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG3" includeallrevgroups="false" code="Partially" BP="BP9" comment="Mark Partially for all messages, BP9"></codeallflaggedmessages>
+        
+        <codemessageswithfilter action="Mark a message to Completely" numDaysRecentlyReviewed="-1" numDaysUnreviewed="0" includeEscalated="true" reviewgroup="RG3" includeallrevgroups="false" code="OK"></codemessageswithfilter>
+        <codemessageswithfilter action="Mark a message to Partially" numDaysRecentlyReviewed="0" numDaysUnreviewed="-1" includeEscalated="true" reviewgroup="RG3" includeallrevgroups="false" code="Partially"></codemessageswithfilter>
+        <codemessageswithfilter action="Mark a message to Escalated" numDaysRecentlyReviewed="0" numDaysUnreviewed="0" includeEscalated="false" reviewgroup="RG3" includeallrevgroups="false" code="Escalated"></codemessageswithfilter>
+      </CodeFlaggedMessage>
+     
+    </account>
+    <account domain="domain" username="allaneboehme" password="qampass1!" role="reviewer"></account>
+    <account domain="domain" username="es1service" password="qampass1!" role="supervisor"></account>
+    <unauthorizedaccount domain="domain" username="clareemorfin" password="qampass1!" role="unauthorized" />
+    <accounthassuproleonly domain="domain" username="administrator" password="qampass1!" role="supervisoronly"></accounthassuproleonly>
+    <messages>
+      <message messageId="1" hitLocation="message" subject="[Msg#: 18] Message with Business Policy: BP1,BP2" hitCount="2">
+        <bps>
+          <bp name="BP1" hitKeyWords="Keyword1" highlightStyle="hlc1"></bp>
+          <bp name="BP2" hitKeyWords="Keyword2" highlightStyle="hlc2"></bp>
+        </bps>
+      </message>
+      <message messageId="3" hitLocation="message" subject="[Msg#: 12] Message with Business Policy: BP3,BP1" hitCount="4">
+        <bps>
+          <bp name="BP1" hitKeyWords="Keyword1" highlightStyle="hlc1"></bp>
+          <bp name="BP3" hitKeyWords="Keyword3" highlightStyle="hlc3"></bp>
+        </bps>
+      </message>
+      <message messageId="7" hitLocation="message,attachments" subject="[Msg#: 17] Message with Business Policy: BP3,BP1" hitCount="8">
+        <bps>
+          <bp name="BP1" hitKeyWords="Keyword1" highlightStyle="hlc1"></bp>
+          <bp name="BP2" hitKeyWords="Keyword2" highlightStyle="hlc2"></bp>
+          <bp name="BP3" hitKeyWords="Keyword3" highlightStyle="hlc3"></bp>
+        </bps>
+      </message>
+      <message messageId="113" hitLocation="attachments" subject="[Msg#: 1] This is a test message with international words" hitCount="4">
+        <bps>
+          <bp name="BP10" hitKeyWords="ソフトボール" highlightStyle="hlc10"></bp>
+          <bp name="BP10" hitKeyWords="‘観測" highlightStyle="hlc10"></bp>
+        </bps>
+      </message>
+    </messages>
+    <help>
+      <url>Content/Help/</url>
+      <helpExtensions>js,jpg,jpeg,png,gif,css,html,htm</helpExtensions>
+    </help>
+
+  </testdata>
+</config>

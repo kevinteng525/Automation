@@ -1,0 +1,12 @@
+// Place all the styles related to the login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$login_width : 300px;
+body{
+  #login{
+    width:$login_width;
+    height:200px;
+    margin-left:30%;
+  }
+}
+

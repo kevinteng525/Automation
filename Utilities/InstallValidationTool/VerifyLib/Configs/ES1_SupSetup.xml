@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_SupervisorSetup - Regedit Version Validation">
+    <Item name="Reviewer" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="Reviewer" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="SRE" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="SRE" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="Supervisor" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="Supervisor" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_SupervisorSetup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_SupervisorSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\</Item>
+    <Item name="EMC SourceOne Folder\Email Supervisor" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Email Supervisor</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_SupervisorSetup - Setup Files Validation">
+    <Item name="ES1_SupervisorSetup.exe" path="C:\ES1_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_SupervisorSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_SupervisorSetup.exe" path="C:\ES1_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_SupervisorSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_SupervisorSetup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Email Supervisor" path="[ProgramFilePathX86]\EMC SourceOne\Email Supervisor" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Email Supervisor" path="[ProgramFilePathX86]\EMC SourceOne\Email Supervisor" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_SupervisorSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Email Supervisor" productName="EMC SourceOne Email Supervisor">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

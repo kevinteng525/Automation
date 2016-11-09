@@ -1,0 +1,11 @@
+﻿#run BVT testing script
+$localAutoBinPath = "C:\Automation\TestCode\SPOTestWithNunit\bin\Debug"
+sl $localAutoBinPath
+
+Write-Host "Starting Tests..."
+$Result1Summary = mstest /testmetadata:ES1SPAutomation.vsmdi /test:ArchiveScheduledDaily
+$Result2Summary = mstest /testmetadata:ES1SPAutomation.vsmdi /test:ArchiveItemASAP
+$Result3Summary = mstest /testmetadata:ES1SPAutomation.vsmdi /test:ArchiveModifiedItem
+$Result4Summary = mstest /testmetadata:ES1SPAutomation.vsmdi /test:ArchiveMoveItem
+
+sl "C:\SPOscript" 

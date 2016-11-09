@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.Providers.BuildProviders.FileServer" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAEAEAAIAgQAAAAAAAAAAAAACAAAAAAAAACA=</HashCode>
+      <FileName>Providers\BuildProviders\FileServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Providers.EnvrionmentProviders.VCloudEnvironmentProvider" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAgAIAAgAEAQAIgAAAECAAABAAAhoSAAAgAAQAsAA=</HashCode>
+      <FileName>Providers\EnvrionmentProviders\VCloudEnvironmentProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Providers.TestCaseProviders.RQMTestCaseProvider" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAhAEAAIAgQwAAABAAAAAAAACCAAAAAAAAAA=</HashCode>
+      <FileName>Providers\TestCaseProviders\RQMTestCaseProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Model.Provider">
+    <Position X="4" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBgAAIAFBEAAAQEAAAAsAAAAQAAAAQACAA=</HashCode>
+      <FileName>Entities\Provider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Providers.TestCaseProviders.ATFTestCaseProvider">
+    <Position X="11.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAEAAIAgAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Providers\TestCaseProviders\ATFTestCaseProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Core.Providers.BuildProviders.IBuildProvider">
+    <Position X="0.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Providers\BuildProviders\IBuildProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Providers.EnvrionmentProviders.IEnvironmentProvider">
+    <Position X="3" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAABAAABgQAAAAAAQAkAA=</HashCode>
+      <FileName>Providers\EnvrionmentProviders\IEnvironmentProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Providers.IProvider">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Providers\IProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Providers.TestCaseProviders.ITestCaseProvider">
+    <Position X="6" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Providers\TestCaseProviders\ITestCaseProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Core.Model.ProviderCategory">
+    <Position X="2" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Provider.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  sut_environment_id: 1
+  test_agent_environment_id: 1
+  job_type: 1
+  priority: 1
+  status: 1
+  retry_times: 1
+  time_out: 1
+  create_by: 1
+  modify_by: 1
+  description: MyText
+
+two:
+  name: MyText
+  sut_environment_id: 1
+  test_agent_environment_id: 1
+  job_type: 1
+  priority: 1
+  status: 1
+  retry_times: 1
+  time_out: 1
+  create_by: 1
+  modify_by: 1
+  description: MyText

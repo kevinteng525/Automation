@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supported_environment.name %>
+</p>
+<p>
+  <strong>Environment provider:</strong>
+  <%= find_name(force_environment_provider_list,@supported_environment.environment_provider_id)%>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @supported_environment.description %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <pre>
+  	<code class="xml">
+  		<%= @supported_environment.config %>
+  	</code>
+  </pre>  
+</p>
+
+<script type="application/javascript">
+	hljs.initHighlightingOnLoad();
+</script>
+
+<%= link_to 'Edit', edit_supported_environment_path(@supported_environment) %> |
+<%= link_to 'Back', supported_environments_path %>

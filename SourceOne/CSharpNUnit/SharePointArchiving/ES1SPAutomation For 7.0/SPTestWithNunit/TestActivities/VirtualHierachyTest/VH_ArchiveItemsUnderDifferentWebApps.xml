@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="VH_ArchiveItemsUnderDifferentWebApps" Policy="SPPolicyVH" Logging="True">
+  <Config>
+    <DataSource>
+      <Farm Url ="http://sp2010sim" UserName ="administrator" Password="emcsiax@QA" Domain="sosp">
+        <WebApp Port ="80">
+          <SiteCollection Name="/">
+            <Site Name="QA Site">
+              <List Name="VH_ArchiveItemsUnderDifferentWebApps"/>
+            </Site>
+          </SiteCollection>
+        </WebApp>
+        <WebApp Port ="8088">
+          <SiteCollection Name="/">
+            <Site Name="DEMO Site">
+              <List Name="VH_ArchiveItemsUnderDifferentWebApps"/>
+            </Site>
+          </SiteCollection>
+        </WebApp>
+      </Farm>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" />
+    <Action MappedFolder="SPMDAF2" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

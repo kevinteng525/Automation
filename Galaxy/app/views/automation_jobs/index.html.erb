@@ -1,0 +1,47 @@
+<fieldset>
+	<legend class='galaxy_legend'>Automation Jobs</legend>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Sut environment</th>
+	      <th>Test agent environment</th>
+	      <th>Job type</th>
+	      <th>Priority</th>
+	      <th>Status</th>
+	      <th>Retry times</th>
+	      <th>Time out</th>
+	      <th>Create by</th>
+	      <th>Modify by</th>
+	      <th>Description</th>
+	      <th>Operations</th>	      
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @automation_jobs.each do |automation_job| %>
+	      <tr>
+	        <td><%= automation_job.name %></td>
+	        <td><%= automation_job.sut_environment_id %></td>
+	        <td><%= automation_job.test_agent_environment_id %></td>
+	        <td><%= automation_job.job_type %></td>
+	        <td><%= automation_job.priority %></td>
+	        <td><%= automation_job.status %></td>
+	        <td><%= automation_job.retry_times %></td>
+	        <td><%= automation_job.time_out %></td>
+	        <td><%= automation_job.create_by %></td>
+	        <td><%= automation_job.modify_by %></td>
+	        <td><%= automation_job.description %></td>
+	        <td class="item_operations"><%= link_to 'Show', automation_job %>
+	        <%= link_to 'Edit', edit_automation_job_path(automation_job) %>
+	        <%= link_to 'Destroy', automation_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+<br>
+
+<%= link_to 'New Automation job', new_automation_job_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

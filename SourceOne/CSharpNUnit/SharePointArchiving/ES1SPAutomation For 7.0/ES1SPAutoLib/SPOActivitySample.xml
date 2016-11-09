@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="BVT_ArchiveScheduleDaily" Policy="PolicyBVT" Logging="True">
+  <Config>
+    <DataSource>
+      <SiteCollection Url="https://sp2010sim.sosp.com" UserName="fbatest" Password="emcsiax@QA">
+        <Site Name="FBA QA Site" >
+          <List Name="Shared Documents"/>
+        </Site>
+      </SiteCollection>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" />
+    <Action MappedFolder="SPOMDAF1" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule StartTime="2011-11-16 08:56:00" Duration="24" Frequency="Daily">
+    <Pattern Interval="1" />
+  </Schedule>
+</Activity>

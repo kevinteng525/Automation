@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_DiscoveryMgrDBSetup - Regedit Version Validation">
+    <Item name="DiscoDB" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="DiscoDB" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DiscoveryMgrDBSetup - Setup Files Validation">
+    <Item name="ES1_DatabaseSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DatabaseSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DatabaseSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DatabaseSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="FILE" groupName="ES1_DiscoveryMgrDBSetup - ES1_DatabaseSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Database" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Database</Item>
+    <Item name="ES1_DiscoveryMgrDBSetup" type="File" >[ProgramFilePathX86]\EMC SourceOne\Database\DiscoveryManagerDatabase.log</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_DiscoveryMgrDBSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Database" productName="EMC SourceOne Database">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Database" groupName="ES1_DiscoveryMgrDBSetup - Version Info in Database Validation">
+    <!-- DiscoveryManager -->
+    <Item name="EMC.EmailXtender.DiscoveryCollector.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.StoredProcs.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.StoredProcs.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector.StoredProcs'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.StoredProcs.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector.StoredProcs'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.StoredProcs.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector.StoredProcs'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.DiscoveryCollector.StoredProcs.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="DiscoveryManager" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.DiscoveryCollector.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

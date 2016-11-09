@@ -1,0 +1,125 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Galaxy Test Report</title>
+    </head>
+    <body onload="init();">
+        <div style="width:100%;" align="center">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr>
+                    <td>
+			            <table width="1200" border="0" cellspacing="0" cellpadding="0">	
+                            <!-- report title -->
+				            <tr>
+					            <td style="background-color:#ffffff;">
+						            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:black;">
+							            <tr>
+								            <td width="25%" style="padding:10px;" >
+									            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+										            <tr>
+											            <td height="100%" align="center" valign="middle"  style="background-color:@titleColor;font-family:Arial, Helvetica, sans-serif; color:#ffffff; padding: 5px;">
+												            <div style="font-size:15px;"><b>PassRate</b></div>
+												            <div style="font-size:30px;"><b>@passRate</b></div>										
+											            </td>							
+										            </tr>
+									            </table>
+								            </td>	
+								            <td width="75%" align="center" valign="middle"  style="color:#43c1d7;font-family:Georgia, 'Times New Roman', Times, serif; font-size:48px;"><i>
+                                                Galaxy Test Report</i>
+								            </td>				
+							            </tr>
+						            </table>
+					            </td>
+                            </tr>
+                            <!-- report body -->
+				            <tr>
+					            <td >
+						            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+							            <tr>
+                                            <!-- left panel, the summary of the task -->
+                                            <td width="25%"  valign="top" style="padding:10px;background-color:#e4d7b9" >
+									            <table width="100%" border="0"  cellspacing="0" cellpadding="0">
+										            <tr>
+											            <td align="left" valign="top" style="font-family:Verdana, Geneva, sans-serif; font-size:20px; color:#236caf;"><b>Task Information</b></td>
+										            </tr>
+										            <tr>
+											            <td align="left" valign="top" style="padding:15px;font-family:Verdana, Geneva, sans-serif; font-size:15px; color:#000000;">
+											                <b>Name: </b>@name<br/>
+												            <span style="font-size:5px;"><br/></span>
+												            <b>Product: </b>@product<br/>
+												            <span style="font-size:5px;"><br/></span>
+												            <b>Release: </b>@release<br/>
+												            <span style="font-size:5px;"><br/></span>
+												            <b>Branch: </b>@branch<br/>
+												            <span style="font-size:5px;"><br/></span>
+												            <b>Build: </b>@build<br/>
+												            <span style="font-size:5px;"><br/></span>												
+												            <b>Created by: </b>@creator<br/>
+												            <span style="font-size:5px;"><br/></span>								
+												            <b>Test environment: </b>@test_environment<br/>
+												            <span style="font-size:5px;"><br/></span>								
+                                                            <b>Status: </b>@status<br/>
+												            <span style="font-size:5px;"><br/></span>								
+                                                            <b>RecurrencePattern: </b>@recurrencePattern<br/>
+                                                            <span style="font-size:5px;"><br/></span>								
+                                                            <b>Result: </b>@result<br/>	
+                                                            <span style="font-size:5px;"><br/></span>
+                                                            <b>Logs: </b><a href="http://10.98.28.192/@taskId" style="color:#43c1d7; text-decoration:underline;"><i>Go to Log Server</i></a><br />
+                                                            <span style="font-size:5px;"><br/></span>
+                                                            <b>Details: </b><a href="http://10.98.28.190/automation_tasks/@taskId" style="color:#43c1d7; text-decoration:underline;"><i>Go to Galaxy</i></a><br />
+                                                            <span style="font-size:5px;"><br/></span>
+                                                            <b>Code Coverage: </b><i>@coverageLink</i><br />
+                                                            <span style="font-size:5px;"><br/></span>
+                                                             <b>Remark: </b><i>@remark</i><br />
+                                                            <span style="font-size:5px;"><br/></span>																									
+											            </td>
+										            </tr>
+									            </table>
+								            </td>
+							
+							                <!-- right panel, the detail of the test results -->
+								            <td width="75%" align="left" valign="top" style="padding:10px;background-color:#FFFFFF;">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                  
+												               @TOBEREPLACED  
+                                                                <tr>
+													                <td width="100%"  colspan="3" align="center" style="padding:5px;font-family:Verdana, Geneva, sans-serif;" valign="middle">
+														                Result Files: <a href="http://10.98.28.192/@taskId" style="color:#43c1d7; text-decoration:underline;"><i>Go to Log Server</i></a>
+													                </td>
+												                </tr>
+
+                                                                <tr>
+													                <td width="100%" colspan="3" align="center" style="padding:5px;font-family:Verdana, Geneva, sans-serif;" valign="middle">
+														                You can access the task in galaxy directly by click <br/><a href="http://10.98.28.190/automation_tasks/@taskId" style="color:#43c1d7; text-decoration:underline;"><i>Go to Galaxy</i></a>
+													                </td>
+												                </tr>                                                        
+                                                 </table>
+										     </td>
+										</tr>		
+                            <!-- report foot -->
+				            <tr>
+					            <td colspan="3" align="left" valign="top" bgcolor="#43c1d7" style="background-color:#43c1d7;">
+						            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+							            <tr>
+								            <td width="35">
+                                                &nbsp;
+                                            </td>
+								            <td height="50" valign="middle" style="color:#FFFFFF; font-size:11px; font-family:Arial, Helvetica, sans-serif;">
+                                                <b>Email Address:</b><br/>
+									            Automation@Galaxy 
+                                            </td>
+								            <td width="35">
+                                                &nbsp;
+                                            </td>
+							            </tr>
+						            </table>
+					            </td>
+				            </tr>
+			            </table>
+		            </td>
+                </tr>	      
+            </table>
+
+        </div>
+    </body>
+</html>

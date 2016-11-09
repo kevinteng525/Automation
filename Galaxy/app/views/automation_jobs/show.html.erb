@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @automation_job.name %>
+</p>
+
+<p>
+  <strong>Sut environment:</strong>
+  <%= @automation_job.sut_environment_id %>
+</p>
+
+<p>
+  <strong>Test agent environment:</strong>
+  <%= @automation_job.test_agent_environment_id %>
+</p>
+
+<p>
+  <strong>Job type:</strong>
+  <%= @automation_job.job_type %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @automation_job.priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @automation_job.status %>
+</p>
+
+<p>
+  <strong>Retry times:</strong>
+  <%= @automation_job.retry_times %>
+</p>
+
+<p>
+  <strong>Time out:</strong>
+  <%= @automation_job.time_out %>
+</p>
+
+<p>
+  <strong>Create by:</strong>
+  <%= @automation_job.create_by %>
+</p>
+
+<p>
+  <strong>Modify by:</strong>
+  <%= @automation_job.modify_by %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @automation_job.description %>
+</p>
+
+<%= link_to 'Edit', edit_automation_job_path(@automation_job) %> |
+<%= link_to 'Back', automation_jobs_path %>

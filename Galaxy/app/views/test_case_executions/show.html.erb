@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Test case:</strong>
+  <%= @test_case_execution.test_case_id %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @test_case_execution.job_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @test_case_execution.status %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <span class="date_time"><%= @test_case_execution.start_time %></span>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <span class="date_time"><%= @test_case_execution.end_time %></span>
+</p>
+
+<p>
+  <strong>Retry times:</strong>
+  <%= @test_case_execution.retry_times %>
+</p>
+
+<%= link_to 'Edit', edit_test_case_execution_path(@test_case_execution) %> |
+<%= link_to 'Back', test_case_executions_path %>

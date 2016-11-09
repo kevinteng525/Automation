@@ -1,0 +1,1 @@
+c:\scripts\mobile.exe param1 "I"

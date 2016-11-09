@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @subscriber.product_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @subscriber.user_id %>
+</p>
+
+<p>
+  <strong>Create time:</strong>
+  <%= @subscriber.create_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @subscriber.description %>
+</p>
+
+<p>
+  <strong>Subscriber type:</strong>
+  <%= @subscriber.subscriber_type %>
+</p>
+
+<%= link_to 'Edit', edit_subscriber_path(@subscriber) %> |
+<%= link_to 'Back', subscribers_path %>

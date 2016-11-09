@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_OWA2010Setup - Regedit Version Validation">
+    <Item name="ExOWA2010" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="ExOWA2010" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="FILE" groupName="ES1_OWA2010Setup - Files and Folders Validation">
+    <Item name="C:\Program Files\EMC SourceOne" type="Folder" >C:\Program Files\EMC SourceOne</Item>
+    <Item name="C:\Program Files\EMC SourceOne\ExOWA2010" type="Folder" >C:\Program Files\EMC SourceOne\ExOWA2010</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_OWA2010Setup - Setup Files Validation">
+    <Item name="ES1_OWA2010Setup.exe" path="C:\ES1_OWA_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_OWA2010Setup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_OWA2010Setup.exe" path="C:\ES1_OWA_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_OWA2010Setup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_OWA2010Setup - Binaries Version Validation">
+    <Item name="C:\Program Files\EMC SourceOne\ExOWA2010" path="C:\Program Files\EMC SourceOne\ExOWA2010" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="C:\Program Files\EMC SourceOne\ExOWA2010" path="C:\Program Files\EMC SourceOne\ExOWA2010" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_OWA2010Setup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Extensions for Microsoft Office OWA 2010" productName="EMC SourceOne Extensions for Microsoft Office OWA 2010">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="WinService" groupName="ES1_OWA2010Setup - Windows Service">
+    <Item name="EMC Shortcut for OWA" serviceName="ExOwaShortcutSvc"/>
+  </Group>
+</Verify>

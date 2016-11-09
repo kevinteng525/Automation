@@ -1,0 +1,234 @@
+
+<fieldset>
+	<legend class='galaxy_legend'>Automation Tasks</legend>
+	<table id="tasks" >
+	  <thead>
+	    <tr>
+	      <th>Select</th>
+	      <th>Name</th>
+	      <th>Status</th>
+	      <th>Priority</th>
+	      <th>Build</th>
+	      <th>Test Env.</th>
+	      <th>Progress</th>
+	      <th>Operations</th>      
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @automation_tasks.each do |automation_task| %>
+	      <% automation_task_id = automation_task.id %>
+	      <% progress_bar_id = automation_task.id.to_s + '_progress_bar' %>
+	      <% is_automation_task_completed = automation_task_completed(automation_task.status) %>
+	      <tr task_id="<%= automation_task_id %>" is_automation_task_completed="<%=is_automation_task_completed%>"  class="task_record_row">
+	      	<td><input type="checkbox" value="<%= automation_task.id %>" /></td>
+	        <td><%= link_to automation_task.name, automation_task_path(automation_task) %></td>
+	        <td><%= task_status_name(automation_task.status) %></td>
+	        <td><%= task_priority_name(automation_task.priority) %></td>
+	        <td><%= force_build_name(automation_task.build_id) %></td>	    
+	        <% support_environment_for_task = force_supported_environment_name(automation_task.supported_environment_id) %>    
+	        <td title="<%= support_environment_for_task %>"><%= shorten_string(support_environment_for_task,30) %></td>
+	        <td>
+	        	<div id="<%= progress_bar_id %>">
+	        		<div class="progress-label">Loading...</div>
+	        	</div>
+	        </td>
+	        <td class="item_operations">
+			<% if automation_task.status<3 or automation_task.status==8 %>        
+	        	<a id='<%= automation_task.id %>_cancel_button' class="cancel_task">Cancel</></td>	      	
+	     	<% end %>
+
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+<br/>
+<a id="results_compare_button">Compare Two Results</a>
+
+<script type="text/javascript">
+	$(".cancel_task").button();
+	$("#results_compare_button").button();
+	$("#results_compare_button").button('disable');
+
+	$(".cancel_task").click(function(event){
+		event.preventDefault();
+		var task_id = $(this).attr('id').replace('_cancel_button','');
+		$.ajax({
+		  type: "PUT",
+		  dataType:"json",
+		  url: "automation_tasks/"+task_id+"/cancel",
+		}).done(function( msg ) {
+		    $("#"+task_id+'_cancel_button').hide();		    
+		});
+	});
+
+	(function(){
+
+		var checked_count = 0;
+
+		$("#tasks input").change(function(event){
+
+			if($(this).is(':checked'))
+			{
+				checked_count += 1;
+			}
+			else
+			{
+				checked_count -= 1;
+			}
+
+			if(checked_count == 2)
+			{
+				$("#tasks input:not(:checked)").attr('disabled', true);
+				$("#results_compare_button").button('enable');
+			}
+			else
+			{
+				$("#tasks input:not(:checked)").attr('disabled', false);
+				$("#results_compare_button").button('disable');
+
+			}
+		});
+
+		$.fn.dataTableExt.afnFiltering.push(function( oSettings, aData, iDataIndex ){
+			checked_count = checked_count == 0 ? 0 : checked_count - $("#tasks input:checked").length;
+			$("#tasks input:not(:checked)").attr('disabled', false);
+			$("#tasks input:checked").removeAttr('checked');
+			$("#results_compare_button").button('disable');	
+			return true;
+		});
+
+	}).call();
+
+	$("#results_compare_button").on('click', function(){
+		var tasks = [];
+		$("#tasks :checked").each(function(){
+			tasks.push($(this).val());
+		});
+		if(tasks.length==2)
+		{
+			window.location.assign(window.location.protocol + '//' + window.location.host + '/task_results/' + tasks.join());
+		}
+		else
+		{
+			alert("Please select TWO tasks to compare!");
+		}
+	});
+</script>
+
+<%= render :partial => 'layouts/index_table_style_javascript'%>
+
+<script type="text/javascript">
+	// the tasks_progress_interval_list variable is the global variable and it will store all the interval ids of the task progress updates 
+	var tasks_progress_interval_list = new Array();
+	function update_task_progress(id)
+	{
+		var progress_bar_internal = id + '_progress_bar';
+		if($("#" + progress_bar_internal).is(":visible"))
+		{
+			$.get( "automation_tasks/" + id + "/execution_progress", function( data ) {
+			  $("#" + progress_bar_internal).progressbar('value', data['execution_percentage']);
+			},'json');
+		}
+		else
+		{
+			
+		}
+	}
+	
+	function handle_progress_bar(automation_task_id, is_completed){
+		var interval = 0;
+		var progress_bar_id = automation_task_id + '_progress_bar';
+		if(is_task_progress_bar_created(automation_task_id))
+		{
+			if($("#" + progress_bar_id).progressbar('value')<100)
+			{
+				clearInterval(interval);
+				interval = setInterval('update_task_progress("' + automation_task_id + '")', 5000);
+				window.tasks_progress_interval_list.push(interval);
+			}
+			else//we do not need to do anything here, the interval should be cleared at the handler of complete of progressbar.
+			{}
+		}
+		else
+		{
+			$("#" + progress_bar_id).progressbar({
+			value:false,
+			create: function(){
+				if(is_completed == 'true'){//if complete, mark the progress as 100% directly
+					$("#" + progress_bar_id).progressbar('value', 100);
+				}
+				else//else, we'll update the status regularly.
+				{
+					$.get( "automation_tasks/" + automation_task_id + "/execution_progress", function( data ) {
+
+						if(data['execution_percentage']<100)
+						{
+							clearInterval(interval);
+							interval = setInterval('update_task_progress("' + automation_task_id + '")', 5000);
+							window.tasks_progress_interval_list.push(interval);
+						}
+
+						$("#" + progress_bar_id).progressbar('value', data['execution_percentage']);					  	
+					},'json');
+				}
+			},
+			change: function(){
+				if($("#" + progress_bar_id).progressbar('value')<100)
+				{
+					$("#" + progress_bar_id + ' .progress-label').text($("#" + progress_bar_id).progressbar('value') + "%");
+				}
+			},
+			complete: function(){
+				if($("#" + progress_bar_id).is(":visible")){//this is to fix the issue that the datatable will lazy load the next pages, if we cleat the interval, the next page will not update.
+					clearInterval(interval);
+				}
+				$("#" + progress_bar_id + ' .progress-label').text("100%");
+			}
+			});
+		}
+	}
+	//check whether the progress bar for the task has been created or not
+	function is_task_progress_bar_created(task_id)
+	{
+		var progress_bar_id = task_id + '_progress_bar';
+		try
+		{
+			$('#' + progress_bar_id).progressbar('value');
+			return true;
+		}
+		catch(error)
+		{
+			return false;
+		}
+	}
+	
+	function set_task_progress_handler()
+	{
+		var tasks_list_rows = $("tr.task_record_row:visible");
+    	for(var i=0; i< tasks_list_rows.length; i++)
+    	{
+    		var task_record = tasks_list_rows[i];
+    		var task_id = $(task_record).attr('task_id');
+    		var is_task_completed = $(task_record).attr("is_automation_task_completed");
+    		handle_progress_bar(task_id, is_task_completed);
+    	}
+	}
+
+	function clear_all_task_progress_update_intervals()
+	{
+		var len = window.tasks_progress_interval_list.length;
+		for(var i=0; i< len; i++)
+		{
+			var interval = window.tasks_progress_interval_list.pop();
+			clearInterval(interval);
+		}
+	}
+	
+	set_task_progress_handler();//handle the first page of the list, the draw is not called when initializing
+	$('table').on( 'draw.dt', function () {
+		clear_all_task_progress_update_intervals();
+    	set_task_progress_handler();
+    } );
+</script>

@@ -1,0 +1,5 @@
+C:\src\AutomationFramework\ES1Automation\Main\SourceOne\CSharpNUnit\SupervisorWebAutomation\ExecPerf\bin\Debug\ExecPerf.exe
+C:\src\AutomationFramework\ES1Automation\Main\SourceOne\CSharpNUnit\SupervisorWebAutomation\ExecPerf\bin\Debug\ExecPerf.pdb
+C:\src\AutomationFramework\ES1Automation\Main\SourceOne\CSharpNUnit\SupervisorWebAutomation\ExecPerf\obj\x86\Debug\ExecPerf.csprojResolveAssemblyReference.cache
+C:\src\AutomationFramework\ES1Automation\Main\SourceOne\CSharpNUnit\SupervisorWebAutomation\ExecPerf\obj\x86\Debug\ExecPerf.exe
+C:\src\AutomationFramework\ES1Automation\Main\SourceOne\CSharpNUnit\SupervisorWebAutomation\ExecPerf\obj\x86\Debug\ExecPerf.pdb

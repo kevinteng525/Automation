@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<datasource>
+  <providertype>Exchange</providertype>
+  <chooseby>AddressBook (ServerHierarchy and LDAP is not supportted yet)</chooseby>
+  <!--Specify whether it's user or group, if user, please specify the user name, else specify the group name-->
+  <sourcetype>User or Group</sourcetype>
+  <username>ES1Service</username>
+  <groupname>ES1 Admins</groupname>  
+</datasource>

@@ -1,0 +1,33 @@
+<%= form_for(@supported_environment) do |f| %>
+  <% if @supported_environment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supported_environment.errors.count, "error") %> prohibited this supported_environment from being saved:</h2>
+
+      <ul>
+      <% @supported_environment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size=>40 %>
+  </div>
+  <div class="field">
+    <%= f.label :environment_provider_id%><br>
+  <%= f.select :environment_provider_id, options_for_select(force_environment_provider_list,@supported_environment.environment_provider_id),:prompt => 'Select the Environment Provider.' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :rows=>10, :cols=>40 %>
+  </div>
+  <div class="field">
+    <%= f.label :config %><br>
+    <%= f.text_area :config, :rows=>20, :cols=>60 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

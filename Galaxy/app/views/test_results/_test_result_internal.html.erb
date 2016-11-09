@@ -1,0 +1,49 @@
+<p>
+  <strong>Execution:</strong>
+  <%= @test_result.execution_id %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= result_type_name(@test_result.result) %>
+</p>
+
+<p>
+  <strong>Is triaged:</strong>
+  <%= @test_result.is_triaged %>
+</p>
+
+<p>
+  <strong>Triaged by:</strong>
+  <%= force_user_name(@test_result.triaged_by) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_result.description %>
+</p>
+
+<table>
+	  <thead>
+	    <tr>
+	      <th>2013.02.04</th>
+	      <th>2013.02.04</th>
+	      <th>2013.02.04</th>
+	      <th>2013.02.04</th>
+	      <th>2013.02.04</th>
+	      <th>2013.02.04</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	      <tr>
+	        <td>Pass</td>
+	        <td>Failed</td>
+	        <td>Pass</td>
+	        <td>Pass</td>
+	        <td>Pass</td>
+	        <td>NotRun</td>
+	      </tr>
+	  </tbody>
+</table>
+<input type='textarea' id='triage_comments' name='triage_comments' />

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  name: MyString
+  build_type: MyString
+  status: MyString
+  branch: MyString
+  number: MyString
+  location: MyString
+  description: MyText
+
+two:
+  product_id: 1
+  name: MyString
+  build_type: MyString
+  status: MyString
+  branch: MyString
+  number: MyString
+  location: MyString
+  description: MyText

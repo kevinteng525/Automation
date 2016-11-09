@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_DatabaseSetup - Regedit Version Validation">
+    <Item name="ExDB" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="ExDB" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DatabaseSetup - Setup Files Validation">
+    <Item name="ES1_DatabaseSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DatabaseSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DatabaseSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DatabaseSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="FILE" groupName="ES1_DatabaseSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Database" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Database</Item>
+    <Item name="ES1_ActivityDB_Create_mssql.log" type="File" >[ProgramFilePathX86]\EMC SourceOne\Database\ES1_ActivityDB_Create_mssql.log</Item>
+    <Item name="ES1_ArchiveDB_Create_mssql.log" type="File" >[ProgramFilePathX86]\EMC SourceOne\Database\ES1_ArchiveDB_Create_mssql.log</Item>
+    <Item name="ES1_SearchDB_Create_mssql.log" type="File" >[ProgramFilePathX86]\EMC SourceOne\Database\ES1_SearchDB_Create_mssql.log</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_DatabaseSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Database" productName="EMC SourceOne Database">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Database" groupName="ES1_DatabaseSetup - Version Info in Database Validation">
+    <!-- ES1Activity -->
+    <Item name="EMC.EmailXtender.JDF.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.JDF.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.StoredProcs.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.JDF.StoredProcs.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF.StoredProcs'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.StoredProcs.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF.StoredProcs'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.StoredProcs.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF.StoredProcs'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.JDF.StoredProcs.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Activity" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.JDF.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <!-- ES1Archive -->
+    <Item name="EMC.EmailXtender.PBA.Version" server="[SQLServerInstance]" dbName="ES1Archive" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.PBA.VersionMajor" server="[SQLServerInstance]" dbName="ES1Archive" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.VersionMinor" server="[SQLServerInstance]" dbName="ES1Archive" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.BuildNumber" server="[SQLServerInstance]" dbName="ES1Archive" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.VersionString" server="[SQLServerInstance]" dbName="ES1Archive" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.StoredProcs.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Archive" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.PBA.StoredProcs.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Archive" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA.StoredProcs'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.StoredProcs.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Archive" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA.StoredProcs'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.StoredProcs.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Archive" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA.StoredProcs'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.PBA.StoredProcs.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Archive" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.PBA.StoredProcs'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <!-- ES1Search -->
+    <Item name="EMC.EmailXtender.Search.Version" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Search" sqlQuery="SELECT Version FROM VersionInfo WHERE Name = 'EMC.EmailXtender.Search'">[MajorVersion].[MinorVersion][BuildVersion]000</Item>
+    <Item name="EMC.EmailXtender.Search.VersionMajor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Search" sqlQuery="SELECT VersionMajor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.Search'">[MajorVersion]</Item>
+    <Item name="EMC.EmailXtender.Search.VersionMinor" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Search" sqlQuery="SELECT VersionMinor FROM VersionInfo WHERE Name = 'EMC.EmailXtender.Search'">[MinorVersion]</Item>
+    <Item name="EMC.EmailXtender.Search.BuildNumber" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Search" sqlQuery="SELECT BuildNumber FROM VersionInfo WHERE Name = 'EMC.EmailXtender.Search'">[RevisionVersion]</Item>
+    <Item name="EMC.EmailXtender.Search.VersionString" server="[SQLServerInstance]" uid="[SQLServerUsername]" pwd="[SQLServerPassword]" dbName="ES1Search" sqlQuery="SELECT VersionString FROM VersionInfo WHERE Name = 'EMC.EmailXtender.Search'">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

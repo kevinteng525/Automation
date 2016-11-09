@@ -1,0 +1,61 @@
+<%= form_for(@automation_job) do |f| %>
+  <% if @automation_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@automation_job.errors.count, "error") %> prohibited this automation_job from being saved:</h2>
+
+      <ul>
+      <% @automation_job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sut_environment_id %><br>
+    <%= f.number_field :sut_environment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :test_agent_environment_id %><br>
+    <%= f.number_field :test_agent_environment_id %>
+  </div>
+  <div class="field">
+    <%= f.label :job_type %><br>
+    <%= f.number_field :job_type %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br>
+    <%= f.number_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :retry_times %><br>
+    <%= f.number_field :retry_times %>
+  </div>
+  <div class="field">
+    <%= f.label :time_out %><br>
+    <%= f.number_field :time_out %>
+  </div>
+  <div class="field">
+    <%= f.label :create_by %><br>
+    <%= f.number_field :create_by %>
+  </div>
+  <div class="field">
+    <%= f.label :modify_by %><br>
+    <%= f.number_field :modify_by %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

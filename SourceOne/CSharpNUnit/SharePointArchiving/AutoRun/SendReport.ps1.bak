@@ -1,0 +1,25 @@
+$script = "\\10.32.121.199\public\tengk\Automation\GenerateTestResult.exe"
+$localscript = "C:\SPOscript\"
+Copy-Item $script -Destination $localscript 
+cmd /c "GenerateTestResult.exe "C:\\Automation\\TestCode\\TestResults\\""
+$dropFolder = "\\10.32.121.199\SPOBuilds\NashuaBuilds\"
+$lastestBuild = (Get-ChildItem $dropFolder * | Sort-Object 'LastWriteTime')[-1]
+$MailBody = "Refer to the following BVT Testing summary, the detail testing information is attached. <P>"
+#Get attached latest test result.
+$testResult = $localscript + "TestResult.xml"
+
+#Send mail notification
+$CS = Gwmi Win32_ComputerSystem -computerName "."
+if ($CS.Name -eq "ES1ALLSim"){
+	$SmtpClient = New-Object System.Net.Mail.SmtpClient
+	$MailMessage = New-Object System.Net.Mail.MailMessage
+	$SmtpClient.Host = "localhost"
+	$MailMessage.from = ("ES1 SPO provider BVT Test Result (DO NOT REPLY) <ES1SPOBVT@emc.com>")
+	$MailMessage.To.add("kevin.teng@emc.com")
+	#$MailMessage.CC.add("li_Yue@emc.com")
+    $MailMessage.IsBodyHtml = $true
+	$MailMessage.subject = "SPO provider Build: <" + $lastestBuild + "> BVT Result" 
+	$MailMessage.Body = $MailBody
+	$MailMessage.Attachments.Add($testResult)
+	$SmtpClient.Send($MailMessage)
+}

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_id: 1
+  status: 1
+  information: MyText
+  execution_percentage: 1
+  result_type_list: MyString
+  result_count_list: MyString
+
+two:
+  task_id: 1
+  status: 1
+  information: MyText
+  execution_percentage: 1
+  result_type_list: MyString
+  result_count_list: MyString

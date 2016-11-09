@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>User type:</strong>
+  <%= User::USER_TYPES[@user.user_type] %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= User::USER_ROLES[@user.role] %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= (@user.is_active==1)?'True':'False' %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @user.description %>
+</p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

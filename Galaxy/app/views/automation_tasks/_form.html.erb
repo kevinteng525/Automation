@@ -1,0 +1,652 @@
+<%= form_for(@automation_task) do |f| %>
+
+  <% if @automation_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@automation_task.errors.count, "error") %> prohibited this automation_task from being saved:</h2>
+
+      <ul>
+      <% @automation_task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id='automation_task_create_tabs'>
+	  <ul>
+  		<li><a href="#general_info_for_task">General</a></li>
+  		<li><a href="#schedule_for_task">Schedule</a></li>
+  		<li><a href="#build_environment_for_task">Build & Environment</a></li>
+  		<li><a href="#test_cases_suites_for_task">Test Cases</a></li>
+	  </ul>
+	  <div id='general_info_for_task'> 
+		  <div class="field">
+		    <%= f.label :project_id %><br>
+		    <%= f.select :project_id, options_for_select(force_projects_list),:prompt => 'Select the product.' %>
+		  </div>
+          <%= f.hidden_field :parent_task_id, {value:0} %>
+		  <div class="field">
+		    <%= f.label :name %><br>
+		    <%= f.text_field :name, :size=>40, :placeholder=>'Enter the task name here.'%>
+		  </div>
+		  <div class="field hide">
+		    <%= f.label :status %><br>
+		    <%= f.select :status, task_status_list, { default:task_status_list[0]}, :prompt => 'select the task initial status.' %>
+		  </div>
+		  <div class="field hide">
+		    <%= f.label :task_type %><br>
+		    <%= f.select :task_type, task_type_list, { default:task_type_list[0] }, :prompt => 'select the task type.' %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :priority %><br>
+		    <%= f.select :priority, task_priority_list, :prompt => 'select the task priority.' %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :setup_script %><br>
+		    <%= f.text_area :setup_script, :cols=>60, :rows=>2, :placeholder=>'Enter the setup script to run, if call a file, specify the file path relative to the root folder of project.'%>
+		  </div>
+		  <div class="field">
+		    <%= f.label :teardown_script %><br>
+		    <%= f.text_area :teardown_script, :cols=>60, :rows=>2, :placeholder=>'Enter the teardown script to run, if call a file, specify the file path relative to the root folder of project.'%>
+		  </div>		  
+		  <div class="field">
+	    	<%= f.label :description %><br>
+	    	<%= f.text_area :description, :cols=>60, :rows=>5, :placeholder=>'Enter the task description here.' %>
+	  	  </div>
+          <div class="field">
+        <%= f.label :enable_code_coverage %><br>
+        <%= f.check_box :enable_code_coverage%>
+      </div>
+	  	  <div class="field">
+		    <%= f.label :notify_stakeholders %><br>
+		    <%= f.check_box :notify_stakeholders%>
+		  </div>
+		  <div class="field">
+		    <%= f.label :write_test_result_back_to_RQM %><br>
+		    <%= f.check_box :write_test_result_back%>
+		  </div>
+	  </div>
+	  <div id='schedule_for_task'>
+	  	<div class="field" id="recurrence_pattern_div">
+		    <%= f.label :recurrence_pattern %><br>
+		    <%= f.select :recurrence_pattern, options_for_select(task_schedule_pattern_list) %>
+		</div>
+		<div class="field" id="week_days_list_div">
+		    <%= label_tag :Week_Days %><br>
+		    <% AutomationTask::AUTOMATION_TASK_SCHEDULE_WEEK_DAYS.each do |d, v|%>
+		    	<%= check_box_tag d, v %>
+		    	<%= label_tag d %>
+		    <% end %>
+		</div>
+		<%= f.hidden_field :week_days %>
+		<div class="field" id="start_date_div">
+		    <%= label_tag :start_date %><br>
+		    <%= date_field_tag :start_date_helper %>
+		</div>
+		<%= f.hidden_field :start_date %>
+		<div class="field" id="start_time_div">
+		    <%= label_tag :start_time %><br>
+		    <%= time_field_tag :start_time_helper %>
+		</div>
+		<%= f.hidden_field :start_time %>
+		<div class="field" id="weeks_interval_div">
+		    <%= f.label :week_interval %><br>
+		    <%= f.number_field :week_interval, :value=>1,:in=>1...5 %>
+		</div>
+	  </div>
+	  <div id='build_environment_for_task'>
+	  	  <div class="field">
+		    <%= f.label :product_id %><br>
+		    <%= f.select :product_id, options_for_select(force_products_list),:prompt => 'Select the product.' %>
+		  </div>
+          <div class="field">
+            <%= f.label :branch_id %><br>
+            <%= f.select :branch_id, options_for_select(force_branches_list),:prompt => 'Select the build branch.' %>
+          </div>
+          <div class="field">
+            <%= f.label :release_id %><br>
+            <%= f.select :release_id, options_for_select(force_releases_list),:prompt => 'Select the build release.' %>
+          </div>
+          <div class="field">
+		    <%= f.label :build_id %><br>
+		    <%= f.select :build_id, options_for_select(force_builds_list),:prompt => 'Select the build.' %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :supported_environment_id %><br>
+		    <%= f.select :supported_environment_id, options_for_select(force_supported_environments_list), :prompt => 'Select the environment.' %>
+		  </div>
+	  </div>
+	  <div id='test_cases_suites_for_task'>
+		  <div class="field">
+		    <%= f.hidden_field :test_content %>
+		    <%= render :partial=>'/test_depot/test_depot' %>
+        <script type="text/javascript">
+          render_test_depot('edit');
+        </script>
+		  </div> 
+	  </div>
+  </div>
+  <div class="actions">
+    <span type='button' id='previous_step'>Previous</span>
+    <span type='button' id='next_step'>Next</span>    
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<script type="text/javascript">
+
+  //handle the start date and time to general the json format date
+  $("#start_date_helper").val(getLocalDateStringOfCurrent());
+  $("#start_time_helper").val(getLocalTimeStringOfCurrent());
+  function update_date_time()
+  {
+  	var current = $("#start_date_helper").val() + " " + $("#start_time_helper").val();
+  	$("#automation_task_start_date").val(localToMSJSON(current));
+  	$("#automation_task_start_time").val(localToMSJSON(current));
+  }
+  update_date_time();
+  $("#start_date_helper").change(update_date_time);
+  $("#start_time_helper").change(update_date_time);
+  //the button to create the task and the temp suite
+  var submit_button = $('form[id="new_automation_task"] input[type="submit"]').hide();	
+  //handle the task schedule tab
+  $("#week_days_list_div input").button({icons:{primary:"ui-icon-close"}}).click(function(){
+  	if($(this).button("option","icons").primary == "ui-icon-close")
+  	{
+  		$(this).button("option","icons",{primary:"ui-icon-check"})
+  		return;
+  	}
+  	if($(this).button("option","icons").primary == "ui-icon-check")
+  	{
+  		$(this).button("option","icons",{primary:"ui-icon-close"})
+  		return;
+  	}
+  });
+  $("#week_days_list_div").buttonset();
+  $("#weeks_interval_div").hide();
+  $("#week_days_list_div").hide();
+  $("#start_date_div").hide();
+  $("#start_time_div").hide();
+
+  function append_latest_build_and_select_it()
+  {
+      if($("#automation_task_build_id").find("option[value=0]").length == 0)
+      {
+          $('<Option/>').attr('value',0).text("Latest build").appendTo("#automation_task_build_id");
+      }
+      $("#automation_task_build_id").find("option[value=0]").attr("selected", true);
+  }
+  
+  $("#recurrence_pattern_div select").change(function(){
+  	if($(this).val() == 0)//At once
+  	{
+  		$("#weeks_interval_div").hide();
+  		$("#week_days_list_div").hide();
+  		$("#start_date_div").hide();
+  		$("#start_time_div").hide();
+  		append_latest_build_and_select_it();
+  	}
+  	else if($(this).val() == 1)//One time
+  	{
+  		$("#weeks_interval_div").hide();
+  		$("#week_days_list_div").hide();
+  		$("#start_date_div").show();
+  		$("#start_time_div").show();
+        append_latest_build_and_select_it();
+  	}
+  	else if($(this).val() == 2)//weekly
+  	{
+  		$("#weeks_interval_div").show();
+  		$("#week_days_list_div").show();
+  		$("#start_date_div").hide();
+  		$("#start_time_div").show();
+        append_latest_build_and_select_it();
+  	}
+  });
+  
+  $("#recurrence_pattern_div select").trigger('change');//update the build list with the default recurrence pattern
+  
+  $("#automation_task_week_days").val(0);
+  
+  $("#week_days_list_div input").click(function(){
+  	var weekdays = 0;
+  	$("#week_days_list_div input:checked").each(function(){
+  		weekdays |= $(this).val();
+  	});
+  	$("#automation_task_week_days").val(weekdays);
+  });
+  
+  //The handle for the project changes
+  function update_option_list( resource_url,  option_list_id, filter)
+  {
+      $.get(resource_url, function (options) {
+          $("#" + option_list_id).empty();
+          if (options.length > 0)//Show the user the available builds.
+          {
+              for (var i = 0; i < options.length; i++) {
+                  $('<Option/>').attr('value', options[i].id)
+                  				.attr('branch',options[i].branch)
+                  				.attr('release',options[i].release)
+                  				.text(options[i].name)
+                  				.appendTo("#" + option_list_id);
+              }
+          }
+          else//give the information for user that no build available for this product
+          {
+              $('<Option/>').text('No Items for this product.').appendTo("#" + option_list_id);
+          }
+          filter();
+      });
+  }
+  
+  $("#automation_task_product_id").change(function(){
+    var product_selected = $("#automation_task_product_id").val();
+    var builds_url = '';
+    var branches_url = '';
+    var releases_url = '';
+    //if select a project, list the build for this project
+    if(product_selected)
+    {
+      builds_url = '/products/' + product_selected + '/builds.json';
+      branches_url = '/products/' + product_selected + '/branches?searchBy=type&type=0';
+      releases_url = '/products/' + product_selected + '/releases?searchBy=type&type=0';
+    } 
+    else//load all the builds
+    {
+      builds_url = '/builds.json';
+      branches_url = '/branches.json';
+      releases_url = '/releases.json';
+    }
+    
+    
+    update_option_list(branches_url,'automation_task_branch_id', function(){
+    	update_option_list(releases_url,'automation_task_release_id', function(){
+    		update_builds_list_using_branch_and_release();
+    	});
+    });
+    
+  });
+
+  $("#automation_task_project_id").change(function(){
+    var project_selected = $("#automation_task_project_id").val();
+    var supported_environments_url = '';
+    //if select a project, list the build for this project
+    if(project_selected)
+    {
+      supported_environments_url = '/projects/' + project_selected + '/supported_environments.json';
+    } 
+    else//load all the builds
+    {
+      supported_environments_url = '/supported_environments.json';
+    }
+    update_option_list(supported_environments_url,'automation_task_supported_environment_id', function(){});
+  });
+
+  function update_builds_list_using_branch_and_release()
+  {
+      var product_selected = $("#automation_task_product_id").val();
+      var builds_url = '/products/' + product_selected + '/builds.json';
+      update_option_list(builds_url,'automation_task_build_id', function(){
+          var release_id = $("#automation_task_release_id option[value='" + $("#automation_task_release_id").val() + "']").text();
+          var branch_id = $("#automation_task_branch_id option[value='" + $("#automation_task_branch_id").val() + "']").text();
+          var builds = $.grep($("#automation_task_build_id option"), function(value, index){
+              if(release_id == "")
+              {
+              	return false;
+              }
+              else if($("#automation_task_release_id option").length == 1)//ToDo, this is a temporary solution, we need to unify build name pattern as Branch.Realse.Numer to solve it totally.
+              {
+              	return true;
+              }
+              else
+              {
+                return $(value).attr('release') == release_id;
+              }
+          });
+          builds = $.grep(builds, function(value, index){
+          	if(branch_id == "")
+          	{
+          		return false;
+          	}
+          	else if($("#automation_task_branch_id option").length == 1)//ToDo, this is a temporary solution, we need to unify build name pattern as Branch.Realse.Numer to solve it totally.
+            {
+             	return true;
+            }
+          	else
+          	{
+              return $(value).attr('branch') == branch_id;
+            }
+          });
+          $("#automation_task_build_id").empty();
+          
+          if(builds.length>0) {
+              $.each(builds, function (index, value) {
+                  $(value).appendTo("#automation_task_build_id");
+              });
+              append_latest_build_and_select_it();
+          }
+          else if($("#automation_task_recurrence_pattern").val() == 1 ||
+                  $("#automation_task_recurrence_pattern").val() == 2  )
+          {
+              append_latest_build_and_select_it();
+          }
+          else
+          {
+              $('<Option/>').text('No Items for release and branch.').appendTo("#automation_task_build_id");
+          }
+          
+      });
+  }
+  $("#automation_task_branch_id, #automation_task_release_id").change(update_builds_list_using_branch_and_release);
+  
+  //handle the creation wizard
+  function get_active_tab_index()
+  {
+  	var index;
+  	$('#automation_task_create_tabs>ul li').each(function(i, li){
+  		if($(li).attr('aria-selected')=='true')
+  		{
+  			index = i;
+  		}
+  	});
+  	return index;
+  }
+  
+  function active_tab_by_index(index)
+  {
+  	if(index < $('#automation_task_create_tabs>ul li').length)
+  	{
+  		$($('#automation_task_create_tabs>ul li')[index]).find('a').click();
+  	}
+  	else
+  	{
+  		alert('The index:'+index+' is out of range.');
+  	}
+  }
+  
+  function validate_general_info_of_task()
+  {
+  	if($('#automation_task_project_id').val()=='' ||
+  	$('#automation_task_name').val()=='' ||
+  	$('#automation_task_task_type').val() =='' ||
+  	$('#automation_task_priority').val() == ''
+  	/* ||$('#automation_task_description').val() == ''*/
+  	)
+  	{
+  		alert('Please input the general information to create the task.');
+  		return false;
+  	}
+  	return true;
+  }
+  
+  function validate_schedule_setting_of_task()
+  {
+  	//if select the weekly task, user must select the days to run in one week.
+  	if($('#automation_task_recurrence_pattern').val()=='2' &&
+  	$('#automation_task_week_days').val()=='0')
+  	{
+  		alert('Please select at lease one week day for the weekly task.');
+  		return false;
+  	}
+  	return true;
+  }
+  
+  function validate_build_environment_setting_of_task()
+  {
+  	if(!/\d+/.test($('#automation_task_product_id').val()) ||
+  	!/\d+/.test($('#automation_task_branch_id').val()) ||
+  	!/\d+/.test($('#automation_task_release_id').val()) ||
+  	!/\d+/.test($('#automation_task_build_id').val())||
+  	!/\d+/.test($('#automation_task_supported_environment_id').val()))
+  	{
+  		alert('Please input the build&environment information needed to create automation task.');
+  		return false;
+  	}
+  	return true;
+  }
+  
+  function validate_test_cases_suites_setting_of_task()
+  {
+    var selected_cases = get_selected_cases();
+    var all_selected_suites = get_all_selected_suites();
+    
+    if((all_selected_suites == null || all_selected_suites == '')&&(selected_cases == null || selected_cases == '') )
+    {
+    	alert("Please select any suites or cases for automation task.");
+    	return false;
+    }
+    else
+    {
+    	return true;
+    }
+  }
+  
+  function get_selected_cases()
+  {
+  	var activePanel = $("#test_case_library_accordion").accordion("option", "active");
+  	if(activePanel == 0)
+  	{
+  		var selected_cases = $('#test_depot_selected_test_cases').attr("value");
+  		return selected_cases;
+  	}
+  	else if(activePanel ==1)
+  	{
+  		return "";
+  	}
+  	else if(activePanel ==2)
+  	{
+  		return "";
+  	}
+  	else if(activePanel == 3)
+  	{
+  		return "";
+  	}
+  	else
+  	{
+  		return "";
+  	}
+  }
+  
+  function get_all_selected_suites()
+  {
+	  var activePanel = $("#test_case_library_accordion").accordion("option", "active");
+
+  	if(activePanel == 0)// case library
+  	{
+  		return $('#test_depot_selected_test_suites').attr("value");
+  	}
+  	else if(activePanel == 1)//RQM suite
+  	{
+  		return $("#predefined_suite_selected").attr('suites_list');
+  	}
+  	else if(activePanel == 2)//customized suite
+  	{
+  		return $("#user_created_suite_selected").attr('suites_list');
+  	}
+  	else if(activePanel == 3)//test plan
+  	{
+  		return $("#test_plan_suite_selected").attr('suites_list');
+  	}
+  	else
+  	{
+  		return "";
+  	}
+  }
+  
+  $('.actions #next_step').button({icons:{secondary:"ui-icon-arrowthick-1-e"}});
+  $('.actions #previous_step').button({icons:{primary:"ui-icon-arrowthick-1-w"}});
+  $('.actions #previous_step').hide();
+  $("#automation_task_create_tabs").tabs({
+  	beforeActivate:function(event, ui){
+  		if(ui.newTab.index()==0)
+  		{
+  			$('.actions #previous_step').button("destroy");
+  			$('.actions #previous_step').hide();
+  			$('.actions #next_step').show();
+  			$('.actions #next_step').button("option","label",'Next');
+  			$('.actions #next_step').button({icons:{secondary:"ui-icon-arrowthick-1-e"}});
+  	    }
+  		else if(ui.newTab.index() == 3)
+  		{
+  			if(!validate_general_info_of_task())
+  			{
+  				event.preventDefault();
+  				active_tab_by_index(0);
+  			}
+  			else if(!validate_schedule_setting_of_task())
+  			{
+  				event.preventDefault();
+  				active_tab_by_index(1);
+  			}
+  			else if(!validate_build_environment_setting_of_task())
+  			{
+  				event.preventDefault();
+  				active_tab_by_index(2);
+  			}
+  			else
+  			{
+  				$('.actions #previous_step').show();
+  				$('.actions #previous_step').button({icons:{primary:"ui-icon-arrowthick-1-w"}});
+            	$('.actions #next_step').button("option","label",'Finish');
+            	$('.actions #next_step').button({icons:{secondary:"ui-icon-check"}});
+  			}
+  		}
+  		else if(ui.newTab.index()==2)
+  		{
+  			if(!validate_general_info_of_task())
+  			{
+  				event.preventDefault();
+  				active_tab_by_index(0);
+  			}
+  			else if(!validate_schedule_setting_of_task())
+  			{
+  				event.preventDefault();
+  				active_tab_by_index(1);
+  			}
+  			else
+  			{
+  				$('.actions #previous_step').show();
+  				$('.actions #previous_step').button({icons:{primary:"ui-icon-arrowthick-1-w"}});
+            	$('.actions #next_step').show();
+  				$('.actions #next_step').button("option","label",'Next');
+            	$('.actions #next_step').button({icons:{secondary:"ui-icon-arrowthick-1-e"}});
+  			}
+  		}
+  		else if(ui.newTab.index()==1)
+  		{
+  			if(!validate_general_info_of_task())
+  			{
+  				event.preventDefault();
+  			}
+  			else
+  			{
+  				$('.actions #previous_step').button({icons:{primary:"ui-icon-arrowthick-1-w"}});
+   				$('.actions #previous_step').show();
+   				$('.actions #next_step').show();
+  				$('.actions #next_step').button("option",'label','Next');
+  				$('.actions #next_step').button({icons:{secondary:"ui-icon-arrowthick-1-e"}});
+  			}
+  		}
+  		$('.actions').buttonset();
+  	}
+  });
+  
+  	
+  $("#test_case_library_accordion").accordion({
+	header: "h3",
+	heightStyle: "content",
+	collapsible: false,
+	active: 0,
+  });
+
+  $('.actions #previous_step').click(function(){
+  	var active_tab_index = get_active_tab_index();
+  	if(active_tab_index == 0)
+  	{
+  	}
+  	else if(active_tab_index == 1)
+  	{
+  		active_tab_by_index(0);
+  	}
+  	else if(active_tab_index == 2)
+  	{
+  		active_tab_by_index(1);
+  	}
+  	else if(active_tab_index == 3)
+  	{
+  		active_tab_by_index(2);
+  	}
+  });
+
+  $('.actions #next_step').click(function(){
+  	var active_tab_index = get_active_tab_index();
+  	if(active_tab_index == 0)
+  	{
+  		if(validate_general_info_of_task())
+  		{
+  			active_tab_by_index(1);
+  		}
+  	}
+  	else if(active_tab_index == 1)
+  	{
+  		if(validate_schedule_setting_of_task())
+  		{
+  			active_tab_by_index(2);
+  		}
+  	}
+  	else if(active_tab_index == 2)
+  	{
+  		if(validate_build_environment_setting_of_task())
+  		{
+  			active_tab_by_index(3);
+  		}
+  	}
+  	else if(active_tab_index == 3)
+  	{
+
+      var suite_type='1';//Temporary test suite, the content of this suite will not change, used for the at once task
+  		var execution_command = '';
+      if(validate_test_cases_suites_setting_of_task())
+  		{
+  			var selected_cases = get_selected_cases();
+    		var all_selected_suites = get_all_selected_suites();
+    		var activePanel = $("#test_case_library_accordion").accordion("option", "active");
+        if(activePanel == 2)//customized suites
+        {
+          var regex = /Type=[a-z]*\b/gi
+
+          var type = regex.exec($('#user_created_suite_selected').attr('suite_tooltip_' + all_selected_suites))[0].replace("Type=","");
+          
+          if (type == "NotExisting") {//no need to create a new suite
+            suite_type = 5;
+            $("#automation_task_test_content").val(all_selected_suites);
+            //submit the form to create a task
+            submit_button.click();
+            return;
+          }
+        }
+        else if(activePanel == 3)//test plan
+    		{
+    			//this value will be used when write back test result to an existing test plan in RQM
+    			$("#automation_task_task_type").val(1);
+    		}
+        else// case library or RQM predefined suites
+        {
+        }
+
+    		if($('#automation_task_recurrence_pattern').val() == 1 || $('#automation_task_recurrence_pattern').val() == 2)//Once or weekly
+    		{
+    			suite_type = '3'; //Dynamic suite, and the test cases will be determined at the time of task is started.
+    		}
+
+        var params = {'test_suite':{'sub_suites':all_selected_suites, 'test_cases':selected_cases, 'name':'internal test suite for task', 'description':'internal test suite for task', 'suite_type':suite_type, 'execution_command':execution_command}};
+        $.post('/test_suites',params, function(data){
+              $("#automation_task_test_content").val(data.key);
+            //submit the form to create a task
+              submit_button.click();
+        },'json');
+  			
+  		}
+  	}
+  });
+
+</script>

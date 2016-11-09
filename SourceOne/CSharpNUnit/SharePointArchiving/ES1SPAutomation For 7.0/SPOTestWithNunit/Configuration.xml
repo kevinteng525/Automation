@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration ID="Configs">
+  <ADServer Name="SOSP_AD.sosp.com" UserName="administrator" Password="emcsiax@QA"/>
+  <ArchiveConnection Name="CONN" DBServer="es1all" DBName="ES1Archive"/>
+  <MessageCenter MCLocation="\\es1all\Share\MC" />
+  <ArchiveFolder Name="AF1" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="AF2" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="AF3" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="AF4" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="AF5" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+
+  <MappedFolder Name="MDAF1" ArchiveFolder="AF1" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF2" ArchiveFolder="AF2" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF3" ArchiveFolder="AF3" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF4" ArchiveFolder="AF4" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF5" ArchiveFolder="AF5" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+</Configuration>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" jaxb:version="2.1" targetNamespace="http://jazz.net/xmlns/alm/qm/styleinfo/v0.1/" version="1.0" xmlns="http://jazz.net/xmlns/alm/qm/styleinfo/v0.1/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:qm="http://jazz.net/xmlns/alm/qm/v0.1/" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+	
+	<xs:annotation>
+		<xs:appinfo>	
+		    <jaxb:schemaBindings>
+			  <jaxb:package name="com.ibm.rqm.xml.bind.stylesheet"/>
+			</jaxb:schemaBindings>
+		</xs:appinfo>	
+	</xs:annotation>
+	
+	<xs:element name="preferences">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">
+				project properties
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="1" minOccurs="0" name="testcaseActivityTrigger" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

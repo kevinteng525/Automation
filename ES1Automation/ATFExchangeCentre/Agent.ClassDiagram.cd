@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ATFExchangeCentre.Agents.Agent">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Agents\Agent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Agents.WinServiceAgent">
+    <Position X="10" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAIgIAAAAAAAAAAAAYAAAAAAAI=</HashCode>
+      <FileName>Agents\WinServiceAgent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Requests.CMDRequest">
+    <Position X="3.25" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAQAAAAAAAgBAAAACAAAAIABQAAQ=</HashCode>
+      <FileName>Requests\CMDRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Requests.Request">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACBEABAAAAAAAAAAEAAAAQAAAAARAAQ=</HashCode>
+      <FileName>Requests\Request.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Requests.RunTestCaseRequest">
+    <Position X="6" Y="4.5" Width="2.75" />
+    <NestedTypes>
+      <Delegate Name="ATFExchangeCentre.Requests.RunTestCaseRequest.RunCaseInAgent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Requests\RunTestCaseRequest.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CAAAAAAEAAQAAABAAAAAAAQAAAAAAABAAAAAAAAQAAQ=</HashCode>
+      <FileName>Requests\RunTestCaseRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Requests.SystemRequest">
+    <Position X="0.5" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Requests\SystemRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFExchangeCentre.Agents.WebServiceAgent">
+    <Position X="13.25" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAgIAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Agents\WebServiceAgent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

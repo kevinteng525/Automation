@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - Regedit Version Validation">
+    <Item name="Worker+" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="Worker+" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="WebServices" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="WebServices" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="DiscoExpressServer" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="DiscoExpressServer" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Worker" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Worker</Item>
+    <Item name="EMC SourceOne Folder\Logs" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Logs</Item>
+    <Item name="EMC SourceOne Folder\Tools" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Tools</Item>
+    <Item name="EMC SourceOne Folder\Notes" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Notes</Item>
+    <Item name="EMC SourceOne Folder\ExDocMgmt" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\ExDocMgmt</Item>
+    <Item name="EMC SourceOne Folder\ExOAService" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\ExOAService</Item>
+    <Item name="EMC SourceOne Folder\SearchWS" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\SearchWS</Item>
+    <Item name="EMC SourceOne Folder\DiscoveryManager" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\DiscoveryManager</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - Setup Files Validation">
+    <Item name="ES1_WorkerSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_WorkerSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_WorkerSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_WorkerSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_WebServicesSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_WebServicesSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_WebServicesSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_WebServicesSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DiscoveryMgrServerSetup.exe" path="C:\ES1_DM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrServerSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DiscoveryMgrServerSetup.exe" path="C:\ES1_DM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrServerSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Worker" path="[ProgramFilePathX86]\EMC SourceOne\Worker" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Worker" path="[ProgramFilePathX86]\EMC SourceOne\Worker" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\ExDocMgmt" path="[ProgramFilePathX86]\EMC SourceOne\ExDocMgmt" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\ExDocMgmt" path="[ProgramFilePathX86]\EMC SourceOne\ExDocMgmt" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\ExOAService" path="[ProgramFilePathX86]\EMC SourceOne\ExOAService" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\ExOAService" path="[ProgramFilePathX86]\EMC SourceOne\ExOAService" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\SearchWS" path="[ProgramFilePathX86]\EMC SourceOne\SearchWS" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\SearchWS" path="[ProgramFilePathX86]\EMC SourceOne\SearchWS" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManager" path="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManager" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManager" path="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManager" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Web Services" productName="EMC SourceOne Web Services">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="EMC SourceOne Worker Services" productName="EMC SourceOne Worker Services">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="EMC SourceOne Discovery Manager Express Server" productName="EMC SourceOne Discovery Manager Express Server">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="WinService" groupName="ES1_Worker+WebServices+DiscoveryMgrExpressServer_Setup - Windows Service">
+    <Item name="EMC SourceOne Address Resolution" serviceName="ES1AddressResolutionService"/>
+    <Item name="EMC SourceOne Discovery Manager Worker" serviceName="DCWorkerService"/>
+    <Item name="EMC SourceOne Document Management Service" serviceName="ExDocMgmtSvc"/>
+    <Item name="EMC SourceOne Job Dispatcher" serviceName="ExJobDispatcher"/>
+    <Item name="EMC SourceOne Offline Access Retrieval Service" serviceName="ExDocMgmtSvcOA"/>
+    <Item name="EMC SourceOne Search Service" serviceName="ExSearchService"/>
+  </Group>
+</Verify>

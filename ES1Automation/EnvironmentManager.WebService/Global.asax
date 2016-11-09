@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="EnvironmentManager.WebService.Global" Language="C#" %>

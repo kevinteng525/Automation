@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mappedfolder>  
+  <name>mapped folder name</name>
+  <description>mapped folder description</description>
+  <archiveconnection>archive connection for the archive folder coresponding</archiveconnection>
+  <archivefolder>the archive folder name</archivefolder>
+  <businessfoldertype>one of [Organization,LegalHold,Personal,Community]</businessfoldertype>
+  <permissions>
+    <mappedfolderpermission>
+      <username>user or group name</username>
+      <usertype>user or group</usertype>
+      <permission>one or many of[Administrator,ReadAll,Contributor,Owner,MyFile,Delete], split by ','</permission>
+    </mappedfolderpermission>
+    <mappedfolderpermission>
+      <username>user or group name</username>
+      <usertype>user or group</usertype>
+      <permission>one or many of[Administrator,ReadAll,Contributor,Owner,MyFile,Delete], split by ','</permission>
+    </mappedfolderpermission>
+  </permissions>
+</mappedfolder>

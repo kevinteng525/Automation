@@ -1,0 +1,208 @@
+﻿<Window x:Class="SmtpMailSender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SmtpMailSender.AppCode" 
+        Title="SMTP Mail Sender" 
+        Height="680" Width="550" 
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" BorderBrush="#FF605858" BorderThickness="1">
+    <Window.Resources>
+        <!--Converters -->
+        <local:ProcessBarShowConverter x:Key="ProcessBarShowConverter" />
+        <local:EnableSettingConvertor x:Key="EnableSettingConvertor" />
+        <local:SendButtonConverter x:Key="SendButtonConverter" />
+        <local:ProcessValueConverter x:Key="ProcessValueConverter" />
+        <local:ProcessTextConverter x:Key="ProcessTextConverter" />
+    </Window.Resources>
+    <Grid Margin="0" x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="130" />
+        </Grid.RowDefinitions>
+        <Popup x:Name="popMailboxSelection" 
+               Placement="Center" 
+               AllowsTransparency="True"
+               PopupAnimation="Fade"
+               IsOpen="False"
+               PlacementTarget="{Binding ElementName=gridSetting}" 
+               StaysOpen="False">
+            <Grid Width="320" Height="370" Background="#FFEEEEEE" Opacity="0.9">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="txtType" Text="Type" FontSize="21.333" Margin="0,0,0,3" />
+                    <StackPanel Height="280" Width="280" Margin="5,0,5,5">
+                        <CheckBox x:Name="selectAll" Content="Select all" Click="OnSelectAllChanged" FontSize="16" />
+                        <ListView x:Name="checkedListView"
+			                    SelectionMode="Multiple"
+			                    ItemsSource="{Binding}"
+			                    ItemTemplate="{StaticResource ItemDataTemplate}"
+			                    CheckBox.Unchecked="OnUncheckItem" Margin="5,3,0,0" Height="250" FontSize="13.333" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="OK" Style="{StaticResource ButtonStyle}" Foreground="White" FontSize="18.667" Width="100" Height="31" Margin="0,0,10,0" Click="popOK_Click" />
+                        <Button Content="Cancel" Style="{StaticResource ButtonStyle}" FontSize="18.667" Width="100" Height="31" Background="White" Foreground="White" Margin="10,0,0,0" Click="popCancel_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Popup>
+        <!-- Title -->
+        <Grid x:Name="TitleBar" Grid.Row="0" MouseMove="TitleBarMouseMove" Background="#FF2A85C2">
+            <TextBlock Text="Smtp Email Sender" Margin="10,5" Foreground="White" FontSize="18.667" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Rectangle Height="25" Width="25" MouseLeftButtonDown="BtnMinWindow"
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,1,0" >
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="Images/Minus.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle Height="30" Width="30" MouseLeftButtonDown="BtnCloseWindow" HorizontalAlignment="Right">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="Images/Close.png"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </StackPanel>
+        </Grid>
+        <!-- Login -->
+        <Grid x:Name="gridLogin" Grid.Row="1" Height="650" Width="530" Background="White" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Mail User Login" HorizontalAlignment="Center" FontWeight="Bold" FontSize="26.667" Margin="0,0,0,15" Foreground="#FF555555"/>
+                <StackPanel Margin="0,5" Orientation="Horizontal">
+                    <TextBlock Text="UserName:" HorizontalAlignment="Left" FontWeight="Bold" Width="120" FontSize="16" Foreground="#FF555555"/>
+                    <TextBox x:Name="txtUserName" Text="{Binding Path=MailUser, Mode=TwoWay}" FontSize="16" Width="180" />
+                </StackPanel>
+                <StackPanel Margin="0,5" Orientation="Horizontal">
+                    <TextBlock Text="Password:" HorizontalAlignment="Left" FontWeight="Bold" Width="120" FontSize="16" Foreground="#FF555555"/>
+                    <TextBox Text="{Binding Path=Password, Mode=TwoWay}" FontSize="16" Width="180" />
+                </StackPanel>
+                <StackPanel Margin="0,5" Orientation="Horizontal">
+                    <TextBlock Text="Domain:" HorizontalAlignment="Left" FontWeight="Bold" Width="120" FontSize="16" Foreground="#FF555555"/>
+                    <TextBox Text="{Binding Path=Domain, Mode=TwoWay}" FontSize="16" Width="180" />
+                </StackPanel>
+                <StackPanel Margin="3,20" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Login" Style="{StaticResource ButtonStyle}" Foreground="White" FontSize="18.667" Width="100" Height="31" Margin="0,0,15,0" Click="btnLogin_Click" />
+                    <Button Content="Cancel" Style="{StaticResource ButtonStyle}" FontSize="18.667" Width="100" Height="31" Background="White" Foreground="White" Margin="15,0,0,0" Click="btnCancel_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <!-- Setting -->
+        <Grid x:Name="gridSetting" IsEnabled="{Binding Path=IsRunning, Converter={StaticResource EnableSettingConvertor}}"  Grid.Row="2">
+            <GroupBox Header="Sender Settings" FontSize="16" Margin="3">
+                <StackPanel Margin="5">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="SMTP Server Name:" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtSmtpServer" Text="{Binding Path=SmtpServer, Mode=TwoWay}" />
+                    </StackPanel>
+
+                    <GroupBox Header="Sender Receive Selection" Margin="0,10,0,0">
+                        <StackPanel Margin="5,3,0,0">
+                            <StackPanel Orientation="Horizontal" Margin="3">
+                                <TextBlock Text="Mail Sender Selection:" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Button Content="" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Click="FromSelection">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Images/UserAdd.png" Stretch="UniformToFill"/>
+                                    </Button.Background>
+                                </Button>
+                                <TextBlock Text="Selected:" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtFromCount" Text="0" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3,3">
+                                <TextBlock Text="Mail Receiver Selection:" Width="170" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Button Content="" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="25" Height="25" Click="ToSelection">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="Images/UserAdd.png" Stretch="UniformToFill"/>
+                                    </Button.Background>
+                                </Button>
+                                <TextBlock Text="Selected:" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="txtToCount" Text="0" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Mail Config" Margin="0,10,0,0">
+                        <StackPanel Margin="5,3,3,0">
+                            <StackPanel Margin="0,3" Orientation="Horizontal">
+                                <TextBlock Text="Mail Subject Length:" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Path=SubjectLength, Mode=TwoWay}" TextAlignment="Center" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="words" Width="120" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,3" Orientation="Horizontal">
+                                <TextBlock Text="Mail Body Length:" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBox Text="{Binding Path=BodyLength, Mode=TwoWay}" TextAlignment="Center" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="words" Width="120" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <StackPanel Margin="0,3,0,0" Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=EnableAttachments, Mode=TwoWay}" VerticalAlignment="Center" Margin="0" />
+                                <TextBlock Text="Enable Attachments" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,5,0,5" IsEnabled="{Binding Path=EnableAttachments}">
+                                <TextBlock Text="Attachments Path:" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox x:Name="txtAttachmentPath" Text="{Binding Path=AttachmentDir, Mode=TwoWay}" Width="465" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" IsTabStop="False" />
+                                    <Button Content="" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="25" Click="btnAttachmentsSelection">
+                                        <Button.Background>
+                                            <ImageBrush Stretch="UniformToFill" ImageSource="Images/FolderOpen.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <StackPanel Margin="7,10,0,3">
+                        <TextBlock Text="Words Dictionary Path:" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <StackPanel Orientation="Horizontal" Margin="0">
+                            <TextBox x:Name="txtDictionaryPath" Text="{Binding Path=DictionaryFile, Mode=TwoWay}" Width="465" HorizontalAlignment="Left" VerticalAlignment="Center" IsReadOnly="True" IsTabStop="False" />
+                            <Button Content="" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="25" Click="btnDictionarySelection">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Images/FolderOpen.png" Stretch="UniformToFill"/>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Margin="7,15,0,5" Orientation="Horizontal">
+                        <TextBlock Text="Random Send:" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Path=MailsCount, Mode=TwoWay}" TextAlignment="Center" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Text="mails" Width="120" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <!-- Processing -->
+        <Grid Grid.Row="3">
+            <GroupBox Header="Procssing Monitor" Margin="3" FontSize="16">
+                <Grid Margin="10">
+                    <Button x:Name="btnSend" 
+                            Content="Send Now" 
+                            Height="60"
+                            Foreground="White" FontSize="18.667" FontWeight="Bold" 
+                            Style="{StaticResource ButtonStyle}" Click="btnSend_Click" 
+                            Visibility="{Binding Path=IsRunning, Converter={StaticResource SendButtonConverter}}"
+                            />
+                    <Grid Visibility="{Binding Path=IsRunning, Converter={StaticResource ProcessBarShowConverter}}" >
+                        <StackPanel VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=FinishCount, Converter={StaticResource ProcessTextConverter}}" VerticalAlignment="Center" />
+                                <Button x:Name="btnCancel" 
+                                    Content="Cancel" 
+                                    Height="30"
+                                    Width="70"
+                                    Foreground="White" FontSize="16" FontWeight="Bold" 
+                                    Style="{StaticResource ButtonStyle}" Click="btnCancelSend_Click" Margin="7,0,0,0" 
+                                    />
+                            </StackPanel>
+                            <ProgressBar x:Name="prsocessBarSender"
+                                         Margin="0,5"
+                                         Height="18"
+                                         Value="{Binding Path=FinishCount, Converter={StaticResource ProcessValueConverter}}" Style="{DynamicResource ProgressBarStyle}"
+                                 />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ES1TestData>
+  <Authentication>
+    <Identity Type="Local" Model="SharepointOnline.LocalFormAuthentication">
+      <User Name="FBAtest" Password="emcsiax@QA"></User>
+    </Identity>
+    <!--<Identity Type="Online" Model="SharepointOnline.SPOnlineAuthentication">
+      <User Name="Kevin.Teng@EMCIIG.onmicrosoft.com" Password="Turu5253"></User>
+    </Identity>-->
+  </Authentication>
+  <WebApp URL="https://sp2010sim.sosp.com"/>
+  <!--<WebApp URL="https://emciig.sharepoint.com/" />-->
+</ES1TestData>

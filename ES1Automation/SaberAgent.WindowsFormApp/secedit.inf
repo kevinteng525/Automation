@@ -1,0 +1,10 @@
+[Unicode]
+Unicode=yes
+[Registry Values]
+[Privilege Rights]
+SeServiceLogonRight = "Administrators"
+[Version]
+signature="$CHICAGO$"
+Revision=1
+[Profile Description]
+Description=Local Security Template

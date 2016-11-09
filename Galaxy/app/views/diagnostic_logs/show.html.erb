@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Create time:</strong>
+  <%= @diagnostic_log.create_time %>
+</p>
+
+<p>
+  <strong>Component:</strong>
+  <%= @diagnostic_log.component %>
+</p>
+
+<p>
+  <strong>Log type:</strong>
+  <%= @diagnostic_log.log_type %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @diagnostic_log.message %>
+</p>
+
+<%= link_to 'Edit', edit_diagnostic_log_path(@diagnostic_log) %> |
+<%= link_to 'Back', diagnostic_logs_path %>

@@ -1,0 +1,473 @@
+<fieldset>
+	<legend class="galaxy_legend">Test Cases Library</legend>
+	<div id='sync_status'></div>
+	<%= render 'test_depot' %>
+	<script type="text/javascript">
+		render_test_depot('edit');
+	</script>
+	<div id='create_new_predefined_suite_dialog'>
+		<div class="field">
+			<%= label_tag :suite_name %><br>
+			<%= text_field_tag :suite_name, nil, size:35 %>
+		</div>
+		<div class="field">
+			<%= label_tag :suite_description %><br>
+			<%= text_area_tag :suite_description,"Please input the description of the suite.", cols:35,rows:4 %>
+		</div>		
+		<div class='field'>
+			<%= label_tag :suite_type %><br>
+			<ul>
+				<li><%= radio_button_tag 'type','1', true %> Not existing testcases</li>
+				<li><%= radio_button_tag 'type','0', false %> Existing testcases</li>
+			</ul>
+		</div>
+		<div id='execution_fields' class='field'>
+			<%= label_tag :execution_command %><br>
+			<%= text_field_tag :execution_command, nil, size:35 %>
+		</div> 
+	</div>
+	<div id='test_depot_operations'>
+		<span id='refresh_test_cases_from_rqm'>Refresh Cases From Server</span>
+		<span id='refresh_test_suites_from_rqm'>Refresh Suites From Server</span>
+		<span id='split_line' >&nbsp;</span>
+		<span id='create_new_suite' >New Suite</span>
+		<span id='update_existing_suite' >Update Suite</span>
+		<span id='delete_existing_suite' >Delete Suite</span>
+	</div>
+</fieldset>
+
+<script type="text/javascript">
+
+	$("#refresh_test_cases_from_rqm").button();
+	$("#refresh_test_suites_from_rqm").button();
+	$("#create_new_suite").button();
+	$("#split_line").button();
+	$("#update_existing_suite").button();
+	$("#delete_existing_suite").button();
+	$("#test_depot_operations").buttonset();
+	$("#split_line").button("option","disabled", true);
+
+	$("#create_new_predefined_suite_dialog").hide();
+	
+	var validate_suites_cases_selected_for_customized_suite = function()
+	{
+		var selected_suites = $('#test_depot_selected_test_suites').attr('value');
+		var selected_cases = $('#test_depot_selected_test_cases').attr('value');
+		var selected_predefined_suites = $('#predefined_suite_selected').attr('suites_list');
+		var selected_predefined_cases = $('#predefined_suite_selected').attr('cases_list');
+	  //check the parameters before create a new suite
+	  if((selected_suites == ''|| selected_suites == null ) && 
+	  	(selected_predefined_suites == null || selected_predefined_suites == '') &&
+	  	(selected_cases == null || selected_cases == '') &&
+	  	(selected_predefined_cases == null || selected_predefined_cases == ''))
+	  {
+	  	
+	  	return null;
+	  }
+	  else if((selected_suites != null && selected_suites.split(',').indexOf('0') >= 0) ||
+	  	(selected_predefined_suites != null && selected_predefined_suites.split(',').indexOf('2000') >= 0))
+	  {
+	  	alert("Please do not select the root node to create new suite which will contain all the test cases")
+	  	return null;
+	  }
+	  else
+	  {
+	  	var selected_suites = "";
+	  	if( $('#test_depot_selected_test_suites').attr('value') != null && $('#test_depot_selected_test_suites').attr('value') != "")
+	  	{
+	  		selected_suites += $('#test_depot_selected_test_suites').attr('value');
+	  	}
+	  	if($('#predefined_suite_selected').attr('suites_list') != null && $('#predefined_suite_selected').attr('suites_list') != "")
+	  	{
+	  		if( selected_suites != "" )
+	  		{
+	  			selected_suites += "," + $('#predefined_suite_selected').attr('suites_list');
+	  		}
+	  		else
+	  		{
+	  			selected_suites = $('#predefined_suite_selected').attr('suites_list');
+	  		}
+	  	}
+
+	  	var selected_cases = "";
+	  	if( $('#test_depot_selected_test_cases').attr('value') != null && $('#test_depot_selected_test_cases').attr('value') != "")
+	  	{
+	  		selected_cases += $('#test_depot_selected_test_cases').attr('value');
+	  	}
+	  	if($('#predefined_suite_selected').attr('cases_list') != null && $('#predefined_suite_selected').attr('cases_list') != "")
+	  	{
+	  		if(selected_cases != "")
+	  		{
+	  			selected_cases += "," + $('#predefined_suite_selected').attr('cases_list');
+	  		}
+	  		else
+	  		{
+	  			selected_cases = $('#predefined_suite_selected').attr('cases_list');
+	  		}
+	  	}
+	  	var array = new Array();
+	  	array.push(selected_suites);
+	  	array.push(selected_cases);
+	  	return array;
+	  }
+	};
+
+	var show_execution_fields = function(bool){
+		if (bool == true) {
+			$('input:radio[name=type]')[0].checked = true;
+			$('#execution_fields').show();
+		}
+		else {
+			$('input:radio[name=type]')[1].checked = true;
+			$('#execution_fields').hide();
+		}
+	};
+
+	$("#create_new_suite").click(function(){
+		$('#create_new_predefined_suite_dialog #suite_name').val('');
+		$('#create_new_predefined_suite_dialog #suite_description').val('');
+		$('#execution_command').val('');
+		$('input:radio[name=type]').attr('checked',false);
+		if(validate_suites_cases_selected_for_customized_suite() != null)
+		{
+			$('input:radio[name=type]')[1].checked = true;
+			show_execution_fields(false);
+		}
+		else 
+		{
+			alert("Do you want to create test suite whose cases are not existing in case provider?");
+			$('input:radio[name=type]')[0].checked = true;
+			show_execution_fields(true);
+		}
+
+		$("input:radio:not([checked])").attr("disabled","disabled");
+
+		var create_dialog_option = {
+			autoOpen: false,
+			modal: true,
+			title:'New Customized Test Suite',
+			width:340,
+			buttons:{
+				"Add":function(){
+					var selected_suites_cases = validate_suites_cases_selected_for_customized_suite();
+					var selected_suites="";
+					var selected_cases="";
+					var execution_command = "";
+					var params=null;
+
+					var suite_name = $('#create_new_predefined_suite_dialog #suite_name').val();
+					var suite_description = $('#create_new_predefined_suite_dialog #suite_description').val();
+
+					if (selected_suites_cases == null){
+						execution_command = $('#execution_command').val();
+						if (execution_command != "" && suite_name != ""){
+							params = {'test_suite':{'sub_suites':selected_suites, 'test_cases':selected_cases, 'name':suite_name, 'description':'Description=' + suite_description + ' ,Type=NotExisting', 'suite_type':'5','execution_command':execution_command}};
+						}
+						else {
+
+							alert("Execution command and suite name should not be blank");
+							event.preventDefault();
+						}
+					}
+					else
+					{
+						selected_suites = selected_suites_cases[0];
+						selected_cases = selected_suites_cases[1];
+						params = {'test_suite':{'sub_suites':selected_suites, 'test_cases':selected_cases, 'name':suite_name, 'description':'Description=' + suite_description + ' ,Type=Dynamic', 'suite_type':'3'}};
+
+					}
+				  	//create new test suite
+				  	if (params != null){
+				  		$.post('/test_suites',params, function(data){
+				  			$("#user_created_suite_selected").removeAttr('suites_list');
+				  			$("#create_new_predefined_suite_dialog").dialog("close");
+				  			$("#user_created_test_suites").fancytree('getTree').reload();
+						},'json')
+						.fail(function(){
+							alert("Failed to create the test suite.");
+							event.preventDefault();
+						});
+					}
+			  	},
+
+			  	"Cancel":function(){
+			  		$("#create_new_predefined_suite_dialog").dialog("close");
+			  	}
+			}
+		};
+
+		$("#create_new_predefined_suite_dialog").dialog(create_dialog_option);
+
+		$("#create_new_predefined_suite_dialog").dialog("open");
+	});
+
+	$("#update_existing_suite").click(function(event){
+
+		var test_suite_selected_to_update = $("#user_created_suite_selected").attr('suites_list');
+		
+		var selected_suites_cases_in_library = validate_suites_cases_selected_for_customized_suite();
+
+		var customized_suite_url='/test_suites/' + test_suite_selected_to_update +'.json'; 
+
+		var get_suite_description = function(suite_description)
+		{
+			var description = suite_description.split(' ,').filter(function(c){
+				if( c.indexOf('Description=') >= 0 )
+				{
+					return true;
+				} 
+				else
+				{
+					return false;
+				}
+			});
+			description = description.length > 0 ? description[0].replace('Description=', '') : '';
+			return description;
+		};
+
+		var get_suite_type = function(suite_id)
+		{
+			var suite_description = $("#user_created_suite_selected").attr('suite_tooltip_' + suite_id);
+			if(suite_description.split(',').indexOf('Type=Dynamic') >= 0)
+			{
+				return 'Dynamic';
+			}
+			else if(suite_description.split(',').indexOf('Type=NotExisting') >= 0)
+			{
+				return 'NotExisting';
+			}
+			else if(suite_description.split(',').indexOf('Type=Static') >= 0)
+			{
+				return 'Static';
+			}
+			else if(suite_description.split(',').indexOf('Type=Temporary') >= 0)
+			{
+				return 'Temporary';
+			}
+			else if(suite_description.split(',').indexOf('Type=TestPlan') >= 0)
+			{
+				return 'TestPlan';
+			}
+			else
+			{
+				console.log('Unrecgonized Suite Type.');
+			}
+		};
+
+		var update_dialog_option = {
+			autoOpen: false,
+			modal: true,
+			title:'Update Customized Test Suite',
+			width:340,
+			buttons:{
+				"Update":function(){
+					//var selected_suites_cases = validate_suites_cases_selected_for_customized_suite(),
+					var selected_suites = "";
+					var selected_cases = "";
+					var execution_command = "";
+					var suite_name = $('#create_new_predefined_suite_dialog #suite_name').val();
+					var suite_description = $('#create_new_predefined_suite_dialog #suite_description').val();
+					//var test_suite_selected = $("#user_created_suite_selected").attr('suites_list');
+					var params = null;
+
+					if (get_suite_type(test_suite_selected_to_update) == 'Dynamic')
+					{
+						selected_suites = selected_suites_cases_in_library[0];
+						selected_cases = selected_suites_cases_in_library[1];
+						params = {'test_suite':{'sub_suites':selected_suites, 'test_cases':selected_cases, 'name':suite_name, 'description':'Description=' + suite_description + ' ,Type=Dynamic', 'suite_type':'3','execution_command':execution_command}};
+					}
+					
+					if (get_suite_type(test_suite_selected_to_update) == 'NotExisting')
+					{
+						execution_command = $('#execution_command').val();
+
+						if(execution_command == '' || execution_command == null)
+						{
+							alert("Execution command can not be empty!");
+							event.preventDefault();
+						}
+						else
+						{
+							params = {'test_suite':{'sub_suites':selected_suites, 'test_cases':selected_cases, 'name':suite_name, 'description':'Description=' + suite_description + ' ,Type=NotExisting', 'suite_type':'5','execution_command':execution_command}};
+						}
+					}					
+
+					$.ajax({
+						url:'/test_suites/' + test_suite_selected_to_update,
+						dataType:'json',
+						data: params,
+						type:'PUT',
+						success:function(){
+							$("#create_new_predefined_suite_dialog").dialog("close");
+							$("#user_created_suite_selected").removeAttr('suites_list');
+							$("#user_created_test_suites").fancytree('getTree').reload();
+						},
+						error:function(){
+							alert("Failed to update suite [" + suite_name + "].");
+							event.preventDefault();
+					  	},
+					});			  		
+	  			},
+	  			"Cancel":function(){
+	  				$("#create_new_predefined_suite_dialog").dialog("close");
+	  			}
+			}
+		};
+
+		if(test_suite_selected_to_update == "" || test_suite_selected_to_update == null)
+		{
+			alert("Please select the customized test suite you want to update.");
+		}
+		else if(test_suite_selected_to_update.split(',').length != 1)
+		{
+			alert("Please select only ONE customized test suite to update.");
+		}
+		else if(get_suite_type(test_suite_selected_to_update) == 'Dynamic')
+		{			
+
+			if( selected_suites_cases_in_library == null)
+			{
+				alert("Please select test suites or test cases to be included in the suite.");
+			}
+			else
+			{				
+				$.get(customized_suite_url, function (suite) {				
+
+					$('#create_new_predefined_suite_dialog #suite_name').val(suite["title"]);
+					$('#create_new_predefined_suite_dialog #suite_description').val(get_suite_description(suite['description']));
+					$('#execution_command').val(suite['execution_command']);
+
+					show_execution_fields(false);  
+
+					$("#create_new_predefined_suite_dialog").dialog(update_dialog_option);
+					$("#create_new_predefined_suite_dialog").dialog('open');
+	  	        });
+			}
+		}
+		else if( get_suite_type(test_suite_selected_to_update) == 'NotExisting')//check the suite type
+		{
+			      
+			$.get(customized_suite_url, function (suite) {				
+
+				$('#create_new_predefined_suite_dialog #suite_name').val(suite["title"]);
+				$('#create_new_predefined_suite_dialog #suite_description').val(get_suite_description(suite['description']));
+				$('#execution_command').val(suite['execution_command']);
+
+				show_execution_fields(true);  
+
+				$("#create_new_predefined_suite_dialog").dialog(update_dialog_option);
+				$("#create_new_predefined_suite_dialog").dialog('open');
+  	        });
+		}
+		else
+		{
+			alert("Please select Only the User Created Suite to update.");
+		}				
+	});
+
+	$("#delete_existing_suite").click(function(){
+		var test_suite_selected = $("#user_created_suite_selected").attr('suites_list');
+		if(test_suite_selected == "" || test_suite_selected == null)
+		{
+			alert("Please select the test suite you want to delete.");
+		}
+		else if(test_suite_selected.split(',').length!=1)
+		{
+			alert("Please select only ONE test suite once to delete.");
+		}
+		else if($("#user_created_suite_selected").attr('suite_tooltip_' + test_suite_selected).split(',').indexOf('Type=Dynamic')<0 && $("#user_created_suite_selected").attr('suite_tooltip_' + test_suite_selected).split(',').indexOf('Type=NotExisting')<0)//check the suite type
+		{
+			alert("Please select Only the Customized Suite to delete.");
+		}
+		else
+		{
+			$.ajax({
+				url:'/test_suites/' + test_suite_selected,
+				dataType:'json',
+				type:'DELETE',
+				success:function(){
+					alert('The test suite has been deleted successfully.');
+					$("#user_created_test_suites").fancytree('getTree').reload();
+				},
+				error:function(){
+					alert('Failed to delete the test suite.');
+					$("#user_created_test_suites").fancytree('getTree').reload();
+				},
+			});
+		}
+	});
+
+	var refresh_test_cases_intervel = 0;
+	var sync_time_elapse = 0;
+
+	var refresh_test_cases_sync_status = function()
+	{
+		sync_time_elapse += 2;
+		$("#sync_status").html('Sync started, this needs about 1 minutes! ' + sync_time_elapse + ' seconds elapsed!');
+	}
+
+	$("#refresh_test_cases_from_rqm").click(function(event){
+		//$("#refresh_test_cases_from_rqm").text("Sync From RQM Server...");
+		$( "#refresh_test_cases_from_rqm" ).button({ disabled: true });
+		$("#sync_status").html('Sync started, this needs about 3 minutes!');
+		if(refresh_test_cases_intervel!=0)
+		{
+			clearInterval(refresh_test_cases_intervel);
+		}
+		refresh_test_cases_intervel = setInterval(refresh_test_cases_sync_status,2000);
+		$("#test_case_depot").fancytree('disable');
+		  //$.post('/test_depot/testcases/refresh',function(data){	
+		  //	$("#sync_status").html('Sync done. Total Time: '+ sync_time_elapse + " seconds.");	
+		  //})
+		$.ajax({
+			url:'/test_depot/testcases/refresh',
+			sucess:function(data){	
+				$("#sync_status").html('Sync done. Total Time: '+ sync_time_elapse + " seconds.");
+			},
+			  	timeout:300000,//5 minutes
+			  	type:'POST',  	
+			  })
+		.fail(function(){
+			$("#sync_status").html('Sync failed, please retry. Possiblel reason: timeout setting on IIS or RoR. Total Time: '+ sync_time_elapse + " seconds.");
+		})
+		.always(function(){
+		  	//$("#test_case_depot").fancytree({ disabled: false });
+		  	$("#test_case_depot").fancytree({ disabled: false });
+		  	$("#test_case_depot").fancytree('getTree').reload();
+		  	//$("#refresh_test_cases_from_rqm").text("Refresh From RQM Server");
+		  	$( "#refresh_test_cases_from_rqm" ).button({ disabled: false });
+		  	clearInterval(refresh_test_cases_intervel);
+		  	sync_time_elapse = 0;
+		});
+	});
+
+	var refresh_test_suites_intervel = 0;
+	$("#refresh_test_suites_from_rqm").click(function(event){
+	  	//$("#refresh_test_suites_from_rqm").text("Sync From RQM Server...");
+	  	$( "#refresh_test_suites_from_rqm" ).button({ disabled: true });
+	  	$("#sync_status").html('Sync started, this needs about 1 minutes!');
+	  	if(refresh_test_suites_intervel!=0)
+	  	{
+	  		clearInterval(refresh_test_suites_intervel);
+	  	}
+	  	refresh_test_suites_intervel = setInterval(refresh_test_cases_sync_status,2000);
+	  	$("#predefined_test_suites, #test_plans_test_suites").fancytree('disable');
+	  
+	  	$.post('/test_depot/testsuites/refresh',function(data){
+	  		$("#sync_status").html('Sync done. Total Time: '+ sync_time_elapse + " seconds.");
+	  	})
+	  	.fail(function(){	
+	  		$("#sync_status").html('Sync failed, please retry. Possiblel reason: timeout setting on IIS or RoR. Total Time: '+ sync_time_elapse + " seconds.");
+	  	})
+	  	.always(function(){
+		  	//$("#test_case_depot").fancytree({ disabled: false });
+		  	$("#predefined_test_suites, #test_plans_test_suites").fancytree({ disabled: false });
+		  	$("#predefined_test_suites, #test_plans_test_suites").fancytree('getTree').reload();
+		  	//$("#refresh_test_cases_from_rqm").text("Refresh From RQM Server");
+		  	$( "#refresh_test_suites_from_rqm" ).button({ disabled: false });
+		  	clearInterval(refresh_test_suites_intervel);
+		  	sync_time_elapse = 0;
+		});
+	});
+
+</script>

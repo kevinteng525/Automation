@@ -1,0 +1,1 @@
+json.extract! @automation_job, :name, :sut_environment_id, :test_agent_environment_id, :job_type, :priority, :status, :retry_times, :time_out, :create_by, :modify_by, :description, :created_at, :updated_at

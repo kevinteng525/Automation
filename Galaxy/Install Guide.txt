@@ -1,0 +1,7 @@
+To Install the Galaxy:
+0. Download the Galaxy code from TFS, check out them to make them editable
+1. Unzip the file to the root folder of C:\
+2. Add the environment parameter C:\Ruby200\bin to Path
+3. Change the FORCE_SERVER to the Force Server you deployed in file Galaxy\config\application.rb
+4. Run cmd and navigater to the folder of Galaxy
+5. Run "rails server" to start the server

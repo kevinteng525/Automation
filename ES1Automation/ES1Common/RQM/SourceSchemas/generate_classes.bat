@@ -1,0 +1,1 @@
+﻿"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\xsd.exe" alm.xsd dc.xsd catalog.xsd executionresult.xsd executionworkitem.xsd testscript.xsd testsuitelog.xsd vega.xsd adapter.xsd tasks.xsd rdf.xsd jazzprocess.xsd dcterms.xsd processinfo.xsd qm.xsd /c

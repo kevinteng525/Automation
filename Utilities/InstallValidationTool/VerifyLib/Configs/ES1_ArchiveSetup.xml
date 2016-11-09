@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_ArchiveSetup - Regedit Version Validation">
+    <Item name="EXAS+" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="EXAS+" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_ArchiveSetup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_ArchiveSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Centera" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Centera</Item>
+    <Item name="EMC SourceOne Folder\Logs" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Logs</Item>
+    <Item name="EMC SourceOne Folder\Tools" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Tools</Item>
+    <Item name="EMC SourceOne Folder\EXPBA" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\EXPBA</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_ArchiveSetup - Setup Files Validation">
+    <Item name="ES1_ArchiveSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_ArchiveSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_ArchiveSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_ArchiveSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_ArchiveSetup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Centera" path="[ProgramFilePathX86]\EMC SourceOne\Centera" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Centera" path="[ProgramFilePathX86]\EMC SourceOne\Centera" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\EXPBA" path="[ProgramFilePathX86]\EMC SourceOne\EXPBA" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\EXPBA" path="[ProgramFilePathX86]\EMC SourceOne\EXPBA" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_ArchiveSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Native Archive Services" productName="EMC SourceOne Native Archive Services">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="WinService" groupName="ES1_ArchiveSetup - Windows Service">
+    <Item name="EMC SourceOne Administrator" serviceName="ExAsAdmin"/>
+    <Item name="EMC SourceOne Archive" serviceName="ExAsArchive"/>
+    <Item name="EMC SourceOne Indexer" serviceName="ExAsIndex"/>
+    <Item name="EMC SourceOne Query" serviceName="ExAsQuery"/>
+  </Group>
+</Verify>

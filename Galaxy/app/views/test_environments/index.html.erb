@@ -1,0 +1,39 @@
+<fieldset>
+	<legend class="galaxy_legend">Listing Test Environments</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Environment type</th>
+	      <th>Status</th>
+	      <th>Created at</th>
+	      <th>Modified at</th>
+	      <th>Config</th>
+	      <th>Description</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @test_environments.each do |test_environment| %>
+	      <tr class="<%= cycle('list_line_odd','list_line_even') %>">
+	        <td><%= test_environment.name %></td>
+	        <td><%= test_environment.environment_type %></td>
+	        <td><%= test_environment.status %></td>
+	        <td><%= test_environment.created_at %></td>
+	        <td><%= test_environment.modified_at %></td>
+	        <td><%= link_to 'config', test_environments_path, :remote=>true, data: {confirm:test_environment.config} %></td>
+	        <td><%= test_environment.description %></td>
+	        <td class="item_operations"><%= link_to 'Show', test_environment %>
+	        <%= link_to 'Edit', edit_test_environment_path(test_environment) %>
+	        <%= link_to 'Destroy', test_environment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+
+<br>
+
+<%= link_to 'New Test environment', new_test_environment_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

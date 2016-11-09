@@ -1,0 +1,81 @@
+	<table id="automation_jobs_table">
+	  <thead>
+	    <tr>
+	      <th>Id</th>
+	      <th title='System Under Test'>SUT</th>
+	      <th>Test Agent</th>
+	      <th>Priority</th>
+	      <th>Status</th>
+	      <th>Retry</th>
+	      <th>Latest updates</th> 
+	      <th>Logs</th>   
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @automation_jobs.each do |automation_job| %>
+	      <tr>
+	      	<% sut_name = get_force_environment_name_by_id(automation_job.sut_environment_id) %>
+	      	<% agent_name = get_force_environment_name_by_id(automation_job.test_agent_environment_id) %>
+	        <td><%= automation_job.id %></td>
+	        <td title="<%= sut_name %>"><%= shorten_string(sut_name, 50) %></td>
+	        <td title="<%= agent_name %>"><%= shorten_string(agent_name, 50) %></td>
+	        <td><%= job_priority_name(automation_job.priority )%></td>
+	        <td><%= job_status_name(automation_job.status) %></td>
+	        <td><%= automation_job.retry_times %></td>
+	        <td class='latest_update' content='<%= html_escape(automation_job.description.split('|')[0]) %>'></td>
+	        <td><div class="job_detailed_log_button" title="<%= format_job_description(automation_job.description) %>">Logs</div></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	<div id='job_progress_log_dialog' class='job_progress_log_dialog' title="Job Progress">
+		<div id='job_progress_log'></div>
+	</div>
+<script type="application/javascript">
+	$("#automation_jobs_table").dataTable({
+		"bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "bAutoWidth": false,
+        "bFilter": true,
+        "bSort": false,
+        "bInfo": false,
+        "bPaginate": false
+	});	
+	$("#job_progress_log_dialog").dialog({
+		autoOpen: false,
+		modal: true,
+		height: 400,
+		buttons:{			
+			"Close":function(){
+				$("#job_progress_log_dialog").dialog("close");
+			}
+		}
+	});
+	$(".job_detailed_log_button").button();
+	$(".job_detailed_log_button").click(function(){
+		$('#job_progress_log').html($(this).attr('title'));
+		$("#job_progress_log span.date_time").each(function(){
+				//The format the datetime is "1/13/2015 6:40:45 AM"
+				var utc = $(this).html();
+				if(utc!='')
+				{
+					var d = new Date(utc);
+					$(this).html(d.toLocaleString());
+				}
+			});
+		$("#job_progress_log_dialog").dialog("open");
+	});
+	$("td.latest_update").each(function(){
+		//The format the datetime is "1/13/2015 6:40:45 AM"
+		$(this).html($(this).attr('content'));
+		var time = $(this).find("span.date_time");
+		var utc = $(time).html();
+		if(utc!='')
+		{
+			var d = new Date(utc);
+			$(time).html(d.toLocaleString());
+		}
+	});
+	
+</script>

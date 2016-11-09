@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="AMDNewerThan15m" Policy="SPPolicyAged" Logging="True">
+  <Config>
+    <DataSource>
+      <Farm Url ="http://sp2010sim" UserName ="administrator" Password="emcsiax@QA" Domain="sosp">
+        <WebApp Port ="80">
+          <SiteCollection Name="/">
+            <Site Name="QA Site">
+              <List Name="AddedByAgedAuto"/>
+            </Site>
+          </SiteCollection>
+        </WebApp>
+      </Farm>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Modified" Type="aged" Operator="newer" Data1="15_months"/>
+    <Action MappedFolder="SPMDAF2" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

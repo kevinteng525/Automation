@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  create_time: 2014-08-15 01:20:42
+  component: MyString
+  log_type: 1
+  message: MyText
+
+two:
+  create_time: 2014-08-15 01:20:42
+  component: MyString
+  log_type: 1
+  message: MyText

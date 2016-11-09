@@ -1,0 +1,49 @@
+<%= form_for(@build) do |f| %>
+  <% if @build.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@build.errors.count, "error") %> prohibited this build from being saved:</h2>
+
+      <ul>
+      <% @build.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.select :product_id, force_products_list, :prompt => 'Select the product.' %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size=>40, :placeholder=>'Enter the build name here. Must be UNIQUE.' %>
+  </div>
+  <div class="field">
+    <%= f.label :build_type %><br>
+    <%= f.select :build_type, build_type_list, :prompt => 'select the build type.' %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select :status, build_status_list, :prompt => 'Select the build status.' %>
+  </div>
+  <div class="field">
+    <%= f.label :branch %><br>
+    <%= f.text_field :branch, :size=>40, :placeholder => 'Enter the build branch name here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number, :size=>40, :placeholder => 'Enter the build number here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, :size=>40, :placeholder => 'Enter the build location here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :placeholder=>'Enter the description for the build here.', :rows=>5, :cols=>40 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

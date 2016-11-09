@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="SizeUp20" Policy="PolicyItemSizeFilter" Logging="True">
+  <Config>
+    <DataSource>
+      <SiteCollection Url="https://sp2010sim.sosp.com" UserName="fbatest" Password="emcsiax@QA">
+        <Site Name="FBA QA Site" >
+          <List Name="AddedByItemSizeFilterAuto"/>
+        </Site>
+      </SiteCollection>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <SizeFilter Up="20"/>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" />
+    <Action MappedFolder="MDAF3" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

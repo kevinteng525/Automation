@@ -1,0 +1,1 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /u C:\Personal\Projects\ES1.TFS\AutomationFramework\ES1Automation\Main\ES1Automation\BuildManager.WinService\bin\Debug\BuildManager.WinService.exe

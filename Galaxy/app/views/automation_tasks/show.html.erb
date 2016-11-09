@@ -1,0 +1,388 @@
+<p id="notice"><%= notice %></p>
+<fieldset>
+	<legend class="galaxy_legend">Task: <%= @automation_task.name %></legend>
+	
+	<div id='task_execution_details_tabs'>
+		<div id="interval_operations">
+			<div id='export_task_result_button'>Send Report</div>
+			<%= link_to 'Rerun Failed Cases', rerun_automation_task_path(@automation_task) %>
+			<div id="auto_refresh">Start Auto Refresh</div></div>	
+		<ul>
+			<li><a href="#general_info_for_task_execution_tab">General</a></li>
+			<li aria-controls='detailed_status_of_automation_jobs_tab'><a href="<%= automation_jobs_automation_task_path(@automation_task) %>">Jobs</a></li>		
+			<li aria-controls='detailed_status_of_task_execution_tab'><a href="<%= test_executions_automation_task_path(@automation_task) %>">Executions</a></li>
+			<li aria-controls='detailed_result_of_task_execution_tab'><a id='automation_task_execution_result_tab_link' href="#">Results</a></li>
+		</ul>
+		<div id='general_info_for_task_execution_tab'>		
+			
+			<div id="task_execution_status"><p><strong>Chart:</strong></p><div id='task_process_status_chart'></div></div>
+			<div id='task_real_time_log'><p><strong>Logs:</strong></p><div id='task_execution_logs'>Loading...</div></div>
+			<p>
+			  <strong>Name:</strong>
+			  <%= @automation_task.name %>
+			</p>
+	
+			<p>
+	          <strong>Project:</strong>
+	          <%= force_project_name(@automation_task.project_id) %>
+	        </p>
+	        
+	        <p>
+	          <strong>Product:</strong>
+	          <%= force_product_name(@automation_task.product_id) %>
+	        </p>
+			
+			<p id='task_status'>
+			  <strong>Status:</strong>
+			  <%= task_status_name(@automation_task.status) %>
+			</p>
+			
+			<p>
+			  <strong>Task type:</strong>
+			  <%= task_type_name(@automation_task.task_type) %>
+			</p>
+			
+			<p>
+			  <strong>Priority:</strong>
+			  <%= task_priority_name(@automation_task.priority) %>
+			</p>
+			
+			<p>
+			  <strong>Create date:</strong>
+			  <span class='date_time'><%= @automation_task.create_date %></span>
+			</p>
+			
+			<p>
+			  <strong>Created by:</strong>
+			  <%= force_user_name(@automation_task.create_by) %>
+			</p>
+			
+			<p>
+			  <strong>Modify date:</strong>
+			  <span class='date_time'><%= @automation_task.modify_date %></span>
+			</p>
+			
+			<p>
+			  <strong>Modified by:</strong>
+			  <%= force_user_name(@automation_task.modify_by) %>
+			</p>
+			
+			<p>
+			  <strong>Build:</strong>
+			  <%= force_build_name(@automation_task.build_id) %>
+			</p>
+			
+			<p>
+			  <strong>Test environment:</strong>
+			  <%= force_supported_environment_name(@automation_task.supported_environment_id) %>
+			</p>
+			
+			<p>
+			  <strong>Recurrence pattern:</strong>
+			  <%= task_schedule_recurrence_pattern_name(@automation_task.recurrence_pattern)%>
+			</p>
+
+			<p>
+			  <strong>Enable Code Coverage: </strong>
+			  <%= @automation_task.enable_code_coverage %>
+			</p>
+			
+			<p>
+			  <strong>Notify Stakeholders: </strong>
+			  <%= @automation_task.notify_stakeholders %>
+			</p>
+			
+			<p>
+			  <strong>Write Results To RQM: </strong>
+			  <%= @automation_task.write_test_result_back %>
+			</p>			
+
+			<p>
+			  <strong>Setup Script:</strong>
+			  <%= @automation_task.setup_script %>
+			</p>
+			
+			<p>
+			  <strong>Teardown Script:</strong>
+			  <%= @automation_task.teardown_script %>
+			</p>
+			
+			<p>
+			  <strong>Description:</strong>
+			  <%= @automation_task.description %>
+			</p>
+		</div>
+		<div id="detailed_status_of_automation_jobs_tab"></div>
+		<div id="detailed_status_of_task_execution_tab"></div>
+		<div id="detailed_result_of_task_execution_tab"></div>
+	</div>
+</fieldset>
+<br />
+
+<script type="text/javascript">	
+
+    var executions_interval = 0;
+    var result_interval = 0;
+    var general_interval = 0;
+    var jobs_interval = 0;
+    var logs_interval = 0;
+    var pie_chart;
+    
+    function refresh_task_progress(id)
+	{
+		if(id!=undefined)
+		{
+			refresh_task_progress.id = id;
+		}
+	  	$.get( "/automation_tasks/" + refresh_task_progress.id + "/execution_progress", function( data ) {	  		
+	  		//update the realtime logs
+			var lines = data['information'].split('|');
+			$("#task_execution_logs").empty();
+			for(var line=0;line<lines.length;line++)
+			{
+				var p = lines[line];
+				$("<p />").html(p).appendTo($("#task_execution_logs"));
+			}
+			$("#task_execution_logs span.date_time").each(function(){
+				//The format the datetime is "1/13/2015 6:40:45 AM"
+				var utc = $(this).html();
+				if(utc!='')
+				{
+					var d = new Date(utc);
+					$(this).html(d.toLocaleString());
+				}
+			});
+			//update the task status
+			var status = data['status'];
+			$("#task_status").empty();
+			$('<strong>Status: </strong>').appendTo($("#task_status"));
+			$('<span/>').text(status.toString()).appendTo($("#task_status"));
+			
+			//update the chart
+			var temp = [];
+		    var result_status_list = data['result_type_list'].split(' ');
+		    var result_status_count_list = data['result_count_list'].split(' ');
+		  	for(var i = 0;i<result_status_list.length;i++)
+		  	{
+	  			temp.push([result_status_list[i],Number(result_status_count_list[i])]);
+		  	}
+		  	if(pie_chart !=undefined || pie_chart != null)
+		  	{
+			    pie_chart.destroy();
+		   	}
+		   	pie_chart = jQuery.jqplot ('task_process_status_chart', [temp], {
+		   		 grid: {
+		            drawBorder: false, 
+		            drawGridlines: false,
+		            background: '#ffffff',
+		            shadow:false
+		        },
+			    seriesDefaults: {
+			      renderer: jQuery.jqplot.PieRenderer, 
+			      rendererOptions: {
+			      // Turn off filling of slices.
+			        fill: true,
+			        showDataLabels: true, 
+			        // Add a margin to seperate the slices.
+			        sliceMargin: 0, 
+			        // stroke the slices with a little thicker line.
+			        lineWidth: 5
+			      }
+			    }, 
+			    legend: { 
+			      rendererOptions: {
+		            numberRows: 6
+		          },
+			      show: true, 
+			      location: 's',
+			      placement: 'outside'
+			    },
+				highlighter: {
+		          show: false
+		    	}
+		  });
+		  var result_chart_theme = {
+		      seriesStyles: {
+		          seriesColors: ['green', 'red', 'orange', 'yellow', 'grey', 'firebrick', 'tomato', 'lightskyblue', 'gold','plum'],
+		          highlightColors: ['lightgreen', 'hotpink', 'lightyellow', 'orangered',  'mediumslateblue','wheat','thistle','tomato','tan','teal']
+		      },
+		      legend: {
+		          fontSize: '8pt'
+		      },
+		      title: {
+		        fontSize: '18pt'
+		      },
+		      grid: {
+		        backgroundColor: 'white'
+		      }
+		  };
+		
+		  pie_chart.themeEngine.newTheme('result', result_chart_theme);
+
+		  pie_chart.activateTheme('result');
+	   	},'json');
+	}
+    function refresh_jobs()
+    {
+    	$("#task_execution_details_tabs").tabs('load',1);
+    }
+    function refresh_result()
+    {
+    	$("#task_execution_details_tabs").tabs('load',3);
+    }
+    function refresh_executions()
+    {
+    	$("#task_execution_details_tabs").tabs('load',2);
+    }
+	function clear_all_interval()
+	{
+		clearInterval(executions_interval);
+    	clearInterval(result_interval);
+    	clearInterval(general_interval);
+    	clearInterval(jobs_interval);
+	}
+    function get_active_tab_index_of_task()
+    {
+  	  var index;
+  	  $('#task_execution_details_tabs>ul li').each(function(i, li){
+  		  if($(li).attr('aria-selected')=='true')
+  		  {
+  			index = i;
+  		  }
+  	  });
+  	  return index;
+    }
+  	
+  	refresh_task_progress("<%= @automation_task.id %>");
+  	
+	$("#task_execution_details_tabs").tabs({
+    	beforeActivate: function(event, ui){
+    		clear_all_interval();
+    		$('#auto_refresh').button("option", "label", "Start Auto Refresh");
+    		$("#auto_refresh").button({icons:{primary:"ui-icon-refresh"}})
+    		if(ui.newTab.index()==0)//general tab
+    		{
+    			refresh_task_progress("<%= @automation_task.id %>");
+    		}
+    		else if(ui.newTab.index()==1)//jobs tab
+    		{
+    			//clean all the job progress dialogs id=job_progress_log_dialog, defined in _automation_jobs_compact.html.erb
+    			$(".job_progress_log_dialog").each(function(){
+    				if($(this).attr("class").indexOf("ui-dialog")>=0)
+    				{
+    					$(this).dialog("destroy");
+    					$(this).remove();
+    				}
+    			});
+    			
+    		}
+    		else if(ui.newTab.index()==2)//executions tab
+    		{}
+    		else if(ui.newTab.index()==3)//user must select an execution to see the result tab
+    		{
+    			if($("#automation_task_execution_result_tab_link").attr('href')=='#')//the tab is activated by user click of the result tab instead of the execution 
+    			{
+    				alert("Please select the test case whoes result you want to see.");
+    				event.preventDefault();
+    			}
+    			else
+    			{
+    				//clean all the dialogs of historical log dialog and add comments dialog
+    				$(".add_comment_dialog, .tooltips_dialog").each(function(){
+	    				if($(this).attr("class").indexOf("ui-dialog")>=0)
+	    				{
+	    					$(this).dialog("destroy");
+	    					$(this).remove();
+	    				}
+    				});
+    			}
+    		}
+    	},
+    	beforeLoad: function( event, ui ) {
+	        ui.jqXHR.error(function() {
+		        ui.panel.html("Couldn't load this tab. It is mainly because the execution of the task is not started. Please wait for a while and retry it." );
+		    });	
+		    if(ui.tab.index()==0)//general tab
+    		{}
+    		else if(ui.tab.index()==1)//jobs tab
+    		{
+    			//clean all the job progress dialogs id=job_progress_log_dialog, defined in _automation_jobs_compact.html.erb
+    			$(".job_progress_log_dialog").each(function(){
+    				if($(this).attr("class").indexOf("ui-dialog")>=0)
+    				{
+    					$(this).dialog("destroy");
+    					$(this).remove();
+    				}
+    			});
+    		}
+    		else if(ui.tab.index()==2)//executions tab
+    		{}
+    		else if(ui.tab.index()==3)//user must select an execution to see the result tab
+    		{
+    			//clean all the dialogs of historical log dialog and add comments dialog
+    			$(".add_comment_dialog, .tooltips_dialog").each(function(){
+	    			if($(this).attr("class").indexOf("ui-dialog")>=0)
+	    			{
+	    				$(this).dialog("destroy");
+	    				$(this).remove();
+	    			}
+    			});
+    		}
+	     }
+    });
+	
+	$('#interval_operations div').button();
+	
+	$('#interval_operations').buttonset();
+	
+	$("#auto_refresh").button({icons:{primary:"ui-icon-refresh"}}).click(function(){
+		var current_active_tab_index = get_active_tab_index_of_task();
+		if($(this).button("option", "label") == 'Start Auto Refresh')
+		{
+			switch(current_active_tab_index)
+			{
+				case 0:
+					clearInterval(general_interval);
+	    			general_interval = setInterval(refresh_task_progress, 5000);
+					break;
+				case 1:
+					clearInterval(jobs_interval);
+	    			jobs_interval = setInterval(refresh_jobs,5000);
+	    			break;
+    			case 2:
+	    			clearInterval(executions_interval);
+	    			executions_interval = setInterval(refresh_executions,5000);
+	    			break;
+    			case 3:
+    				clearInterval(result_interval);
+    				result_interval = setInterval(refresh_result,5000);
+    				break;
+			}
+			$(this).button("option", "label", "Stop Auto Refresh");
+			$(this).button("option", "icons", {primary:"ui-icon-close"});
+		}
+		else
+		{
+			clear_all_interval();
+			$(this).button("option", "label", "Start Auto Refresh");
+			$(this).button("option", "icons", {primary:"ui-icon-refresh"});
+		}
+	});
+	
+	$('#export_task_result_button').click(function(){
+		$.get("/automation_tasks/<%= @automation_task.id %>/report", function( data ) {
+			alert("The report has been sent to the stakeholders' mailboxes.");
+		});
+	});
+	
+	$("span.date_time").each(function(){
+		//by default, the format of the datetime is "2015-01-13 8:20:30 UTC" which could not be parsed in IE and Firefox by new Date("2015-01-13 8:20:30 UTC")
+		//but the format of "2015/01/13 8:20:30 UTC" is supported by IE, Chrome and Firefox
+		var utc = $(this).html().replace(/-/g, "/");
+		if(utc!='')
+		{
+			var d = new Date(utc);
+			$(this).html(d.toLocaleString());
+		}
+	});
+</script>

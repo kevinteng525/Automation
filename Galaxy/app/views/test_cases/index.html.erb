@@ -1,0 +1,44 @@
+<fieldset>
+	<legend class="galaxy_legend">Listing Test Cases</legend>
+	<table>
+	  <thead>
+	    <tr>
+	   	  <th>Id</th>
+	      <th>Source</th>
+	      <th>Name</th>
+	      <th>Product</th>
+	      <th>Feature</th>
+	      <th>Script path</th>
+	      <th>Weight</th>
+	      <th>Is automated</th>
+	      <th>Created by</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @test_cases.each do |test_case| %>
+	      <tr>
+	      	<td><%= test_case.id %></td>
+	        <td><%= source_name(test_case) %></td>
+	        <td><%= test_case.name %></td>
+	        <td><%= force_product_name(test_case.product_id) %></td>
+	        <td><%= test_case.feature %></td>
+	        <td><%= test_case.script_path %></td>
+	        <td><%= test_case.weight %></td>
+	        <td><%= test_case.is_automated %></td>
+	        <td><%= force_user_name(test_case.created_by) %></td>	        
+	        <td class="item_operations"><%= link_to 'Show', test_case_path(test_case) %>
+	        <%= link_to 'Edit', edit_test_case_path(test_case) %>
+	        <%= link_to 'Destroy', test_case_path(test_case), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</fieldset>
+
+<br>
+
+<%= link_to 'New Test case', new_test_case_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

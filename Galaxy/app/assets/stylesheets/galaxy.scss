@@ -1,0 +1,234 @@
+/*overall class for test result*/
+.pass
+{
+  background-color: green !important;
+  background-image: none !important;
+}
+.failed
+{
+  background-color: red !important;
+  background-image: none !important;
+}
+.timeout
+{
+  background-color: orange !important;
+  background-image: none !important;
+}
+.exception
+{
+  background-color: yellow !important;
+  background-image: none !important;
+}
+.notrun
+{
+  background-color: grey !important;
+  background-image: none !important;
+}
+.knownissue
+{
+  background-color: firebrick !important;
+  background-image: none !important;
+}
+.newissue
+{
+  background-color: tomato !important;
+  background-image: none !important;
+}
+.environmentissue
+{
+  background-color: lightskyblue !important;
+  background-image: none !important;
+}
+.scriptsissue
+{
+  background-color: gold !important;
+  background-image: none !important;
+}
+.commonlibraryissue
+{
+  background-color: plum !important;
+  background-image: none !important;
+}
+.hight_difference{
+  background-color: red !important;
+}
+
+body{
+  margin:0px;
+  padding:0px;
+  min-width:1200px;
+  height: 100%;
+  .list_line_odd{
+    background-color:silver;
+  }
+  .list_line_even{
+    
+  }
+  
+  .hide{
+    display: none;
+  }
+
+  #create_new_predefined_suite_dialog ul{
+    list-style-type: none;
+  }
+
+  #banner{
+    background:orange;
+    height:48px;
+    width:100%;
+    padding-top: 5px;
+    #current_user_operations, #project_id{
+      float:right;
+      clear:right;
+      margin-top: 1px;
+    }
+    #main_banner{
+      font-size:32px;      
+      margin-left: 10px;
+      margin-top: 8px;
+      float:left;
+      a{
+        float: none;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    #debug{
+      border-color:red;
+      display: inline;
+    }
+  }
+  #columns{
+    #side{
+      width:19em;
+      float:left;
+      #main_menu{
+        a:link, a:visited, a:hover, a:active{
+              text-decoration: none;
+              background-color:inherit;
+              color: black;
+            }
+        ul{
+          list-style-type: none;
+          margin: 0px;
+          padding: 0px;
+          li{
+            width: 200px;
+            margin: 5px 0px;
+            padding-left:4px;
+            line-height: 20px;
+            border-left-width:5px;
+            border-left-style: solid;
+            border-left-color: silver;            
+          }
+          li:hover{
+              border-left-color: orange;
+            } 
+        }      
+      }
+    }
+    #main{
+      margin-left:20em;
+      #navigator{
+        margin:10px 2px;
+      }
+      #content{
+        a{
+          color:black;
+        }
+        a:active
+        {
+          color:black;
+        }
+        a:hover
+        {
+          color:grey;
+        }
+        a:visited
+        {
+          color:black;
+        }
+        .indicate_panel{
+          width: 400px;
+          height: 380px;
+          display: inline-block;
+          margin: 10px;
+        }
+        #passrate_trend_charts{
+          width: 820px;
+          display: inherit;
+          margin: 10px;      
+        }
+        fieldset{
+          padding:20px 10px;
+          border-width: 1px;
+          border-color: silver;
+          legend.galaxy_legend{
+          font-size:20px;
+          }
+          #test_depot_menus
+          {
+            display: inline-block;
+            
+          }
+          #test_case_depot
+          {
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          #test_depot_operations
+          {
+            margin-top:10px;
+          }
+          
+          #interval_operations{
+            float: right;
+            margin-top: 4px;
+            margin-right: 10px;
+          }
+          #task_execution_details_tabs{
+            #task_real_time_log{
+            float:right;
+            width: 300px;
+            height: 500px;
+            overflow-y: scroll;                        
+            }
+            #task_execution_status{
+            width: 300px;
+            height: 300px;
+            float: right;
+            }
+          }
+          #detailed_status_of_task_execution_tab{
+            
+          }
+          table{
+            td.item_operations{
+              text-align: center;
+            }
+            .ui-progressbar {
+              position: relative;
+            }
+            .progress-label {
+              position: absolute;
+              left: 30%;
+              top: 4px;              
+              text-shadow: 1px 1px 0 #fff;
+            }
+          }
+        }        
+        
+        .actions{
+          padding-top: 10px;
+        }
+        .dataTables_wrapper{
+          table{
+            width: 100%;
+          }
+        }        
+      }
+    }  
+  }  
+}

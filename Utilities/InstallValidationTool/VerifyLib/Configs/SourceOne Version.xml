@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Version" groupName="Common Files\EMC - Product Version Validation">
+    <Item name="[ProgramFilePathX86]\Common Files\EMC" path="[ProgramFilePathX86]\Common Files\EMC" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="Common Files\EMC - File Version Validation">
+    <Item name="[ProgramFilePathX86]\Common Files\EMC" path="[ProgramFilePathX86]\Common Files\EMC" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="EMC SourceOne - Product Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne" path="[ProgramFilePathX86]\EMC SourceOne" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="EMC SourceOne - File Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne" path="[ProgramFilePathX86]\EMC SourceOne" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

@@ -1,0 +1,53 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% @provider.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.number_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :path %><br>
+    <%= f.text_field :path %>
+  </div>
+  <div class="field">
+    <%= f.label :config %><br>
+    <%= f.text_field :config %>
+  </div>
+  <div class="field">
+    <%= f.label :string %><br>
+    <%= f.text_field :string %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.text_field :is_active %>
+  </div>
+  <div class="field">
+    <%= f.label :integer %><br>
+    <%= f.text_field :integer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

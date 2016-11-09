@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:version="2.1" targetNamespace="http://www.w3.org/2005/Atom" version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:jzalm="http://jazz.net/xmlns/alm/v0.1/" xmlns:qm="http://jazz.net/xmlns/alm/qm/v0.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+	
+	<xs:import namespace="http://jazz.net/xmlns/alm/v0.1/" schemaLocation="alm.xsd"/>
+	<xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+	<xs:import namespace="http://jazz.net/xmlns/alm/qm/v0.1/" schemaLocation="qm.xsd"/>
+	
+	<xs:element name="feed">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="title">
+					<xs:complexType mixed="true">
+						<xs:attribute name="type" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="id" type="xs:string"/>
+				<xs:element maxOccurs="unbounded" name="link">
+					<xs:complexType>
+						<xs:attribute name="href" type="xs:string"/>
+						<xs:attribute name="rel" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				
+				<xs:element maxOccurs="unbounded" name="entry">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="id" type="xs:string"/>
+							<xs:element name="link">
+								<xs:complexType>
+									<xs:attribute name="href" type="xs:string"/>
+									<xs:attribute name="rel" type="xs:string"/>
+									<xs:attribute name="type" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="title">
+								<xs:complexType mixed="true">
+									<xs:attribute name="type" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="summary">
+								<xs:complexType mixed="true">
+									<xs:attribute name="type" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="updated" type="xs:dateTime"/>
+                            <xs:element maxOccurs="1" minOccurs="0" ref="qm:archived"/>
+							<xs:element name="content">
+								<xs:complexType>
+									<xs:choice>
+                                        <xs:element ref="qm:executionresult"/>
+										<xs:element ref="qm:testplan"/>
+										<xs:element ref="qm:testphase"/>
+										<xs:element ref="qm:testcase"/>
+										<xs:element ref="qm:testscript"/>
+										<xs:element ref="qm:executionworkitem"/>
+										<xs:element ref="qm:requirement"/>
+										<xs:element ref="qm:datapool"/>
+										<xs:element ref="qm:tooladapter"/>
+										<xs:element ref="qm:adaptertask"/>
+										<xs:element ref="qm:template"/>
+										<xs:element ref="qm:testsuite"/>
+										<xs:element ref="qm:keyword"/>
+										<xs:element ref="qm:testsuitelog"/>
+										<xs:element ref="qm:suiteexecutionrecord"/>
+										<xs:element ref="qm:configuration"/>
+										<xs:element ref="qm:remotescript"/>
+										<xs:element ref="qm:request"/>
+										<xs:element ref="qm:reservation"/>
+										<xs:element ref="qm:resourcecollection"/>
+										<xs:element ref="qm:resourcegroup"/>
+										<xs:element ref="qm:labresource"/>
+										<xs:element ref="qm:job"/>
+										<xs:element ref="qm:jobresult"/>
+										<xs:element ref="qm:teamarea"/>
+										<xs:element ref="qm:contributor"/>
+										<xs:element ref="qm:workitem"/>
+                                        <xs:element ref="qm:buildrecord"/>
+                                        <xs:element ref="qm:builddefinition"/>										
+										<xs:element ref="qm:testcell"/>                                        
+										<xs:element ref="qm:objective"/>                                        
+                                        <xs:element ref="qm:project"/>
+                                        <xs:element ref="qm:attachment"/>                                         
+                                        <xs:element ref="qm:category"/>                                         
+                                        <xs:element ref="qm:categoryType"/>                                         
+									</xs:choice>
+									<xs:attribute name="type" type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

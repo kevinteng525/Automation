@@ -1,0 +1,35 @@
+﻿<ResultAttributeList>
+  <ResultAttribute npmPropertyId="1" displayName="ENTRYID" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="2" displayName="SIZE" sortable="false"/>
+  <ResultAttribute npmPropertyId="4" displayName="DATE" sortable="true" length="255"/>
+  <ResultAttribute npmPropertyId="6" displayName="FOLDER" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="11" displayName="OWNER" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="20" displayName="SUBJECT" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="21" displayName="PLATFORMTYPE" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="50" displayName="SOURCETYPE" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="51" displayName="SOURCEID" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="52" displayName="DATE_LM" sortable="false"/>
+  <ResultAttribute npmPropertyId="53" displayName="DATE_CREATED" sortable="false"/>
+  <ResultAttribute npmPropertyId="54" displayName="NAME_LMB" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="55" displayName="NAME_CREATOR" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="59" displayName="VERSION" sortable="false" length="20"/>
+  <ResultAttribute npmPropertyId="60" displayName="CHECKINNOTES" sortable="false" length="70"/>
+  <ResultAttribute npmPropertyId="1056" displayName="CLASSTYPE" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1072" displayName="HASATTACHMENTS" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="2005" displayName="LASTNAME" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="2006" displayName="FIRSTNAME" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="2008" displayName="FULLNAME" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1120" displayName="EMAIL" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1116" displayName="MOBILENUM" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1137" displayName="COMPANYNUM" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1118" displayName="NOTES" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1130" displayName="COMPANY" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1113" displayName="DUEDATE" sortable="false" length="22"/>
+  <ResultAttribute npmPropertyId="1114" displayName="PRIORITY" sortable="false"/>
+  <ResultAttribute npmPropertyId="1106" displayName="ISCOMPLETE" sortable="false"/>
+  <ResultAttribute npmPropertyId="1112" displayName="STATUS" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="61" displayName="LOCATION" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1003" displayName="DATE_START" sortable="false" length="255"/>
+  <ResultAttribute npmPropertyId="1101" displayName="DATE_END" sortable="false" length="255"/>
+
+</ResultAttributeList>

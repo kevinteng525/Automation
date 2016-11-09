@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\SPOTestWithNunit.csproj</TopNode>
+  <SelectedNode>[0-1001]SPOTestWithNunit.AttachmentFilterTest</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\SPOTestWithNunit.csproj" Expanded="true" />
+    <Node UniqueName="[0-1075]C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll" Expanded="true" />
+    <Node UniqueName="[0-1076]SPOTestWithNunit" Expanded="true" />
+    <Node UniqueName="[0-1021]SPOTestWithNunit.AgedTest" Expanded="true" />
+  </Nodes>
+</VisualState>

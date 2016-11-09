@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @build.product_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @build.name %>
+</p>
+
+<p>
+  <strong>Build type:</strong>
+  <%= @build.build_type %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @build.status %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @build.branch %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @build.number %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @build.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @build.description %>
+</p>
+
+<%= link_to 'Edit', edit_build_path(@build) %> |
+<%= link_to 'Back', builds_path %>

@@ -1,0 +1,94 @@
+<div id="task_select_to_compare_panel">
+	Select Task to Compare:<%= select_tag 'task_to_compare_1',options_for_select(force_tasks_list,@task1_id)%> | 
+	Select Task to Compare:<%= select_tag 'task_to_compare_2',options_for_select(force_tasks_list,@task2_id)%> | 
+	<a id="results_compare_button">Compare Result</a>
+	<hr />
+</div>
+<% if @render_compare_table %>
+	<fieldset>
+		<legend class="galaxy_legend">Result Comparation</legend>
+		<table>
+		  <thead>
+		    <tr >
+		      <th rowspan="2" colspan="1">Test Case</th>
+		      <th class='ui-state-default' rowspan="1" colspan="2"><%= @task1_name %></th>
+		      <th class='ui-state-default' rowspan="1" colspan="2"><%= @task2_name %></th>	     
+		    </tr>
+		    <tr>	      
+		      <th>Build</th>
+		      <th>Result</th>
+		      <th>Build</th>
+		      <th>Result</th>
+		    </tr>
+		  </thead>
+		<% execution_array_of_task1 = @array_of_result_array[0] %>
+		<% execution_array_of_task2 = @array_of_result_array[1] %>
+		<% i=0 %>
+		  <tbody>
+		    <% for i in 0...execution_array_of_task1.length %>
+		      <% test_case_execution1 = execution_array_of_task1[i] %>
+		      <% test_case_execution2 = execution_array_of_task2[i] %>
+		      <% test_case_name = force_test_case_name(test_case_execution1['test_case_id'])%>
+		      <% build1 = force_build_by_execution_id(test_case_execution1['id']) %>
+		      <% build2 = force_build_by_execution_id(test_case_execution2['id']) %>
+		      <% result1 = force_result_by_execution_id(test_case_execution1['id'])%>
+		      <% result2 = force_result_by_execution_id(test_case_execution2['id'])%>
+		      <% result_name1 = result_type_name(force_result_by_execution_id(test_case_execution1['id']).result)%>
+		      <% result_name2 = result_type_name(force_result_by_execution_id(test_case_execution2['id']).result)%>
+		      <% if result_name2 != result_name1 %>
+                <% hight_class='hight_difference'%>
+              <% else %>
+                <% hight_class='' %>
+              <% end %>		      
+
+		      <tr class="<%= hight_class %>">
+		        <td><%= test_case_name %></td>
+		        <td><%= (build1==nil)?'':build1.name%></td>
+		        <td><span class="test_result_link" comments="<%= h(result1.description) %>"><%= result_name1 %></span></td>
+		        <td><%= (build2==nil)?'':build2.name %></td>
+		        <td><span class="test_result_link" comments="<%= h(result2.description) %>"><%= result_name2 %></span></td>
+		      </tr>
+		      
+		    <% end %>
+		  </tbody>
+		</table>		
+	</fieldset>
+	<div id="result_log_dialog"></div>
+	<%= render :partial => 'layouts/index_table_style_javascript'%>
+<% end %>
+<script type="text/javascript">
+		$("#results_compare_button").button();
+		$("#results_compare_button").on('click', function(){
+			if($("#task_to_compare_1").val()!='' &&$("#task_to_compare_2").val()!='')
+			{
+				 
+				window.location.assign(window.location.protocol + '//' + window.location.host + '/task_results/' + $("#task_to_compare_1").val() + ',' + $("#task_to_compare_2").val());
+				
+			}
+			else
+			{
+				$("Please Select the two tasks to compare!").appendTo($("#task_select_to_compare_panel"));
+			}
+		});
+		
+		$("#result_log_dialog").dialog({
+			autoOpen:false,
+			title:"Logs",
+			modal:true,
+			width: 500,
+			open: function() {
+        		$(this).css("max-height", 500);        
+    		}
+		});
+		
+		$("span.test_result_link").button().click(function(){
+			var logString = $(this).attr("comments");
+			$("#result_log_dialog>p").remove();
+			var logs = logString.split('|');
+			for(var i=0; i<logs.length; i++)
+			{
+				$("<p/>").html(logs[i]).appendTo($("#result_log_dialog"));
+			}
+			$("#result_log_dialog").dialog("open");
+		});
+</script>

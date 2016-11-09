@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="Activity_3390" Policy="PolicyA" Logging="True">
+  <Config>
+    <DataSource>
+      <FarmUrl>http://sptpostcr1</FarmUrl>
+      <WebApp>
+        <SiteCollection Name="/">
+          <Site Name="Home">
+            <List Name="QA document"/>
+            <List Name="QA contact"/>
+            <Site Name="QAblog" SelectAll="true"/>
+          </Site>
+        </SiteCollection>
+        <SiteCollection Name="/sites/google">
+          <Site Name="google">
+            <List Name="RicContactList"/>
+          </Site>
+        </SiteCollection>
+      </WebApp>
+      <WebApp Port="2609">
+        <SiteCollection Name="/">
+          <Site Name="Adidas" SelectAll="true" />
+        </SiteCollection>
+      </WebApp>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" Type="Aged" Operator="Between" Data1="10_days" Data2="3_months" />
+    <AttachmentFilter Types=".txt`.doc" />
+    <SizeFilter Up="100" Down="-1" />
+    <Action MappedFolder="MDAF1" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule StartTime="2011-02-12 06:56:00" Duration="24" Frequency="Weekly">
+    <Pattern Interval="4" Days="1_5_3"/>
+  </Schedule>
+</Activity>

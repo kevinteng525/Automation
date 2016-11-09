@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LoadTest Name="PerfTest_AverageReviewers_2" Description="" Owner="" storage="c:\automation\es1automation\main\sourceone\csharpnunit\supervisorwebautomation\supervisorwebautomation_api\perftest_averagereviewers_2.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="cb2eac32-9487-41e6-bc36-a983bccfa857" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Scenarios>
+    <Scenario Name="Average Reviewer" DelayBetweenIterations="5" PercentNewUsers="0" IPSwitching="true" TestMixType="PercentageOfTestsStarted" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="0" AllowedAgents="">
+      <ThinkProfile Value="0.2" Pattern="NormalDistribution" />
+      <LoadProfile Pattern="Constant" InitialUsers="1" />
+      <TestMix>
+        <TestProfile Name="GetDefaultMessageListFilter" Path="bin\debug\supervisorwebautomation_api.dll" Id="62eb6d06-43bb-3292-a7fc-d87888e1822d" Percentage="0.8" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="SaveMessageListFilter" Path="bin\debug\supervisorwebautomation_api.dll" Id="1554a7d1-c5f8-f12e-2401-0c68a37b67fd" Percentage="0.8" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="PrepareMessageList" Path="bin\debug\supervisorwebautomation_api.dll" Id="7c8f3393-8fdf-1eae-9782-db8fd36c297a" Percentage="0.8" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="GetFlaggedMessagesByPage" Path="bin\debug\supervisorwebautomation_api.dll" Id="5902b628-65d2-4af6-3bdf-15e8e6cc8e95" Percentage="25.0" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="GetMessagePreviewAndHtmL" Path="bin\debug\supervisorwebautomation_api.dll" Id="f6c67fe7-7d86-8cb5-b9d6-c784405ec6db" Percentage="30.0" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="CommentSingleMessage" Path="bin\debug\supervisorwebautomation_api.dll" Id="e2716867-fe86-5149-c4c6-07070fe7f146" Percentage="12.0" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+        <TestProfile Name="FlagSingleMessage" Path="bin\debug\supervisorwebautomation_api.dll" Id="a73ff662-c75a-3e23-f815-e46ccdd88744" Percentage="30.6" Type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </TestMix>
+      <BrowserMix>
+        <BrowserProfile Percentage="100">
+          <Browser Name="Internet Explorer 7.0" MaxConnections="2">
+            <Headers>
+              <Header Name="User-Agent" Value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header Name="Accept" Value="*/*" />
+              <Header Name="Accept-Language" Value="{{$IEAcceptLanguage}}" />
+              <Header Name="Accept-Encoding" Value="GZIP" />
+            </Headers>
+          </Browser>
+        </BrowserProfile>
+      </BrowserMix>
+      <NetworkMix>
+        <NetworkProfile Percentage="100">
+          <Network Name="LAN" BandwidthInKbps="1000000" NetworkProfileConfigurationXml="&lt;Emulation&gt;&lt;VirtualChannel name=&quot;defaultChannel&quot;&gt;&lt;FilterList/&gt;&lt;VirtualLink instances=&quot;1&quot; name=&quot;defaultLink&quot;&gt;&lt;LinkRule dir=&quot;upstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;1000000&lt;/Speed&gt;&lt;/Bandwidth&gt;&lt;/LinkRule&gt;&lt;LinkRule dir=&quot;downstream&quot;&gt;&lt;Bandwidth&gt;&lt;Speed unit=&quot;kbps&quot;&gt;1000000&lt;/Speed&gt;&lt;/Bandwidth&gt;&lt;/LinkRule&gt;&lt;/VirtualLink&gt;&lt;/VirtualChannel&gt;&lt;/Emulation&gt;" />
+        </NetworkProfile>
+      </NetworkMix>
+    </Scenario>
+  </Scenarios>
+  <CounterSets>
+    <CounterSet Name="LoadTest" CounterSetType="LoadTest" LocId="">
+      <CounterCategories>
+        <CounterCategory Name="LoadTest:Scenario">
+          <Counters>
+            <Counter Name="User Load" HigherIsBetter="true" />
+            <Counter Name="Tests Running" HigherIsBetter="true" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:Test">
+          <Counters>
+            <Counter Name="Total Tests" HigherIsBetter="true" />
+            <Counter Name="Passed Tests" HigherIsBetter="true" />
+            <Counter Name="Failed Tests" />
+            <Counter Name="Tests/Sec" HigherIsBetter="true" />
+            <Counter Name="Passed Tests/Sec" HigherIsBetter="true" />
+            <Counter Name="Failed Tests/Sec" />
+            <Counter Name="Avg. Requests/Test" HigherIsBetter="true" />
+            <Counter Name="Avg. Test Time" />
+            <Counter Name="% Time in LoadTestPlugin" />
+            <Counter Name="% Time in WebTest code" />
+            <Counter Name="% Time in Rules" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:Transaction">
+          <Counters>
+            <Counter Name="Total Transactions" HigherIsBetter="true" />
+            <Counter Name="Avg. Transaction Time" />
+            <Counter Name="Avg. Response Time" />
+            <Counter Name="Transactions/Sec" HigherIsBetter="true" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:Errors">
+          <Counters>
+            <Counter Name="Http Errors" />
+            <Counter Name="Validation Rule Errors" />
+            <Counter Name="Extraction Rule Errors" />
+            <Counter Name="Requests Timed Out" />
+            <Counter Name="Exceptions" />
+            <Counter Name="Total Errors" />
+            <Counter Name="Errors/Sec" />
+            <Counter Name="Threshold Violations/Sec" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:Page">
+          <Counters>
+            <Counter Name="Total Pages" HigherIsBetter="true" />
+            <Counter Name="Avg. Page Time" />
+            <Counter Name="Page Response Time Goal" HigherIsBetter="true" />
+            <Counter Name="% Pages Meeting Goal" HigherIsBetter="true" />
+            <Counter Name="Pages/Sec" HigherIsBetter="true" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:Request">
+          <Counters>
+            <Counter Name="Total Requests" HigherIsBetter="true" />
+            <Counter Name="Passed Requests" HigherIsBetter="true" />
+            <Counter Name="Failed Requests" />
+            <Counter Name="Cached Requests" HigherIsBetter="true" />
+            <Counter Name="Requests/Sec" HigherIsBetter="true" />
+            <Counter Name="Passed Requests/Sec" HigherIsBetter="true" />
+            <Counter Name="Failed Requests/Sec" />
+            <Counter Name="Avg. First Byte Time" />
+            <Counter Name="Avg. Response Time" />
+            <Counter Name="Avg. Connection Wait Time">
+              <ThresholdRules>
+                <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareCounters, Microsoft.VisualStudio.QualityTools.LoadTest, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                  <RuleParameters>
+                    <RuleParameter Name="DependentCategory" Value="LoadTest:Page" />
+                    <RuleParameter Name="DependentCounter" Value="Avg. Page Time" />
+                    <RuleParameter Name="DependentInstance" Value="_Total" />
+                    <RuleParameter Name="AlertIfOver" Value="True" />
+                    <RuleParameter Name="WarningThreshold" Value="0.25" />
+                    <RuleParameter Name="CriticalThreshold" Value="0.5" />
+                  </RuleParameters>
+                </ThresholdRule>
+              </ThresholdRules>
+            </Counter>
+            <Counter Name="Avg. Content Length" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="LoadTest:LogEntries">
+          <Counters>
+            <Counter Name="Total Log Entries" />
+            <Counter Name="Log Entries/Sec" />
+          </Counters>
+        </CounterCategory>
+      </CounterCategories>
+    </CounterSet>
+    <CounterSet Name="SQL" CounterSetType="SQL" LocId="CounterSet_SQL">
+      <CounterCategories>
+        <CounterCategory Name="Memory">
+          <Counters>
+            <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+              <ThresholdRules>
+                <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                  <RuleParameters>
+                    <RuleParameter Name="AlertIfOver" Value="False" />
+                    <RuleParameter Name="WarningThreshold" Value="100" />
+                    <RuleParameter Name="CriticalThreshold" Value="50" />
+                  </RuleParameters>
+                </ThresholdRule>
+              </ThresholdRules>
+            </Counter>
+            <Counter Name="Page Faults/sec" />
+            <Counter Name="Pages/sec" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="Network Interface">
+          <Counters>
+            <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes" />
+          </Counters>
+          <Instances>
+            <Instance Name="*" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="PhysicalDisk">
+          <Counters>
+            <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+            <Counter Name="% Idle Time" />
+          </Counters>
+          <Instances>
+            <Instance Name="*" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="Processor">
+          <Counters>
+            <Counter Name="% Processor Time" Range="100">
+              <ThresholdRules>
+                <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                  <RuleParameters>
+                    <RuleParameter Name="AlertIfOver" Value="True" />
+                    <RuleParameter Name="WarningThreshold" Value="75" />
+                    <RuleParameter Name="CriticalThreshold" Value="90" />
+                  </RuleParameters>
+                </ThresholdRule>
+              </ThresholdRules>
+            </Counter>
+          </Counters>
+          <Instances>
+            <Instance Name="_Total" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="System">
+          <Counters>
+            <Counter Name="Context Switches/sec" />
+            <Counter Name="Processor Queue Length" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Access Methods">
+          <Counters>
+            <Counter Name="Full Scans/sec" RangeGroup="Scan Rate" />
+            <Counter Name="Page Splits/sec" RangeGroup="Page Rate" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Databases">
+          <Counters>
+            <Counter Name="Transactions/sec" HigherIsBetter="true" />
+            <Counter Name="Active Transactions" />
+          </Counters>
+          <Instances>
+            <Instance Name="_Total" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:General Statistics">
+          <Counters>
+            <Counter Name="User Connections" HigherIsBetter="true" />
+            <Counter Name="Temp Tables Creation Rate" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Locks">
+          <Counters>
+            <Counter Name="Average Wait Time (ms)" />
+            <Counter Name="Number of Deadlocks/sec" />
+          </Counters>
+          <Instances>
+            <Instance Name="_Total" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:SQL Statistics">
+          <Counters>
+            <Counter Name="Batch Requests/sec" />
+            <Counter Name="SQL Compilations/sec" RangeGroup="SQL Compilations Rate" />
+            <Counter Name="SQL Re-Compilations/sec" RangeGroup="SQL Compilations Rate" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Buffer Manager">
+          <Counters>
+            <Counter Name="Target pages" />
+            <Counter Name="Total pages" />
+            <Counter Name="Buffer cache hit ratio" />
+            <Counter Name="Page life expectancy" />
+            <Counter Name="Stolen pages" />
+            <Counter Name="Checkpoint pages/sec" />
+            <Counter Name="Lazy writes/sec" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Memory Manager">
+          <Counters>
+            <Counter Name="Target Server Memory (KB)" />
+            <Counter Name="Total Server Memory (KB)" />
+            <Counter Name="Memory Grants Pending" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="SQLServer:Plan Cache">
+          <Counters>
+            <Counter Name="Cache Hit Ratio" />
+          </Counters>
+        </CounterCategory>
+      </CounterCategories>
+      <DefaultCountersForAutomaticGraphs>
+        <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" />
+        <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+        <DefaultCounter CategoryName="SQLServer:Databases" CounterName="Transactions/sec" InstanceName="_Total" GraphName="" />
+      </DefaultCountersForAutomaticGraphs>
+    </CounterSet>
+    <CounterSet Name="Application" CounterSetType="Application" LocId="CounterSet_Application">
+      <CounterCategories>
+        <CounterCategory Name="Memory">
+          <Counters>
+            <Counter Name="Available MBytes" RangeGroup="Memory Bytes" HigherIsBetter="true">
+              <ThresholdRules>
+                <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                  <RuleParameters>
+                    <RuleParameter Name="AlertIfOver" Value="False" />
+                    <RuleParameter Name="WarningThreshold" Value="100" />
+                    <RuleParameter Name="CriticalThreshold" Value="50" />
+                  </RuleParameters>
+                </ThresholdRule>
+              </ThresholdRules>
+            </Counter>
+            <Counter Name="Page Faults/sec" />
+            <Counter Name="Pages/sec" />
+          </Counters>
+        </CounterCategory>
+        <CounterCategory Name="Network Interface">
+          <Counters>
+            <Counter Name="Bytes Total/sec" RangeGroup="Network Bytes" />
+          </Counters>
+          <Instances>
+            <Instance Name="*" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="PhysicalDisk">
+          <Counters>
+            <Counter Name="Avg. Disk Queue Length" RangeGroup="Disk Queue Length" />
+            <Counter Name="% Idle Time" />
+          </Counters>
+          <Instances>
+            <Instance Name="*" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="Processor">
+          <Counters>
+            <Counter Name="% Processor Time" Range="100">
+              <ThresholdRules>
+                <ThresholdRule Classname="Microsoft.VisualStudio.TestTools.WebStress.Rules.ThresholdRuleCompareConstant, Microsoft.VisualStudio.QualityTools.LoadTest">
+                  <RuleParameters>
+                    <RuleParameter Name="AlertIfOver" Value="True" />
+                    <RuleParameter Name="WarningThreshold" Value="75" />
+                    <RuleParameter Name="CriticalThreshold" Value="90" />
+                  </RuleParameters>
+                </ThresholdRule>
+              </ThresholdRules>
+            </Counter>
+          </Counters>
+          <Instances>
+            <Instance Name="_Total" />
+          </Instances>
+        </CounterCategory>
+        <CounterCategory Name="System">
+          <Counters>
+            <Counter Name="Context Switches/sec" />
+            <Counter Name="Processor Queue Length" />
+          </Counters>
+        </CounterCategory>
+      </CounterCategories>
+      <DefaultCountersForAutomaticGraphs>
+        <DefaultCounter CategoryName="Processor" CounterName="% Processor Time" InstanceName="_Total" GraphName="" />
+        <DefaultCounter CategoryName="Memory" CounterName="Available MBytes" InstanceName="" GraphName="" />
+      </DefaultCountersForAutomaticGraphs>
+    </CounterSet>
+  </CounterSets>
+  <RunConfigurations>
+    <RunConfiguration Name="Run Settings1" Description="" ResultsStoreType="Database" TimingDetailsStorage="AllIndividualDetails" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="3600" WarmupTime="0" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="5" ValidationLevel="High" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true">
+      <CounterSetMappings>
+        <CounterSetMapping ComputerName="10.110.5.152">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="SQL" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+        <CounterSetMapping ComputerName="10.110.5.62">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="Application" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+        <CounterSetMapping ComputerName="10.110.5.63">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="Application" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+        <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">
+          <CounterSetReferences>
+            <CounterSetReference CounterSetName="LoadTest" />
+          </CounterSetReferences>
+        </CounterSetMapping>
+      </CounterSetMappings>
+    </RunConfiguration>
+  </RunConfigurations>
+  <LoadTestPlugins>
+    <LoadTestPlugin Classname="SupervisorWebAutomation_API.UserLoadPlugin, SupervisorWebAutomation_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DisplayName="UserLoadPlugin" Description="" />
+  </LoadTestPlugins>
+</LoadTest>

@@ -1,0 +1,8 @@
+element * CHECKEDOUT
+element * /main/v100/v100_maint/LATEST
+element * V100_BETA2 -mkbranch v100_maint
+element * /main/v100/LATEST -mkbranch v100_maint
+element * /main/LATEST -mkbranch v100
+
+load \DPSearch\src\production\automation
+

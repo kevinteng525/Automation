@@ -1,0 +1,4 @@
+::From	Required	Optional	Start	Duration	Subject	Body	Location	Attachments	Password
+es1service@qaes1.com	es1service@qaes1.com	es1service@qaes1.com;exchange@qaes1.com	2013-12-09 11:00:00	1	meeting1	body1	shanghai	c:\EMC_Archive_Install.log
+exchange@qaes1.com	es1service@qaes1.com	es1service@qaes1.com;exchange@qaes1.com	2013-12-10 11:00:00	2	meeting2	body2	beijing	c:\EMC_Archive_Install.log; c:\EMC_Console_Batch.log;c:\EMC_Database_Batch.log
+exchange@qaes1.com	es1service@qaes1.com	es1service@qaes1.com;exchange@qaes1.com	2013-12-11 11:00:00	3	meeting3	body3	guangzhou	

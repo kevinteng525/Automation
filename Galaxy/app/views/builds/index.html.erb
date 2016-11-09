@@ -1,0 +1,7 @@
+<fieldset>
+	<legend class="galaxy_legend">Listing Builds</legend>
+	<%= render :partial => 'builds_list', :locals => {:builds => @builds} %>
+</fieldset>
+<br>
+<%= link_to 'New Build', new_build_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

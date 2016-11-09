@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  user_id: 1
+  create_time: 2014-08-15 01:23:44
+  description: MyText
+  subscriber_type: 1
+
+two:
+  product_id: 1
+  user_id: 1
+  create_time: 2014-08-15 01:23:44
+  description: MyText
+  subscriber_type: 1

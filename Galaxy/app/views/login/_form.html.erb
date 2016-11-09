@@ -1,0 +1,18 @@
+<%= form_tag do %>
+  <% if flash[:alert] %>
+	<p id='notice'><%= flash[:alert] %></p>
+  <% end %>
+  <p>Please use your OTG account to login.</p>
+  <div class="field">
+    <label for="name">Name:</label>
+    <%= text_field_tag :name, params[:name], :size => 40 %>
+  </div>
+  <div class="field">
+    <label for='password'>Password:</label>
+    <%= password_field_tag :password, params[:password], :size => 40 %>
+  </div>
+  <div class="field">
+    <%= hidden_field_tag :path, params[:path], :size => 40 , :value => @redirect_path %>
+  </div>  
+  <%= submit_tag "Login" %>
+<% end %>

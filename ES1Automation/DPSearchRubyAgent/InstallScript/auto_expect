@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+set timeout 600
+spawn ./dp_init.sh -q
+expect "Type install directory*"
+send "\r"
+expect "Prepare to create system index*"
+send "\r"
+expect "ElasticSearch Url*"
+send "\r"
+expect "LDAP Host*"
+send "\r"
+expect "LDAP Port*"
+send "\r"
+expect "LDAP Base DN*"
+send "\r"
+expect "LDAP Administrative Group*"
+send "\r"
+expect "Administrative username*"
+send "\r"
+expect "Password: "
+send "qampass1!\r"
+expect "Type JAVA_HOME location*"
+send "\r"
+interact

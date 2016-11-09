@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="ACDNewerThan2y" Policy="PolicyAged" Logging="True">
+  <Config>
+    <DataSource>
+      <SiteCollection Url="https://sp2010sim.sosp.com" UserName="FBATest" Password="emcsiax@QA">
+        <Site Name="FBA QA Site" >
+          <List Name="AddedByAgedAuto"/>
+        </Site>
+      </SiteCollection>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" Type="aged" Operator="newer" Data1="2_years"/>
+    <Action MappedFolder="MDAF2" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

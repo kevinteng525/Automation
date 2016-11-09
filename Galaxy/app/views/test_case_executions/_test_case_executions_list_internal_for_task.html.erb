@@ -1,0 +1,63 @@
+<table id='task_executions_table'>
+  <thead>
+    <tr>
+      <th>Test case</th>
+      <th>Job</th>
+      <th>Status</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_case_executions.each do |test_case_execution| %>
+      <% result = force_test_result_of_test_execution(test_case_execution)%>
+      <tr>      	
+        <td title="<%= force_test_case_name(test_case_execution.test_case_id) %>"><%= truncate(force_test_case_name(test_case_execution.test_case_id), :length=>100) %></td>
+        <td><%= test_case_execution.job_id %></td>
+        <td><%= execution_status_name(test_case_execution.status) %></td>
+        <td><span class="date_time"><%= test_case_execution.start_time %></span></td>
+        <td><span class="date_time"><%= test_case_execution.end_time %></span></td>
+        <td><a class='force_task_execution_result_link <%= display_class_for_result(result)%>' href="<%= test_result_test_case_execution_path(test_case_execution) %>"><%= result%></a></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<script type="text/javascript">
+	$(".force_task_execution_result_link").on('click',function(e){
+		$("#automation_task_execution_result_tab_link").attr("href",$(this).attr("href"));//change the link for the result tab to the result of the clicked execution
+	    $("#task_execution_details_tabs").tabs('option','active',3);//active the results tab for this execution
+	    e.preventDefault(); 
+    });
+    $("#task_executions_table").dataTable({
+		"bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "bAutoWidth": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bPaginate": false
+	});
+	$(".force_task_execution_result_link").button();
+	
+	$("span.date_time").each(function(){
+		var utc = $(this).html().replace(/-/g, "/");
+		if(utc!='')
+		{
+			var d = new Date(utc);
+			//var year = d.getFullYear();
+			//var month = d.getMonth() + 1;
+			//var day = d.getDate();
+			//var hour = d.getHours();
+			//var minute = d.getMinutes();
+			//var second = d.getSeconds();
+			//$(this).html(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+			$(this).html(d.toLocaleString());
+		}
+		else
+		{
+			
+		}
+	});
+</script>

@@ -1,0 +1,67 @@
+<%= form_for(@test_result) do |f| %>
+  <% if @test_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_result.errors.count, "error") %> prohibited this test_result from being saved:</h2>
+
+      <ul>
+      <% @test_result.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id='test_result_form_hidden' style='display:none'>
+	  <div class="field">
+	    <%= f.label :execution_id %><br>
+	    <%= f.select :execution_id, force_executions_list %>
+	  </div>	  
+	  <div class="field">
+	    <%= f.label :is_triaged %><br>
+	    <%= f.check_box :is_triaged,:checked_value=>true, :unchecked_value=>false, :checked => true  %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :triaged_by %><br>
+	    <%= f.select :triaged_by, force_users_list %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.text_area :description %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>	  
+  </div>
+  <div class="field">
+	<%= f.label :result %><br>
+	<%= f.select :result,result_types_list, :disabled=>true %>
+  </div>
+  <div class="field">
+	<%= f.label :current_conmments %><br>
+	<%= f.text_area :description, :rows=>10, :cols=>50 %>
+  </div>  
+  <div class='field'>
+  	<%= label_tag :triage_comments%><br>
+	<%= text_area_tag :comments,nil, :cols=>50, :rows=>10%>
+  </div>
+  <input type="button" name="add_triage_comments" value="Add Triage Comments" id="add_triage_comments" />
+<% end %>
+<script type="text/javascript">
+$(function(){
+	$('#add_triage_comments').button();
+	$('#add_triage_comments').on('click',function(e){
+		var current_value = $('#test_result_description').val();
+		var new_value = current_value + '------------------------------\n' + '<%= DateTime.now %>: ' + '<%= @current_user.name %> add comments:\n' + $('#comments').val();		
+		var params = {'test_result':{'triaged_by':<%= @current_user.id %>, 'description':new_value, 'is_triaged':true}};
+	    $.ajax({
+		  type: "PUT",
+		  url: '/test_results/' + <%= @test_result.id.to_s %>,
+		  data: params,
+		  success: function(data){
+		  	$("#task_execution_details_tabs").tabs('load',2);
+		  },
+		  dataType: 'json'
+		});
+	});
+});
+
+</script>

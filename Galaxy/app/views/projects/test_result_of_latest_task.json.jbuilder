@@ -1,0 +1,1 @@
+json.extract! @result, :task_id, :information, :execution_percentage, :result_type_list, :result_count_list

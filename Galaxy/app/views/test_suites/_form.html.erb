@@ -1,0 +1,37 @@
+<%= form_for(@test_suite) do |f| %>
+  <% if @test_suite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_suite.errors.count, "error") %> prohibited this test_suite from being saved:</h2>
+
+      <ul>
+      <% @test_suite.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size => 40, :placeholder => 'Please input the test suite name here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :suite_type %><br>
+    <%= f.select :suite_type, test_suite_type_list %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_suites %><br>
+    <%= f.text_field :sub_suites, :size=>40, :placeholder => 'Please input the sub suite ids.' %>
+  </div>
+  <div class="field">
+    <%= f.label :test_cases %><br>
+    <%= f.text_field :test_cases, :size=>40, :placeholder => 'Please input the sub test case ids.'  %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :rows => 5, :cols => 50, :placeholder => 'Please input the description for the test suite here.' %>
+  </div>
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

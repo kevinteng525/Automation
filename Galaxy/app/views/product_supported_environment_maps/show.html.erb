@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= force_project_name(@product_supported_environment_map.project_id) %>
+</p>
+
+<p>
+  <strong>Supported environment:</strong>
+  <%= supported_environment_name(@product_supported_environment_map.supported_environment_id) %>
+</p>
+
+<%= link_to 'Edit', edit_product_supported_environment_map_path(@product_supported_environment_map) %> |
+<%= link_to 'Back', product_supported_environment_maps_path %>

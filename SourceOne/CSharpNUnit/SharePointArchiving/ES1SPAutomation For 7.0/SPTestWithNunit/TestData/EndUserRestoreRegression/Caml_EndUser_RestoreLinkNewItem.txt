@@ -1,0 +1,8 @@
+<Query>
+   <Where>
+      <Eq>
+         <FieldRef Name='URL' />
+         <Value Type='URL'>http://www.batch.com</Value>
+      </Eq>
+   </Where>
+</Query>

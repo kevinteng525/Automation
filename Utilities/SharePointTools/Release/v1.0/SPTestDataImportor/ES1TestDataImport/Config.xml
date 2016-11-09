@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ES1TestData>
+    <WebApp Port="65001" OpenMode="Create">
+      <Site Name="TestSite1" OpenMode="Create">
+        <List Type="DocumentLibrary" Name="DocLib1">
+              <Files Type="Month" Date="1983,5"  />
+              <Files Type="Month" Date="1999,12"  />
+              <Files Type="Month" Date="2000,1"  />
+              <Files Type="Month" Date="2007,3"  />
+              <Files Type="Year" Date="2008"  />
+              <Files Type="Year" Date="2009"  />
+              <Files Type="Month" Date="2010,1"  />
+              <Files Type="Month" Date="2010,2"  />
+              <Files Type="Month" Date="2010,3"  />
+              <Files Type="Month" Date="2012,12"  />
+          </List>
+        <List Type="PictureLibrary" Name="PicLib1">
+            <Files Type="Month" Date="1983,5"  />
+            <Files Type="Month" Date="1999,12"  />
+            <Files Type="Month" Date="2000,1"  />
+            <Files Type="Month" Date="2007,3"  />
+            <Files Type="Year" Date="2008"  />
+            <Files Type="Year" Date="2009"  />
+            <Files Type="Month" Date="2010,1"  />
+            <Files Type="Month" Date="2010,2"  />
+            <Files Type="Month" Date="2010,3"  />
+            <Files Type="Month" Date="2012,12"  />
+          </List>
+      </Site>
+      <Site Name="TestSite2" OpenMode="Create">
+        <List Type="PictureLibrary" Name="PicLib2">
+          <Files Type="Month" Date="2009,5"  />
+          <Files Type="Month" Date="2009,1"  />
+        </List>
+      </Site>
+    </WebApp>
+</ES1TestData>

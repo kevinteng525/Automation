@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_SearchSetup - Regedit Version Validation">
+    <Item name="WebSearchApp" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="WebSearchApp" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_SearchSetup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_SearchSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne</Item>
+    <Item name="EMC SourceOne Folder\Search" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\Search</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_SearchSetup - Setup Files Validation">
+    <Item name="ES1_SearchSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_SearchSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_SearchSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_SearchSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_SearchSetup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Search" path="[ProgramFilePathX86]\EMC SourceOne\Search" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\Search" path="[ProgramFilePathX86]\EMC SourceOne\Search" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_SearchSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Search" productName="EMC SourceOne Search">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

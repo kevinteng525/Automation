@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+<p>
+	<strong>VCS server type: </strong>
+		<%= find_name(Project::VCSSERVER_TYPES,@project.vcs_server_type)%>
+</p>
+<p>
+	<strong>VCS server: </strong>
+	<%= @project.vcs_server%>
+</p>
+<p>
+	<strong>VCS user name: </strong>
+	<%= @project.vcs_server_username%>
+</p>
+<p>
+	<strong>VCS root path: </strong>
+	<%= @project.vcs_server_root_path%>
+</p>
+<!-- 
+<p>
+	<strong>Run time: </strong>
+	<%= @project.run_time%>	
+</p>	
+-->		
+<p>
+  <strong>Description: </strong>
+  <%= @project.description %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+

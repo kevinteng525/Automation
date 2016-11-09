@@ -1,0 +1,49 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, size:30, :placeholder=>'Please enter the project name here.' %>
+  </div>  
+  <div class="field">
+  	<%= f.label :vcs_server_type, 'VCS type' %><br>
+  	<%= f.select :vcs_server_type, options_for_select(project_type_options_list(Project::VCSSERVER_TYPES),@project.vcs_server_type),:prompt => 'Select the VCS Server Type.' %>
+  </div>
+  <div class="field">
+ 	<%= f.label :vcs_server, 'VCS server'%><br>
+    <%= f.text_field :vcs_server, :size=>30, :placeholder=>'Enter VCSServer Address.'%>
+  </div>
+  <div class="field">
+ 	<%= f.label :vcs_server_username, 'VCS server username'%><br>
+    <%= f.text_field :vcs_server_username, :size=>25, :placeholder=>'Enter VCSServer username.'%>
+  </div>
+  <div class="field">
+ 	<%= f.label :vcs_server_password, 'VCS server password'%><br>
+    <%= f.password_field :vcs_server_password, :size=>25, :placeholder=>'Enter VCSServer password.'%>
+  </div>
+  <div class="field">
+ 	<%= f.label :vcs_server_root_path, 'VCS server root path'%><br>
+    <%= f.text_field :vcs_server_root_path, :size=>30, :placeholder=>'Enter VCSServer root path.'%>
+  </div>
+  <div class="field hide">
+ 	<%= f.label :run_time%><br>
+    <%= f.select :run_time,options_for_select(project_type_options_list(Project::RUN_TIME_TYPES),find_index_of_type_options(Project::RUN_TIME_TYPES,@project.run_time)), :prompt=>'Select the run time type.'%>
+  </div>
+  <div class="field">  
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :placeholder=>'please add the description here.', rows:5, cols:40 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_case_id: 1
+  job_id: 1
+  status: 1
+  start_time: 2013-12-11 21:23:23
+  end_time: 2013-12-11 21:23:23
+  retry_times: 1
+
+two:
+  test_case_id: 1
+  job_id: 1
+  status: 1
+  start_time: 2013-12-11 21:23:23
+  end_time: 2013-12-11 21:23:23
+  retry_times: 1

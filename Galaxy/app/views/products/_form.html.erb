@@ -1,0 +1,41 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, size:30, :placeholder=>'Please enter the product name here.' %>
+  </div>
+  <div class="field">
+    <%= f.label :build_provider_id %><br>
+	<%= f.select :build_provider_id, options_for_select(force_build_provider_list,@product.build_provider_id),:prompt => 'Select the Build Provider.' %>
+  </div>
+  <div class="field">
+    <%= f.label :environment_provider_id%><br>
+	<%= f.select :environment_provider_id, options_for_select(force_environment_provider_list,@product.environment_provider_id),:prompt => 'Select the Environment Provider.' %>
+  </div>
+  <div class="field">
+    <%= f.label :test_case_provider_id %><br>
+	<%= f.select :test_case_provider_id, options_for_select(force_test_case_provider_list,@product.test_case_provider_id),:prompt => 'Select the Test Case Provider.' %>
+  </div>
+  <div class="field">  
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :placeholder=>'please add the description here.', rows:5, cols:40 %>
+  </div>
+  <div class="field">  
+    <%= f.label :rqm_project_alias %><br>
+    <%= f.text_area :rqm_project_alias, :placeholder=>'please input the project alias in RQM here..', rows:5, cols:40 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

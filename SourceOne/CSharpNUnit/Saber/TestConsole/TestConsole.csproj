@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6DBFABB8-EFE7-476B-804F-219A7CA05047}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestConsole</RootNamespace>
+    <AssemblyName>TestConsole</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EMC.Interop.ExBase, Version=6.6.3.8, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\NATA\Automation\bin\EMC.Interop.ExBase.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExJDFAPI, Version=6.6.3.8, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\NATA\Automation\bin\EMC.Interop.ExJDFAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseTest\TestFixtureBase.csproj">
+      <Project>{A4435525-C7F1-49D9-B19F-22D18CCBBE43}</Project>
+      <Name>TestFixtureBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9BD37A6C-A07F-4DD8-A787-E2B5BEACC2C6}</Project>
+      <Name>Common %28Common\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\S1CommonAPILib\S1CommonAPILib.csproj">
+      <Project>{39435D7B-5B3B-44C1-BE41-E6A1623B6C92}</Project>
+      <Name>S1CommonAPILib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestDataHelperer\TestDataHelper.csproj">
+      <Project>{1C4FDC33-33EE-4598-A9A7-05049135C81D}</Project>
+      <Name>TestDataHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestEnvironmentHelper\TestEnvironmentHelper.csproj">
+      <Project>{44A61FCF-9776-4233-949D-1955CC315113}</Project>
+      <Name>TestEnvironmentHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestMetadataHelper\TestMetadataHelper.csproj">
+      <Project>{33E1349E-B5DC-40BB-8FD0-FF319868C29E}</Project>
+      <Name>TestMetadataHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

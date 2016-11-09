@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SharepointOnline.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SharepointOnline_Service_Reference_Lists" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://sp2010sim/_vti_bin/Lists.asmx</Value>
+    </Setting>
+    <Setting Name="SharepointOnline_ServiceReference_Lists" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://sp2010sim/_vti_bin/Lists.asmx</Value>
+    </Setting>
+    <Setting Name="QSPXdev_Lists" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://qspxdev/_vti_bin/Lists.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

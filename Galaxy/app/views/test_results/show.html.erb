@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Test Case:</strong>
+  <%= force_test_case_name_by_result_id(@test_result.id) %>
+</p>
+
+<p>
+  <strong>Execution:</strong>
+  <%= @test_result.execution_id %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @test_result.result %>
+</p>
+
+<p>
+  <strong>Is triaged:</strong>
+  <%= @test_result.is_triaged %>
+</p>
+
+<p>
+  <strong>Triaged by:</strong>
+  <%= @test_result.triaged_by %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_result.description %>
+</p>
+
+<%= link_to 'Edit', edit_test_result_path(@test_result) %> |
+<%= link_to 'Back', test_results_path %>

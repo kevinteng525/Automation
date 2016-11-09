@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<addressfilteringrule>
+  <targetmappedfolder>mapped folder name</targetmappedfolder>
+  <name>name of the rule</name>
+  <addressfilteringruleconditions>
+    <addressfilteringrulecondition>
+      <filtertype>one of [Address,DirectlyAddress,Domain,MetaData(not support yet),CopyMessagesNotMatchAnyRuleTo]</filtertype>
+      <fieldtype>one of [To,From,ToOrFrom,OwnedBy,WithSpecificWordsInSubject,All]</fieldtype>
+      <peopleordistributionlist>
+        <datasource>
+          <providertype>Exchange</providertype>
+          <chooseby>AddressBook (ServerHierarchy and LDAP is not supportted yet)</chooseby>
+          <!--Specify whether it's user or group, if user, please specify the user name, else specify the group name-->
+          <sourcetype>User or Group</sourcetype>
+          <username>ES1Service</username>
+          <groupname>ES1 Admins</groupname>
+        </datasource>        
+      </peopleordistributionlist>
+      <domainorspecificwords>list of domains or specific words, such as domain1,domain2,domain3 or word1,word2,word3</domainorspecificwords>
+    </addressfilteringrulecondition>
+  </addressfilteringruleconditions>
+</addressfilteringrule>

@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39435D7B-5B3B-44C1-BE41-E6A1623B6C92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>S1CommonAPILib</RootNamespace>
+    <AssemblyName>S1CommonAPILib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EMC.Interop.Ex4xProvider, Version=6.6.3.4, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.Ex4xProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExAddressRulesBCECfg, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExAddressRulesBCECfg.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExAsAdminAPI, Version=6.6.3.5, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\EXAS\PIA\EMC.Interop.ExAsAdminAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExASBaseAPI, Version=6.6.3.4, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExASBaseAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExAsDB, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExAsDB.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExAsProvider, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExAsProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExAsProviderCfg, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExAsProviderCfg.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExBase, Version=6.6.3.8, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExBase.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExCenteraAccess, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExCenteraAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.excomcollection, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.excomcollection.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExConnector, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExContainerSrchTaskAPI, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExContainerSrchTaskAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExDataSet, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExDataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExDirObjLookup, Version=6.6.3.5, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExDirObjLookup.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExDoc, Version=6.6.3.6, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExDoc.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExExchComUtils, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExExchComUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExExchMsgV6, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExExchMsgV6.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExExchProvider, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExExchProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExJDFAPI, Version=6.6.3.8, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExJDFAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExJDFDB, Version=6.6.3.4, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExJDFDB.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExJournalTaskAPI, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExJournalTaskAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExMBTaskAPI, Version=6.6.3.4, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExMBTaskAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExMIMEMsgV6, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExMIMEMsgV6.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExMimeProvider, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExMimeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExMsgV6, Version=6.6.3.4, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExMsgV6.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExNotesMsgV6, Version=6.6.3.3, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExNotesMsgV6.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExNotesProvider, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExNotesProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExObjectSchema, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExObjectSchema.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExProviderGW, Version=6.6.3.7, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExProviderGW.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExProviderSupport, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExProviderSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExProvider_2, Version=6.6.3.7, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExProvider_2.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExSdkCOMLib, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExSdkCOMLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExSTLContainers, Version=6.6.3.1, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExSTLContainers.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExStream, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExStream.dll</HintPath>
+    </Reference>
+    <Reference Include="EMC.Interop.ExTrace, Version=6.6.3.2, Culture=neutral, PublicKeyToken=d3cc2ceeafb73bc1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\..\..\..\NATA\Automation\bin\EMC.Interop.ExTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnumToStringUsingDescription.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="S1ObjectHelper\S1AddressFilteringRuleHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1BCEConfigHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1ArchiveConnectionHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1DataSourceHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1IndexHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1JobHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1MappedFolderHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1NativeArchiveFolderHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1NativeArchiveServerConfigurationHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1TaskHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1TaskTypeHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1WorkerGroupHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1WorkerHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1WorkerTaskConfigHelper.cs" />
+    <Compile Include="S1ObjectWrapper\S1Activity.cs" />
+    <Compile Include="S1ObjectWrapper\S1AdressFilteringRule.cs" />
+    <Compile Include="S1ObjectWrapper\S1ArchiveConnection.cs" />
+    <Compile Include="S1ObjectWrapper\S1BCEConfig.cs" />
+    <Compile Include="S1ObjectWrapper\S1DataSource.cs" />
+    <Compile Include="S1ObjectWrapper\S1Job.cs" />
+    <Compile Include="S1ObjectWrapper\S1MappedFolder.cs" />
+    <Compile Include="S1ObjectWrapper\S1NativeArchiveFolder.cs" />
+    <Compile Include="S1ObjectWrapper\S1NativeArchiveServerConfiguration.cs" />
+    <Compile Include="S1ObjectWrapper\S1Object.cs" />
+    <Compile Include="S1ObjectWrapper\S1OrganizationalPolicy.cs" />
+    <Compile Include="S1ObjectHelper\S1OrganizationalPolicyHelper.cs" />
+    <Compile Include="S1ObjectHelper\S1ActivityHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S1Context.cs" />
+    <Compile Include="S1ObjectWrapper\S1Task.cs" />
+    <Compile Include="S1ObjectWrapper\S1TaskType.cs" />
+    <Compile Include="S1ObjectWrapper\S1Worker.cs" />
+    <Compile Include="S1ObjectWrapper\S1WorkerGroup.cs" />
+    <Compile Include="S1ObjectWrapper\S1WorkerTaskConfig.cs" />
+    <Compile Include="S1SearchHelper\S1DMSearchHelper.cs" />
+    <Compile Include="S1SearchHelper\S1WebSearchHelper.cs" />
+    <Compile Include="S1SearchWrapper\GOSPresentationModel.cs" />
+    <Compile Include="S1SearchWrapper\IGOSPresentationModel.cs" />
+    <Compile Include="S1SearchWrapper\IGOSPropertyDescriptor.cs" />
+    <Compile Include="S1SearchWrapper\IGOSToXml.cs" />
+    <Compile Include="S1SearchWrapper\S1SearchCommon.cs" />
+    <Compile Include="S1SearchWrapper\S1SearchPresentation.cs" />
+    <Compile Include="S1SearchWrapper\S1SearchQuery.cs" />
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+    <Content Include="S1ObjectDefaultConfigurations\Environment.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1AddressFilteringRuleCondition.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\ReadMe.txt" />
+    <Content Include="S1ObjectDefaultConfigurations\S1Activity.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1AddressFilteringRule.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1ArchiveConnection.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1BCEConfig.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1DataSource.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1MappedFolder.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1NativeArchiveFolder.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1NativeArchiveServerConfiguration.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1OrganizationalPolicy.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1Worker.xml" />
+    <Content Include="S1ObjectDefaultConfigurations\S1WorkerGroup.xml" />
+    <Content Include="S1ObjectHelper\ReadMe.txt" />
+    <Content Include="S1ObjectWrapper\ReadMe.txt" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="S1SearchWrapper\ES1.NPM.Presentation.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="S1SearchWrapper\ES1.NPM.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Web References\localhost\ExSearchAddrEntry.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\ExSearchWebService.disco" />
+    <None Include="Web References\localhost\ExSearchWebService.wsdl" />
+    <None Include="Web References\localhost\ExTaskErrorCode.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\ExTaskStatus.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9BD37A6C-A07F-4DD8-A787-E2B5BEACC2C6}</Project>
+      <Name>Common %28Common\Common%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestDataHelperer\TestDataHelper.csproj">
+      <Project>{1C4FDC33-33EE-4598-A9A7-05049135C81D}</Project>
+      <Name>TestDataHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestEnvironmentHelper\TestEnvironmentHelper.csproj">
+      <Project>{44A61FCF-9776-4233-949D-1955CC315113}</Project>
+      <Name>TestEnvironmentHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestMetadataHelper\TestMetadataHelper.csproj">
+      <Project>{33E1349E-B5DC-40BB-8FD0-FF319868C29E}</Project>
+      <Name>TestMetadataHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/SearchWS/ExSearchWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost/SearchWS/ExSearchWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>S1CommonAPILib_localhost_ExSearchWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

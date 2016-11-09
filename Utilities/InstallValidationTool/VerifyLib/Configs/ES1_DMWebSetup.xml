@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Verify>
+  <Group type="Registry" groupName="ES1_DMWebSetup - Regedit Version Validation">
+    <Item name="DiscoWeb" subkey="SOFTWARE\EMC\SOURCEONE\VERSIONS" key ="DiscoWeb" >[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="EventLog" groupName="ES1_DMWebSetup - EventLog Validation">
+    <Item name="EMC" logName="EMC" />
+  </Group>
+  <Group type="FILE" groupName="ES1_DMWebSetup - Files and Folders Validation">
+    <Item name="EMC SourceOne Folder" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\</Item>
+    <Item name="EMC SourceOne Folder\DiscoveryManagerWeb" type="Folder" >[ProgramFilePathX86]\EMC SourceOne\DiscoveryManagerWeb</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DMWebSetup - Setup Files Validation">
+    <Item name="ES1_DiscoveryMgrWebSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrWebSetup.exe" type ="file" versionType ="FileVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+    <Item name="ES1_DiscoveryMgrWebSetup.exe" path="C:\ES1_EM_[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]\Setup\Windows\ES1_DiscoveryMgrWebSetup.exe" type ="file" versionType ="ProductVersion">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Version" groupName="ES1_DMWebSetup - Binaries Version Validation">
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManagerWeb" path="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManagerWeb" type ="directory" versionType ="ProductVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+    <Item name="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManagerWeb" path="[ProgramFilePathX86]\EMC SourceOne\DiscoveryManagerWeb" type ="directory" versionType ="FileVersion">[MajorVersion].[MinorVersion].[BuildVersion].[RevisionVersion]</Item>
+  </Group>
+  <Group type="Uninstall" groupName="ES1_DMWebSetup - ControlPanel Uninstall Version Validation">
+    <Item name="EMC SourceOne Discovery Manager Web" productName="EMC SourceOne Discovery Manager Web">[MajorVersion].[MinorVersion][BuildVersion].[RevisionVersion]</Item>
+  </Group>
+</Verify>

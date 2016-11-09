@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Activity Name="DCDAfter02281983" Policy="SPPolicyDated" Logging="True">
+  <Config>
+    <DataSource>
+      <Farm Url ="http://sp2010sim" UserName ="administrator" Password="emcsiax@QA" Domain="sosp">
+        <WebApp Port ="80">
+          <SiteCollection Name="/">
+            <Site Name="QA Site">
+              <List Name="AddedByDatedAuto"/>
+            </Site>
+          </SiteCollection>
+        </WebApp>
+      </Farm>
+      <ContentType ExcludeHidden="true">
+      </ContentType>
+    </DataSource>
+    <VersionFilter Type="All"/>
+    <DateFilter BaseUpon="Created" Type="dated" Operator="after" Data1="02/28/1983"/>
+    <Action MappedFolder="SPMDAF2" Type="Copy" SyncSecurity="false" />
+  </Config>
+  <Schedule Duration="24" Frequency="Once">
+  </Schedule>
+</Activity>

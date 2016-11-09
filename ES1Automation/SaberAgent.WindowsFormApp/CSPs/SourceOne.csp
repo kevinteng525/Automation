@@ -1,0 +1,4 @@
+element * CHECKEDOUT
+element * /main/LATEST
+
+load \Galaxy_Automation\SourceOne

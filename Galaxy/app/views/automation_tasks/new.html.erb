@@ -1,0 +1,12 @@
+<% content_for (:navigator) do %>
+<%= link_to 'Tasks', automation_tasks_path %>/New task
+<% end %>
+
+<fieldset>
+	<legend class="galaxy_legend">New Automation Task</legend>
+	<%= render 'form' %>
+</fieldset>
+
+<script type="text/javascript">
+	$("#content>a").button();
+</script>

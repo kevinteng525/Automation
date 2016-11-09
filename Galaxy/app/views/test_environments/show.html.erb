@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test_environment.name %>
+</p>
+
+<p>
+  <strong>Environment type:</strong>
+  <%= @test_environment.environment_type %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @test_environment.status %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @test_environment.created_at %>
+</p>
+
+<p>
+  <strong>Modified at:</strong>
+  <%= @test_environment.modified_at %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <%= @test_environment.config %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_environment.description %>
+</p>
+
+<%= link_to 'Edit', edit_test_environment_path(@test_environment) %> |
+<%= link_to 'Back', test_environments_path %>

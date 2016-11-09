@@ -1,0 +1,64 @@
+
+<fieldset>
+	<legend class="galaxy_legend">Projects</legend>
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Description</th>
+	      <th>Subscribe</th>
+	      <th>Operations</th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @projects.each do |project| %>
+	      <tr>
+	        <td><%= project.name %></td>
+	        <td><%= project.description %></td>
+	        <td align="center"> <%= check_box_tag "subscribe_check_box_#{project.id}", "check_box",-1!=find_subscriber_by_project_and_user_id(project,session[:user_id].to_s),:class=>'subscribe_check_box',:subscribe_id=>find_subscriber_by_project_and_user_id(project,session[:user_id].to_s),:user_id =>session[:user_id].to_s,:project_id =>project.id%></td>
+	        <td class="item_operations">
+	        	<%= link_to 'Show', project_path(project) %>
+	        	<%= link_to 'Edit', edit_project_path(project) %>
+	        	<% if @is_current_user_administrator %>
+	        	<%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %>
+	        	<% end %>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+<br>
+
+<%= link_to 'New Project', new_project_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>
+<script type="text/javascript">
+				$(".subscribe_check_box").change(function(){
+					var object =$(this);
+					if ($(this).attr("subscribe_id")=="-1"){
+						var params = {'subscriber':{'project_id':$(this).attr("project_id"), 'user_id':$(this).attr("user_id"), 'create_time':getLocalDateStringOfCurrent(),'subscriber_type':'1','description':''}};
+						
+						$.post("/subscribers",params,function(data){
+							alert ("Subscribe Successfully!");
+							object.attr("subscribe_id",data.id);		
+						},'json');
+					}
+					else {
+						suburl = '/subscribers/'+$(this).attr("subscribe_id");
+						subid = $(this).attr("subscribe_id");
+						$.ajax({
+							id: subid,
+							type:"DELETE",
+							url:suburl,
+							dataType:"json",
+							success:function(){
+								object.attr("subscribe_id","-1");
+								alert ("Unsubscribe Successfully!");
+							}
+						});
+						
+					}					
+				});
+</script>

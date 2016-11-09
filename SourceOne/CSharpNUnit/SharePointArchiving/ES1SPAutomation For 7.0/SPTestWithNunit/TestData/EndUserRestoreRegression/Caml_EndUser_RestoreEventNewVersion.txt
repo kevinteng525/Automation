@@ -1,0 +1,8 @@
+<Query>
+   <Where>
+      <Eq>
+         <FieldRef Name='title' />
+         <Value Type='URL'>RestoreEvent</Value>
+      </Eq>
+   </Where>
+</Query>

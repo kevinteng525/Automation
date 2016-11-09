@@ -1,0 +1,2 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe E:\developer_sam\AutomationFramework\ES1Automation\Main\ES1Automation\TestCaseManager.WinService\bin\Debug\TestCaseManager.WinService.exe
+sc start TestCaseManagerWinService

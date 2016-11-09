@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  category: 1
+  type: 
+  path: MyString
+  config: MyString
+  string: MyString
+  description: MyString
+  is_active: MyString
+  integer: MyString
+
+two:
+  name: MyString
+  category: 1
+  type: 
+  path: MyString
+  config: MyString
+  string: MyString
+  description: MyString
+  is_active: MyString
+  integer: MyString

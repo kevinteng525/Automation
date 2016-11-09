@@ -1,0 +1,39 @@
+<fieldset>
+	<legend class="galaxy_legend">Users</legend>
+	<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User type</th>
+      <th>Role</th>
+      <th>Is active</th>
+      <th>Description</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= force_user_type_name(user.user_type) %></td>
+        <td><%= force_user_role_name(user.role) %></td>
+        <td><%= user.is_active %></td>
+        <td title='<%= user.description %>'><%= user.description[0..12] + '...' %></td>
+        <td  class="item_operations">
+          <%= link_to 'Show', user_path(user) %>
+          <%= link_to 'Edit', edit_user_path(user) %>
+          <% if @is_current_user_administrator %>
+          <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</fieldset>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
+<%= render :partial => 'layouts/index_table_style_javascript'%>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-01-10" time="21:53:43">
+  <environment nunit-version="2.5.10.11092" clr-version="2.0.50727.5448" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.5.10\bin\net-2.0" machine-name="ES1ALL" user="Administrator" user-domain="SOSP" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\administrator.SOSP\Desktop\ES1SPAutomation For ES16.7\SPOTestWithNunit\bin\Debug\SPOTestWithNunit.dll" executed="True" result="Success" success="True" time="114.452" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="SPOTestWithNunit" executed="True" result="Success" success="True" time="114.440" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="BVTTest" executed="True" result="Success" success="True" time="114.433" asserts="0">
+            <results>
+              <test-case name="SPOTestWithNunit.BVTTest.ArchivePictureLibrary" description="Test a SPO activity can archive other type list, e.g. ArchivePictureLibrary!" executed="True" result="Success" success="True" time="106.890" asserts="1">
+                <categories>
+                  <category name="BVT" />
+                </categories>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

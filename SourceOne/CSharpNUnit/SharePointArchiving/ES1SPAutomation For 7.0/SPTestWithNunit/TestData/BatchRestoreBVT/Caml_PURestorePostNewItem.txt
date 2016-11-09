@@ -1,0 +1,1 @@
+<View><Query><Where><Or><Eq><FieldRef Name="Title" /><Value Type="Text">TestBlog</Value></Eq><Eq><FieldRef Name="Title" /><Value Type="Text">Welcome to your Blog!</Value></Eq></Or></Where></Query></View>

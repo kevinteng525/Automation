@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galaxy</title>
+  <!--[if lt IE 9]>
+  	<script language="javascript" type="text/javascript" src="/assets/jquery.jqplot.1.0.8r1250/dist/excanvas.js"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="banner">
+	<div id='main_banner'><%= link_to 'Galaxy', root_path %></div>
+	<div id='current_user_operations'>
+		<%= link_to @current_user.name, user_path(@current_user)%>
+		<%= link_to 'Logout', logout_path,{:confirm=>"Are you sure?",:method => :delete}%>	
+	</div>
+	<% if @subscribed_projects.length > 0 %>
+	<%= select_tag :project_id, options_from_collection_for_select(@subscribed_projects, "id", "name", "1") %>
+	<% else %>
+	<%= select_tag :project_id, "<option>No Subscribed Projects</option>".html_safe %>
+	<% end %>
+</div>
+<div id="columns">
+	<div id="side">
+		<div id='main_menu'>			
+			<h3>
+				Tasks
+			</h3>
+			<div>
+				<ul>
+					<li>
+						<%= link_to_unless_current 'New Task', new_automation_task_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Tasks List', automation_tasks_path %>
+					</li>
+				</ul>
+			</div>	
+			<h3>
+				Helps
+			</h3>
+			<div>
+				<ul>
+					<li>
+						<%= link_to_unless_current 'Help Contents', help_index_path %>
+					</li>					
+				</ul>
+			</div>	
+			<h3>Administration</h3>
+			<div>
+				<ul>
+					<li>
+						<%= link_to_unless_current 'Users', users_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Products', products_path %>
+					</li>	
+					<li>
+						<%= link_to_unless_current 'Projects', projects_path %>
+					</li>				
+					<li>
+						<%= link_to 'Test Cases Library', test_depot_index_path %>
+					</li>
+					<!--
+					<li>
+						<%= link_to_unless_current 'Test Cases', test_cases_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Test Suites', test_suites_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Builds', builds_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Test Results', test_results_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Test Execution', test_case_executions_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Test Comparation', task_results_path %>
+					</li>
+					-->
+					<li>
+						<%= link_to_unless_current 'Test Environments', supported_environments_path %>
+					</li>
+					<li>
+						<%= link_to_unless_current 'Project Environment Mapping', product_supported_environment_maps_path %>
+					</li>					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<div id="navigator">
+			Navigator: /<%= yield :navigator %>
+		</div>
+		<div id='content'>
+			<%= yield :layout %>
+		</div>
+	</div>
+</div>
+<!--
+<div id="footer">
+	<ul>
+		<li><a href="">Usage</a></li>
+		<li><a href="">Architecture</a></li>
+		<li><a href="mailto:neil.wang@emc.com">Contact Us</a></li>
+	</ul>	
+</div>
+-->
+  <script type="text/javascript">
+  	$(function(){
+		$("#main_menu").accordion({heightStyle:"content", collapsible: true, active: 0});
+		//handle the intervals: to clear the intervals in a page when leave the page
+		//The reason to handle this:
+		//1. If we left the page where we set the intervals, the interval still works in the new page
+		//2. So here we store all the interval ids into the global variables and clear the interval when navigate to other pages.
+		function clear_tasks_progress_intervals()
+		{
+			if(window.tasks_progress_interval_list!=null && window.tasks_progress_interval_list!=undefined){
+				for(var i = 0; i < window.tasks_progress_interval_list.length;i++){
+					clearInterval(window.tasks_progress_interval_list.pop());
+				}
+			}
+		}
+		if (window.location.pathname.indexOf("<%= automation_tasks_path %>")!=0 )//not in the pages of automation tasks
+		{
+			//clear all the intervals set at tasks page
+			clearInterval(window.executions_interval);
+			clearInterval(window.result_interval);
+			clearInterval(window.general_interval);
+			clear_tasks_progress_intervals();
+		}
+		else if (window.location.pathname == "<%= automation_tasks_path %>")//at the index page of automation tasks
+		{
+			//clear all the intervals set on the show automation task page
+			clearInterval(window.executions_interval);
+			clearInterval(window.result_interval);
+			clearInterval(window.general_interval);
+		}
+		else//at other page of automation tasks( such as show, edit, new etc.)
+		{
+			//clear all the interval set at the index page of automation tasks
+			clear_tasks_progress_intervals();
+		}
+	});
+  </script>
+</body>
+</html>

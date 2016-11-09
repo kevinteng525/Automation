@@ -1,0 +1,24 @@
+<%= form_for(@product_supported_environment_map) do |f| %>
+  <% if @product_supported_environment_map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_supported_environment_map.errors.count, "error") %> prohibited this product_supported_environment_map from being saved:</h2>
+
+      <ul>
+      <% @product_supported_environment_map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :project_id %><br>
+    <%= f.select :project_id, force_projects_list %>
+  </div>
+  <div class="field">
+    <%= f.label :supported_environment_id %><br>
+    <%= f.select :supported_environment_id, supported_environment_list %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create"%>
+  </div>
+<% end %>

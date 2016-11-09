@@ -1,0 +1,430 @@
+<config> 
+   <type>seperate</type> 
+   <domain>
+      <name>WIN2K8R2</name>
+      <administrator>administrator</administrator>
+      <password>emcsiax@QA</password>
+   </domain> 
+   <sutconfig>
+        <name>Win2K8R2+SQL2K8R2+Exch2010+Outlook2010+1NA+1Worker</name> 
+      <type>existing</type>
+      <domain> 
+         <name>qaes1.com</name>
+         <administrator>es1service</administrator>
+         <password>emc</password> 
+      </domain> 
+      <machines> 
+         <machine> 
+            <name>Galaxy-WebS</name>
+            <ip>10.98.38.21</ip>
+            <roles>DomainController</roles> 
+            <categories/> 
+            <description>Force Web Server</description>
+            <config/> 
+         </machine> 
+         <machine> 
+            <name>Mail01</name> 
+            <ip>192.168.2.102</ip>
+            <roles>ExchangeServer</roles>
+            <categories/>
+            <description>Exchange Server</description>
+            <config> 
+               <version>Exchange2010</version> 
+            </config> 
+         </machine> 
+         <machine> 
+            <name>Master</name> 
+            <ip>192.168.2.103</ip>
+			      <externalip>10.98.26.171</externalip>
+            <roles>Master,Supervisor</roles> 
+            <categories/> 
+            <description>S1 Master</description> 
+            <config/> 
+         </machine> 
+         <machine> 
+            <name>NA01</name> 
+            <ip>192.168.2.104</ip>
+            <roles>NativeArchive</roles>
+            <categories/> 
+            <description>S1 Native Archive Server</description>
+            <config/>
+         </machine>
+         <machine> 
+            <name>SQL01</name>
+            <ip>192.168.2.101</ip>
+            <roles>SQLServer</roles>
+            <categories/> 
+            <description>SQL server for S1 DB</description> 
+            <config/> 
+         </machine>
+         <machine>
+            <name>WORK01</name>
+            <ip>192.168.2.105</ip>
+             <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+            <categories/>
+            <description>SQL server for S1 DB</description>
+            <config/>
+         </machine>
+      </machines>
+   </sutconfig>
+   <testagentconfig>
+      <name>Galaxy_Ruby_Saber_Agent</name>
+      <type>tobecreated</type>
+      <domain>
+         <name>WIN2K8R2</name>
+         <administrator>administrator</administrator>
+         <password>emcsiax@QA</password>
+      </domain>
+      <categories>runtime=RubyMiniTest</categories>
+      <machines>
+         <machine>
+            <name>WIN2K8R2</name>
+            <ip>192.168.2.105</ip>
+             <roles>Worker,WebService,Search,DMServer,DMClient,Mobile,Console</roles>
+            <categories/>
+            <description>Ruby Test Agent</description>
+            <config/> 
+         </machine>
+      </machines>
+   </testagentconfig>
+   <s1configs>
+      <defaultaccount>ES1Service</defaultaccount>
+      <archivedb>ES1Archive</archivedb>
+      <activitydb>ES1Activity</activitydb>
+      <searchdb>ES1Search</searchdb>
+   </s1configs>
+  <testdata>
+    <account domain="domain" username="alanaegaymon" password="qampass1!">
+      <BP count="39"></BP>
+      <defaultmessagefilter>
+        <DBID>2</DBID>
+        <NumDaysUnreviewed>0</NumDaysUnreviewed>
+        <NumDaysRecentlyReviewed>0</NumDaysRecentlyReviewed>
+        <UseArchiveDateRange>false</UseArchiveDateRange>
+        <IncludeEscalated>false</IncludeEscalated>
+        <IncludeAllRevGroups>true</IncludeAllRevGroups>
+        <RemoveWhenReviewComplete>false</RemoveWhenReviewComplete>
+        <IsDefaultFilter>true</IsDefaultFilter>
+        <CanBeChanged>true</CanBeChanged>
+        <ReviewGroupsCount>15</ReviewGroupsCount>
+        <umDaysRecentlyReviewedOptionsCount>6</umDaysRecentlyReviewedOptionsCount>
+        <numDaysUnreviewedOptionsCount>6</numDaysUnreviewedOptionsCount>
+      </defaultmessagefilter>
+      <changemessagefilter>
+        <ValidNumDaysUnreviewed>0,1,3,5,15,30</ValidNumDaysUnreviewed>
+        <NumDaysUnreviewedItems>1778,0,0,0,0,0</NumDaysUnreviewedItems>
+        <InvalidNumDaysUnreviewed>-100,-10,-1,2,100</InvalidNumDaysUnreviewed>
+        <ValidNumDaysRecentlyReviewed>0,1,3,5,15,30</ValidNumDaysRecentlyReviewed>
+        <NumDaysRecentlyReviewedItems>233,0,0,0,0,0</NumDaysRecentlyReviewedItems>
+        <InvalidNumDaysRecentlyReviewed>-100,-10,-1,2,100</InvalidNumDaysRecentlyReviewed>
+        <IncludeEscalated itemcount="1891">true</IncludeEscalated>
+        <UseArchiveDateRange>true</UseArchiveDateRange>
+        <ArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-3-20</start>
+            <end>2015-4-30</end>
+            <itemcount>0</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-5-20</start>
+            <end>2015-7-30</end>
+            <itemcount>1873</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>1990-6-20</start>
+            <end>2017-7-30</end>
+            <itemcount>1873</itemcount>
+          </ValidArchiveDate>
+          <ValidArchiveDate>
+            <start>2015-6-20</start>
+            <end>2015-9-30</end>
+            <itemcount>291</itemcount>
+          </ValidArchiveDate>
+          <InvalidArchiveDate>
+            <start>2015-8-20</start>
+            <end>2015-4-30</end>
+            <message>Start date is later than end date</message>
+          </InvalidArchiveDate>
+          <InvalidArchiveDate>
+            <start>1000-6-20</start>
+            <end>2015-7-30</end>
+            <message>Start date is very early</message>
+          </InvalidArchiveDate>
+          <InvalidArchiveDate>
+            <start>1100-6-20</start>
+            <end>1200-7-30</end>
+            <message>End date is very late</message>
+          </InvalidArchiveDate>
+        </ArchiveDate>
+        <ReviewGroup>
+          <Group>
+            <Name>RG1</Name>
+            <ID>1</ID>
+            <BP>BP1</BP>
+          </Group>
+          <Group>
+            <Name>RG2</Name>
+            <ID>2</ID>
+            <BP>BP2,BP3,BP4</BP>
+          </Group>
+          <Group>
+            <Name>RG3</Name>
+            <ID>3</ID>
+            <BP>BP5</BP>
+          </Group>
+          <Group>
+            <Name>RG4</Name>
+            <ID>4</ID>
+            <BP>BP6,BP7,BP8</BP>
+          </Group>
+          <Group>
+            <Name>RG5</Name>
+            <ID>5</ID>
+            <BP>BP9</BP>
+          </Group>
+          <Group>
+            <Name>RG6</Name>
+            <ID>6</ID>
+            <BP>BP10,BP11,BP12</BP>
+          </Group>
+          <Group>
+            <Name>RG7</Name>
+            <ID>7</ID>
+            <BP>BP13,BP14,BP15</BP>
+          </Group>
+          <Group>
+            <Name>RG8</Name>
+            <ID>8</ID>
+            <BP>BP16</BP>
+          </Group>
+          <Group>
+            <Name>RG9</Name>
+            <ID>9</ID>
+            <BP>BP17,BP18,BP19</BP>
+          </Group>
+          <Group>
+            <Name>RG10</Name>
+            <ID>10</ID>
+            <BP>BP20,BP21,BP22</BP>
+          </Group>
+          <Group>
+            <Name>RG11</Name>
+            <ID>11</ID>
+            <BP>BP23,BP24,BP25</BP>
+          </Group>
+          <Group>
+            <Name>RG12</Name>
+            <ID>12</ID>
+            <BP>BP26,BP27,BP28</BP>
+          </Group>
+          <Group>
+            <Name>RG13</Name>
+            <ID>13</ID>
+            <BP>BP29,BP30,BP31</BP>
+          </Group>
+          <Group>
+            <Name>RG14</Name>
+            <ID>14</ID>
+            <BP>BP32,BP33</BP>
+          </Group>
+          <Group>
+            <Name>RG15</Name>
+            <ID>15</ID>
+            <BP>BP34,BP35,BP36,BP37,BP38,BP39</BP>
+          </Group>
+        </ReviewGroup>
+        <IncludeAllRevGroups>true</IncludeAllRevGroups>
+      </changemessagefilter>
+      <VaildPages>0-99,50-299,277-277</VaildPages>
+      <VaildPagesReturnCount>100,250,1</VaildPagesReturnCount>
+      <InvaildPages>-1-98,-50-150,9978-9977,278-277</InvaildPages>
+      
+    </account>
+    <account domain="domain" username="allanecluff" password="qampass1!" reviewername="Allan E Cluff">
+      <defaultmessagefilter>
+        <DBID>3</DBID>
+        <NumDaysUnreviewed>0</NumDaysUnreviewed>
+        <NumDaysRecentlyReviewed>0</NumDaysRecentlyReviewed>
+        <UseArchiveDateRange>false</UseArchiveDateRange>
+        <IncludeEscalated>false</IncludeEscalated>
+        <IncludeAllRevGroups>ture</IncludeAllRevGroups>
+        <RemoveWhenReviewComplete>false</RemoveWhenReviewComplete>
+        <IsDefaultFilter>true</IsDefaultFilter>
+        <CanBeChanged>true</CanBeChanged>
+        <ReviewGroupsCount>10</ReviewGroupsCount>
+        <umDaysRecentlyReviewedOptionsCount>6</umDaysRecentlyReviewedOptionsCount>
+        <numDaysUnreviewedOptionsCount>6</numDaysUnreviewedOptionsCount>
+      </defaultmessagefilter>
+      
+      <CommentMessage>
+        <CommentSingleMessage reviewgroup="RG11" includeallrevgroups="false" comment="Comment Single Message">
+          <message messageId="1502" subject="[Msg#: 100] [Comment] MutipleMessagesWithDiffBPs" ></message>         
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG11" includeallrevgroups="false" comment="~!@#$%">
+          <message messageId="1504" subject="[Msg#: 97] [Comment] MutipleMessagesWithDiffBPs"></message>
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG11" includeallrevgroups="false" comment="你好">
+          <message messageId="1505" subject="[Msg#: 98] [Comment] MutipleMessagesWithDiffBPs"></message>
+        </CommentSingleMessage>
+        <CommentSingleMessage reviewgroup="RG11" includeallrevgroups="false" comment="S p a c e">
+          <message messageId="1506" subject="[Msg#: 96] [Comment] MutipleMessagesWithDiffBPs"></message>
+        </CommentSingleMessage>
+
+        <CommentBatchMessages reviewgroup="RG13" includeallrevgroups="false" comment="Comment Batch Messages">
+          <message messageId="1301" subject="[Msg#: 96] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+          <message messageId="1302" subject="[Msg#: 100] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG13" includeallrevgroups="false" comment="~!@#$%">
+          <message messageId="1306" subject="[Msg#: 99] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+          <message messageId="1307" subject="[Msg#: 95] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG13" includeallrevgroups="false" comment="你好">
+          <message messageId="1308" subject="[Msg#: 87] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+          <message messageId="1309" subject="[Msg#: 91] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+        </CommentBatchMessages>
+        <CommentBatchMessages reviewgroup="RG13" includeallrevgroups="false" comment="S p a c e">
+          <message messageId="1310" subject="[Msg#: 90] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+          <message messageId="1311" subject="[Msg#: 98] [CommentSelected] MutipleMessagesWithDiffBPs"></message>
+        </CommentBatchMessages>
+
+        <CommentAllFlaggedMessage reviewgroup="RG12" includeallrevgroups="false" comment="Comment All Flagged Messages"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG12" includeallrevgroups="false" comment="~!@#$%"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG12" includeallrevgroups="false" comment="你好"></CommentAllFlaggedMessage>
+        <CommentAllFlaggedMessage reviewgroup="RG12" includeallrevgroups="false" comment="S p a c e"></CommentAllFlaggedMessage>
+      </CommentMessage>
+      
+      <CodeFlaggedMessage>
+        <messages action="Single Message: Mark a Escalated code for one BP, the message has one BP" reviewgroup="RG1" includeallrevgroups="false">
+          <message messageId="1300" subject="[Msg#: 2] [Action]SingleMessageWithSingleBP" code="Escalated" BP="BP1" status="Escalated" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Single Message: Mark a Partially code for one BP, the message has one BP" reviewgroup="RG1" includeallrevgroups="false">
+          <message messageId="1298" subject="[Msg#: 3] [Action]SingleMessageWithSingleBP" code="Partially" BP="BP1" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Single Message: Mark a Completely code for one BP, the message has one BP" reviewgroup="RG1" includeallrevgroups="false">
+          <message messageId="1293" subject="[Msg#: 4] [Action]SingleMessageWithSingleBP" code="OK" BP="BP1" status="Reviewed" comment="This is Wendy"></message>
+        </messages>
+        
+        <messages action="Single Message: Mark a Escalated code for one BP, the message has mutiple BPs" reviewgroup="RG2" includeallrevgroups="false">
+          <message messageId="1248" subject="[Msg#: 2] [Action]SingleMessageWithMutipleBPs" code="Escalated" BP="BP2" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Single Message: Mark a Partially code for one BP, the message has mutiple BPs" reviewgroup="RG2" includeallrevgroups="false">
+          <message messageId="1247" subject="[Msg#: 3] [Action]SingleMessageWithMutipleBPs" code="Partially" BP="BP3" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Single Message: Mark a Completely code for one BP, the message has mutiple BPs" reviewgroup="RG2" includeallrevgroups="false">
+          <message messageId="1244" subject="[Msg#: 4] [Action]SingleMessageWithMutipleBPs" code="OK" BP="BP4" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        
+        <messages action="Multiple Messages: Mark a Escalated code for one BP, messages have a single BP" reviewgroup="RG5" includeallrevgroups="false">
+          <message messageId="1009" subject="[Msg#: 1] [MarkSelected] MutipleMessagesWithSingleBP" code="Escalated" BP="BP9" status="Escalated" comment="This is Wendy"></message>
+          <message messageId="1010" subject="[Msg#: 2] [MarkSelected] MutipleMessagesWithSingleBP" code="Escalated" BP="BP9" status="Escalated" comment="This is Wendy"></message>
+          <message messageId="1006" subject="[Msg#: 3] [MarkSelected] MutipleMessagesWithSingleBP" code="Escalated" BP="BP9" status="Escalated" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Completely code for one BP, messages have a single BP" reviewgroup="RG5" includeallrevgroups="false">
+          <message messageId="1007" subject="[Msg#: 4] [MarkSelected] MutipleMessagesWithSingleBP" code="OK" BP="BP9" status="Reviewed" comment="This is Wendy"></message>
+          <message messageId="1008" subject="[Msg#: 5] [MarkSelected] MutipleMessagesWithSingleBP" code="OK" BP="BP9" status="Reviewed" comment="This is Wendy"></message>
+          <message messageId="1004" subject="[Msg#: 6] [MarkSelected] MutipleMessagesWithSingleBP" code="OK" BP="BP9" status="Reviewed" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Partially code for one BP, messages have a single BP" reviewgroup="RG5" includeallrevgroups="false">
+          <message messageId="1005" subject="[Msg#: 7] [MarkSelected] MutipleMessagesWithSingleBP" code="Partially" BP="BP9" status="Partial" comment="This is Wendy"></message>
+          <message messageId="1002" subject="[Msg#: 8] [MarkSelected] MutipleMessagesWithSingleBP" code="Partially" BP="BP9" status="Partial" comment="This is Wendy"></message>
+          <message messageId="1003" subject="[Msg#: 9] [MarkSelected] MutipleMessagesWithSingleBP" code="Partially" BP="BP9" status="Partial" comment="This is Wendy"></message>
+        </messages>
+
+        <messages action="Multiple Messages: Mark a Completely code for one BP, messages have same BPs" reviewgroup="RG6" includeallrevgroups="false">
+          <message messageId="903" subject="[Msg#: 1] [MarkSelected] MutipleMessagesWithSameBPs" code="OK" BP="BP10" status="Partial" comment="This is Wendy"></message>
+          <message messageId="902" subject="[Msg#: 2] [MarkSelected] MutipleMessagesWithSameBPs" code="OK" BP="BP10" status="Partial" comment="This is Wendy"></message>
+          <message messageId="899" subject="[Msg#: 3] [MarkSelected] MutipleMessagesWithSameBPs" code="OK" BP="BP10" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Partially code for one BP, messages have same BPs" reviewgroup="RG6" includeallrevgroups="false">
+          <message messageId="900" subject="[Msg#: 4] [MarkSelected] MutipleMessagesWithSameBPs" code="Partially" BP="BP11" status="Partial" comment="This is Wendy"></message>
+          <message messageId="895" subject="[Msg#: 5] [MarkSelected] MutipleMessagesWithSameBPs" code="Partially" BP="BP11" status="Partial" comment="This is Wendy"></message>
+          <message messageId="897" subject="[Msg#: 6] [MarkSelected] MutipleMessagesWithSameBPs" code="Partially" BP="BP11" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Escalated code for one BP, messages have same BPs" reviewgroup="RG6" includeallrevgroups="false">
+          <message messageId="892" subject="[Msg#: 7] [MarkSelected] MutipleMessagesWithSameBPs" code="Escalated" BP="BP12" status="Partial" comment="This is Wendy"></message>
+          <message messageId="896" subject="[Msg#: 8] [MarkSelected] MutipleMessagesWithSameBPs" code="Escalated" BP="BP12" status="Partial" comment="This is Wendy"></message>
+          <message messageId="894" subject="[Msg#: 9] [MarkSelected] MutipleMessagesWithSameBPs" code="Escalated" BP="BP12" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        
+        <messages action="Multiple Messages: Mark a Completely code for one BP, messages have mutiple BPs" reviewgroup="RG7" includeallrevgroups="false">
+          <message messageId="398" subject="[Msg#: 1] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="BP15" status="Partial" comment="This is Wendy"></message>
+          <message messageId="400" subject="[Msg#: 2] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="BP15" status="Partial" comment="This is Wendy"></message>
+          <message messageId="399" subject="[Msg#: 3] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="BP15" status="Reviewed" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Partially code for one BP, messages have mutiple BPs"  reviewgroup="RG7" includeallrevgroups="false">
+          <message messageId="394" subject="[Msg#: 4] [MarkSelected] MutipleMessagesWithDiffBPs" code="Partially" BP="BP13" status="Blank" comment="This is Wendy"></message>
+          <message messageId="397" subject="[Msg#: 5] [MarkSelected] MutipleMessagesWithDiffBPs" code="Partially" BP="BP13" status="Partial" comment="This is Wendy"></message>
+          <message messageId="392" subject="[Msg#: 6] [MarkSelected] MutipleMessagesWithDiffBPs" code="Partially" BP="BP13" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <messages action="Multiple Messages: Mark a Escalated code for one BP, messages have mutiple BPs"  reviewgroup="RG7" includeallrevgroups="false">
+          <message messageId="396" subject="[Msg#: 7] [MarkSelected] MutipleMessagesWithDiffBPs" code="Escalated" BP="BP14" status="Blank" comment="This is Wendy"></message>
+          <message messageId="393" subject="[Msg#: 8] [MarkSelected] MutipleMessagesWithDiffBPs" code="Escalated" BP="BP14" status="Blank" comment="This is Wendy"></message>
+          <message messageId="389" subject="[Msg#: 9] [MarkSelected] MutipleMessagesWithDiffBPs" code="Escalated" BP="BP14" status="Partial" comment="This is Wendy"></message>
+        </messages>
+        <codeforallbps action="Mark OK for all BPs" reviewgroup="RG7" includeallrevgroups="false">
+          <message messageId="395" subject="[Msg#: 10] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="All" status="Reviewed" comment="This is Wendy"></message>
+          <message messageId="390" subject="[Msg#: 11] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="All" status="Reviewed" comment="This is Wendy"></message>
+          <message messageId="388" subject="[Msg#: 12] [MarkSelected] MutipleMessagesWithDiffBPs" code="OK" BP="All" status="Reviewed" comment="This is Wendy"></message>
+        </codeforallbps>
+        
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG10" includeallrevgroups="false" code="OK" BP="All" comment="This is Wendy"></codeallflaggedmessages>
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG10" includeallrevgroups="false" code="Escalated" BP="BP21" comment="This is Wendy"></codeallflaggedmessages>
+        <codeallflaggedmessages action="Mark All" reviewgroup="RG10" includeallrevgroups="false" code="Partially" BP="BP22" comment="This is Wendy"></codeallflaggedmessages>
+        
+        <codemessageswithfilter action="Mark a message to Completely" numDaysRecentlyReviewed="-1" numDaysUnreviewed="0" includeEscalated="true" reviewgroup="RG7" includeallrevgroups="false" code="OK"></codemessageswithfilter>
+        <codemessageswithfilter action="Mark a message to Partially" numDaysRecentlyReviewed="0" numDaysUnreviewed="-1" includeEscalated="true" reviewgroup="RG7" includeallrevgroups="false" code="Partially"></codemessageswithfilter>
+        <codemessageswithfilter action="Mark a message to Escalated" numDaysRecentlyReviewed="0" numDaysUnreviewed="0" includeEscalated="false" reviewgroup="RG7" includeallrevgroups="false" code="Escalated"></codemessageswithfilter>
+      </CodeFlaggedMessage>
+     
+    </account>
+    <account domain="domain" username="allaneboehme" password="qampass1!" role="reviewer"></account>
+    <account domain="domain" username="es1service" password="qampass1!" role="supervisor"></account>
+    <unauthorizedaccount domain="domain" username="clareemorfin" password="qampass1!" role="unauthorized" />
+    <accounthassuproleonly domain="domain" username="administrator" password="qampass1!" role="supervisoronly"></accounthassuproleonly>
+    <messages>
+      <message messageId="1" hitLocation="message" subject="[Msg#: 78] [MarkAll] MutipleMessagesWithDiffBPs" hitCount="2">
+        <bps>
+          <bp name="BP20" hitKeyWords="Keyword20" highlightStyle="hlc20"></bp>
+          <bp name="BP22" hitKeyWords="Keyword22" highlightStyle="hlc22"></bp>
+        </bps>
+      </message>
+      <message messageId="2" hitLocation="message" subject="[Msg#: 96] [MarkAll] MutipleMessagesWithDiffBPs" hitCount="1">
+        <bps>
+          <bp name="BP22" hitKeyWords="Keyword22" highlightStyle="hlc22"></bp>
+        </bps>
+      </message>
+      <message messageId="7" hitLocation="message" subject="[Msg#: 91] This is a message for automation test" hitCount="2">
+        <bps>
+          <bp name="BP21" hitKeyWords="Keyword21" highlightStyle="hlc21"></bp>
+          <bp name="BP22" hitKeyWords="Keyword22" highlightStyle="hlc22"></bp>
+        </bps>
+      </message>
+      <message messageId="1706" hitLocation="message" subject="[Msg#: 91] This is a message for automation test" hitCount="2">
+        <bps>
+          <bp name="BP33" hitKeyWords="Closed,Complained,Complaint,Complaints,Customers,Guarantee,Guaranteed,Insider,Profit,Scam,Secret,Shining,Slideing,Stock,Test,Tip,Trade" highlightStyle="hlc33"></bp>
+        </bps>
+      </message>
+      <message messageId="2001" hitLocation="message,attachments" subject="[Msg#: 3] This is a message for automation test" hitCount="28">
+        <bps>
+          <bp name="BP32" hitKeyWords="Closed,Complained,Complaint,Complaints,Customers,Guarantee,Guaranteed,Insider" highlightStyle="hlc32"></bp>
+          <bp name="BP33" hitKeyWords="Closed,Complained,Complaint,Complaints,Customers,Guarantee,Guaranteed,Insider,Profit,Scam,Secret,Shining,Slideing,Stock,Test,Tip,Trade" highlightStyle="hlc33"></bp>
+        </bps>
+      </message>
+      <message messageId="2051" hitLocation="attachments" subject="[Msg#: 4]  This message contains international words" hitCount="54">
+        <bps>
+          <bp name="BP34" hitKeyWords="‘ソフトボール" highlightStyle="hlc34"></bp>
+          <bp name="BP35" hitKeyWords="‘Кисть" highlightStyle="hlc35"></bp>
+          <bp name="BP36" hitKeyWords="‘キャメロット" highlightStyle="hlc36"></bp>
+          <bp name="BP37" hitKeyWords="‘лопата" highlightStyle="hlc37"></bp>
+          <bp name="BP38" hitKeyWords="‘観測" highlightStyle="hlc38"></bp>
+          <bp name="BP39" hitKeyWords="‘детективных" highlightStyle="hlc39"></bp>
+        </bps>
+      </message>
+    </messages>
+    <help>
+      <url>Content/Help/</url>
+      <helpExtensions>js,jpg,jpeg,png,gif,css,html,htm</helpExtensions>
+    </help>
+
+  </testdata>
+</config>

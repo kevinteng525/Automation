@@ -1,0 +1,2617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ES1AutomationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ES1AutomationModelStoreContainer">
+          <EntitySet Name="ATFConfiguration" EntityType="ES1AutomationModel.Store.ATFConfiguration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AutomationJob" EntityType="ES1AutomationModel.Store.AutomationJob" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AutomationTask" EntityType="ES1AutomationModel.Store.AutomationTask" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Branch" EntityType="ES1AutomationModel.Store.Branch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Build" EntityType="ES1AutomationModel.Store.Build" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DiagnosticLog" EntityType="ES1AutomationModel.Store.DiagnosticLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="ES1AutomationModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Project" EntityType="ES1AutomationModel.Store.Project" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectEnvironmentMap" EntityType="ES1AutomationModel.Store.ProjectEnvironmentMap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Provider" EntityType="ES1AutomationModel.Store.Provider" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ranking" EntityType="ES1AutomationModel.Store.Ranking" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Release" EntityType="ES1AutomationModel.Store.Release" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subscriber" EntityType="ES1AutomationModel.Store.Subscriber" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SupportedEnvironment" EntityType="ES1AutomationModel.Store.SupportedEnvironment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskJobMap" EntityType="ES1AutomationModel.Store.TaskJobMap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TestCase" EntityType="ES1AutomationModel.Store.TestCase" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TestCaseExecution" EntityType="ES1AutomationModel.Store.TestCaseExecution" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TestEnvironment" EntityType="ES1AutomationModel.Store.TestEnvironment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TestResult" EntityType="ES1AutomationModel.Store.TestResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TestSuite" EntityType="ES1AutomationModel.Store.TestSuite" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="ES1AutomationModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AutomationJob_CreateUser" Association="ES1AutomationModel.Store.FK_AutomationJob_CreateUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_ModifyUser" Association="ES1AutomationModel.Store.FK_AutomationJob_ModifyUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_TestAgentEnvironment" Association="ES1AutomationModel.Store.FK_AutomationJob_TestAgentEnvironment">
+            <End Role="TestEnvironment" EntitySet="TestEnvironment" />
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_TestSUTEnvironment" Association="ES1AutomationModel.Store.FK_AutomationJob_TestSUTEnvironment">
+            <End Role="TestEnvironment" EntitySet="TestEnvironment" />
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Branch" Association="ES1AutomationModel.Store.FK_AutomationTask_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_CreateUser" Association="ES1AutomationModel.Store.FK_AutomationTask_CreateUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_ModifyUser" Association="ES1AutomationModel.Store.FK_AutomationTask_ModifyUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Product" Association="ES1AutomationModel.Store.FK_AutomationTask_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Project" Association="ES1AutomationModel.Store.FK_AutomationTask_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Release" Association="ES1AutomationModel.Store.FK_AutomationTask_Release">
+            <End Role="Release" EntitySet="Release" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_SupportedEnvironment" Association="ES1AutomationModel.Store.FK_AutomationTask_SupportedEnvironment">
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironment" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_TestBuild" Association="ES1AutomationModel.Store.FK_AutomationTask_TestBuild">
+            <End Role="Build" EntitySet="Build" />
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Product" Association="ES1AutomationModel.Store.FK_Branch_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Branch" Association="ES1AutomationModel.Store.FK_Build_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Build" EntitySet="Build" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Product" Association="ES1AutomationModel.Store.FK_Build_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Build" EntitySet="Build" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Provider" Association="ES1AutomationModel.Store.FK_Build_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Build" EntitySet="Build" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Release" Association="ES1AutomationModel.Store.FK_Build_Release">
+            <End Role="Release" EntitySet="Release" />
+            <End Role="Build" EntitySet="Build" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BuildProvider" Association="ES1AutomationModel.Store.FK_Product_BuildProvider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_EnvironmentProvider" Association="ES1AutomationModel.Store.FK_Product_EnvironmentProvider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TestCaseProvider" Association="ES1AutomationModel.Store.FK_Product_TestCaseProvider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEnvironmentMap_Project" Association="ES1AutomationModel.Store.FK_ProjectEnvironmentMap_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectEnvironmentMap" EntitySet="ProjectEnvironmentMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEnvironmentMap_SupportedEnvironment" Association="ES1AutomationModel.Store.FK_ProjectEnvironmentMap_SupportedEnvironment">
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironment" />
+            <End Role="ProjectEnvironmentMap" EntitySet="ProjectEnvironmentMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Release_Product" Association="ES1AutomationModel.Store.FK_Release_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Release" EntitySet="Release" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Project" Association="ES1AutomationModel.Store.FK_Subscriber_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User" Association="ES1AutomationModel.Store.FK_Subscriber_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportedEnvironment_Provider" Association="ES1AutomationModel.Store.FK_SupportedEnvironment_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskJobMap_AutomationTask" Association="ES1AutomationModel.Store.FK_TaskJobMap_AutomationTask">
+            <End Role="AutomationTask" EntitySet="AutomationTask" />
+            <End Role="TaskJobMap" EntitySet="TaskJobMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskJobMap_TestJob" Association="ES1AutomationModel.Store.FK_TaskJobMap_TestJob">
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+            <End Role="TaskJobMap" EntitySet="TaskJobMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_CreateUser" Association="ES1AutomationModel.Store.FK_TestCase_CreateUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="TestCase" EntitySet="TestCase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_ModifyUser" Association="ES1AutomationModel.Store.FK_TestCase_ModifyUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="TestCase" EntitySet="TestCase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_Product" Association="ES1AutomationModel.Store.FK_TestCase_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TestCase" EntitySet="TestCase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_Provider" Association="ES1AutomationModel.Store.FK_TestCase_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="TestCase" EntitySet="TestCase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCaseExecution_AutomationJob" Association="ES1AutomationModel.Store.FK_TestCaseExecution_AutomationJob">
+            <End Role="AutomationJob" EntitySet="AutomationJob" />
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCaseExecution_TestCase" Association="ES1AutomationModel.Store.FK_TestCaseExecution_TestCase">
+            <End Role="TestCase" EntitySet="TestCase" />
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecution" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestEnvironment_Provider" Association="ES1AutomationModel.Store.FK_TestEnvironment_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="TestEnvironment" EntitySet="TestEnvironment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestResult_TestCaseExecution" Association="ES1AutomationModel.Store.FK_TestResult_TestCaseExecution">
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecution" />
+            <End Role="TestResult" EntitySet="TestResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestResult_User" Association="ES1AutomationModel.Store.FK_TestResult_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="TestResult" EntitySet="TestResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestSuite_CreateUser" Association="ES1AutomationModel.Store.FK_TestSuite_CreateUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="TestSuite" EntitySet="TestSuite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestSuite_ModifyUser" Association="ES1AutomationModel.Store.FK_TestSuite_ModifyUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="TestSuite" EntitySet="TestSuite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestSuite_Provider" Association="ES1AutomationModel.Store.FK_TestSuite_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="TestSuite" EntitySet="TestSuite" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ATFConfiguration">
+          <Key>
+            <PropertyRef Name="ConfigName" />
+          </Key>
+          <Property Name="ConfigName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="ConfigValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AutomationJob">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="SUTEnvironmentId" Type="int" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="RetryTimes" Type="int" Nullable="false" />
+          <Property Name="Timeout" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyBy" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TestAgentEnvironmentId" Type="int" />
+        </EntityType>
+        <EntityType Name="AutomationTask">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateBy" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyBy" Type="int" Nullable="false" />
+          <Property Name="BuildId" Type="int" Nullable="false" />
+          <Property Name="EnvironmentId" Type="int" Nullable="false" />
+          <Property Name="TestContent" Type="nvarchar(max)" />
+          <Property Name="Information" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="RecurrencePattern" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="WeekDays" Type="int" />
+          <Property Name="WeekInterval" Type="int" />
+          <Property Name="ParentTaskId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="ReleaseId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="NotifyStakeholders" Type="bit" />
+          <Property Name="WriteTestResultBack" Type="bit" />
+          <Property Name="SetupScript" Type="text" />
+          <Property Name="TeardownScript" Type="text" />
+          <Property Name="EnableCodeCoverage" Type="bit" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Build">
+          <Key>
+            <PropertyRef Name="BuildId" />
+          </Key>
+          <Property Name="BuildId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="ReleaseId" Type="int" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Number" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="DiagnosticLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Component" Type="nvarchar" MaxLength="300" />
+          <Property Name="LogType" Type="int" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="BuildProviderId" Type="int" />
+          <Property Name="TestCaseProviderId" Type="int" />
+          <Property Name="EnvironmentProviderId" Type="int" />
+          <Property Name="RunTime" Type="nvarchar" MaxLength="150" />
+          <Property Name="RQMProjectAlias" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="VCSType" Type="int" />
+          <Property Name="VCSServer" Type="nvarchar" MaxLength="100" />
+          <Property Name="VCSUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="VCSPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="VCSRootPath" Type="nvarchar(max)" />
+          <Property Name="RunTime" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ProjectEnvironmentMap">
+          <Key>
+            <PropertyRef Name="MapId" />
+          </Key>
+          <Property Name="MapId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="EnvironmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="ProviderId" />
+          </Key>
+          <Property Name="ProviderId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="Config" Type="xml" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ranking">
+          <Key>
+            <PropertyRef Name="RankingId" />
+          </Key>
+          <Property Name="RankingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+          </Key>
+          <Property Name="ReleaseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="SubscriberId" />
+          </Key>
+          <Property Name="SubscriberId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SubscriberType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupportedEnvironment">
+          <Key>
+            <PropertyRef Name="EnvironmentId" />
+          </Key>
+          <Property Name="EnvironmentId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Config" Type="nvarchar(max)" />
+          <Property Name="ProviderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskJobMap">
+          <Key>
+            <PropertyRef Name="MapId" />
+          </Key>
+          <Property Name="MapId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="int" Nullable="false" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestCase">
+          <Key>
+            <PropertyRef Name="TestCaseId" />
+          </Key>
+          <Property Name="TestCaseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderId" Type="int" Nullable="false" />
+          <Property Name="SourceId" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="ScriptPath" Type="nvarchar(max)" />
+          <Property Name="Ranking" Type="nvarchar" MaxLength="300" />
+          <Property Name="Release" Type="nvarchar" MaxLength="300" />
+          <Property Name="Weight" Type="int" Nullable="false" />
+          <Property Name="IsAutomated" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ModifyBy" Type="int" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestCaseExecution">
+          <Key>
+            <PropertyRef Name="ExecutionId" />
+          </Key>
+          <Property Name="ExecutionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TestCaseId" Type="int" Nullable="false" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="RetryTimes" Type="int" Nullable="false" />
+          <Property Name="Timeout" Type="int" Nullable="false" />
+          <Property Name="Info" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TestEnvironment">
+          <Key>
+            <PropertyRef Name="EnvironmentId" />
+          </Key>
+          <Property Name="EnvironmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="Config" Type="xml" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TestResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Name="ResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExecutionId" Type="int" Nullable="false" />
+          <Property Name="Result" Type="int" Nullable="false" />
+          <Property Name="IsTriaged" Type="bit" Nullable="false" />
+          <Property Name="TriagedBy" Type="int" />
+          <Property Name="Files" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TestSuite">
+          <Key>
+            <PropertyRef Name="SuiteId" />
+          </Key>
+          <Property Name="SuiteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProviderId" Type="int" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="SubSuites" Type="nvarchar(max)" />
+          <Property Name="TestCases" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ModityBy" Type="int" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SourceId" Type="nvarchar" MaxLength="200" />
+          <Property Name="ExecutionCommand" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="text" />
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Email" Type="text" />
+        </EntityType>
+        <Association Name="FK_AutomationJob_CreateUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="1" />
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_ModifyUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="1" />
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_TestAgentEnvironment">
+          <End Role="TestEnvironment" Type="ES1AutomationModel.Store.TestEnvironment" Multiplicity="0..1" />
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="TestAgentEnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_TestSUTEnvironment">
+          <End Role="TestEnvironment" Type="ES1AutomationModel.Store.TestEnvironment" Multiplicity="0..1" />
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="SUTEnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Branch">
+          <End Role="Branch" Type="ES1AutomationModel.Store.Branch" Multiplicity="0..1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_CreateUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_ModifyUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Product">
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="0..1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Project">
+          <End Role="Project" Type="ES1AutomationModel.Store.Project" Multiplicity="0..1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Release">
+          <End Role="Release" Type="ES1AutomationModel.Store.Release" Multiplicity="0..1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_SupportedEnvironment">
+          <End Role="SupportedEnvironment" Type="ES1AutomationModel.Store.SupportedEnvironment" Multiplicity="1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportedEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="EnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_TestBuild">
+          <End Role="Build" Type="ES1AutomationModel.Store.Build" Multiplicity="1" />
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Build">
+              <PropertyRef Name="BuildId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="BuildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Product">
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="1" />
+          <End Role="Branch" Type="ES1AutomationModel.Store.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Branch">
+          <End Role="Branch" Type="ES1AutomationModel.Store.Branch" Multiplicity="0..1" />
+          <End Role="Build" Type="ES1AutomationModel.Store.Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Product">
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="1" />
+          <End Role="Build" Type="ES1AutomationModel.Store.Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Provider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="1" />
+          <End Role="Build" Type="ES1AutomationModel.Store.Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Release">
+          <End Role="Release" Type="ES1AutomationModel.Store.Release" Multiplicity="0..1" />
+          <End Role="Build" Type="ES1AutomationModel.Store.Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BuildProvider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="0..1" />
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BuildProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_EnvironmentProvider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="0..1" />
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="EnvironmentProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TestCaseProvider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="0..1" />
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TestCaseProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEnvironmentMap_Project">
+          <End Role="Project" Type="ES1AutomationModel.Store.Project" Multiplicity="1" />
+          <End Role="ProjectEnvironmentMap" Type="ES1AutomationModel.Store.ProjectEnvironmentMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectEnvironmentMap">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEnvironmentMap_SupportedEnvironment">
+          <End Role="SupportedEnvironment" Type="ES1AutomationModel.Store.SupportedEnvironment" Multiplicity="1" />
+          <End Role="ProjectEnvironmentMap" Type="ES1AutomationModel.Store.ProjectEnvironmentMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportedEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="ProjectEnvironmentMap">
+              <PropertyRef Name="EnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Release_Product">
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="1" />
+          <End Role="Release" Type="ES1AutomationModel.Store.Release" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Release">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Project">
+          <End Role="Project" Type="ES1AutomationModel.Store.Project" Multiplicity="1" />
+          <End Role="Subscriber" Type="ES1AutomationModel.Store.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="1" />
+          <End Role="Subscriber" Type="ES1AutomationModel.Store.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportedEnvironment_Provider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="1" />
+          <End Role="SupportedEnvironment" Type="ES1AutomationModel.Store.SupportedEnvironment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="SupportedEnvironment">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskJobMap_AutomationTask">
+          <End Role="AutomationTask" Type="ES1AutomationModel.Store.AutomationTask" Multiplicity="1" />
+          <End Role="TaskJobMap" Type="ES1AutomationModel.Store.TaskJobMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationTask">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskJobMap">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskJobMap_TestJob">
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="1" />
+          <End Role="TaskJobMap" Type="ES1AutomationModel.Store.TaskJobMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationJob">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="TaskJobMap">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_CreateUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="0..1" />
+          <End Role="TestCase" Type="ES1AutomationModel.Store.TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_ModifyUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="0..1" />
+          <End Role="TestCase" Type="ES1AutomationModel.Store.TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_Product">
+          <End Role="Product" Type="ES1AutomationModel.Store.Product" Multiplicity="1" />
+          <End Role="TestCase" Type="ES1AutomationModel.Store.TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_Provider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="1" />
+          <End Role="TestCase" Type="ES1AutomationModel.Store.TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCaseExecution_AutomationJob">
+          <End Role="AutomationJob" Type="ES1AutomationModel.Store.AutomationJob" Multiplicity="1" />
+          <End Role="TestCaseExecution" Type="ES1AutomationModel.Store.TestCaseExecution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationJob">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="TestCaseExecution">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCaseExecution_TestCase">
+          <End Role="TestCase" Type="ES1AutomationModel.Store.TestCase" Multiplicity="1" />
+          <End Role="TestCaseExecution" Type="ES1AutomationModel.Store.TestCaseExecution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCase">
+              <PropertyRef Name="TestCaseId" />
+            </Principal>
+            <Dependent Role="TestCaseExecution">
+              <PropertyRef Name="TestCaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestEnvironment_Provider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="1" />
+          <End Role="TestEnvironment" Type="ES1AutomationModel.Store.TestEnvironment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestEnvironment">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestResult_TestCaseExecution">
+          <End Role="TestCaseExecution" Type="ES1AutomationModel.Store.TestCaseExecution" Multiplicity="1" />
+          <End Role="TestResult" Type="ES1AutomationModel.Store.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCaseExecution">
+              <PropertyRef Name="ExecutionId" />
+            </Principal>
+            <Dependent Role="TestResult">
+              <PropertyRef Name="ExecutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestResult_User">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="0..1" />
+          <End Role="TestResult" Type="ES1AutomationModel.Store.TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestResult">
+              <PropertyRef Name="TriagedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestSuite_CreateUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="0..1" />
+          <End Role="TestSuite" Type="ES1AutomationModel.Store.TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestSuite_ModifyUser">
+          <End Role="User" Type="ES1AutomationModel.Store.User" Multiplicity="0..1" />
+          <End Role="TestSuite" Type="ES1AutomationModel.Store.TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="ModityBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestSuite_Provider">
+          <End Role="Provider" Type="ES1AutomationModel.Store.Provider" Multiplicity="0..1" />
+          <End Role="TestSuite" Type="ES1AutomationModel.Store.TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ES1AutomationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ES1AutomationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AutomationTasks" EntityType="ES1AutomationModel.AutomationTask" />
+          <EntitySet Name="Products" EntityType="ES1AutomationModel.Product" />
+          <EntitySet Name="SupportedEnvironments" EntityType="ES1AutomationModel.SupportedEnvironment" />
+          <EntitySet Name="Users" EntityType="ES1AutomationModel.User" />
+          <EntitySet Name="TaskJobMaps" EntityType="ES1AutomationModel.TaskJobMap" />
+          <AssociationSet Name="FK_TaskJobMap_AutomationTask" Association="ES1AutomationModel.FK_TaskJobMap_AutomationTask">
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+            <End Role="TaskJobMap" EntitySet="TaskJobMaps" />
+          </AssociationSet>
+          <EntitySet Name="Builds" EntityType="ES1AutomationModel.Build" />
+          <EntitySet Name="TestEnvironments" EntityType="ES1AutomationModel.TestEnvironment" />
+          <AssociationSet Name="FK_AutomationTask_TestBuild" Association="ES1AutomationModel.FK_AutomationTask_TestBuild">
+            <End Role="Build" EntitySet="Builds" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Product" Association="ES1AutomationModel.FK_Build_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Build" EntitySet="Builds" />
+          </AssociationSet>
+          <EntitySet Name="TestCases" EntityType="ES1AutomationModel.TestCase" />
+          <AssociationSet Name="FK_TestCase_Product" Association="ES1AutomationModel.FK_TestCase_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="TestCase" EntitySet="TestCases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_CreateUser" Association="ES1AutomationModel.FK_TestCase_CreateUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TestCase" EntitySet="TestCases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_ModifyUser" Association="ES1AutomationModel.FK_TestCase_ModifyUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TestCase" EntitySet="TestCases" />
+          </AssociationSet>
+          <EntitySet Name="Providers" EntityType="ES1AutomationModel.Provider" />
+          <AssociationSet Name="FK_Build_Provider" Association="ES1AutomationModel.FK_Build_Provider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Build" EntitySet="Builds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCase_Provider" Association="ES1AutomationModel.FK_TestCase_Provider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="TestCase" EntitySet="TestCases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestEnvironment_Provider" Association="ES1AutomationModel.FK_TestEnvironment_Provider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="TestEnvironment" EntitySet="TestEnvironments" />
+          </AssociationSet>
+          <EntitySet Name="TestCaseExecutions" EntityType="ES1AutomationModel.TestCaseExecution" />
+          <AssociationSet Name="FK_TestCaseExecution_TestCase" Association="ES1AutomationModel.FK_TestCaseExecution_TestCase">
+            <End Role="TestCase" EntitySet="TestCases" />
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecutions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_SupportedEnvironment" Association="ES1AutomationModel.FK_AutomationTask_SupportedEnvironment">
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironments" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <EntitySet Name="AutomationJobs" EntityType="ES1AutomationModel.AutomationJob" />
+          <AssociationSet Name="FK_AutomationJob_CreateUser" Association="ES1AutomationModel.FK_AutomationJob_CreateUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_ModifyUser" Association="ES1AutomationModel.FK_AutomationJob_ModifyUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskJobMap_TestJob" Association="ES1AutomationModel.FK_TaskJobMap_TestJob">
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+            <End Role="TaskJobMap" EntitySet="TaskJobMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestCaseExecution_AutomationJob" Association="ES1AutomationModel.FK_TestCaseExecution_AutomationJob">
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecutions" />
+          </AssociationSet>
+          <EntitySet Name="TestResults" EntityType="ES1AutomationModel.TestResult" />
+          <AssociationSet Name="FK_TestResult_TestCaseExecution" Association="ES1AutomationModel.FK_TestResult_TestCaseExecution">
+            <End Role="TestCaseExecution" EntitySet="TestCaseExecutions" />
+            <End Role="TestResult" EntitySet="TestResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestResult_User" Association="ES1AutomationModel.FK_TestResult_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TestResult" EntitySet="TestResults" />
+          </AssociationSet>
+          <EntitySet Name="ATFConfigurations" EntityType="ES1AutomationModel.ATFConfiguration" />
+          <EntitySet Name="TestSuites" EntityType="ES1AutomationModel.TestSuite" />
+          <AssociationSet Name="FK_TestSuite_Provider" Association="ES1AutomationModel.FK_TestSuite_Provider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="TestSuite" EntitySet="TestSuites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestSuite_CreateUser" Association="ES1AutomationModel.FK_TestSuite_CreateUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TestSuite" EntitySet="TestSuites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TestSuite_ModifyUser" Association="ES1AutomationModel.FK_TestSuite_ModifyUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TestSuite" EntitySet="TestSuites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_CreateUser" Association="ES1AutomationModel.FK_AutomationTask_CreateUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_ModifyUser" Association="ES1AutomationModel.FK_AutomationTask_ModifyUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_TestAgentEnvironment" Association="ES1AutomationModel.FK_AutomationJob_TestAgentEnvironment">
+            <End Role="TestEnvironment" EntitySet="TestEnvironments" />
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationJob_TestSUTEnvironment" Association="ES1AutomationModel.FK_AutomationJob_TestSUTEnvironment">
+            <End Role="TestEnvironment" EntitySet="TestEnvironments" />
+            <End Role="AutomationJob" EntitySet="AutomationJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SupportedEnvironment_Provider" Association="ES1AutomationModel.FK_SupportedEnvironment_Provider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironments" />
+          </AssociationSet>
+          <EntitySet Name="Branches" EntityType="ES1AutomationModel.Branch" />
+          <EntitySet Name="Rankings" EntityType="ES1AutomationModel.Ranking" />
+          <EntitySet Name="Releases" EntityType="ES1AutomationModel.Release" />
+          <EntitySet Name="Subscribers" EntityType="ES1AutomationModel.Subscriber" />
+          <AssociationSet Name="FK_AutomationTask_Branch" Association="ES1AutomationModel.FK_AutomationTask_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Product" Association="ES1AutomationModel.FK_AutomationTask_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutomationTask_Release" Association="ES1AutomationModel.FK_AutomationTask_Release">
+            <End Role="Release" EntitySet="Releases" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BuildProvider" Association="ES1AutomationModel.FK_Product_BuildProvider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_EnvironmentProvider" Association="ES1AutomationModel.FK_Product_EnvironmentProvider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TestCaseProvider" Association="ES1AutomationModel.FK_Product_TestCaseProvider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_User" Association="ES1AutomationModel.FK_Subscriber_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Subscriber" EntitySet="Subscribers" />
+          </AssociationSet>
+          <EntitySet Name="DiagnosticLogs" EntityType="ES1AutomationModel.DiagnosticLog" />
+          <AssociationSet Name="FK_Build_Branch" Association="ES1AutomationModel.FK_Build_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Build" EntitySet="Builds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Build_Release" Association="ES1AutomationModel.FK_Build_Release">
+            <End Role="Release" EntitySet="Releases" />
+            <End Role="Build" EntitySet="Builds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch_Product" Association="ES1AutomationModel.FK_Branch_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Release_Product" Association="ES1AutomationModel.FK_Release_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Release" EntitySet="Releases" />
+          </AssociationSet>
+          <EntitySet Name="Projects" EntityType="ES1AutomationModel.Project" />
+          <AssociationSet Name="FK_AutomationTask_Project" Association="ES1AutomationModel.FK_AutomationTask_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="AutomationTask" EntitySet="AutomationTasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Project" Association="ES1AutomationModel.FK_Subscriber_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Subscriber" EntitySet="Subscribers" />
+          </AssociationSet>
+          <EntitySet Name="ProjectEnvironmentMaps" EntityType="ES1AutomationModel.ProjectEnvironmentMap" />
+          <AssociationSet Name="FK_ProjectEnvironmentMap_Project" Association="ES1AutomationModel.FK_ProjectEnvironmentMap_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="ProjectEnvironmentMap" EntitySet="ProjectEnvironmentMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectEnvironmentMap_SupportedEnvironment" Association="ES1AutomationModel.FK_ProjectEnvironmentMap_SupportedEnvironment">
+            <End Role="SupportedEnvironment" EntitySet="SupportedEnvironments" />
+            <End Role="ProjectEnvironmentMap" EntitySet="ProjectEnvironmentMaps" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="AutomationTask">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Type="Int32" Name="TaskId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Priority" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="Int32" Name="CreateBy" Nullable="false" />
+          <Property Type="DateTime" Name="ModifyDate" Nullable="false" />
+          <Property Type="Int32" Name="ModifyBy" Nullable="false" />
+          <Property Type="Int32" Name="BuildId" Nullable="false" />
+          <Property Type="Int32" Name="EnvironmentId" Nullable="false" />
+          <Property Type="String" Name="TestContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Information" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaskJobMaps" Relationship="ES1AutomationModel.FK_TaskJobMap_AutomationTask" FromRole="AutomationTask" ToRole="TaskJobMap" />
+          <NavigationProperty Name="Build" Relationship="ES1AutomationModel.FK_AutomationTask_TestBuild" FromRole="AutomationTask" ToRole="Build" />
+          <NavigationProperty Name="SupportedEnvironment" Relationship="ES1AutomationModel.FK_AutomationTask_SupportedEnvironment" FromRole="AutomationTask" ToRole="SupportedEnvironment" />
+          <NavigationProperty Name="CreatedUser" Relationship="ES1AutomationModel.FK_AutomationTask_CreateUser" FromRole="AutomationTask" ToRole="User" />
+          <NavigationProperty Name="ModifiedUser" Relationship="ES1AutomationModel.FK_AutomationTask_ModifyUser" FromRole="AutomationTask" ToRole="User" />
+          <Property Type="Int32" Name="RecurrencePattern" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="StartTime" />
+          <Property Type="Int32" Name="WeekDays" />
+          <Property Type="Int32" Name="WeekInterval" />
+          <Property Type="Int32" Name="ParentTaskId" />
+          <Property Type="Int32" Name="BranchId" />
+          <Property Type="Int32" Name="ReleaseId" />
+          <Property Type="Int32" Name="ProductId" />
+          <NavigationProperty Name="Branch" Relationship="ES1AutomationModel.FK_AutomationTask_Branch" FromRole="AutomationTask" ToRole="Branch" />
+          <NavigationProperty Name="Product" Relationship="ES1AutomationModel.FK_AutomationTask_Product" FromRole="AutomationTask" ToRole="Product" />
+          <NavigationProperty Name="Release" Relationship="ES1AutomationModel.FK_AutomationTask_Release" FromRole="AutomationTask" ToRole="Release" />
+          <Property Type="Int32" Name="ProjectId" />
+          <NavigationProperty Name="Project" Relationship="ES1AutomationModel.FK_AutomationTask_Project" FromRole="AutomationTask" ToRole="Project" />
+          <Property Type="Boolean" Name="NotifyStakeholders" />
+          <Property Type="Boolean" Name="WriteTestResultBack" />
+          <Property Type="String" Name="SetupScript" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TeardownScript" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="EnableCodeCoverage" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Builds" Relationship="ES1AutomationModel.FK_Build_Product" FromRole="Product" ToRole="Build" />
+          <NavigationProperty Name="TestCases" Relationship="ES1AutomationModel.FK_TestCase_Product" FromRole="Product" ToRole="TestCase" />
+          <Property Type="Int32" Name="BuildProviderId" />
+          <Property Type="Int32" Name="TestCaseProviderId" />
+          <Property Type="Int32" Name="EnvironmentProviderId" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_Product" FromRole="Product" ToRole="AutomationTask" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_Product_BuildProvider" FromRole="Product" ToRole="Provider" />
+          <NavigationProperty Name="Provider1" Relationship="ES1AutomationModel.FK_Product_EnvironmentProvider" FromRole="Product" ToRole="Provider" />
+          <NavigationProperty Name="Provider2" Relationship="ES1AutomationModel.FK_Product_TestCaseProvider" FromRole="Product" ToRole="Provider" />
+          <Property Type="String" Name="RunTime" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Branches" Relationship="ES1AutomationModel.FK_Branch_Product" FromRole="Product" ToRole="Branch" />
+          <NavigationProperty Name="Releases" Relationship="ES1AutomationModel.FK_Release_Product" FromRole="Product" ToRole="Release" />
+          <Property Type="String" Name="RQMProjectAlias" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SupportedEnvironment">
+          <Key>
+            <PropertyRef Name="EnvironmentId" />
+          </Key>
+          <Property Type="Int32" Name="EnvironmentId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_SupportedEnvironment" FromRole="SupportedEnvironment" ToRole="AutomationTask" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="String" Name="Config" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ProviderId" Nullable="false" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_SupportedEnvironment_Provider" FromRole="SupportedEnvironment" ToRole="Provider" />
+          <NavigationProperty Name="ProjectEnvironmentMaps" Relationship="ES1AutomationModel.FK_ProjectEnvironmentMap_SupportedEnvironment" FromRole="SupportedEnvironment" ToRole="ProjectEnvironmentMap" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Role" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CreatecTestCases" Relationship="ES1AutomationModel.FK_TestCase_CreateUser" FromRole="User" ToRole="TestCase" />
+          <NavigationProperty Name="ModifiedTestCases" Relationship="ES1AutomationModel.FK_TestCase_ModifyUser" FromRole="User" ToRole="TestCase" />
+          <NavigationProperty Name="CreatedAutomationJobs" Relationship="ES1AutomationModel.FK_AutomationJob_CreateUser" FromRole="User" ToRole="AutomationJob" />
+          <NavigationProperty Name="ModifiedAutomationJobs" Relationship="ES1AutomationModel.FK_AutomationJob_ModifyUser" FromRole="User" ToRole="AutomationJob" />
+          <NavigationProperty Name="TestResults" Relationship="ES1AutomationModel.FK_TestResult_User" FromRole="User" ToRole="TestResult" />
+          <NavigationProperty Name="CreatedTestSuites" Relationship="ES1AutomationModel.FK_TestSuite_CreateUser" FromRole="User" ToRole="TestSuite" />
+          <NavigationProperty Name="ModifiedTestSuites" Relationship="ES1AutomationModel.FK_TestSuite_ModifyUser" FromRole="User" ToRole="TestSuite" />
+          <NavigationProperty Name="CreatedAutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_CreateUser" FromRole="User" ToRole="AutomationTask" />
+          <NavigationProperty Name="ModifiedAutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_ModifyUser" FromRole="User" ToRole="AutomationTask" />
+          <NavigationProperty Name="Subscribers" Relationship="ES1AutomationModel.FK_Subscriber_User" FromRole="User" ToRole="Subscriber" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <EntityType Name="TaskJobMap">
+          <Key>
+            <PropertyRef Name="MapId" />
+          </Key>
+          <Property Type="Int32" Name="MapId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TaskId" Nullable="false" />
+          <Property Type="Int32" Name="JobId" Nullable="false" />
+          <NavigationProperty Name="AutomationTask" Relationship="ES1AutomationModel.FK_TaskJobMap_AutomationTask" FromRole="TaskJobMap" ToRole="AutomationTask" />
+          <NavigationProperty Name="AutomationJob" Relationship="ES1AutomationModel.FK_TaskJobMap_TestJob" FromRole="TaskJobMap" ToRole="AutomationJob" />
+        </EntityType>
+        <Association Name="FK_TaskJobMap_AutomationTask">
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TaskJobMap" Role="TaskJobMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationTask">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskJobMap">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Build">
+          <Key>
+            <PropertyRef Name="BuildId" />
+          </Key>
+          <Property Type="Int32" Name="BuildId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProviderId" Nullable="false" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="Number" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Location" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_TestBuild" FromRole="Build" ToRole="AutomationTask" />
+          <NavigationProperty Name="Product" Relationship="ES1AutomationModel.FK_Build_Product" FromRole="Build" ToRole="Product" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_Build_Provider" FromRole="Build" ToRole="Provider" />
+          <Property Type="Int32" Name="BranchId" />
+          <Property Type="Int32" Name="ReleaseId" />
+          <NavigationProperty Name="Branch_1" Relationship="ES1AutomationModel.FK_Build_Branch" FromRole="Build" ToRole="Branch" />
+          <NavigationProperty Name="Release" Relationship="ES1AutomationModel.FK_Build_Release" FromRole="Build" ToRole="Release" />
+        </EntityType>
+        <EntityType Name="TestEnvironment">
+          <Key>
+            <PropertyRef Name="EnvironmentId" />
+          </Key>
+          <Property Type="Int32" Name="EnvironmentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProviderId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="ModifyDate" Nullable="false" />
+          <Property Type="String" Name="Config" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_TestEnvironment_Provider" FromRole="TestEnvironment" ToRole="Provider" />
+          <NavigationProperty Name="TestAgent_AutomationJobs" Relationship="ES1AutomationModel.FK_AutomationJob_TestAgentEnvironment" FromRole="TestEnvironment" ToRole="AutomationJob" />
+          <NavigationProperty Name="SUT_AutomationJobs" Relationship="ES1AutomationModel.FK_AutomationJob_TestSUTEnvironment" FromRole="TestEnvironment" ToRole="AutomationJob" />
+        </EntityType>
+        <Association Name="FK_AutomationTask_TestBuild">
+          <End Type="ES1AutomationModel.Build" Role="Build" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Build">
+              <PropertyRef Name="BuildId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="BuildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Product">
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Build" Role="Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TestCase">
+          <Key>
+            <PropertyRef Name="TestCaseId" />
+          </Key>
+          <Property Type="Int32" Name="TestCaseId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProviderId" Nullable="false" />
+          <Property Type="String" Name="SourceId" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="String" Name="Feature" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ScriptPath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Weight" Nullable="false" />
+          <Property Type="Boolean" Name="IsAutomated" Nullable="false" />
+          <Property Type="Int32" Name="CreateBy" />
+          <Property Type="DateTime" Name="CreateTime" />
+          <Property Type="Int32" Name="ModifyBy" />
+          <Property Type="DateTime" Name="ModifyTime" />
+          <NavigationProperty Name="Product" Relationship="ES1AutomationModel.FK_TestCase_Product" FromRole="TestCase" ToRole="Product" />
+          <NavigationProperty Name="CreateUser" Relationship="ES1AutomationModel.FK_TestCase_CreateUser" FromRole="TestCase" ToRole="User" />
+          <NavigationProperty Name="ModifyUser" Relationship="ES1AutomationModel.FK_TestCase_ModifyUser" FromRole="TestCase" ToRole="User" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_TestCase_Provider" FromRole="TestCase" ToRole="Provider" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TestCaseExecutions" Relationship="ES1AutomationModel.FK_TestCaseExecution_TestCase" FromRole="TestCase" ToRole="TestCaseExecution" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Ranking" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Release" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TestCase_Product">
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestCase" Role="TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_CreateUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestCase" Role="TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_ModifyUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestCase" Role="TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="ProviderId" />
+          </Key>
+          <Property Type="Int32" Name="ProviderId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Category" Nullable="false" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Config" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Builds" Relationship="ES1AutomationModel.FK_Build_Provider" FromRole="Provider" ToRole="Build" />
+          <NavigationProperty Name="TestCases" Relationship="ES1AutomationModel.FK_TestCase_Provider" FromRole="Provider" ToRole="TestCase" />
+          <NavigationProperty Name="TestEnvironments" Relationship="ES1AutomationModel.FK_TestEnvironment_Provider" FromRole="Provider" ToRole="TestEnvironment" />
+          <NavigationProperty Name="TestSuites" Relationship="ES1AutomationModel.FK_TestSuite_Provider" FromRole="Provider" ToRole="TestSuite" />
+          <NavigationProperty Name="SupportedEnvironments" Relationship="ES1AutomationModel.FK_SupportedEnvironment_Provider" FromRole="Provider" ToRole="SupportedEnvironment" />
+          <NavigationProperty Name="Products" Relationship="ES1AutomationModel.FK_Product_BuildProvider" FromRole="Provider" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="ES1AutomationModel.FK_Product_EnvironmentProvider" FromRole="Provider" ToRole="Product" />
+          <NavigationProperty Name="Products2" Relationship="ES1AutomationModel.FK_Product_TestCaseProvider" FromRole="Provider" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Build_Provider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Build" Role="Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCase_Provider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestCase" Role="TestCase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestCase">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestEnvironment_Provider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestEnvironment" Role="TestEnvironment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestEnvironment">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TestCaseExecution">
+          <Key>
+            <PropertyRef Name="ExecutionId" />
+          </Key>
+          <Property Type="Int32" Name="ExecutionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TestCaseId" Nullable="false" />
+          <Property Type="Int32" Name="JobId" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" />
+          <Property Type="DateTime" Name="EndTime" />
+          <Property Type="Int32" Name="RetryTimes" Nullable="false" />
+          <NavigationProperty Name="TestCase" Relationship="ES1AutomationModel.FK_TestCaseExecution_TestCase" FromRole="TestCaseExecution" ToRole="TestCase" />
+          <NavigationProperty Name="AutomationJob" Relationship="ES1AutomationModel.FK_TestCaseExecution_AutomationJob" FromRole="TestCaseExecution" ToRole="AutomationJob" />
+          <NavigationProperty Name="TestResults" Relationship="ES1AutomationModel.FK_TestResult_TestCaseExecution" FromRole="TestCaseExecution" ToRole="TestResult" />
+          <Property Type="Int32" Name="Timeout" Nullable="false" />
+          <Property Type="String" Name="Info" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TestCaseExecution_TestCase">
+          <End Type="ES1AutomationModel.TestCase" Role="TestCase" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestCaseExecution" Role="TestCaseExecution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCase">
+              <PropertyRef Name="TestCaseId" />
+            </Principal>
+            <Dependent Role="TestCaseExecution">
+              <PropertyRef Name="TestCaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_SupportedEnvironment">
+          <End Type="ES1AutomationModel.SupportedEnvironment" Role="SupportedEnvironment" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportedEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="EnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AutomationJob">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Type="Int32" Name="JobId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="Priority" Nullable="false" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int32" Name="RetryTimes" Nullable="false" />
+          <Property Type="Int32" Name="Timeout" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="Int32" Name="CreateBy" Nullable="false" />
+          <Property Type="DateTime" Name="ModifyDate" Nullable="false" />
+          <Property Type="Int32" Name="ModifyBy" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CreateUser" Relationship="ES1AutomationModel.FK_AutomationJob_CreateUser" FromRole="AutomationJob" ToRole="User" />
+          <NavigationProperty Name="ModifyUser" Relationship="ES1AutomationModel.FK_AutomationJob_ModifyUser" FromRole="AutomationJob" ToRole="User" />
+          <NavigationProperty Name="TaskJobMaps" Relationship="ES1AutomationModel.FK_TaskJobMap_TestJob" FromRole="AutomationJob" ToRole="TaskJobMap" />
+          <NavigationProperty Name="TestCaseExecutions" Relationship="ES1AutomationModel.FK_TestCaseExecution_AutomationJob" FromRole="AutomationJob" ToRole="TestCaseExecution" />
+          <Property Type="Int32" Name="TestAgentEnvironmentId" />
+          <Property Type="Int32" Name="SUTEnvironmentId" />
+          <NavigationProperty Name="TestEnvironment_TestAgent" Relationship="ES1AutomationModel.FK_AutomationJob_TestAgentEnvironment" FromRole="AutomationJob" ToRole="TestEnvironment" />
+          <NavigationProperty Name="TestEnvironment_SUT" Relationship="ES1AutomationModel.FK_AutomationJob_TestSUTEnvironment" FromRole="AutomationJob" ToRole="TestEnvironment" />
+        </EntityType>
+        <Association Name="FK_AutomationJob_CreateUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_ModifyUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskJobMap_TestJob">
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TaskJobMap" Role="TaskJobMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationJob">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="TaskJobMap">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestCaseExecution_AutomationJob">
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestCaseExecution" Role="TestCaseExecution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutomationJob">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="TestCaseExecution">
+              <PropertyRef Name="JobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TestResult">
+          <Key>
+            <PropertyRef Name="ResultId" />
+          </Key>
+          <Property Type="Int32" Name="ResultId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ExecutionId" Nullable="false" />
+          <Property Type="Int32" Name="Result" Nullable="false" />
+          <Property Type="Boolean" Name="IsTriaged" Nullable="false" />
+          <Property Type="Int32" Name="TriagedBy" />
+          <Property Type="String" Name="Files" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TestCaseExecution" Relationship="ES1AutomationModel.FK_TestResult_TestCaseExecution" FromRole="TestResult" ToRole="TestCaseExecution" />
+          <NavigationProperty Name="User" Relationship="ES1AutomationModel.FK_TestResult_User" FromRole="TestResult" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_TestResult_TestCaseExecution">
+          <End Type="ES1AutomationModel.TestCaseExecution" Role="TestCaseExecution" Multiplicity="1" />
+          <End Type="ES1AutomationModel.TestResult" Role="TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestCaseExecution">
+              <PropertyRef Name="ExecutionId" />
+            </Principal>
+            <Dependent Role="TestResult">
+              <PropertyRef Name="ExecutionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestResult_User">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestResult" Role="TestResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestResult">
+              <PropertyRef Name="TriagedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ATFConfiguration">
+          <Key>
+            <PropertyRef Name="ConfigName" />
+          </Key>
+          <Property Type="String" Name="ConfigName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ConfigValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TestSuite">
+          <Key>
+            <PropertyRef Name="SuiteId" />
+          </Key>
+          <Property Type="Int32" Name="SuiteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProviderId" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubSuites" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TestCases" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CreateBy" />
+          <Property Type="DateTime" Name="CreateTime" />
+          <Property Type="Int32" Name="ModityBy" />
+          <Property Type="DateTime" Name="ModifyTime" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <NavigationProperty Name="Provider" Relationship="ES1AutomationModel.FK_TestSuite_Provider" FromRole="TestSuite" ToRole="Provider" />
+          <NavigationProperty Name="CreateUser" Relationship="ES1AutomationModel.FK_TestSuite_CreateUser" FromRole="TestSuite" ToRole="User" />
+          <NavigationProperty Name="ModifyUser" Relationship="ES1AutomationModel.FK_TestSuite_ModifyUser" FromRole="TestSuite" ToRole="User" />
+          <Property Type="String" Name="SourceId" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExecutionCommand" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TestSuite_Provider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestSuite" Role="TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestSuite_CreateUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestSuite" Role="TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TestSuite_ModifyUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.TestSuite" Role="TestSuite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="TestSuite">
+              <PropertyRef Name="ModityBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_CreateUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_ModifyUser">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ModifyBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_TestAgentEnvironment">
+          <End Type="ES1AutomationModel.TestEnvironment" Role="TestEnvironment" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="TestAgentEnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationJob_TestSUTEnvironment">
+          <End Type="ES1AutomationModel.TestEnvironment" Role="TestEnvironment" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationJob" Role="AutomationJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TestEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="AutomationJob">
+              <PropertyRef Name="SUTEnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SupportedEnvironment_Provider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="1" />
+          <End Type="ES1AutomationModel.SupportedEnvironment" Role="SupportedEnvironment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="SupportedEnvironment">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Type="Int32" Name="BranchId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_Branch" FromRole="Branch" ToRole="AutomationTask" />
+          <NavigationProperty Name="Builds" Relationship="ES1AutomationModel.FK_Build_Branch" FromRole="Branch" ToRole="Build" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ES1AutomationModel.FK_Branch_Product" FromRole="Branch" ToRole="Product" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ranking">
+          <Key>
+            <PropertyRef Name="RankingId" />
+          </Key>
+          <Property Type="Int32" Name="RankingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Release">
+          <Key>
+            <PropertyRef Name="ReleaseId" />
+          </Key>
+          <Property Type="Int32" Name="ReleaseId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_Release" FromRole="Release" ToRole="AutomationTask" />
+          <NavigationProperty Name="Builds" Relationship="ES1AutomationModel.FK_Build_Release" FromRole="Release" ToRole="Build" />
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ES1AutomationModel.FK_Release_Product" FromRole="Release" ToRole="Product" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="SubscriberId" />
+          </Key>
+          <Property Type="Int32" Name="SubscriberId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SubscriberType" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ES1AutomationModel.FK_Subscriber_User" FromRole="Subscriber" ToRole="User" />
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="ES1AutomationModel.FK_Subscriber_Project" FromRole="Subscriber" ToRole="Project" />
+        </EntityType>
+        <Association Name="FK_AutomationTask_Branch">
+          <End Type="ES1AutomationModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Product">
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutomationTask_Release">
+          <End Type="ES1AutomationModel.Release" Role="Release" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BuildProvider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BuildProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_EnvironmentProvider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="EnvironmentProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TestCaseProvider">
+          <End Type="ES1AutomationModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TestCaseProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_User">
+          <End Type="ES1AutomationModel.User" Role="User" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DiagnosticLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Type="Int32" Name="LogId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateTime" />
+          <Property Type="String" Name="Component" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LogType" />
+          <Property Type="String" Name="Message" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Build_Branch">
+          <End Type="ES1AutomationModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.Build" Role="Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Build_Release">
+          <End Type="ES1AutomationModel.Release" Role="Release" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.Build" Role="Build" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Release">
+              <PropertyRef Name="ReleaseId" />
+            </Principal>
+            <Dependent Role="Build">
+              <PropertyRef Name="ReleaseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch_Product">
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Release_Product">
+          <End Type="ES1AutomationModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Release" Role="Release" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Release">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Type="Int32" Name="ProjectId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="VCSType" />
+          <Property Type="String" Name="VCSServer" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VCSUser" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VCSPassword" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="VCSRootPath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RunTime" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AutomationTasks" Relationship="ES1AutomationModel.FK_AutomationTask_Project" FromRole="Project" ToRole="AutomationTask" />
+          <NavigationProperty Name="Subscribers" Relationship="ES1AutomationModel.FK_Subscriber_Project" FromRole="Project" ToRole="Subscriber" />
+          <NavigationProperty Name="ProjectEnvironmentMaps" Relationship="ES1AutomationModel.FK_ProjectEnvironmentMap_Project" FromRole="Project" ToRole="ProjectEnvironmentMap" />
+        </EntityType>
+        <Association Name="FK_AutomationTask_Project">
+          <End Type="ES1AutomationModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="ES1AutomationModel.AutomationTask" Role="AutomationTask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="AutomationTask">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Project">
+          <End Type="ES1AutomationModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ES1AutomationModel.Subscriber" Role="Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProjectEnvironmentMap">
+          <Key>
+            <PropertyRef Name="MapId" />
+          </Key>
+          <Property Type="Int32" Name="MapId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ProjectId" Nullable="false" />
+          <Property Type="Int32" Name="EnvironmentId" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="ES1AutomationModel.FK_ProjectEnvironmentMap_Project" FromRole="ProjectEnvironmentMap" ToRole="Project" />
+          <NavigationProperty Name="SupportedEnvironment" Relationship="ES1AutomationModel.FK_ProjectEnvironmentMap_SupportedEnvironment" FromRole="ProjectEnvironmentMap" ToRole="SupportedEnvironment" />
+        </EntityType>
+        <Association Name="FK_ProjectEnvironmentMap_Project">
+          <End Type="ES1AutomationModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ES1AutomationModel.ProjectEnvironmentMap" Role="ProjectEnvironmentMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectEnvironmentMap">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectEnvironmentMap_SupportedEnvironment">
+          <End Type="ES1AutomationModel.SupportedEnvironment" Role="SupportedEnvironment" Multiplicity="1" />
+          <End Type="ES1AutomationModel.ProjectEnvironmentMap" Role="ProjectEnvironmentMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportedEnvironment">
+              <PropertyRef Name="EnvironmentId" />
+            </Principal>
+            <Dependent Role="ProjectEnvironmentMap">
+              <PropertyRef Name="EnvironmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ES1AutomationModelStoreContainer" CdmEntityContainer="ES1AutomationEntities">
+          <EntitySetMapping Name="AutomationTasks">
+            <EntityTypeMapping TypeName="ES1AutomationModel.AutomationTask">
+              <MappingFragment StoreEntitySet="AutomationTask">
+                <ScalarProperty Name="EnableCodeCoverage" ColumnName="EnableCodeCoverage" />
+                <ScalarProperty Name="TeardownScript" ColumnName="TeardownScript" />
+                <ScalarProperty Name="SetupScript" ColumnName="SetupScript" />
+                <ScalarProperty Name="WriteTestResultBack" ColumnName="WriteTestResultBack" />
+                <ScalarProperty Name="NotifyStakeholders" ColumnName="NotifyStakeholders" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="ParentTaskId" ColumnName="ParentTaskId" />
+                <ScalarProperty Name="WeekInterval" ColumnName="WeekInterval" />
+                <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="RecurrencePattern" ColumnName="RecurrencePattern" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="TestContent" ColumnName="TestContent" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EnvironmentId" ColumnName="EnvironmentId" />
+                <ScalarProperty Name="BuildId" ColumnName="BuildId" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="RQMProjectAlias" ColumnName="RQMProjectAlias" />
+                <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+                <ScalarProperty Name="EnvironmentProviderId" ColumnName="EnvironmentProviderId" />
+                <ScalarProperty Name="TestCaseProviderId" ColumnName="TestCaseProviderId" />
+                <ScalarProperty Name="BuildProviderId" ColumnName="BuildProviderId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportedEnvironments">
+            <EntityTypeMapping TypeName="ES1AutomationModel.SupportedEnvironment">
+              <MappingFragment StoreEntitySet="SupportedEnvironment">
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EnvironmentId" ColumnName="EnvironmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ES1AutomationModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskJobMaps">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TaskJobMap">
+              <MappingFragment StoreEntitySet="TaskJobMap">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="MapId" ColumnName="MapId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Builds">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Build">
+              <MappingFragment StoreEntitySet="Build">
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="BuildId" ColumnName="BuildId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestEnvironments">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TestEnvironment">
+              <MappingFragment StoreEntitySet="TestEnvironment">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="EnvironmentId" ColumnName="EnvironmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestCases">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TestCase">
+              <MappingFragment StoreEntitySet="TestCase">
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="Ranking" ColumnName="Ranking" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsAutomated" ColumnName="IsAutomated" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ScriptPath" ColumnName="ScriptPath" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="TestCaseId" ColumnName="TestCaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Providers">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Provider">
+              <MappingFragment StoreEntitySet="Provider">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestCaseExecutions">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TestCaseExecution">
+              <MappingFragment StoreEntitySet="TestCaseExecution">
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Timeout" ColumnName="Timeout" />
+                <ScalarProperty Name="RetryTimes" ColumnName="RetryTimes" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="TestCaseId" ColumnName="TestCaseId" />
+                <ScalarProperty Name="ExecutionId" ColumnName="ExecutionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AutomationJobs">
+            <EntityTypeMapping TypeName="ES1AutomationModel.AutomationJob">
+              <MappingFragment StoreEntitySet="AutomationJob">
+                <ScalarProperty Name="SUTEnvironmentId" ColumnName="SUTEnvironmentId" />
+                <ScalarProperty Name="TestAgentEnvironmentId" ColumnName="TestAgentEnvironmentId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Timeout" ColumnName="Timeout" />
+                <ScalarProperty Name="RetryTimes" ColumnName="RetryTimes" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestResults">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TestResult">
+              <MappingFragment StoreEntitySet="TestResult">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Files" ColumnName="Files" />
+                <ScalarProperty Name="TriagedBy" ColumnName="TriagedBy" />
+                <ScalarProperty Name="IsTriaged" ColumnName="IsTriaged" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ExecutionId" ColumnName="ExecutionId" />
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATFConfigurations">
+            <EntityTypeMapping TypeName="ES1AutomationModel.ATFConfiguration">
+              <MappingFragment StoreEntitySet="ATFConfiguration">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ConfigValue" ColumnName="ConfigValue" />
+                <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestSuites">
+            <EntityTypeMapping TypeName="ES1AutomationModel.TestSuite">
+              <MappingFragment StoreEntitySet="TestSuite">
+                <ScalarProperty Name="ExecutionCommand" ColumnName="ExecutionCommand" />
+                <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModityBy" ColumnName="ModityBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="TestCases" ColumnName="TestCases" />
+                <ScalarProperty Name="SubSuites" ColumnName="SubSuites" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="SuiteId" ColumnName="SuiteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rankings">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Ranking">
+              <MappingFragment StoreEntitySet="Ranking">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RankingId" ColumnName="RankingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Releases">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Release">
+              <MappingFragment StoreEntitySet="Release">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReleaseId" ColumnName="ReleaseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Subscriber">
+              <MappingFragment StoreEntitySet="Subscriber">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="SubscriberType" ColumnName="SubscriberType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiagnosticLogs">
+            <EntityTypeMapping TypeName="ES1AutomationModel.DiagnosticLog">
+              <MappingFragment StoreEntitySet="DiagnosticLog">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="Component" ColumnName="Component" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ES1AutomationModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="RunTime" ColumnName="RunTime" />
+                <ScalarProperty Name="VCSRootPath" ColumnName="VCSRootPath" />
+                <ScalarProperty Name="VCSPassword" ColumnName="VCSPassword" />
+                <ScalarProperty Name="VCSUser" ColumnName="VCSUser" />
+                <ScalarProperty Name="VCSServer" ColumnName="VCSServer" />
+                <ScalarProperty Name="VCSType" ColumnName="VCSType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectEnvironmentMaps">
+            <EntityTypeMapping TypeName="ES1AutomationModel.ProjectEnvironmentMap">
+              <MappingFragment StoreEntitySet="ProjectEnvironmentMap">
+                <ScalarProperty Name="EnvironmentId" ColumnName="EnvironmentId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="MapId" ColumnName="MapId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ATFModel" ZoomLevel="55">
+        <EntityTypeShape EntityType="ES1AutomationModel.AutomationTask" Width="2.25" PointX="9.625" PointY="7.75" Height="4.6725065104166656" />
+        <EntityTypeShape EntityType="ES1AutomationModel.Product" Width="2.125" PointX="12.375" PointY="2" Height="3.5644742838541665" />
+        <EntityTypeShape EntityType="ES1AutomationModel.SupportedEnvironment" Width="2.25" PointX="15.5" PointY="6.5" Height="2.4140429687499996" />
+        <EntityTypeShape EntityType="ES1AutomationModel.User" Width="2.25" PointX="0.5" PointY="7.375" Height="4.0956022135416656" />
+        <EntityTypeShape EntityType="ES1AutomationModel.TaskJobMap" Width="2.25" PointX="9.625" PointY="15" Height="1.7566536458333335" />
+        <AssociationConnector Association="ES1AutomationModel.FK_TaskJobMap_AutomationTask" >
+          <ConnectorPoint PointX="10.75" PointY="14.10837890625" />
+          <ConnectorPoint PointX="10.75" PointY="15" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.Build" Width="1.5" PointX="15.5" PointY="9.25" Height="3.5644742838541656" />
+        <EntityTypeShape EntityType="ES1AutomationModel.TestEnvironment" Width="2.125" PointX="4.125" PointY="11.625" Height="2.9070849609374996" />
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_TestBuild" >
+          <ConnectorPoint PointX="15.5" PointY="11.538053257954914" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="11.538053257954914" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="11.538053257954914" />
+          <ConnectorPoint PointX="11.875" PointY="11.538053257954914" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Build_Product" ManuallyRouted="false" >
+          <ConnectorPoint PointX="12.828615798339843" PointY="5.5644742838541665" />
+          <ConnectorPoint PointX="12.828615798339843" PointY="11.288545613352456" />
+          <ConnectorPoint PointX="15.5" PointY="11.288545613352456" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.TestCase" Width="2.75" PointX="4.875" PointY="1.75" Height="4.8648079427083326" />
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCase_Product" >
+          <ConnectorPoint PointX="12.375" PointY="3.4998478190104167" />
+          <ConnectorPoint PointX="7.625" PointY="3.4998478190104167" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCase_CreateUser" >
+          <ConnectorPoint PointX="0.93646667098999026" PointY="7.375" />
+          <ConnectorPoint PointX="0.93646667098999026" PointY="2.2095818371033529" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="2.2095818371033524" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="2.2095818371033529" />
+          <ConnectorPoint PointX="4.875" PointY="2.2095818371033529" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCase_ModifyUser" ManuallyRouted="false" >
+          <ConnectorPoint PointX="1.2807358354949949" PointY="7.375" />
+          <ConnectorPoint PointX="1.2807358354949949" PointY="2.7297934185516697" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="2.7297934185516692" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="2.7297934185516697" />
+          <ConnectorPoint PointX="4.875" PointY="2.7297934185516697" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.Provider" Width="2.125" PointX="9.125" PointY="3.625" Height="3.5644742838541674" />
+        <AssociationConnector Association="ES1AutomationModel.FK_Build_Provider" >
+          <ConnectorPoint PointX="10.328127" PointY="7.1894742838541674" />
+          <ConnectorPoint PointX="10.328127" PointY="7.5" />
+          <ConnectorPoint PointX="12.401527465006511" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="12.568194131673179" PointY="7.5" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="7.5" />
+          <ConnectorPoint PointX="12.745282465006509" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="12.911949131673177" PointY="7.5" />
+          <ConnectorPoint PointX="13.666666666666666" PointY="7.4999999999999991" />
+          <ConnectorPoint PointX="13.833333333333334" PointY="7.5" />
+          <ConnectorPoint PointX="15.125" PointY="7.5" />
+          <ConnectorPoint PointX="15.125" PointY="10.544403784556071" />
+          <ConnectorPoint PointX="15.5" PointY="10.544403784556071" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCase_Provider" >
+          <ConnectorPoint PointX="9.125" PointY="4.9315266341145891" />
+          <ConnectorPoint PointX="7.625" PointY="4.9315266341145891" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestEnvironment_Provider" >
+          <ConnectorPoint PointX="9.34375" PointY="7.1894742838541674" />
+          <ConnectorPoint PointX="9.34375" PointY="14.187134602864584" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="14.187134602864584" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="14.187134602864584" />
+          <ConnectorPoint PointX="6.25" PointY="14.187134602864584" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.TestCaseExecution" Width="2" PointX="7" PointY="8.625" Height="3.1340950520833335" />
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCaseExecution_TestCase" >
+          <ConnectorPoint PointX="7.3125" PointY="6.3005582682291656" />
+          <ConnectorPoint PointX="7.3125" PointY="8.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_SupportedEnvironment" >
+          <ConnectorPoint PointX="15.5" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="15.208333333333334" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="15.041666666666666" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="13.833333333333334" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="13.666666666666666" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="12.911949131673177" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="12.745282465006509" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="8.3523130750272312" />
+          <ConnectorPoint PointX="11.875" PointY="8.3523130750272312" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.AutomationJob" Width="2" PointX="0.5" PointY="11.5" Height="4.2218636067708335" />
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationJob_CreateUser" >
+          <ConnectorPoint PointX="1.5" PointY="11.103821614583332" />
+          <ConnectorPoint PointX="1.5" PointY="11.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationJob_ModifyUser" >
+          <ConnectorPoint PointX="2.0625" PointY="11.103821614583332" />
+          <ConnectorPoint PointX="2.0625" PointY="11.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TaskJobMap_TestJob" >
+          <ConnectorPoint PointX="2.5" PointY="15.360931803385416" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="15.360931803385416" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="15.360931803385416" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="15.360931803385416" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="15.360931803385416" />
+          <ConnectorPoint PointX="9.625" PointY="15.360931803385416" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestCaseExecution_AutomationJob" >
+          <ConnectorPoint PointX="2.5" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="8" PointY="14.946505882161464" />
+          <ConnectorPoint PointX="8" PointY="11.5320849609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.TestResult" Width="2" PointX="4.125" PointY="8.625" Height="2.749492187499996" />
+        <AssociationConnector Association="ES1AutomationModel.FK_TestResult_TestCaseExecution" >
+          <ConnectorPoint PointX="7" PointY="9.999746093749998" />
+          <ConnectorPoint PointX="6.125" PointY="9.999746093749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestResult_User" >
+          <ConnectorPoint PointX="2.75" PointY="9.832021484375" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="9.832021484375" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="9.832021484375" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="9.832021484375" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="9.832021484375" />
+          <ConnectorPoint PointX="4.125" PointY="9.832021484375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.ATFConfiguration" Width="1.75" PointX="14.125" PointY="15" Height="1.427958984375" />
+        <EntityTypeShape EntityType="ES1AutomationModel.TestSuite" Width="2.25" PointX="1.625" PointY="3.25" Height="3.5644742838541656" />
+        <AssociationConnector Association="ES1AutomationModel.FK_TestSuite_Provider" ManuallyRouted="false" >
+          <ConnectorPoint PointX="9.125" PointY="6.5887662760416656" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="6.5887662760416648" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="6.5887662760416656" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="6.5887662760416648" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="6.5887662760416656" />
+          <ConnectorPoint PointX="3.875" PointY="6.5887662760416656" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestSuite_CreateUser" ManuallyRouted="false" >
+          <ConnectorPoint PointX="2.1875" PointY="7.375" />
+          <ConnectorPoint PointX="2.1875" PointY="6.8144742838541656" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_TestSuite_ModifyUser" ManuallyRouted="false" >
+          <ConnectorPoint PointX="2.53125" PointY="7.375" />
+          <ConnectorPoint PointX="2.53125" PointY="6.8144742838541656" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_CreateUser" >
+          <ConnectorPoint PointX="2.75" PointY="7.9608368548110526" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="7.9608368548110517" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="7.9608368548110526" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="7.9608368548110517" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="7.9608368548110526" />
+          <ConnectorPoint PointX="9.2604166666666661" PointY="7.9608368548110517" />
+          <ConnectorPoint PointX="9.4270833333333339" PointY="7.9608368548110526" />
+          <ConnectorPoint PointX="9.625" PointY="7.9608368548110526" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_ModifyUser" >
+          <ConnectorPoint PointX="2.75" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="9.2604166666666661" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="9.4270833333333339" PointY="8.3241684274055263" />
+          <ConnectorPoint PointX="9.625" PointY="8.3241684274055263" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationJob_TestAgentEnvironment" >
+          <ConnectorPoint PointX="4.125" PointY="13.07854248046875" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="13.07854248046875" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="13.07854248046875" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="13.07854248046875" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="13.07854248046875" />
+          <ConnectorPoint PointX="2.5" PointY="13.07854248046875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationJob_TestSUTEnvironment" >
+          <ConnectorPoint PointX="4.125" PointY="12.289271240234374" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="12.289271240234374" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="12.289271240234374" />
+          <ConnectorPoint PointX="3.7708333333333335" PointY="12.289271240234374" />
+          <ConnectorPoint PointX="3.6041666666666665" PointY="12.289271240234374" />
+          <ConnectorPoint PointX="2.5" PointY="12.289271240234374" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_SupportedEnvironment_Provider" >
+          <ConnectorPoint PointX="11.25" PointY="6.8447371419270837" />
+          <ConnectorPoint PointX="12.401527465006511" PointY="6.8447371419270828" />
+          <ConnectorPoint PointX="12.568194131673179" PointY="6.8447371419270837" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="6.8447371419270828" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="6.8447371419270837" />
+          <ConnectorPoint PointX="12.745282465006509" PointY="6.8447371419270828" />
+          <ConnectorPoint PointX="12.911949131673177" PointY="6.8447371419270837" />
+          <ConnectorPoint PointX="13.666666666666666" PointY="6.8447371419270828" />
+          <ConnectorPoint PointX="13.833333333333334" PointY="6.8447371419270837" />
+          <ConnectorPoint PointX="15.5" PointY="6.8447371419270837" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.Branch" Width="1.5" PointX="13" PointY="11.75" Height="2.2496956380208335" />
+        <EntityTypeShape EntityType="ES1AutomationModel.Ranking" Width="1.5" PointX="16.125" PointY="15" Height="1.4279589843750031" />
+        <EntityTypeShape EntityType="ES1AutomationModel.Release" Width="1.5" PointX="13" PointY="8.625" Height="2.2496956380208335" />
+        <EntityTypeShape EntityType="ES1AutomationModel.Subscriber" Width="1.5" PointX="9" PointY="1.125" Height="2.2496956380208331" />
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_Branch" >
+          <ConnectorPoint PointX="13" PointY="12.498952164713542" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="12.498952164713542" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="12.498952164713542" />
+          <ConnectorPoint PointX="11.875" PointY="12.498952164713542" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_Product" >
+          <ConnectorPoint PointX="12.484860798339845" PointY="5.5644742838541665" />
+          <ConnectorPoint PointX="12.484860798339845" PointY="8.0199040375136157" />
+          <ConnectorPoint PointX="11.875" PointY="8.0199040375136157" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_Release" >
+          <ConnectorPoint PointX="13" PointY="9.832021484375" />
+          <ConnectorPoint PointX="12.911949131673177" PointY="9.832021484375" />
+          <ConnectorPoint PointX="12.745282465006509" PointY="9.832021484375" />
+          <ConnectorPoint PointX="12.740071631673178" PointY="9.832021484375" />
+          <ConnectorPoint PointX="12.57340496500651" PointY="9.832021484375" />
+          <ConnectorPoint PointX="11.875" PointY="9.832021484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Product_BuildProvider" >
+          <ConnectorPoint PointX="11.25" PointY="4.7564094147153355" />
+          <ConnectorPoint PointX="12.375" PointY="4.7564094147153355" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Product_EnvironmentProvider" >
+          <ConnectorPoint PointX="11.25" PointY="4.1282047073576678" />
+          <ConnectorPoint PointX="12.375" PointY="4.1282047073576678" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Product_TestCaseProvider" >
+          <ConnectorPoint PointX="11.25" PointY="5.2229418492847515" />
+          <ConnectorPoint PointX="12.375" PointY="5.2229418492847515" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Subscriber_User" >
+          <ConnectorPoint PointX="0.68698083549499522" PointY="7.375" />
+          <ConnectorPoint PointX="0.68698083549499522" PointY="1.3378921874999961" />
+          <ConnectorPoint PointX="9" PointY="1.3378921874999961" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.DiagnosticLog" Width="1.5" PointX="12.25" PointY="15" Height="1.7566536458333388" />
+        <AssociationConnector Association="ES1AutomationModel.FK_Build_Branch" >
+          <ConnectorPoint PointX="14.5" PointY="12.282237141927084" />
+          <ConnectorPoint PointX="15.5" PointY="12.282237141927084" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Build_Release" >
+          <ConnectorPoint PointX="14.5" PointY="9.6874413071289052" />
+          <ConnectorPoint PointX="15.041666666666666" PointY="9.6874413071289052" />
+          <ConnectorPoint PointX="15.208333333333334" PointY="9.6874413071289052" />
+          <ConnectorPoint PointX="15.5" PointY="9.6874413071289052" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Branch_Product" >
+          <ConnectorPoint PointX="12.656738298339844" PointY="5.5644742838541665" />
+          <ConnectorPoint PointX="12.656738298339844" PointY="13.362750066731771" />
+          <ConnectorPoint PointX="13" PointY="13.362750066731771" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Release_Product" >
+          <ConnectorPoint PointX="13.75" PointY="5.5644742838541665" />
+          <ConnectorPoint PointX="13.75" PointY="8.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.Project" Width="1.5" PointX="3.375" PointY="16" Height="2.9070849609375031" />
+        <AssociationConnector Association="ES1AutomationModel.FK_AutomationTask_Project" >
+          <ConnectorPoint PointX="3.6875" PointY="16" />
+          <ConnectorPoint PointX="3.6875" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="3.9166666666666665" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="4.083333333333333" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="9.2604166666666661" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="9.4270833333333339" PointY="8.14250264110829" />
+          <ConnectorPoint PointX="9.625" PointY="8.14250264110829" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_Subscriber_Project" >
+          <ConnectorPoint PointX="4" PointY="16" />
+          <ConnectorPoint PointX="4" PointY="1.5439485937499917" />
+          <ConnectorPoint PointX="9" PointY="1.5439485937499917" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ES1AutomationModel.ProjectEnvironmentMap" Width="1.5" PointX="18.5" PointY="11.875" Height="1.7566536458333388" />
+        <AssociationConnector Association="ES1AutomationModel.FK_ProjectEnvironmentMap_Project" >
+          <ConnectorPoint PointX="4.875" PointY="18.295431616138014" />
+          <ConnectorPoint PointX="19.25" PointY="18.295431616138014" />
+          <ConnectorPoint PointX="19.25" PointY="13.631653645833339" />
+        </AssociationConnector>
+        <AssociationConnector Association="ES1AutomationModel.FK_ProjectEnvironmentMap_SupportedEnvironment" >
+          <ConnectorPoint PointX="17.40625" PointY="9.0783902994791656" />
+          <ConnectorPoint PointX="17.40625" PointY="13.254313964843753" />
+          <ConnectorPoint PointX="18.5" PointY="13.254313964843753" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

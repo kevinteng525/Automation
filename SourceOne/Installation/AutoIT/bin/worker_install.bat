@@ -1,0 +1,1 @@
+c:\scripts\worker.exe param1 "I" "SQL01"

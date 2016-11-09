@@ -1,0 +1,26 @@
+<fieldset>
+	<legend class="galaxy_legend">Help Contents</legend>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>Link</th>
+
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @help_items.each do |item| %>
+	      <tr class="<%= cycle('list_line_odd','list_line_even') %>">
+	        <td><%= item[0] %></td>
+	        <td><a href="<%= item[1] %>">download</a></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</fieldset>
+
+<br>
+
+
+<%= render :partial => 'layouts/index_table_style_javascript'%>

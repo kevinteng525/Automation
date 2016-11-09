@@ -1,0 +1,55 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :size => 40 %>
+  </div>
+  <div class="field hide">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, :size => 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, :size => 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :user_type %><br>
+    <%= f.select :user_type, User::USER_TYPES.collect{|t| [t,User::USER_TYPES.index(t)]} %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= f.select :role, User::USER_ROLES.collect{|t|[t,User::USER_ROLES.index(t)]} %>
+  </div>
+  <div class="field">
+    <%= f.label :is_active %><br>
+    <%= f.check_box :is_active, :checked_value => true, :unchecked_value => false %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :rows => 4, :cols => 40 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  if($("#user_user_type").val() == 1)
+  {
+    $("#user_password").parent().addClass("hide");
+  }
+  else
+  {
+    $("#user_password").parent().removeClass("hide");
+  }
+</script>

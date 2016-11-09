@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Source:</strong>
+  <%= source_name(@test_case) %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test_case.name %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @test_case.product_id %>
+</p>
+
+<p>
+  <strong>Feature:</strong>
+  <%= @test_case.feature %>
+</p>
+
+<p>
+  <strong>Script path:</strong>
+  <%= @test_case.script_path %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @test_case.weight %>
+</p>
+
+<p>
+  <strong>Is automated:</strong>
+  <%= @test_case.is_automated %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= force_user_name(@test_case.created_by) %>
+</p>
+
+<p>
+  <strong>Modified by:</strong>
+  <%= force_user_name(@test_case.modified_by) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @test_case.description %>
+</p>
+
+<%= link_to 'Edit', edit_test_case_path(@test_case) %> |
+<%= link_to 'Back', test_cases_path %>

@@ -1,0 +1,259 @@
+<% 
+	if @subscribed_projects.length == 1
+		first_subscribed_project = @subscribed_projects[0]
+		second_subscribed_project = nil
+	else  @subscribed_projects.length > 1
+		first_subscribed_project = @subscribed_projects[0]
+		second_subscribed_project = @subscribed_projects[1]
+	end
+
+	first_project_id = (first_subscribed_project == nil)? '' : first_subscribed_project.id
+	second_project_id = (second_subscribed_project == nil)? '' : second_subscribed_project.id
+	first_project_name = (first_subscribed_project == nil)? '' : first_subscribed_project.name
+	second_project_name = (second_subscribed_project == nil)? '' : second_subscribed_project.name
+
+ %>
+<h1>Dashboard</h1>
+<div id="passrate_charts">
+	<div class='indicate_panel'>
+		<fieldset>
+			<legend>Passing Rate for <span id='latest_branch_passrate_chart_title'><%= first_project_name %></span></legend>
+			<div id='latest_branch_passrate'></div>
+		</fieldset>
+	</div>
+	<div class='indicate_panel'>
+		<fieldset>
+			<legend>Passing Rate for <span id='710_branch_passrate_chart_title'><%= second_project_name %></span></legend>
+			<div id='710_branch_passrate'></div>
+		</fieldset>
+	</div>
+</div>
+<div id='passrate_trend_charts'>
+	<fieldset>
+		<legend>Automation Passing Rate Trend</legend>
+		<div id='latest_branch_passrate_trend'></div>
+	</fieldset>
+</div>
+<script type="text/javascript">
+$(function(){
+		//save to image
+	
+	function add_save_to_image_button(chart)
+	{
+		if (!$.jqplot.use_excanvas) {
+
+        	var id = $(chart).attr('id') + '_image';
+
+        	if($("#" + id).length == 0){//create the hidden div and add the button if it doesn't exist
+
+        		var width = $(chart).width();
+	            var outerDiv = $(document.createElement('div'));
+	            outerDiv.attr('id', id);
+	            var header = $(document.createElement('div'));
+	            var div = $(document.createElement('div'));
+
+	            outerDiv.append(header);
+	            outerDiv.append(div);
+
+	            outerDiv.addClass('jqplot-image-container');
+	            header.addClass('jqplot-image-container-header');
+	            div.addClass('jqplot-image-container-content');
+
+	            //header.html('Right Click to Save Image As...');
+
+	            $(chart).after(outerDiv);
+	            outerDiv.hide();
+
+	            outerDiv = header = div = close = null;
+
+	            if (!$.jqplot._noToImageButton) {
+	                var btn = $(document.createElement('button'));
+	                btn.text('Export Chart');
+	                //btn.addClass('jqplot-image-button');
+	                btn.button();
+	                btn.bind('click', {chart: $(chart)}, function(evt) {
+	                    var imgelem = evt.data.chart.jqplotToImageElem();
+	                    var div = $('#' + id);
+	                    div.children('div.jqplot-image-container-content').empty();
+	                    div.children('div.jqplot-image-container-content').append(imgelem);
+	                    div.dialog({
+	                    	title: 'Right Click to Save Image As...',
+	                    	width: width + 50,
+	                    	modal: true
+	                    });
+	                    div = null;
+	                });
+
+	                $(chart).after(btn);
+	                btn.after('<br />');
+	                btn = null;
+	            }
+        	}        	
+    	}
+	}
+	
+	$.jqplot.config.enablePlugins = true;
+	
+	var result_chart_theme = {
+		seriesStyles: {
+		    seriesColors: ['green', 'red', 'orange', 'yellow', 'grey', 'firebrick', 'tomato', 'lightskyblue', 'gold','plum'],
+		    highlightColors: ['lightgreen', 'hotpink', 'lightyellow', 'orangered',  'mediumslateblue','wheat','thistle','tomato','tan','teal']
+		},
+		legend: {
+		     fontSize: '8pt'
+		 },
+		 title: {
+		   fontSize: '18pt'
+		 },
+		 grid: {
+		   backgroundColor: 'white'
+		 }
+ 	};
+
+	//the passrate charts
+	var first_project_id = "<%= first_project_id %>";
+	
+	var second_project_id = "<%= second_project_id %>";
+
+	function update_passrate_chart(div_id, project_id)
+	{
+		var passrate_data_for_latest = [];
+		$.get( "/projects/" + project_id + "/test_result_of_latest_task", function( data ) {
+			//empty the old chart
+			$("#" + div_id).empty();			
+
+			var result_status_list = data['result_type_list'].split(' ');
+			var result_status_count_list = data['result_count_list'].split(' ');
+			for(var i = 0;i<result_status_list.length;i++)
+			{
+		  		passrate_data_for_latest.push([result_status_list[i],Number(result_status_count_list[i])]);	  		
+			}
+			
+			var latest_pass_rate_pie_chart = jQuery.jqplot (div_id, [passrate_data_for_latest], 
+			{
+				grid: {
+				  drawBorder: false, 
+				  drawGridlines: false,
+				  background: '#ffffff',
+				  shadow:false
+				},
+				seriesDefaults: {
+				  renderer: jQuery.jqplot.PieRenderer, 
+				  rendererOptions: {
+				  // Turn off filling of slices.
+				    fill: true,
+				    showDataLabels: true, 
+				    // Add a margin to seperate the slices.
+				    sliceMargin: 0, 
+				    // stroke the slices with a little thicker line.
+				    lineWidth: 5
+				  }
+				}, 
+				cursor:{
+		            show:false
+		        },
+				legend: { 
+					 rendererOptions: {
+				       numberRows: 6
+				     },
+					 show: true, 
+					 location: 's',
+					 placement: 'outsideGrid'
+				},
+				highlighter: {
+		          show: false
+		    	}
+			});
+			latest_pass_rate_pie_chart.themeEngine.newTheme('result', result_chart_theme);
+			latest_pass_rate_pie_chart.activateTheme('result');
+			add_save_to_image_button($("#" + div_id));		
+		},'json');
+	}
+
+	function update_passrate_trend_chart(div_id, first_project_id, second_project_id)
+	{
+		$.get( "/projects/" + first_project_id + "/test_result_passrate_trend", function( data ) {
+		$("#" + div_id).empty();
+		var passrate_monthly_data1 = [];
+		var passrate_monthly_data2 = [];
+		var task_id_list = data['result_type_list'].split('|');
+		var task_passrate_list = data['result_count_list'].split(' ');
+		for(var i = 0;i<task_id_list.length;i++)
+		{
+	  		passrate_monthly_data1.push([task_id_list[i],Number(task_passrate_list[i])]);
+		}
+		$.get( "/projects/" + second_project_id + "/test_result_passrate_trend", function( data ) {
+
+			for(var i = 0;i<task_id_list.length;i++)
+			{
+		  		passrate_monthly_data2.push([task_id_list[i],Number(task_passrate_list[i])]);
+			}
+			//var line_chart_for_passrate_trend = $.jqplot("latest_branch_passrate_trend", [passrate_monthly_data1], {});
+			
+			var line_chart_for_passrate_trend = $.jqplot(div_id, [passrate_monthly_data1], {
+				series:[{showLabel:true}],
+			    axesDefaults: {
+			        tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+			        tickOptions: {
+			          angle: 30
+			        }
+			    },
+			    axes: {
+			      xaxis: {
+			        renderer: $.jqplot.CategoryAxisRenderer,
+			        label:'Task: Build'
+			      },      
+			      yaxis: {
+			      	labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+			        autoscale:true,
+			        //max:105,
+			        //min:50,
+			        label:'Pass Rate %'
+			      }
+			    }
+			  });
+			  add_save_to_image_button($("#latest_branch_passrate_trend"));
+			},'json');
+		},'json');	
+	}
+
+	if( first_project_id !== '' )
+	{
+		update_passrate_chart('latest_branch_passrate', first_project_id);
+	}
+	else
+	{
+		$("#passrate_charts").hide();
+	}
+	
+	if( second_project_id !== '' )
+	{
+		update_passrate_chart('710_branch_passrate', second_project_id);
+	}
+	else
+	{
+		$("#710_branch_passrate").parent().parent().hide();
+	}
+	
+	if( first_project_id !== '' )
+	{
+		update_passrate_trend_chart('latest_branch_passrate_trend', first_project_id, second_project_id);
+	}
+	else
+	{
+		$("#passrate_trend_charts").hide();
+	}
+	
+
+	$("#project_id").change(function(){
+		
+		//upate the chart title
+		$("#latest_branch_passrate_chart_title").text($("#project_id").find("[value=" + $("#project_id").val() + "]").text());
+
+		update_passrate_chart('latest_branch_passrate', $(this).val());
+
+		update_passrate_trend_chart('latest_branch_passrate_trend', $(this).val(), second_project_id);
+	});
+
+});
+</script>

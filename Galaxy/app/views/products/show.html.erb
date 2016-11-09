@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name: </strong>
+  <%= @product.name %>
+</p>
+<p>
+	<strong>Build provider: </strong>
+	<%=  find_name(force_build_provider_list,@product.build_provider_id)%>
+</p>
+<p>
+	<strong>Environment provider: </strong>
+	<%= find_name(force_environment_provider_list,@product.environment_provider_id)%>
+</p>
+<p>
+	<strong>Test case provider: </strong>
+	<%= find_name(force_test_case_provider_list,@product.test_case_provider_id)%>
+</p>
+<p>
+  <strong>Description: </strong>
+  <%= @product.description %>
+</p>
+<p>
+  <strong>RQM project alias </strong>
+  <%= @product.rqm_project_alias %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

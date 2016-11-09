@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration ID="Configs">
+  <ADServer Name="SOSP_AD.sosp.com" UserName="administrator" Password="emcsiax@QA"/>
+  <ArchiveConnection Name="CONN" DBServer="es1all" DBName="ES1Archive"/>
+  <MessageCenter MCLocation="\\es1all\Share\MC" />
+  <ArchiveFolder Name="SPAF1" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPAF2" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPAF3" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPAF4" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPAF5" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+
+  <ArchiveFolder Name="SPOAF1" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPOAF2" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPOAF3" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPOAF4" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+  <ArchiveFolder Name="SPOAF5" ArchiveLocation="\\es1all\Share\Archive" IndexLocation="\\es1all\Share\Index" />
+
+  <MappedFolder Name="SPMDAF1" ArchiveFolder="SPAF1" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPMDAF2" ArchiveFolder="SPAF2" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPMDAF3" ArchiveFolder="SPAF3" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPMDAF4" ArchiveFolder="SPAF4" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPMDAF5" ArchiveFolder="SPAF5" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  
+  <MappedFolder Name="SPOMDAF1" ArchiveFolder="SPOAF1" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPOMDAF2" ArchiveFolder="SPOAF2" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPOMDAF3" ArchiveFolder="SPOAF3" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPOMDAF4" ArchiveFolder="SPOAF4" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="SPOMDAF5" ArchiveFolder="SPOAF5" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+</Configuration>

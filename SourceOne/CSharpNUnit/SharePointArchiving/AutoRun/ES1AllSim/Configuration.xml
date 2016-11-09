@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration ID="Configs">
+  <ADServer Name="SODC.sosp.com" UserName="administrator" Password="emcsiax@QA"/>
+  <ArchiveConnection Name="CONN" DBServer="ES1AllSim" DBName="ES1Archive"/>
+  <MessageCenter MCLocation="\\ES1AllSim\Share\MC" />
+  <ArchiveFolder Name="AF1" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+  <ArchiveFolder Name="AF2" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+  <ArchiveFolder Name="AF3" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+  <ArchiveFolder Name="AF4" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+  <ArchiveFolder Name="AF5" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+  <ArchiveFolder Name="AF6" ArchiveLocation="\\ES1AllSim\Share\Archive" IndexLocation="\\ES1AllSim\Share\Index" />
+
+  <MappedFolder Name="MDAF1" ArchiveFolder="AF1" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF2" ArchiveFolder="AF2" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF3" ArchiveFolder="AF3" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF4" ArchiveFolder="AF4" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF5" ArchiveFolder="AF5" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+  <MappedFolder Name="MDAF6" ArchiveFolder="AF6" Description="My Mapped Folder." Type="Organization" >
+    <MFPermission UserName="ES1 Admins Group" UserType="Group" Permission="31" />
+    <MFPermission UserName="ES1 Security Group" UserType="Group" Permission="31" />
+  </MappedFolder>
+</Configuration>

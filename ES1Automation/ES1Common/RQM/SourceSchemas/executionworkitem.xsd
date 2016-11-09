@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" jaxb:version="2.1" targetNamespace="http://jazz.net/xmlns/alm/qm/v0.1/executionworkitem/v0.1" version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xml="http://www.w3.org/XML/1998/namespace">
+	
+	<xs:annotation>
+		<xs:appinfo>	
+		    <jaxb:schemaBindings>
+			  <jaxb:package name="com.ibm.rqm.xml.bind.executionworkitem"/>
+			</jaxb:schemaBindings>
+		</xs:appinfo>	
+	</xs:annotation>
+	
+	<xs:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="rdf.xsd"/>
+	
+	<xs:element name="frequency" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">The number of times the test is scheduled to run.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="weight" type="xs:int">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">The relative weight of the test case.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="priority">
+	    <xs:annotation>
+			<xs:documentation xml:lang="en">The priority of the test. Acceptable values are: "literal.priority.101", "literal.priority.110", "literal.priority.120" and "literal.priority.130" for unassigned, low, medium and high priority respectively</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:annotation>
+				<xs:documentation xml:lang="en">The priority key.</xs:documentation>
+			</xs:annotation>
+			<xs:attribute ref="rdf:resource">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">[READ-ONLY] The URL of the priority.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+ 	</xs:element>
+	<xs:element name="legacydata" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Migrated data.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="tags" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Search-able strings associated with the test.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="regression" type="xs:boolean">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">[READ-ONLY] Indicator that this is a regression test.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="notes" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">Comments associated with the test execution record.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+</xs:schema>

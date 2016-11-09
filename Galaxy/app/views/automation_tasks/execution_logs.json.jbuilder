@@ -1,0 +1,1 @@
+json.logs sanitize(@execution_logs)
